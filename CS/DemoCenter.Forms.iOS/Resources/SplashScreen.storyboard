@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Start View Controller-->
+        <scene sceneID="gAE-YM-kbH">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="StartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6273"/>
+                        <viewControllerLayoutGuide type="bottom" id="6274"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2398">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splash_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="3829">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="737"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DevExpress_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="2799">
+                                <rect key="frame" x="136" y="682" width="142" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Ahm-Ux-ihz"/>
+                                    <constraint firstAttribute="width" secondItem="2799" secondAttribute="height" multiplier="71:12" id="aBm-mE-npM"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3N-aO-CYb">
+                                <rect key="frame" x="80.666666666666686" y="183" width="253" height="223"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="for Xamarin.Forms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2600">
+                                        <rect key="frame" x="60.333333333333329" y="204" width="132" height="19"/>
+                                        <fontDescription key="fontDescription" name="UniviaProRegular" family="Univia Pro Regular" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="253" placeholderIntrinsicHeight="30" text="DevExpress Mobile UI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2599">
+                                        <rect key="frame" x="0.0" y="163" width="253" height="30"/>
+                                        <fontDescription key="fontDescription" name="UniviaPro-Medium" family="Univia Pro Medium" pointSize="24"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xamarin_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="2400">
+                                        <rect key="frame" x="62.333333333333329" y="0.0" width="127.99999999999999" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="2400" secondAttribute="height" multiplier="1:1" id="3aX-DD-7TH"/>
+                                            <constraint firstAttribute="width" constant="128" id="uGl-ES-aY2"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2400" firstAttribute="centerX" secondItem="D3N-aO-CYb" secondAttribute="centerX" id="3GZ-Xw-ISV"/>
+                                    <constraint firstAttribute="trailing" secondItem="2599" secondAttribute="trailing" id="4kC-Sk-n9K"/>
+                                    <constraint firstItem="2600" firstAttribute="centerX" secondItem="D3N-aO-CYb" secondAttribute="centerX" id="Aqh-VR-Sht"/>
+                                    <constraint firstItem="2599" firstAttribute="leading" secondItem="D3N-aO-CYb" secondAttribute="leading" id="CQz-jd-ze6"/>
+                                    <constraint firstAttribute="bottom" secondItem="2600" secondAttribute="bottom" id="MHf-PC-fXh"/>
+                                    <constraint firstItem="2599" firstAttribute="centerX" secondItem="D3N-aO-CYb" secondAttribute="centerX" id="QUv-7p-ENK"/>
+                                    <constraint firstItem="2599" firstAttribute="top" secondItem="2400" secondAttribute="bottom" constant="35" id="h0S-Ed-X7Q"/>
+                                    <constraint firstItem="2400" firstAttribute="top" secondItem="D3N-aO-CYb" secondAttribute="top" id="oPF-Wl-YIx"/>
+                                    <constraint firstItem="2600" firstAttribute="top" secondItem="2599" secondAttribute="bottom" constant="11" id="vxf-iB-kF9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D3N-aO-CYb" firstAttribute="centerY" secondItem="2398" secondAttribute="centerY" multiplier="0.8" id="302-0P-HvV"/>
+                            <constraint firstItem="2799" firstAttribute="centerX" secondItem="2398" secondAttribute="centerX" id="3kX-Yv-p8w"/>
+                            <constraint firstItem="D3N-aO-CYb" firstAttribute="centerX" secondItem="2398" secondAttribute="centerX" id="LBP-3l-HId"/>
+                            <constraint firstItem="6274" firstAttribute="bottom" secondItem="2799" secondAttribute="bottom" constant="30" id="stU-UZ-plO"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="DevExpress_logo.png" width="293" height="49"/>
+        <image name="splash_background.png" width="1080" height="1920"/>
+        <image name="xamarin_logo.png" width="256" height="228"/>
+    </resources>
+</document>

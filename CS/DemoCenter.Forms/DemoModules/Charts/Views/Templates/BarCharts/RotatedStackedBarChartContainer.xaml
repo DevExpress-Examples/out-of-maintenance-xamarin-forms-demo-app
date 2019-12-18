@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:RotationHandleView xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+                          xmlns:local="clr-namespace:DemoCenter.Forms"
+                          x:Class="DemoCenter.Forms.Charts.Views.RotatedStackedBarChartContainer"
+                          x:Name="rotatedStackedBarChartContainer">
+    <ContentView.Resources>
+        <charts:SeriesHintOptions x:Key="stackedBarSeriesHintOptions"
+                                  PointTextPattern="{}{A}: {V$#,###}"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding ChartModel.Title}"
+                   FontFamily="Roboto"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <charts:ChartView Grid.Row="1"
+                              Rotated="true">
+                <charts:ChartView.Series>
+                    <charts:StackedBarSeries DisplayName="{Binding ChartModel.Male0to14and65SeriesData.Name}"
+                                             HintOptions="{StaticResource stackedBarSeriesHintOptions}">
+                        <charts:StackedBarSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Male0to14and65SeriesData.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:StackedBarSeries.Data>
+                    </charts:StackedBarSeries>
+                    <charts:StackedBarSeries DisplayName="{Binding ChartModel.Male15to64SeriesData.Name}"
+                                             HintOptions="{StaticResource stackedBarSeriesHintOptions}">
+                        <charts:StackedBarSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Male15to64SeriesData.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:StackedBarSeries.Data>
+                    </charts:StackedBarSeries>
+                </charts:ChartView.Series>
+                <charts:ChartView.Legend>
+                    <charts:Legend HorizontalPosition="Center"
+                                   VerticalPosition="BottomOutside"
+                                   Orientation="LeftToRight"/>
+                </charts:ChartView.Legend>
+                <charts:ChartView.Hint>
+                    <charts:Hint/>
+                </charts:ChartView.Hint>
+                <charts:ChartView.AxisY>
+                    <charts:NumericAxisY LabelTextFormatter="{local:BarChartAxisLabelTextFormatter}">
+                        <charts:NumericAxisY.Title>
+                            <charts:AxisTitle Text="Population, millions"/>
+                        </charts:NumericAxisY.Title>
+                    </charts:NumericAxisY>
+                </charts:ChartView.AxisY>
+                <charts:ChartView.Triggers>
+                    <DataTrigger TargetType="charts:ChartView"
+                                 Binding="{Binding Source={x:Reference Name=rotatedStackedBarChartContainer}, Path=IsLandscape}"
+                                 Value="true">
+                        <Setter Property="Legend">
+                            <Setter.Value>
+                                <charts:Legend Orientation="TopToBottom"
+                                               VerticalPosition="Top"
+                                               HorizontalPosition="Right"/>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </charts:ChartView.Triggers>
+            </charts:ChartView>
+        </Grid>
+    </ContentView.Content>
+</local:RotationHandleView>

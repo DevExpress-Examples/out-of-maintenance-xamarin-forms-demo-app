@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:local="clr-namespace:DemoCenter.Forms"
+             x:Class="DemoCenter.Forms.Charts.Views.BarChartContainer">
+    <ContentView.Resources>
+        <charts:SeriesHintOptions x:Key="barSeriesHintOptions"
+                                  PointTextPattern="{}{A}, {S}:&#x0a;{V$#,###}"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding ChartModel.Title}"
+                   FontFamily="Roboto"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <charts:ChartView Grid.Row="1">
+                <charts:ChartView.Series>
+                    <charts:BarSeries DisplayName="{Binding ChartModel.MaleSeriesData.Name}"
+                                      HintOptions="{StaticResource barSeriesHintOptions}">
+                        <charts:BarSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.MaleSeriesData.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:BarSeries.Data>
+                    </charts:BarSeries>                    
+                    <charts:BarSeries DisplayName="{Binding ChartModel.FemaleSeriesData.Name}"
+                                      HintOptions="{StaticResource barSeriesHintOptions}">
+                        <charts:BarSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.FemaleSeriesData.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:BarSeries.Data>
+                    </charts:BarSeries>
+                </charts:ChartView.Series>
+                <charts:ChartView.Legend>
+                    <charts:Legend HorizontalPosition="Right"
+                                   VerticalPosition="Top"
+                                   Orientation="TopToBottom"/>
+                </charts:ChartView.Legend>
+                <charts:ChartView.Hint>
+                    <charts:Hint/>
+                </charts:ChartView.Hint>
+                <charts:ChartView.AxisY>
+                    <charts:NumericAxisY LabelTextFormatter="{local:BarChartAxisLabelTextFormatter}">
+                        <charts:NumericAxisY.Title>
+                            <charts:AxisTitle Text="Population, millions"/>
+                        </charts:NumericAxisY.Title>
+                    </charts:NumericAxisY>
+                </charts:ChartView.AxisY>
+            </charts:ChartView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

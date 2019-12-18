@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage x:Class="DemoCenter.Forms.Views.RealTimeData"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{DynamicResource BackgroundThemeColor}">
+    <ContentPage.Content>
+        <demo:Panel>
+            <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Text="Device Acceleration"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Medium"
+                       Margin="0,8"
+                       FontFamily="Roboto"
+                       TextColor="{DynamicResource TextThemeColor}"
+                       BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+                <charts:ChartView Grid.Row="1" x:Name="chart">
+                    <charts:ChartView.Series>
+                        <charts:LineSeries DisplayName="X Axis">
+                            <charts:LineSeries.Data>
+                                <charts:SeriesDataAdapter DataSource="{Binding XAxisData}" ArgumentDataMember="Argument">
+                                    <charts:ValueDataMember Type="Value" Member="Value"/>
+                                </charts:SeriesDataAdapter>
+                            </charts:LineSeries.Data>
+                        </charts:LineSeries>
+                        <charts:LineSeries DisplayName="Y Axis">
+                            <charts:LineSeries.Data>
+                                <charts:SeriesDataAdapter DataSource="{Binding YAxisData}" ArgumentDataMember="Argument">
+                                    <charts:ValueDataMember Type="Value" Member="Value"/>
+                                </charts:SeriesDataAdapter>
+                            </charts:LineSeries.Data>
+                        </charts:LineSeries>
+                        <charts:LineSeries DisplayName="Z Axis">
+                            <charts:LineSeries.Data>
+                                <charts:SeriesDataAdapter DataSource="{Binding ZAxisData}" ArgumentDataMember="Argument">
+                                    <charts:ValueDataMember Type="Value" Member="Value"/>
+                                </charts:SeriesDataAdapter>
+                            </charts:LineSeries.Data>
+                        </charts:LineSeries>
+                    </charts:ChartView.Series>
+                    <charts:ChartView.AxisX>
+                        <charts:DateTimeAxisX Visible="false"
+                                              MeasureUnit="Millisecond">
+                        </charts:DateTimeAxisX>
+                    </charts:ChartView.AxisX>
+                    <charts:ChartView.AxisY>
+                        <charts:NumericAxisY AlwaysShowZeroLevel="false"
+                                             AutoRangeMode="VisibleValues"/>
+                    </charts:ChartView.AxisY>
+                    <charts:ChartView.Legend>
+                        <charts:Legend HorizontalPosition="Center"
+                                       VerticalPosition="BottomOutside">
+                        </charts:Legend>
+                    </charts:ChartView.Legend>
+                </charts:ChartView>
+            </Grid>
+        </demo:Panel>
+    </ContentPage.Content>
+</ContentPage>

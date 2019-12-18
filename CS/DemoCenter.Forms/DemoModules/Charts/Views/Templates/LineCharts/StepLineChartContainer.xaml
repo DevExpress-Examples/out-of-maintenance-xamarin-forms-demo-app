@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             x:Class="DemoCenter.Forms.Charts.Views.StepLineChartContainer">
+    <ContentView.Resources>
+        <charts:SeriesHintOptions x:Key="lineSeriesHintOptions"
+                                  PointTextPattern="{}{A$yyyy}: {V}M"/>
+        <charts:ConstantLineTitle x:Key="emptyConstantLineTitle" Visible="false"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding ChartModel.Title}"
+                   FontFamily="Roboto"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <charts:ChartView Grid.Row="1"
+                              SelectionMode="None">
+                <charts:ChartView.Series>
+                    <charts:StepLineSeries DisplayName="{Binding ChartModel.DieselPrices.DisplayName}"
+                                           MarkersVisible="true">
+                        <charts:StepLineSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DieselPrices.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:StepLineSeries.Data>
+                        <charts:StepLineSeries.Label>
+                            <charts:MarkerSeriesLabel Angle="-45"/>
+                        </charts:StepLineSeries.Label>
+                        <charts:StepLineSeries.HintOptions>
+                            <charts:SeriesHintOptions PointTextPattern="{}{A$LLL yyyy}: ${V}/gallon"/>
+                        </charts:StepLineSeries.HintOptions>
+                    </charts:StepLineSeries>
+                </charts:ChartView.Series>
+                <charts:ChartView.AxisY>
+                    <charts:NumericAxisY AlwaysShowZeroLevel="false">
+                        <charts:NumericAxisY.Title>
+                            <charts:AxisTitle Text="$/gallon"
+                                              Alignment="Outside"/>
+                        </charts:NumericAxisY.Title>
+                    </charts:NumericAxisY >
+                </charts:ChartView.AxisY>
+                <charts:ChartView.AxisX>
+                    <charts:DateTimeAxisX MeasureUnit="Month">
+                        <charts:DateTimeAxisX.Label>
+                            <charts:AxisLabel TextFormat="LLL yyyy"/>
+                        </charts:DateTimeAxisX.Label>
+                    </charts:DateTimeAxisX>
+                </charts:ChartView.AxisX>
+            </charts:ChartView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

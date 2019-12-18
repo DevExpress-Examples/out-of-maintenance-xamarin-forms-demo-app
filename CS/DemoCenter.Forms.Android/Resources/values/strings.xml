@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_company">DevExpress</string>
+  <string name="app_name">DevExpress Component Gallery</string>
+  <string name="app_name_caps">COMPONENT GALLERY</string>
+  <string name="app_version">Version 0.0.1</string>
+  <string name="app_platform">For the xamarin forms platform</string>
+</resources>

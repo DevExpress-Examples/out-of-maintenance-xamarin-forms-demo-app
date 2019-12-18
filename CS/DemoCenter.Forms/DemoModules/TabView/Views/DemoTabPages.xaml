@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<dxnav:TabPage xmlns="http://xamarin.com/schemas/2014/forms"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:dxgrid="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+               xmlns:dxnav="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
+               xmlns:local="clr-namespace:DemoCenter.Forms.Views"
+               xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+               x:Class="DemoCenter.Forms.Views.DemoTabPages"
+               HeaderPanelPosition="Bottom"
+               ItemHeaderWidth="*"
+               IsSelectedItemIndicatorVisible="False"
+               SwipeEnabled="False"
+               HeaderPanelHeight="61"
+               SelectedItemHeaderBackgroundColor="{DynamicResource TabPagesHeaderSelectedBackground}"
+               ItemHeaderPadding="0"
+               ItemHeaderIconSpacing="5"
+               ItemHeaderFontSize="14"
+               ItemHeaderIconColor="{DynamicResource NavigationTextColor}"
+               ItemHeaderTextColor="{DynamicResource NavigationTextColor}"
+               SelectedItemHeaderIconColor="{DynamicResource TabPagesHeaderSelectedTextColor}"
+               SelectedItemHeaderTextColor="{DynamicResource TabPagesHeaderSelectedTextColor}"
+               HeaderPanelBackgroundColor="{DynamicResource BackgroundThemeColor}"
+               HeaderPanelShadowColor="{DynamicResource TabPageHeaderShadowColor}"
+               HeaderPanelShadowHeight="1"
+               HeaderPanelShadowRadius="0">
+    <dxnav:TabPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="demo:TabHeaderButton">
+                <Setter Property="TextColor" Value="{DynamicResource NavigationTextColor}"/>
+                <Setter Property="IconColor" Value="{DynamicResource NavigationTextColor}"/>
+                <Setter Property="SelectedColor" Value="{DynamicResource TabPagesHeaderSelectedTextColor}"/>
+                <Setter Property="SelectedBackgroundColor" Value="{DynamicResource TabPagesHeaderSelectedBackground}"/>
+            </Style>
+            <Style TargetType="dxgrid:DataGridView">
+                <Setter Property="Margin">18,10</Setter>
+                <Setter Property="RowHeight">65</Setter>
+                <Setter Property="BorderColor">Transparent</Setter>
+                <Setter Property="BorderThickness">0</Setter>
+                <Setter Property="SelectionMode">None</Setter>
+                <Setter Property="IndicatorColor">Transparent</Setter>
+                <Setter Property="VerticalLineThickness">0</Setter>
+                <Setter Property="IsColumnHeaderVisible">False</Setter>
+                <Setter Property="IsVerticalScrollBarVisible">False</Setter>
+                <Setter Property="IsHorizontalScrollBarVisible">False</Setter>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily">Roboto</Setter>
+                <Setter Property="FontSize">14</Setter>
+            </Style>
+            <Style TargetType="ContentPage">
+                <Setter Property="BackgroundColor"
+                        Value="{DynamicResource BackgroundThemeColor}"/>
+            </Style>
+            <local:CallTypeToIconConverter x:Key="callTypeIconConverter"/>
+            <local:UpperCaseConverter x:Key="upperCaseConverter"/>
+
+            <DataTemplate x:Key="infoTemplate">
+                <StackLayout Padding="18,8"
+                             Orientation="Vertical">
+                    <Label Text="{Binding Item.Name}"
+                           Margin="0,2"
+                           TextColor="{DynamicResource NavigationTextColor}"/>
+                    <Label Text="{Binding Item.Phone}"
+                           TextColor="{DynamicResource DrawerGrayFontColor}"/>
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="favoriteIconTemplate">
+                <demo:IconView IsVisible="{Binding Value}"
+                               VerticalOptions="CenterAndExpand"
+                               ForegroundColor="{DynamicResource TabPageFavoriteColor}"
+                               HeightRequest="20"
+                               WidthRequest="20"
+                               ImageSource="Demo.Icon.Star.svg"/>
+            </DataTemplate>
+            <DataTemplate x:Key="detailButtonTemplate">
+                <demo:IconView VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="EndAndExpand"
+                               ForegroundColor="{DynamicResource TabPageDetailIconColor}"
+                               HeightRequest="20"
+                               WidthRequest="20"
+                               ImageSource="TabView.detail.svg"/>
+            </DataTemplate>
+            <ResourceDictionary.MergedDictionaries>
+                <demo:TabPageResources/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </dxnav:TabPage.Resources>
+    <dxnav:TabPageItem>
+        <NavigationPage BackgroundColor="{DynamicResource BackgroundThemeColor}"
+                        Title="Contacts"
+                        x:Name="navView">
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource" iOS="demo_contacts" Android="contacts.xml"/>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <ContentPage NavigationPage.HasNavigationBar="False">
+                    <dxgrid:DataGridView ItemsSource="{Binding Contacts}"
+                                         Tap="On_ItemSelected">
+                        <dxgrid:DataGridView.CellStyle>
+                            <dxgrid:CellStyle HorizontalLineThickness="0"
+                                              SelectionColor="Transparent"/>
+                        </dxgrid:DataGridView.CellStyle>
+                        <dxgrid:DataGridView.Columns>
+                            <dxgrid:TemplateColumn Width="50"
+                                                   FieldName="Photo"
+                                                   IsReadOnly="True"
+                                                   DisplayTemplate="{StaticResource contactIconTemplateSelector}"/>
+                            <dxgrid:TemplateColumn Width="*"
+                                                   FieldName="Name"
+                                                   IsReadOnly="True"
+                                                   DisplayTemplate="{StaticResource infoTemplate}"/>
+                            <dxgrid:TemplateColumn Width="18"
+                                                   MinWidth="20"
+                                                   FieldName="Favorite"
+                                                   HorizontalContentAlignment="End"
+                                                   VerticalContentAlignment="Center"
+                                                   DisplayTemplate="{StaticResource favoriteIconTemplate}"
+                                                   IsReadOnly="True"/>
+                            <dxgrid:TemplateColumn Width="35"
+                                                   VerticalContentAlignment="Center"
+                                                   FieldName=""
+                                                   IsReadOnly="True"
+                                                   HorizontalContentAlignment="End"
+                                                   DisplayTemplate="{StaticResource detailButtonTemplate}"/>
+                        </dxgrid:DataGridView.Columns>
+                    </dxgrid:DataGridView>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </dxnav:TabPageItem>
+    <dxnav:TabPageItem>
+        <NavigationPage Title="Recent"
+                        BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource" iOS="demo_recent" Android="recent.xml"/>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <ContentPage NavigationPage.HasNavigationBar="False">
+                    <dxgrid:DataGridView AllowGroupCollapse="False"
+                                         ShowGroupedColumns="False"
+                                         GroupRowTemplate="{StaticResource dateTemplate}"
+                                         ItemsSource="{Binding Recent}"
+                                         Tap="On_ItemSelected">
+                        <dxgrid:DataGridView.CellStyle>
+                            <dxgrid:CellStyle HorizontalLineThickness="0"
+                                              SelectionColor="Transparent"/>
+                        </dxgrid:DataGridView.CellStyle>
+                        <dxgrid:DataGridView.GroupRowStyle>
+                            <dxgrid:GroupRowStyle Padding="0"
+                                                  BorderColor="{DynamicResource TabPageSeparatorColor}"
+                                                  BackgroundColor="Transparent"/>
+                        </dxgrid:DataGridView.GroupRowStyle>
+                        <dxgrid:DataGridView.Columns>
+                            <dxgrid:DateColumn SortOrder="Descending"
+                                               FieldName="Date"
+                                               MinWidth="100"
+                                               IsGrouped="true"
+                                               GroupInterval="DateRange"
+                                               IsReadOnly="True"/>
+                            <dxgrid:TemplateColumn Width="50"
+                                                   FieldName="Contact.Photo"
+                                                   IsReadOnly="True"
+                                                   DisplayTemplate="{StaticResource contactIconTemplateSelector}"/>
+                            <dxgrid:TemplateColumn Width="*"
+                                                   FieldName="Contact.Name"
+                                                   IsReadOnly="True"
+                                                   DisplayTemplate="{StaticResource infoTemplate}"/>
+                            <dxgrid:TemplateColumn Width="18"
+                                                   MinWidth="20"
+                                                   FieldName="CallType"
+                                                   HorizontalContentAlignment="End"
+                                                   VerticalContentAlignment="Center"
+                                                   DisplayTemplate="{StaticResource callTypeIconTemplate}"
+                                                   IsReadOnly="True"/>
+                            <dxgrid:TemplateColumn Width="35"
+                                                   FieldName=""
+                                                   IsReadOnly="True"
+                                                   HorizontalContentAlignment="End"
+                                                   DisplayTemplate="{StaticResource detailButtonTemplate}"/>
+                        </dxgrid:DataGridView.Columns>
+                    </dxgrid:DataGridView>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </dxnav:TabPageItem>
+    <dxnav:TabPageItem>
+        <NavigationPage Title="Favorites"
+                        BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource" iOS="demo_favorites" Android="favorites.xml"/>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <ContentPage NavigationPage.HasNavigationBar="False">
+                    <dxgrid:DataGridView ItemsSource="{Binding Favorites}"
+                                         Tap="On_ItemSelected">
+                        <dxgrid:DataGridView.CellStyle>
+                            <dxgrid:CellStyle HorizontalLineThickness="0"
+                                              SelectionColor="Transparent"/>
+                        </dxgrid:DataGridView.CellStyle>
+                        <dxgrid:DataGridView.Columns>
+                            <dxgrid:TemplateColumn Width="50"
+                                                   FieldName="Photo"
+                                                   IsReadOnly="True"
+                                                   DisplayTemplate="{StaticResource contactIconTemplateSelector}"/>
+                            <dxgrid:TemplateColumn Width="*"
+                                                   FieldName="Name"
+                                                   IsReadOnly="True"
+                                                   DisplayTemplate="{StaticResource infoTemplate}"/>
+                            <dxgrid:TemplateColumn HorizontalContentAlignment="End"
+                                                   Width="20"
+                                                   FieldName=""
+                                                   IsReadOnly="True"
+                                                   DisplayTemplate="{StaticResource detailButtonTemplate}"/>
+                        </dxgrid:DataGridView.Columns>
+                    </dxgrid:DataGridView>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </dxnav:TabPageItem>
+</dxnav:TabPage>

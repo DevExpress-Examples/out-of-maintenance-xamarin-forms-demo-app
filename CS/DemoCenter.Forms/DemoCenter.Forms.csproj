@@ -1,0 +1,967 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+    
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DemoGalleries\**" />
+    <EmbeddedResource Remove="DemoGalleries\**" />
+    <None Remove="DemoGalleries\**" />
+    <None Remove="DemoModules\Grid\Images\Andrew_Fuller.jpg" />
+    <None Remove="DemoModules\Grid\Images\Anne_Dodsworth.jpg" />
+    <None Remove="DemoModules\Grid\Images\Janet_Leverling.jpg" />
+    <None Remove="DemoModules\Grid\Images\Laura_Callahan.jpg" />
+    <None Remove="DemoModules\Grid\Images\Margaret_Peacock.jpg" />
+    <None Remove="DemoModules\Grid\Images\Michael_Suyama.jpg" />
+    <None Remove="DemoModules\Grid\Images\Nancy_Davolio.jpg" />
+    <None Remove="DemoModules\Grid\Images\Robert_King.jpg" />
+    <None Remove="DemoModules\Grid\Images\Steven_Buchanan.jpg" />
+    <None Remove="DemoModules\Drawer\Images\BarbaraJCoggins.png" />
+    <Compile Remove="DemoModules\Drawer\Views\DrawerSettings.xaml.cs" />
+    <None Remove="DemoModules\Grid\Data\Employees.json" />
+    <None Remove="DemoModules\Grid\Data\StockSource.json" />
+    <None Remove="DemoModules\Drawer\Images\JenniferHobbs.jpg" />
+    <None Remove="DemoModules\Scheduler\Images\dark_bell.svg" />
+    <None Remove="DemoModules\Scheduler\Images\light_bell.svg" />
+    <None Remove="Demo\Images\ChartsList\AreaCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\BarCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.AreaCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.BarCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.FinancialCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.LargeDataset.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.LineCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.Pie&amp;DonutCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.PieandDonutCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.Point&amp;BubleCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.PointandBubleCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.RealTimeUpdates.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.Selection.svg" />
+    <None Remove="Demo\Images\ChartsList\FinancialCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\LargeDataset.svg" />
+    <None Remove="Demo\Images\ChartsList\light.FinancialCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\light.LargeDataset.svg" />
+    <None Remove="Demo\Images\ChartsList\light.LineCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\light.PieandDonutCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\light.PointandBubleCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\light.RealTimeUpdates.svg" />
+    <None Remove="Demo\Images\ChartsList\light.Selection.svg" />
+    <None Remove="Demo\Images\ChartsList\LineCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\PieandDonutCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\PointandBubleCharts.svg" />
+    <None Remove="Demo\Images\ChartsList\RealTimeUpdates.svg" />
+    <None Remove="Demo\Images\ChartsList\Selection.svg" />
+    <None Remove="Demo\Images\DrawerList\dark.DrawerSettings.svg" />
+    <None Remove="Demo\Images\DrawerList\light.DrawerSettings.svg" />
+    <None Remove="Demo\Images\DrawerList\dark.FirstLook.svg" />
+    <None Remove="Demo\Images\DrawerList\light.FirstLook.svg" />
+    <None Remove="Demo\Images\DrawerList\dark.Pages.svg" />
+    <None Remove="Demo\Images\DrawerList\light.Pages.svg" />
+    <None Remove="Demo\Images\ChartsList\light.MultipleAxes.svg" />
+    <None Remove="Demo\Images\ChartsList\dark.MultipleAxes.svg" />
+    <None Remove="Demo\Images\ChartsList\MultipleAxes.svg" />
+    <None Remove="Demo\Images\GridList\dark.Editing.svg" />
+    <None Remove="Demo\Images\GridList\dark.FirstLook.svg" />
+    <None Remove="Demo\Images\GridList\dark.Grouping.svg" />
+    <None Remove="Demo\Images\GridList\dark.InfiniteDataSource.svg" />
+    <None Remove="Demo\Images\GridList\dark.PullToRefresh.svg" />
+    <None Remove="Demo\Images\GridList\dark.RealTimeData.svg" />
+    <None Remove="Demo\Images\GridList\dark.RowAutoHeight.svg" />
+    <None Remove="Demo\Images\GridList\dark.SwipeButtons.svg" />
+    <None Remove="Demo\Images\GridList\light.Editing.svg" />
+    <None Remove="Demo\Images\GridList\light.FirstLook.svg" />
+    <None Remove="Demo\Images\GridList\light.Grouping.svg" />
+    <None Remove="Demo\Images\GridList\light.InfiniteDataSource.svg" />
+    <None Remove="Demo\Images\GridList\light.PullToRefresh.svg" />
+    <None Remove="Demo\Images\GridList\light.RealTimeData.svg" />
+    <None Remove="Demo\Images\GridList\light.RowAutoHeight.svg" />
+    <None Remove="Demo\Images\GridList\light.SwipeButtons.svg" />
+    <None Remove="Demo\Images\SchedulerList\dark.DayView.svg" />
+    <None Remove="Demo\Images\SchedulerList\dark.MonthView.svg" />
+    <None Remove="Demo\Images\SchedulerList\dark.WeekView.svg" />
+    <None Remove="Demo\Images\SchedulerList\dark.WorkWeekView.svg" />
+    <None Remove="Demo\Images\SchedulerList\light.DayView.svg" />
+    <None Remove="Demo\Images\SchedulerList\light.MonthView.svg" />
+    <None Remove="Demo\Images\SchedulerList\light.WeekView.svg" />
+    <None Remove="Demo\Images\SchedulerList\light.WorkWeekView.svg" />
+    <None Remove="Demo\Images\TabViewList\dark.DataBinding.svg" />
+    <None Remove="Demo\Images\TabViewList\dark.HeaderPanelPosition.svg" />
+    <None Remove="Demo\Images\TabViewList\dark.NestedTabsViews.svg" />
+    <None Remove="Demo\Images\TabViewList\light.DataBinding.svg" />
+    <None Remove="Demo\Images\TabViewList\light.HeaderPanelPosition.svg" />
+    <None Remove="Demo\Images\TabViewList\light.NestedTabsViews.svg" />
+    <EmbeddedResource Include="DemoModules\Drawer\Images\draft_normal.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Drawer\Images\inbox_normal.svg" />
+    <EmbeddedResource Include="DemoModules\Drawer\Images\inbox_normal.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Drawer\Images\send_normal.svg" />
+    <EmbeddedResource Include="DemoModules\Drawer\Images\send_normal.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Drawer\Images\trash_normal.svg" />
+    <EmbeddedResource Include="DemoModules\Drawer\Images\trash_normal.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Drawer\Images\important_normal.svg" />
+    <EmbeddedResource Include="DemoModules\Drawer\Images\important_normal.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Drawer\Images\customers.svg" />
+    <EmbeddedResource Include="DemoModules\Drawer\Images\customers.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Drawer\Images\employees.svg" />
+    <EmbeddedResource Include="DemoModules\Drawer\Images\employees.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Drawer\Images\products.svg" />
+    <EmbeddedResource Include="DemoModules\Drawer\Images\products.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Drawer\Images\reports.svg" />
+    <EmbeddedResource Include="DemoModules\Drawer\Images\reports.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Drawer\Images\sales.svg" />
+    <EmbeddedResource Include="DemoModules\Drawer\Images\sales.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Grid\Data\Invoices.json" />
+    <None Remove="DemoModules\TabView\Images\dark.AllNT.svg" />
+    <None Remove="DemoModules\TabView\Images\dark.Cart.svg" />
+    <None Remove="DemoModules\TabView\Images\dark.CartButton.svg" />
+    <None Remove="DemoModules\TabView\Images\dark.DeleteButton.svg" />
+    <None Remove="DemoModules\TabView\Images\dark.Favorite.svg" />
+    <None Remove="DemoModules\TabView\Images\dark.FavoriteButton.svg" />
+    <None Remove="DemoModules\TabView\Images\light.AllNT.svg" />
+    <None Remove="DemoModules\TabView\Images\light.Cart.svg" />
+    <None Remove="DemoModules\TabView\Images\light.CartButton.svg" />
+    <None Remove="DemoModules\TabView\Images\light.DeleteButton.svg" />
+    <None Remove="DemoModules\TabView\Images\light.Favorite.svg" />
+    <None Remove="DemoModules\TabView\Images\light.FavoriteButton.svg" />
+    <None Remove="Demo\Images\DemoList\dark.AboutHeader.svg" />
+    <None Remove="Demo\Images\DemoList\dark.Documentation.svg" />
+    <None Remove="Demo\Images\DemoList\dark.ProductPage.svg" />
+    <None Remove="Demo\Images\DemoList\light.AboutHeader.svg" />
+    <Compile Update="DemoModules\Charts\Views\MultipleAxesChart.xaml.cs">
+      <DependentUpon>MultipleAxesChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="DemoModules\Grid\Views\CustomerInfoView.xaml.cs">
+      <DependentUpon>CustomerInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Remove="Demo\Models\HomeMenuItem.cs" />
+    <Compile Remove="Demo\Models\Item.cs" />
+    <EmbeddedResource Remove="Demo\Views\DemosGroupView_Old.xaml" />
+    <Compile Remove="Demo\Views\DemosGroupView_Old.xaml.cs" />
+    <None Remove="DemoModules\Grid\Images\Triangle_Positive.svg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Triangle_Positive.svg">
+      <LogicalName>Triangle_Positive.svg</LogicalName>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Grid\Images\Triangle_Undefined.svg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Triangle_Undefined.svg">
+      <LogicalName>Triangle_Undefined.svg</LogicalName>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Grid\Images\Triangle_Negative.svg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Triangle_Negative.svg">
+      <LogicalName>Triangle_Negative.svg</LogicalName>
+    </EmbeddedResource>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\9.png" />
+    <EmbeddedResource Include="DemoModules\Scheduler\Images\dark_bell.svg">
+      <LogicalName>Dark.Bell.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Scheduler\Images\light_bell.svg">
+      <LogicalName>Light.Bell.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\9.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\10.png" />
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\10.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\12.png" />
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\12.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\13.png" />
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\13.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\14.png" />
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\14.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\15.png" />
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\15.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\5.png" />
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\5.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\6.png" />
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\6.png" />
+    <None Remove="DemoModules\Grid\Images\Attachment.svg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Attachment.svg">
+      <LogicalName>Attachment.svg</LogicalName>
+    </EmbeddedResource>
+    <None Remove="Demo\Images\SchedulerList\dark.Reminder.svg" />
+    <EmbeddedResource Include="Demo\Images\SchedulerList\dark.Reminders.svg">
+      <LogicalName>Dark.SchedulerList.Reminders.svg</LogicalName>
+    </EmbeddedResource>
+    <None Remove="Demo\Images\SchedulerList\light.Reminder.svg" />
+    <EmbeddedResource Include="Demo\Images\SchedulerList\light.Reminders.svg">
+      <LogicalName>Light.SchedulerList.Reminders.svg</LogicalName>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Grid\Images\Groups\ExecutiveGeneralandAdministration.svg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Groups\ExecutiveGeneralandAdministration.svg">
+      <LogicalName>ExecutiveGeneralandAdministration.svg</LogicalName>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Grid\Images\Groups\InventoryManagement.svg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Groups\InventoryManagement.svg">
+      <LogicalName>InventoryManagement.svg</LogicalName>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Grid\Images\Groups\Manufacturing.svg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Groups\Manufacturing.svg">
+      <LogicalName>Manufacturing.svg</LogicalName>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Grid\Images\Groups\QualityAssurance.svg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Groups\QualityAssurance.svg">
+      <LogicalName>QualityAssurance.svg</LogicalName>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Grid\Images\Groups\ResearchandDevelopment.svg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Groups\ResearchandDevelopment.svg">
+      <LogicalName>ResearchandDevelopment.svg</LogicalName>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Grid\Images\Groups\SalesandMarketing.svg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Groups\SalesandMarketing.svg">
+      <LogicalName>SalesandMarketing.svg</LogicalName>
+    </EmbeddedResource>
+    <Compile Update="DemoModules\TabView\Pages\ContactDetailPage.xaml.cs">
+      <DependentUpon>ContactDetailPage.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Remove="DemoModules\Drawer\Views\InnerViews\CustomerInfoView.xaml" />
+    <Compile Remove="DemoModules\Drawer\Views\InnerViews\CustomerInfoView.xaml.cs" />
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="DemoModules\Drawer\Views\InnerViews\CustomerInfoView.xaml.cs">
+      <DependentUpon>DrawerCustomerDetailView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="DemoModules\Drawer\Views\InnerViews\DrawerCustomerDetailView.xaml.cs">
+      <DependentUpon>DrawerCustomerDetailView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="DemoModules\Charts\Resources\AgeStructure.xml" />
+    <None Remove="DemoModules\Charts\Resources\AverageDieselPrices.xml" />
+    <None Remove="DemoModules\Charts\Resources\DevAVSalesMixByRegion.xml" />
+    <None Remove="DemoModules\Charts\Resources\GoogleStock.xml" />
+    <None Remove="DemoModules\Charts\Resources\LondonWeather.xml" />
+    <None Remove="DemoModules\Charts\Resources\OutsideVendorCosts.xml" />
+    <None Remove="DemoModules\Charts\Resources\PopulationStructure.xml" />
+    <None Remove="DemoModules\Charts\Resources\TrendPopulation.xml" />
+    <None Remove="DemoModules\TabView\Images\Companies_ElDepot.jpg" />
+    <None Remove="DemoModules\TabView\Images\Companies_KSMusic.jpg" />
+    <None Remove="DemoModules\TabView\Images\Companies_SuprMart.jpg" />
+    <None Remove="DemoModules\TabView\Images\Companies_TomClub.jpg" />
+    <None Remove="DemoModules\TabView\Images\dark.all.svg" />
+    <None Remove="DemoModules\TabView\Images\dark.family.svg" />
+    <None Remove="DemoModules\TabView\Images\dark.star.svg" />
+    <None Remove="DemoModules\TabView\Images\dark.work.svg" />
+    <None Remove="DemoModules\TabView\Images\icon_location.svg" />
+    <None Remove="DemoModules\TabView\Images\icon_phone.svg" />
+    <None Remove="DemoModules\TabView\Images\icon_www.svg" />
+    <None Remove="DemoModules\TabView\Images\light.all.svg" />
+    <None Remove="DemoModules\TabView\Images\light.family.svg" />
+    <None Remove="DemoModules\TabView\Images\light.star.svg" />
+    <None Remove="DemoModules\TabView\Images\light.work.svg" />
+    <None Remove="DemoModules\TabView\Images\detail.svg" />
+    <None Remove="DemoModules\TabView\Images\missed.svg" />
+    <None Remove="DemoModules\TabView\Images\incoming.svg" />
+    <None Remove="DemoModules\TabView\Images\outgoing.svg" />
+    <None Remove="DemoModules\TabView\Resources\CompaniesData.xml" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\1.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\11.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\16.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\17.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\18.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\19.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\2.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\3.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\4.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\7.png" />
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\8.png" />
+    <None Remove="DemoModules\TabView\Resources\PhoneListData.xml" />
+    <None Remove="DemoModules\Drawer\Resources\portfolio.svg" />
+    <None Remove="DemoModules\Drawer\Resources\card.svg" />
+    <None Remove="DemoModules\Drawer\Resources\person.svg" />
+    <None Remove="Demo\Images\DemoList\light.Documentation.svg" />
+    <None Remove="Demo\Images\DemoList\light.ProductPage.svg" />
+    <None Remove="Demo\Images\DrawerList\DrawerSettings.png" />
+    <None Remove="Demo\Images\DrawerList\FirstLook.png" />
+    <None Remove="Demo\Images\Info.svg" />
+    <None Remove="Demo\Images\hamburger_menu.svg" />
+    <None Remove="Demo\Images\Palette.svg" />
+    <None Remove="Demo\Images\rrr.png" />
+    
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="DemoModules\Charts\Resources\AgeStructure.xml">
+      <LogicalName>Resources.AgeStructure.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Resources\AverageDieselPrices.xml">
+      <LogicalName>Resources.AverageDieselPrices.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Resources\DevAVSalesMixByRegion.xml">
+      <LogicalName>Resources.DevAVSalesMixByRegion.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Resources\GoogleStock.xml">
+      <LogicalName>Resources.GoogleStock.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Resources\LondonWeather.xml">
+      <LogicalName>Resources.LondonWeather.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Resources\OutsideVendorCosts.xml">
+      <LogicalName>Resources.OutsideVendorCosts.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Resources\PopulationStructure.xml">
+      <LogicalName>Resources.PopulationStructure.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Resources\TrendPopulation.xml">
+      <LogicalName>Resources.TrendPopulation.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\detail.svg">
+      <LogicalName>TabView.detail.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\missed.svg">
+      <LogicalName>TabView.missed.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\incoming.svg">
+      <LogicalName>TabView.incoming.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\outgoing.svg">
+      <LogicalName>TabView.outgoing.svg</LogicalName>
+    </EmbeddedResource>        
+    <EmbeddedResource Include="DemoModules\TabView\Images\Companies_ElDepot.jpg">
+      <LogicalName>Companies_ElDepot.jpg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\Companies_KSMusic.jpg">
+      <LogicalName>Companies_KSMusic.jpg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\Companies_SuprMart.jpg">
+      <LogicalName>Companies_SuprMart.jpg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\Companies_TomClub.jpg">
+      <LogicalName>Companies_TomClub.jpg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\dark.all.svg">
+      <LogicalName>Dark.Demo.Icon.All.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\dark.AllNT.svg">
+      <LogicalName>Dark.Demo.Icon.AllNT.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\dark.Cart.svg">
+      <LogicalName>Dark.Demo.Icon.Cart.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\dark.CartButton.svg">
+      <LogicalName>Dark.Demo.Icon.CartButton.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\dark.DeleteButton.svg">
+      <LogicalName>Dark.Demo.Icon.DeleteButton.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\dark.family.svg">
+      <LogicalName>Dark.Demo.Icon.Family.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\dark.Favorite.svg">
+      <LogicalName>Dark.Demo.Icon.Favorite.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\dark.FavoriteButton.svg">
+      <LogicalName>Dark.Demo.Icon.FavoriteButton.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\dark.star.svg">
+      <LogicalName>Dark.Demo.Icon.Star.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\dark.work.svg">
+      <LogicalName>Dark.Demo.Icon.Work.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\icon_location.svg">
+      <LogicalName>Demo.Icon.Location.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\icon_phone.svg">
+      <LogicalName>Demo.Icon.Phone.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\icon_www.svg">
+      <LogicalName>Demo.Icon.WWW.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\light.all.svg">
+      <LogicalName>Light.Demo.Icon.All.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\light.AllNT.svg">
+      <LogicalName>Light.Demo.Icon.AllNT.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\light.Cart.svg">
+      <LogicalName>Light.Demo.Icon.Cart.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\light.CartButton.svg">
+      <LogicalName>Light.Demo.Icon.CartButton.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\light.DeleteButton.svg">
+      <LogicalName>Light.Demo.Icon.DeleteButton.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\light.family.svg">
+      <LogicalName>Light.Demo.Icon.Family.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\light.Favorite.svg">
+      <LogicalName>Light.Demo.Icon.Favorite.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\light.FavoriteButton.svg">
+      <LogicalName>Light.Demo.Icon.FavoriteButton.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\light.star.svg">
+      <LogicalName>Light.Demo.Icon.Star.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Images\light.work.svg">
+      <LogicalName>Light.Demo.Icon.Work.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\CompaniesData.xml">
+      <LogicalName>Resources.CompaniesData.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\1.png">
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\2.png" />
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\4.png" />
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\7.png" />
+    <EmbeddedResource Include="DemoModules\TabView\Resources\PhoneListData.xml">
+    <LogicalName>Resources.PhoneListData.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Drawer\Images\card.svg">
+      <LogicalName>Demo.Icon.Card.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Drawer\Images\portfolio.svg">
+      <LogicalName>Demo.Icon.Portfolio.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Drawer\Images\person.svg">
+      <LogicalName>Demo.Icon.Person.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\dark.PieandDonutCharts.svg">
+      <LogicalName>Dark.ChartsList.PieandDonutCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\dark.PointandBubleCharts.svg">
+      <LogicalName>Dark.ChartsList.PointandBubleCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\light.AreaCharts.svg">
+      <LogicalName>Light.ChartsList.AreaCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\light.BarCharts.svg">
+      <LogicalName>Light.ChartsList.BarCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\dark.AreaCharts.svg">
+      <LogicalName>Dark.ChartsList.AreaCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\dark.BarCharts.svg">
+      <LogicalName>Dark.ChartsList.BarCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\dark.FinancialCharts.svg">
+      <LogicalName>Dark.ChartsList.FinancialCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\dark.LargeDataset.svg">
+      <LogicalName>Dark.ChartsList.LargeDataset.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\dark.LineCharts.svg">
+      <LogicalName>Dark.ChartsList.LineCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\dark.RealTimeUpdates.svg">
+      <LogicalName>Dark.ChartsList.RealTimeUpdates.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\dark.Selection.svg">
+      <LogicalName>Dark.ChartsList.Selection.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\dark.MultipleAxes.svg">
+      <LogicalName>Dark.ChartsList.MultipleAxes.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\light.MultipleAxes.svg">
+      <LogicalName>Light.ChartsList.MultipleAxes.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\light.FinancialCharts.svg">
+      <LogicalName>Light.ChartsList.FinancialCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\light.LargeDataset.svg">
+      <LogicalName>Light.ChartsList.LargeDataset.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\light.LineCharts.svg">
+      <LogicalName>Light.ChartsList.LineCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\light.PieandDonutCharts.svg">
+      <LogicalName>Light.ChartsList.PieandDonutCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\light.PointandBubleCharts.svg">
+      <LogicalName>Light.ChartsList.PointandBubleCharts.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\light.RealTimeUpdates.svg">
+      <LogicalName>Light.ChartsList.RealTimeUpdates.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\ChartsList\light.Selection.svg">
+      <LogicalName>Light.ChartsList.Selection.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\DemoList\dark.Documentation.svg">
+      <LogicalName>Dark.Documentation.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\DemoList\dark.ProductPage.svg">
+      <LogicalName>Dark.ProductPage.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\DemoList\light.Documentation.svg">
+      <LogicalName>Light.Documentation.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\DemoList\light.ProductPage.svg">
+      <LogicalName>Light.ProductPage.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\DrawerList\dark.DrawerSettings.svg">
+      <LogicalName>Dark.DrawerList.DrawerSettings.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\DrawerList\light.Pages.svg">
+      <LogicalName>Light.DrawerList.Pages.svg</LogicalName>
+    </EmbeddedResource> 
+    <EmbeddedResource Include="Demo\Images\DrawerList\dark.Pages.svg">
+      <LogicalName>Dark.DrawerList.Pages.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\DrawerList\light.FirstLook.svg">
+      <LogicalName>Light.DrawerList.FirstLook.svg</LogicalName>
+    </EmbeddedResource> 
+    <EmbeddedResource Include="Demo\Images\DrawerList\dark.FirstLook.svg">
+      <LogicalName>Dark.DrawerList.FirstLook.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\DrawerList\light.DrawerSettings.svg">
+      <LogicalName>Light.DrawerList.DrawerSettings.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\dark.Editing.svg">
+      <LogicalName>Dark.GridList.Editing.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\dark.FirstLook.svg">
+      <LogicalName>Dark.GridList.FirstLook.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\dark.Grouping.svg">
+      <LogicalName>Dark.GridList.Grouping.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\dark.InfiniteDataSource.svg">
+      <LogicalName>Dark.GridList.InfiniteDataSource.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\dark.PullToRefresh.svg">
+      <LogicalName>Dark.GridList.PullToRefresh.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\dark.RealTimeData.svg">
+      <LogicalName>Dark.GridList.RealTimeData.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\dark.RowAutoHeight.svg">
+      <LogicalName>Dark.GridList.RowAutoHeight.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\dark.SwipeButtons.svg">
+      <LogicalName>Dark.GridList.SwipeButtons.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\light.Editing.svg">
+      <LogicalName>Light.GridList.Editing.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\light.FirstLook.svg">
+      <LogicalName>Light.GridList.FirstLook.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\light.Grouping.svg">
+      <LogicalName>Light.GridList.Grouping.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\light.InfiniteDataSource.svg">
+      <LogicalName>Light.GridList.InfiniteDataSource.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\light.PullToRefresh.svg">
+      <LogicalName>Light.GridList.PullToRefresh.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\light.RealTimeData.svg">
+      <LogicalName>Light.GridList.RealTimeData.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\light.RowAutoHeight.svg">
+      <LogicalName>Light.GridList.RowAutoHeight.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\GridList\light.SwipeButtons.svg">
+      <LogicalName>Light.GridList.SwipeButtons.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\Info.svg">
+      <LogicalName>Info.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\hamburger_menu.svg">
+      <LogicalName>hamburger_menu.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\Palette.svg">
+      <LogicalName>Palette.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\SchedulerList\dark.DayView.svg">
+      <LogicalName>Dark.SchedulerList.DayView.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\SchedulerList\dark.MonthView.svg">
+      <LogicalName>Dark.SchedulerList.MonthView.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\SchedulerList\dark.WeekView.svg">
+      <LogicalName>Dark.SchedulerList.WeekView.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\SchedulerList\dark.WorkWeekView.svg">
+      <LogicalName>Dark.SchedulerList.WorkWeekView.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\SchedulerList\light.DayView.svg">
+      <LogicalName>Light.SchedulerList.DayView.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\SchedulerList\light.MonthView.svg">
+      <LogicalName>Light.SchedulerList.MonthView.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\SchedulerList\light.WeekView.svg">
+      <LogicalName>Light.SchedulerList.WeekView.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\SchedulerList\light.WorkWeekView.svg">
+      <LogicalName>Light.SchedulerList.WorkWeekView.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\Area.svg">
+      <LogicalName>TabItems.Area.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\Bar.svg">
+      <LogicalName>TabItems.Bar.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\Bubble.svg">
+      <LogicalName>TabItems.Bubble.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\CandleStick.svg">
+      <LogicalName>TabItems.CandleStick.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\Donut.svg">
+      <LogicalName>TabItems.Donut.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\FullStackedArea.svg">
+      <LogicalName>TabItems.FullStackedArea.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\FullStackedBar.svg">
+      <LogicalName>TabItems.FullStackedBar.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\Line.svg">
+      <LogicalName>TabItems.Line.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\Pie.svg">
+      <LogicalName>TabItems.Pie.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\Point.svg">
+      <LogicalName>TabItems.Point.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\RotatedSideBySideStackedBar.svg">
+      <LogicalName>TabItems.RotatedSideBySideStackedBar.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\RotatedStackedBar.svg">
+      <LogicalName>TabItems.RotatedStackedBar.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\Scatter.svg">
+      <LogicalName>TabItems.Scatter.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\SideBySideFullStackedBar.svg">
+      <LogicalName>TabItems.SideBySideFullStackedBar.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\SideBySideStackedBar.svg">
+      <LogicalName>TabItems.SideBySideStackedBar.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\StackedArea.svg">
+      <LogicalName>TabItems.StackedArea.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\StackedBar.svg">
+      <LogicalName>TabItems.StackedBar.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\StepArea.svg">
+      <LogicalName>TabItems.StepArea.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\StepLine.svg">
+      <LogicalName>TabItems.StepLine.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Charts\Images\TabItems\Stock.svg">
+      <LogicalName>TabItems.Stock.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Drawer\Images\light.DrawerHeader.svg">
+      <LogicalName>Light.DrawerBackGround.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Drawer\Images\dark.DrawerHeader.svg">
+      <LogicalName>Dark.DrawerBackGround.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\Radio\radio_button.svg">
+      <LogicalName>Radio.Background.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\Radio\radio_button_checked.svg">
+      <LogicalName>Radio.Checked.Background.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Grid\Images\Andrew_Fuller.jpg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Anne_Dodsworth.jpg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Janet_Leverling.jpg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Laura_Callahan.jpg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Margaret_Peacock.jpg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Michael_Suyama.jpg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Nancy_Davolio.jpg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Robert_King.jpg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Steven_Buchanan.jpg" />
+    <EmbeddedResource Include="DemoModules\Grid\Data\Employees.json">
+      <LogicalName>Employees.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Grid\Data\StockSource.json">
+      <LogicalName>StockSource.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Drawer\Images\JenniferHobbs.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoModules\Grid\Data\Invoices.json">
+      <LogicalName>Invoices.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\DemoList\dark.AboutHeader.svg">
+      <LogicalName>Dark.AboutHeader.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\DemoList\light.AboutHeader.svg">
+      <LogicalName>Light.AboutHeader.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\TabViewList\dark.DataBinding.svg">
+      <LogicalName>Dark.TabViewList.DataBinding.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\TabViewList\dark.HeaderPanelPosition.svg">
+      <LogicalName>Dark.TabViewList.HeaderPanelPosition.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\TabViewList\dark.NestedTabsViews.svg">
+      <LogicalName>Dark.TabViewList.NestedTabsViews.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\TabViewList\dark.TabsWithPages.svg">
+      <LogicalName>Dark.TabViewList.TabsWithPages.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\TabViewList\light.TabsWithPages.svg">
+      <LogicalName>Light.TabViewList.TabsWithPages.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\TabViewList\light.DataBinding.svg">
+      <LogicalName>Light.TabViewList.DataBinding.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\TabViewList\light.HeaderPanelPosition.svg">
+      <LogicalName>Light.TabViewList.HeaderPanelPosition.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Images\TabViewList\light.NestedTabsViews.svg">
+      <LogicalName>Light.TabViewList.NestedTabsViews.svg</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="19.2.4" />
+    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="19.2.4" />
+    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="19.2.4" />
+    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="19.2.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.1" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Demo\Controls\IconView.xaml.cs">
+      <DependentUpon>IconView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Demo\Themes\DarkTheme.xaml.cs">
+      <DependentUpon>DarkTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Demo\Views\DemoGroupsView.xaml.cs">
+      <DependentUpon>DemoGroupsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Demo\Views\GroupItemView.xaml.cs">
+      <DependentUpon>GroupItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Demo\Views\GroupItemView.xaml.cs">
+      <DependentUpon>GroupItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Demo\Views\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="DemoModules\Grid\Views\FirstLookView.xaml.cs">
+      <DependentUpon>FirstLookView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="DemoModules\Charts\Controls\DXNavigationTabControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\AreaCharts.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\BarCharts.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\AreaCharts\AreaChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\AreaCharts\FullStackedAreaChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\AreaCharts\StackedAreaChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\AreaCharts\StepAreaChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\BarCharts\BarChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\BarCharts\FullStackedBarChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\BarCharts\RotatedSideBySideStackedBarChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\BarCharts\RotatedStackedBarChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\BarCharts\SideBySideFullStackedBarChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\BarCharts\SideBySideStackedBarChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\BarCharts\StackedBarChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\LineCharts\LineChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\LineCharts\ScatterChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\LineCharts\StepLineChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\PieCharts\DonutChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\PieCharts\PieChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\PointCharts\BubbleChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\FinancialChart.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\LargeDataset.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\LineCharts.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\PieCharts.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\PointsCharts.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\RealTimeData.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Selection.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\AreaChartTemplates.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\BarChartTemplates.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\ChartTemplates.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\LineChartTemplates.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\PieChartTemplates.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\PointCharts\PointChartContainer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Views\Templates\PointChartTemplates.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\TabView\Controls\TabHeaderButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\TabView\Views\NestedTabView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Demo\Controls\ColorPicker.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Demo\Controls\IconView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Controls\TabButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DemoModules\Charts\Controls\TabControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Demo\Themes\LightTheme.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Demo\Views\ControlPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Demo\Views\GroupItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Demo\Views\DemoGroupsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Demo\Views\RootPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Demo\Views\AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Demo\Controls\SvgIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DemoModules\Scheduler\Views\" />
+    <Folder Include="DemoModules\Grid\Views\" />
+    <Folder Include="DemoModules\Scheduler\Data\ReceptionDesk\" />
+    <Folder Include="DemoModules\Drawer\" />
+    <Folder Include="DemoModules\Drawer\Views\" />
+    <Folder Include="DemoModules\Drawer\Data\" />
+    <Folder Include="DemoModules\Drawer\ViewModels\" />
+    <Folder Include="DemoModules\Drawer\Images\" />
+    <Folder Include="DemoModules\Scheduler\Data\OutlookInspired\" />
+    <Folder Include="Demo\Effects\" />
+    <Folder Include="DemoModules\TabView\Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DemoModules\Grid\Views\CustomerInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+    <Page Include="DemoModules\Drawer\Views\InnerViews\DrawerCustomerDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo;assembly=DemoCenter.Forms"
+             x:Class="DemoCenter.Forms.Demo.RadioButton"
+             Padding="0">
+    <ContentView.Content>
+        <StackLayout Orientation="Horizontal" Spacing="14">
+            <demo:IconView VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="Start"
+                           ImageSource="{Binding BackgroundImage}"
+                           WidthRequest="20"
+                           HeightRequest="20"/>
+            <Label Text="{Binding LabelText}"
+                   MaxLines="1"
+                   LineBreakMode="NoWrap"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="StartAndExpand"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

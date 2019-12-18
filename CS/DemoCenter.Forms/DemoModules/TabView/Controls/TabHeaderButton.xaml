@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+             x:Class="DemoCenter.Forms.Demo.TabHeaderButton"
+             BackgroundColor="Transparent">
+    <demo:IconView HeightRequest="24"
+                   WidthRequest="24"
+                   x:Name="icon"
+                   HorizontalOptions="Center"
+                   VerticalOptions="FillAndExpand"/>
+    <Label x:Name="label"
+           BackgroundColor="Transparent"
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="FillAndExpand"/>
+</StackLayout>

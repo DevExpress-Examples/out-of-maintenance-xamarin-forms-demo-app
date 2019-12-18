@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage x:Class="DemoCenter.Forms.Views.PhoneListView"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:navigation="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
+             xmlns:editors="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Core"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+             xmlns:utils="clr-namespace:DemoCenter.Forms"
+             ios:Page.UseSafeArea="true"
+             x:Name="phoneListView"
+             BackgroundColor="{DynamicResource BackgroundThemeColor}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="headerTemplate">
+                <demo:TabHeaderButton Margin="0,10"
+                                      Text="{Binding GroupName}"
+                                      TextColor="{DynamicResource PhoneListTabTextColor}"
+                                      IconColor="{DynamicResource PhoneListTabIconColor}"
+                                      FontFamily="Roboto"
+                                      FontSize="16"
+                                      IsSelected="{Binding IsSelected}"
+                                      SelectedColor="#2088ff"
+                                      ShowIcon="{Binding ShowGroupIcon}"
+                                      IconSource="{Binding GroupIconSource}"/>
+            </DataTemplate>
+            <DataTemplate x:Key="itemTemplate">
+                <demo:NonSelectableListView ItemsSource="{Binding Contacts}"
+                                            SelectionMode="None"
+                                            RowHeight="70"
+                                            BackgroundColor="{DynamicResource BackgroundThemeColor}"
+                                            SeparatorColor="{DynamicResource BackgroundThemeColor}"
+                                            VerticalScrollBarVisibility="Never">
+                    <ListView.Margin>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="16,0,0,0" Tablet="62,0,0,0"/>
+                    </ListView.Margin>
+                    <x:Arguments>
+                        <ListViewCachingStrategy>RecycleElementAndDataTemplate</ListViewCachingStrategy>
+                    </x:Arguments>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                    <Grid Margin="0"
+                                          BackgroundColor="{DynamicResource BackgroundThemeColor}"
+                                          Padding="10"
+                                          ColumnSpacing="22"
+                                          RowSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <editors:ColorItem Grid.Column="0"
+                                                           Grid.Row="0"
+                                                           Grid.RowSpan="2"
+                                                           PickerColor="{Binding CategoryColor}"
+                                                           ShowFlag="False"
+                                                           MinimumWidthRequest="50"
+                                                           MinimumHeightRequest="50"
+                                                           WidthRequest="50"
+                                                           HeightRequest="50"/>
+                                        <Label Grid.Column="0"
+                                               Grid.Row="0"
+                                               Grid.RowSpan="2"
+                                               Margin="0"
+                                               Text="{Binding Initials}"
+                                               TextColor="White"
+                                               BackgroundColor="Transparent"
+                                               FontSize="20"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               WidthRequest="50"
+                                               HorizontalOptions="Start"/>
+                                        <Label Grid.Row="0"
+                                               Grid.Column="1"
+                                               Text="{Binding FullName}"
+                                               FontFamily="Roboto"
+                                               TextColor="{DynamicResource TextThemeColor}"
+                                               BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+                                        <Label Grid.Row="1"
+                                               Grid.Column="1"
+                                               Text="{Binding Phone}"
+                                               FontFamily="Roboto"
+                                               TextColor="{DynamicResource PhoneThemeColor}"
+                                               BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+                                    </Grid>
+                             </ViewCell>
+                         </DataTemplate>
+                    </ListView.ItemTemplate>
+                </demo:NonSelectableListView>
+            </DataTemplate>
+        </ResourceDictionary>
+        <utils:BoolToFileImageSourceConverter x:Key="themeTypeToImageSourceConverter">
+            <utils:BoolToFileImageSourceConverter.TrueSource>
+                <OnPlatform x:TypeArguments="FileImageSource" Android="light_menu_dots.xml" iOS="light_menu_dots"/>
+            </utils:BoolToFileImageSourceConverter.TrueSource>
+            <utils:BoolToFileImageSourceConverter.FalseSource>
+                <OnPlatform x:TypeArguments="FileImageSource" Android="dark_menu_dots.xml" iOS="dark_menu_dots"/>
+            </utils:BoolToFileImageSourceConverter.FalseSource>
+        </utils:BoolToFileImageSourceConverter>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="OnItemClicked" 
+                     Order="Primary"
+                     Icon="{Binding IsLightTheme, Converter={StaticResource themeTypeToImageSourceConverter}}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <navigation:TabView x:Name="dxTabView"
+                            HeaderPanelPosition="Right"
+                            HeaderPanelContentAlignment="Start"
+                            BackgroundColor="{DynamicResource BackgroundThemeColor}"
+                            HeaderPanelBackgroundColor="{DynamicResource BackgroundThemeColor}"
+                            IsSelectedItemIndicatorVisible = "False"
+                            ItemsSource="{Binding PhoneListData}"
+                            ItemHeaderTemplate="{StaticResource headerTemplate}"
+                            ItemTemplate="{StaticResource itemTemplate}"
+                            IsHeaderPanelShadowVisible="True"
+                            HeaderPanelShadowHeight="1"
+                            HeaderPanelShadowColor="{DynamicResource TabViewPhoneListShadowColor}"
+                            ItemHeaderHeight = "40"
+                            HeaderPanelHeight="72"
+                            HeaderPanelIndent="0"
+                            ItemHeaderWidth="*"
+                            ItemHeaderMaxWidth="130"
+                            SwipeEnabled="False"
+                            ScrollAnimationEnabled="False"
+                            SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+            <navigation:TabView.HeaderPanelShadowRadius>
+                <OnPlatform x:TypeArguments="x:Double" Android="1" iOS="0"/>
+            </navigation:TabView.HeaderPanelShadowRadius>
+        </navigation:TabView>
+    </ContentPage.Content>
+</ContentPage>

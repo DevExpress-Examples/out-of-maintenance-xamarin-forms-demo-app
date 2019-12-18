@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skia:SKCanvasView xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+                   x:Class="DemoCenter.Forms.Demo.IconView"
+                   PaintSurface="Handle_PaintSurface"/>

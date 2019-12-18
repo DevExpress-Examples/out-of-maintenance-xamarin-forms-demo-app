@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:RotationHandleView xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+                          xmlns:local="clr-namespace:DemoCenter.Forms"
+                          x:Class="DemoCenter.Forms.Charts.Views.SideBySideFullStackedBarChartContainer"
+                          x:Name="sideBySideFullStackedBarChartContainer">
+    <ContentView.Resources>
+        <charts:SeriesHintOptions x:Key="stackedBarSeriesHintOptions"
+                                  PointTextPattern="{}{A}: {V$#,###}"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding ChartModel.Title}"
+                   FontFamily="Roboto"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <charts:ChartView Grid.Row="1">
+                <charts:ChartView.Series>
+                    <charts:SideBySideFullStackedBarSeries DisplayName="{Binding ChartModel.Male0to14and65SeriesData.Name}"
+                                                           HintOptions="{StaticResource stackedBarSeriesHintOptions}"
+                                                           StackedGroup="1">
+                        <charts:SideBySideFullStackedBarSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Male0to14and65SeriesData.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:SideBySideFullStackedBarSeries.Data>
+                    </charts:SideBySideFullStackedBarSeries>
+                    <charts:SideBySideFullStackedBarSeries DisplayName="{Binding ChartModel.Male15to64SeriesData.Name}"
+                                                           HintOptions="{StaticResource stackedBarSeriesHintOptions}"
+                                                           StackedGroup="1">
+                        <charts:SideBySideFullStackedBarSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Male15to64SeriesData.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:SideBySideFullStackedBarSeries.Data>
+                    </charts:SideBySideFullStackedBarSeries>
+                    <charts:SideBySideFullStackedBarSeries DisplayName="{Binding ChartModel.Female0to14and65SeriesData.Name}"
+                                                           HintOptions="{StaticResource stackedBarSeriesHintOptions}"
+                                                           StackedGroup="2">
+                        <charts:SideBySideFullStackedBarSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Female0to14and65SeriesData.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:SideBySideFullStackedBarSeries.Data>
+                    </charts:SideBySideFullStackedBarSeries>
+                    <charts:SideBySideFullStackedBarSeries DisplayName="{Binding ChartModel.Female15to64SeriesData.Name}"
+                                                           HintOptions="{StaticResource stackedBarSeriesHintOptions}"
+                                                           StackedGroup="2">
+                        <charts:SideBySideFullStackedBarSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Female15to64SeriesData.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:SideBySideFullStackedBarSeries.Data>
+                    </charts:SideBySideFullStackedBarSeries>
+                </charts:ChartView.Series>
+                <charts:ChartView.Legend>
+                    <charts:Legend HorizontalPosition="Center"
+                                   VerticalPosition="BottomOutside"
+                                   Orientation="TopToBottom"/>
+                </charts:ChartView.Legend>
+                <charts:ChartView.Hint>
+                    <charts:Hint/>
+                </charts:ChartView.Hint>
+                <charts:ChartView.AxisY>
+                    <charts:NumericAxisY>
+                        <charts:NumericAxisY.Label>
+                            <charts:AxisLabel TextFormat="#%"/>
+                        </charts:NumericAxisY.Label>
+                    </charts:NumericAxisY>
+                </charts:ChartView.AxisY>
+                <charts:ChartView.ChartStyle>
+                    <charts:ChartStyle Palette="{Binding ChartModel.Palette}"/>
+                </charts:ChartView.ChartStyle>
+                <charts:ChartView.Triggers>
+                    <DataTrigger TargetType="charts:ChartView"
+                                 Binding="{Binding Source={x:Reference Name=sideBySideFullStackedBarChartContainer}, Path=IsLandscape}"
+                                 Value="true">
+                        <Setter Property="Legend">
+                            <Setter.Value>
+                                <charts:Legend Orientation="TopToBottom"
+                                               VerticalPosition="Top"
+                                               HorizontalPosition="RightOutside"/>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </charts:ChartView.Triggers>
+            </charts:ChartView>
+        </Grid>
+    </ContentView.Content>
+</local:RotationHandleView>

@@ -1,0 +1,68 @@
+<?xml version="1.0" standalone="yes"?>
+<DateTimeDataSets>
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="DateTimeData">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="Argument" type="xs:dateTime"/>
+          <xs:element name="Value" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>  
+    <DataSets>
+        <DataSetContainer>
+            <Name>U.S.Average Diesel Prices</Name>
+            <DataSet>
+                <DateTimeData>
+                    <Argument>2016-01-01</Argument>
+                    <Value>2.14</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-02-01</Argument>
+                    <Value>1.99</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-03-01</Argument>
+                    <Value>2.09</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-04-01</Argument>
+                    <Value>2.15</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-05-01</Argument>
+                    <Value>2.31</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-06-01</Argument>
+                    <Value>2.42</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-07-01</Argument>
+                    <Value>2.4</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-08-01</Argument>
+                    <Value>2.35</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-09-01</Argument>
+                    <Value>2.39</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-10-01</Argument>
+                    <Value>2.45</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-11-01</Argument>
+                    <Value>2.44</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-12-01</Argument>
+                    <Value>2.5</Value>
+                </DateTimeData>
+            </DataSet>
+        </DataSetContainer>
+    </DataSets>
+</DateTimeDataSets>

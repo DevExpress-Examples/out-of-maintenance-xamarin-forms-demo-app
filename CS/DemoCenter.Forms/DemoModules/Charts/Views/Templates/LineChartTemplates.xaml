@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:templateView="clr-namespace:DemoCenter.Forms.Charts.Views"
+                    x:Class="DemoCenter.Forms.Charts.Templates.LineChartTemplates">
+
+    <DataTemplate x:Key="lineChartTemplate">
+        <templateView:LineChartContainer/>
+    </DataTemplate>
+    <DataTemplate x:Key="scatterChartTemplate">
+        <templateView:ScatterChartContainer/>
+    </DataTemplate>
+    <DataTemplate x:Key="stepLineChartTemplate">
+        <templateView:StepLineChartContainer/>
+    </DataTemplate>
+
+</ResourceDictionary>

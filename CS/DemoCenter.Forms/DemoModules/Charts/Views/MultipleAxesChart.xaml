@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage x:Class="DemoCenter.Forms.Views.MultipleAxes"
+             xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:DemoCenter.Forms.ViewModels"
+             xmlns:views="clr-namespace:DemoCenter.Forms.Views"
+             xmlns:local="clr-namespace:DemoCenter.Forms"
+             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{DynamicResource BackgroundThemeColor}">
+    <ContentPage.BindingContext>
+        <vm:MultipleAxesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <views:ChartTitleConverter x:Key="chartTitleConverter"/>
+        <local:BoolToStackOrientationConverter x:Key="boolToStackOrientationConverter"/>
+        <charts:NumericAxisX x:Key="RPMaxis">
+            <charts:NumericAxisX.Label>
+                <charts:AxisLabel TextFormat="#.#"/>
+            </charts:NumericAxisX.Label>
+            <charts:NumericAxisX.Title>
+                <charts:AxisTitle Text="RPM (1/min)"/>
+            </charts:NumericAxisX.Title>
+            <charts:NumericAxisX.Style>
+                <charts:AxisStyle MajorTickmarksVisible="True"
+                                  MinorTickmarksVisible="True"/>
+            </charts:NumericAxisX.Style>
+            <charts:NumericAxisX.Range>
+                <charts:NumericRange SideMargin="100"/>
+            </charts:NumericAxisX.Range>
+        </charts:NumericAxisX>
+        
+        <charts:NumericAxisY x:Key="powerAxis"
+                             Position="Near"
+                             AlwaysShowZeroLevel="false">
+            <charts:NumericAxisY.Layout>
+                <charts:AxisLayout Anchor1="0.35" Anchor2="1.0"/>
+            </charts:NumericAxisY.Layout>
+            <charts:NumericAxisY.Label>
+                <charts:AxisLabel TextFormat="#"/>
+            </charts:NumericAxisY.Label>
+            <charts:NumericAxisY.Title>
+                <charts:AxisTitle Text="Power (hp)" 
+                                  Alignment="Center"/>
+            </charts:NumericAxisY.Title>
+        </charts:NumericAxisY>
+
+        <charts:NumericAxisY x:Key="fuelRateAxis"
+                             Position="Near"
+                             GridAlignment="10"
+                             AlwaysShowZeroLevel="false">
+            <charts:NumericAxisY.Layout>
+                <charts:AxisLayout Anchor1="0.0" Anchor2="0.3"/>
+            </charts:NumericAxisY.Layout>
+            <charts:NumericAxisY.Label>
+                <charts:AxisLabel TextFormat="#.#"/>
+            </charts:NumericAxisY.Label>
+            <charts:NumericAxisY.Title>
+                <charts:AxisTitle Text="Fuel Rate (MPG)" 
+                                  Alignment="Center"/>
+            </charts:NumericAxisY.Title>
+            <charts:NumericAxisY.Style>
+                <charts:AxisStyle MajorGridlinesVisible="True"
+                                  LineVisible="True"/>
+            </charts:NumericAxisY.Style>
+        </charts:NumericAxisY>
+            
+        <charts:NumericAxisY x:Key="torqueAxis"
+                             Position="Far"
+                             GridAlignment="25"
+                             AlwaysShowZeroLevel="false">
+            <charts:NumericAxisY.Label>
+                <charts:AxisLabel TextFormat="#"/>
+            </charts:NumericAxisY.Label>
+            <charts:NumericAxisY.Title>
+                <charts:AxisTitle Text="Torque (N*m)"
+                                  Alignment="Center"/>
+            </charts:NumericAxisY.Title>
+        </charts:NumericAxisY>
+                
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <demo:Panel x:Name="panel">
+            <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+                <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="Tuned engine characteristics"
+                   FontFamily="Roboto"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   Margin="0,8"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"
+                   HorizontalTextAlignment="Center"/>
+            
+            <charts:ChartView x:Name="chart"
+                              Grid.Row="1"
+                              SelectionMode="Single"
+                              SelectionKind="Series"
+                              AxisX="{StaticResource Key=RPMaxis}"
+                              AxisY="{StaticResource Key=powerAxis}">
+                <charts:ChartView.Series>
+                    <charts:AreaSeries DisplayName="{Binding Names[2]}"
+                                       MarkersVisible="True"
+                                       AxisY="{StaticResource Key=fuelRateAxis}">
+                        <charts:AreaSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding NEFuelRate}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:AreaSeries.Data>
+                        <charts:AreaSeries.HintOptions>
+                            <charts:SeriesHintOptions PointTextPattern="NE FuelRate - {V} MPG"/>
+                        </charts:AreaSeries.HintOptions>
+                        <charts:AreaSeries.Style>
+                            <charts:AreaSeriesStyle Stroke="{Binding Palette[8]}"
+                                                    Fill="{Binding Palette[4]}">
+                                <charts:AreaSeriesStyle.MarkerStyle>
+                                    <charts:MarkerStyle Fill="{Binding Palette[6]}"/>
+                                </charts:AreaSeriesStyle.MarkerStyle>
+                            </charts:AreaSeriesStyle>   
+                        </charts:AreaSeries.Style>
+                    </charts:AreaSeries>
+
+                    <charts:AreaSeries DisplayName="{Binding Names[5]}"
+                                       MarkersVisible="True"
+                                       AxisY="{StaticResource Key=fuelRateAxis}">
+                        <charts:AreaSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding MKRFuelRate}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:AreaSeries.Data>
+                        <charts:AreaSeries.HintOptions>
+                            <charts:SeriesHintOptions PointTextPattern="MKR FuelRate - {V} MPG"/>
+                        </charts:AreaSeries.HintOptions>
+                        <charts:AreaSeries.Style>
+                            <charts:AreaSeriesStyle Stroke="{Binding Palette[8]}"
+                                                    Fill="{Binding Palette[5]}">
+                                <charts:AreaSeriesStyle.MarkerStyle>
+                                    <charts:MarkerStyle Fill="{Binding Palette[7]}"/>
+                                </charts:AreaSeriesStyle.MarkerStyle>
+                            </charts:AreaSeriesStyle>   
+                        </charts:AreaSeries.Style>
+                    </charts:AreaSeries>
+
+                    <charts:LineSeries DisplayName="{Binding Names[0]}"
+                                       MarkersVisible="true">
+                        <charts:LineSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding NEPower}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:LineSeries.Data>
+                        <charts:LineSeries.HintOptions>
+                            <charts:SeriesHintOptions PointTextPattern="NE Power - {V} hp"/>
+                        </charts:LineSeries.HintOptions>
+                        <charts:LineSeries.Style>
+                            <charts:LineSeriesStyle Stroke="{Binding Palette[0]}">
+                                <charts:LineSeriesStyle.MarkerStyle>
+                                    <charts:MarkerStyle Fill="{Binding Palette[0]}"/>
+                                </charts:LineSeriesStyle.MarkerStyle>
+                            </charts:LineSeriesStyle>   
+                        </charts:LineSeries.Style>
+                    </charts:LineSeries>
+
+                    <charts:LineSeries DisplayName="{Binding Names[3]}"
+                                       MarkersVisible="true">
+                        <charts:LineSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding MKRPower}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:LineSeries.Data>
+                        <charts:LineSeries.HintOptions>
+                            <charts:SeriesHintOptions PointTextPattern="MKR Power - {V} hp"/>
+                        </charts:LineSeries.HintOptions>
+                        <charts:LineSeries.Style>
+                            <charts:LineSeriesStyle Stroke="{Binding Palette[1]}">
+                                <charts:LineSeriesStyle.MarkerStyle>
+                                    <charts:MarkerStyle Fill="{Binding Palette[1]}"/>
+                                </charts:LineSeriesStyle.MarkerStyle>
+                            </charts:LineSeriesStyle>   
+                        </charts:LineSeries.Style>
+                    </charts:LineSeries>
+
+                    <charts:LineSeries DisplayName="{Binding Names[1]}"
+                                       MarkersVisible="true"
+                                       AxisY="{StaticResource Key=torqueAxis}">
+                        <charts:LineSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding NETorque}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:LineSeries.Data>
+                        <charts:LineSeries.HintOptions>
+                            <charts:SeriesHintOptions PointTextPattern="NE Torque - {V} N*m"/>
+                        </charts:LineSeries.HintOptions>
+                        <charts:LineSeries.Style>
+                            <charts:LineSeriesStyle Stroke="{Binding Palette[2]}">
+                                <charts:LineSeriesStyle.MarkerStyle>
+                                    <charts:MarkerStyle Fill="{Binding Palette[2]}"/>
+                                </charts:LineSeriesStyle.MarkerStyle>
+                            </charts:LineSeriesStyle>   
+                        </charts:LineSeries.Style>
+                    </charts:LineSeries>
+                        
+                    <charts:LineSeries DisplayName="{Binding Names[4]}"
+                                       MarkersVisible="true"
+                                       AxisY="{StaticResource Key=torqueAxis}">
+                        <charts:LineSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding MKRTorque}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:LineSeries.Data>
+                        <charts:LineSeries.HintOptions>
+                            <charts:SeriesHintOptions PointTextPattern="MKR Torque - {V} N*m"/>
+                        </charts:LineSeries.HintOptions>
+                        <charts:LineSeries.Style>
+                            <charts:LineSeriesStyle Stroke="{Binding Palette[3]}">
+                                <charts:LineSeriesStyle.MarkerStyle>
+                                    <charts:MarkerStyle Fill="{Binding Palette[3]}"/>
+                                </charts:LineSeriesStyle.MarkerStyle>
+                            </charts:LineSeriesStyle>
+                        </charts:LineSeries.Style>
+                    </charts:LineSeries>
+                    
+                </charts:ChartView.Series>
+                <charts:ChartView.Hint>
+                    <charts:Hint ShowMode="OnTap">
+                        <charts:Hint.Behavior>
+                            <charts:CrosshairHintBehavior GroupHeaderTextPattern="{}{A} RPM"
+                                                          GroupHeaderVisible="True"
+                                                          MaxSeriesCount="6"/>
+                        </charts:Hint.Behavior>
+                    </charts:Hint>
+                </charts:ChartView.Hint>
+                <charts:ChartView.Legend>
+                    <charts:Legend HorizontalPosition="Center"
+                                   VerticalPosition="BottomOutside"
+                                   Orientation="LeftToRight"/>
+                </charts:ChartView.Legend>
+            </charts:ChartView>
+            </Grid>
+        </demo:Panel>
+    </ContentPage.Content>
+</ContentPage>

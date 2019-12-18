@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<AbsoluteLayout xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+                xmlns:views="clr-namespace:DemoCenter.Forms.Views;assembly=DemoCenter.Forms"
+                x:Class="DemoCenter.Forms.Views.GroupItemView"
+                VerticalOptions="FillAndExpand"
+                BackgroundColor="{DynamicResource BackgroundThemeColor}">
+    <AbsoluteLayout.GestureRecognizers>
+        <TapGestureRecognizer x:Name="gestureRecognizer" NumberOfTapsRequired="1" Tapped="GroupItemViewTapped"/>
+    </AbsoluteLayout.GestureRecognizers>
+    <demo:IconView AbsoluteLayout.LayoutBounds="30,16,-1,64"
+                   ImageSource="{Binding Icon}"/>
+    <views:LabelEx AbsoluteLayout.LayoutBounds="0,64,-1,-1"
+                   Margin="0"
+                   HorizontalTextAlignment="Center"
+                   Text="{Binding Title}"
+                   FontSize="16"
+                   FontFamily="{StaticResource Univia-Pro}"
+                   MaxLines="2"
+                   LineHeight="1"
+                   LineBreakMode="NoWrap"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+</AbsoluteLayout>

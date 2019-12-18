@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             x:Class="DemoCenter.Forms.Charts.Views.ScatterChartContainer">
+    <ContentView.Resources>
+        <charts:SeriesHintOptions x:Key="lineSeriesHintOptions"
+                                  PointTextPattern="{}{A$yyyy}: {V}M"/>
+        <charts:ConstantLineTitle x:Key="emptyConstantLineTitle" Visible="false"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding ChartModel.Title}"
+                   FontFamily="Roboto"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <charts:ChartView Grid.Row="1"
+                              SelectionMode="Single"
+                              SelectionKind="Point">
+                <charts:ChartView.Series>
+                    <charts:ScatterLineSeries Data="{Binding ChartModel.SeriesData}"
+                                              DisplayName="{Binding ChartModel.Title}"
+                                              MarkersVisible="true">
+                        <charts:ScatterLineSeries.HintOptions>
+                            <charts:SeriesHintOptions PointTextPattern="X={A}, Y={V}"/>
+                        </charts:ScatterLineSeries.HintOptions>
+                    </charts:ScatterLineSeries>
+                </charts:ChartView.Series>
+                <charts:ChartView.Hint>
+                    <charts:Hint>
+                        <charts:Hint.Behavior>
+                            <charts:TooltipHintBehavior/>
+                        </charts:Hint.Behavior>
+                    </charts:Hint>
+                </charts:ChartView.Hint>
+                <charts:ChartView.AxisX>
+                    <charts:NumericAxisX GridAlignment="3">
+                        <charts:NumericAxisX.Style>
+                            <charts:AxisStyle MajorGridlinesVisible="True"/>
+                        </charts:NumericAxisX.Style>
+                        <charts:NumericAxisX.ConstantLines>
+                            <charts:NumericConstantLine AxisValue="0"
+                                                        ShowBehind="true">
+                                <charts:NumericConstantLine.Title>
+                                    <charts:ConstantLineTitle Visible="false"/>
+                                </charts:NumericConstantLine.Title>
+                            </charts:NumericConstantLine>
+                        </charts:NumericAxisX.ConstantLines>
+                    </charts:NumericAxisX>
+                </charts:ChartView.AxisX>
+                <charts:ChartView.AxisY>
+                    <charts:NumericAxisY GridAlignment="3">
+                        <charts:NumericAxisY.ConstantLines>
+                            <charts:NumericConstantLine AxisValue="0"
+                                                        ShowBehind="true">
+                                <charts:NumericConstantLine.Title>
+                                    <charts:ConstantLineTitle Visible="false"/>
+                                </charts:NumericConstantLine.Title>
+                            </charts:NumericConstantLine>
+                        </charts:NumericAxisY.ConstantLines>
+                    </charts:NumericAxisY>
+                </charts:ChartView.AxisY>
+            </charts:ChartView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

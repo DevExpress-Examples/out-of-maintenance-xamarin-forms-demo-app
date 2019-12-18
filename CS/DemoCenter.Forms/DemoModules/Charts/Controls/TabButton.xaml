@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+             xmlns:local="clr-namespace:DemoCenter.Forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoCenter.Forms.Demo.TabButton"
+             x:Name="buttonContainer"
+             SelectedColor="{DynamicResource BackgroundThemeColor}"
+             BackgroundColor="{DynamicResource TabItemBackgroundColor}"
+             BorderColor="{DynamicResource TabItemBorderColor}">
+    <ContentView.Resources>
+        <local:InverseBoolConverter x:Key="inverseBoolConverter"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid RowSpacing="0"
+              ColumnSpacing="0"
+              BackgroundColor="{Binding ActualBackgroundColor, Source={Reference buttonContainer}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <demo:IconView x:Name="icon"
+                           ImageSource="{Binding ImageSource}"
+                           HeightRequest="30"
+                           WidthRequest="30"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+            <BoxView x:Name="verticalBorder"
+                     Grid.Column="1"
+                     WidthRequest="1"
+                     Color="{Binding BorderColor, Source={Reference buttonContainer}}"/>
+            <BoxView x:Name="horizontalBorder"
+                     Grid.Column="0"
+                     Grid.Row="1"
+                     HeightRequest="1"
+                     Color="{Binding BorderColor, Source={Reference buttonContainer}}"/>
+            <BoxView Grid.Column="1"
+                     Grid.Row="1"
+                     HeightRequest="1"
+                     WidthRequest="1"
+                     Color="{Binding BorderColor, Source={Reference buttonContainer}}"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

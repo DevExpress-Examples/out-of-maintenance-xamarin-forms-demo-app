@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                    x:Class="DemoCenter.Forms.Themes.DarkTheme"
+                    xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+                    xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts">
+    <Color x:Key="BackgroundThemeColor">#303030</Color>
+    <Color x:Key="GridCellLinesColor">#454545</Color>
+    <Color x:Key="TabItemBackgroundColor">#454545</Color>
+    <Color x:Key="MainPageBackgroundColor">#454545</Color>
+    <Color x:Key="TabItemBorderColor">#555555</Color>
+    <Color x:Key="TextThemeColor">#e7e7e7</Color>
+    <Color x:Key="TextButtonColor">#42a5f6</Color>
+    <Color x:Key="TitleIconColor">#e7e7e7</Color>
+    <Color x:Key="DemoIconColor">#1aa0f8</Color>
+    <Color x:Key="SecondElementsColor">#42a5f6</Color>
+
+    <Color x:Key="SecondaryTextColor">#8e8e8e</Color>
+
+    <Color x:Key="NavigationTextColor">#e7e7e7</Color>
+    <Color x:Key="PhoneListTabTextColor">#b7b7b7</Color>
+    <Color x:Key="PhoneListTabIconColor">#b7b7b7</Color>
+    
+    <Color x:Key="TabViewCompaniesIconColor">#b7b7b7</Color>
+    <Color x:Key="TabViewHeaderBackgroundColor">#424242</Color>
+    <Color x:Key="TabViewItemTextColor">#b7b7b7</Color>
+    <Color x:Key="TabViewItemSelectedBackgroundColor">#2b4b6f</Color>
+    <Color x:Key="TabViewIndicatorColor">#2088ff</Color>
+    <Color x:Key="TabViewPhoneListShadowColor">#555555</Color>
+    
+    <Color x:Key="PhoneThemeColor">#959aa0</Color>
+    
+    <Color x:Key="DrawerTopPanelBackgroundColor">#212121</Color>
+    <Color x:Key="DrawerTopPanelFontColor">#e7e7e7</Color>
+    <Color x:Key="DrawerTopPanelBorderColor">#212121</Color>
+    <Color x:Key="DrawerBackGroundColor">#303030</Color>
+    <Color x:Key="DrawerGrayFontColor">#8e8e8e</Color>
+    <Color x:Key="DrawerScrimColor">#A0000000</Color>
+    
+    <Color x:Key="NestedTabViewSeparatorColor">#303030</Color>
+    <Color x:Key="NestedTabViewFavoriteColor">#de6d6f</Color>
+    <Color x:Key="NestedTabViewCartColor">#27b24f</Color>
+    <Color x:Key="DrawerSettingsSeparatorColor">#454545</Color>
+    <Color x:Key="ReminderButtonBackgroundColor">#2088FF</Color>
+
+    <Color x:Key="AvatarBorderColor">Transparent</Color>
+
+    <Color x:Key="TabPagesHeaderSelectedBackground">#2d4259</Color>
+    <Color x:Key="TabPagesHeaderSelectedTextColor">#2088FF</Color>
+    <Color x:Key="TabPageHeaderShadowColor">#555555</Color>
+    <Color x:Key="TabPageDetailIconColor">#b7b7b7</Color>
+    <Color x:Key="TabPageFavoriteColor">#e39b29</Color>
+    <Color x:Key="TabPageSeparatorColor">#555555</Color>
+    <Style TargetType="NavigationPage">
+        <Setter Property="BarBackgroundColor" Value="{StaticResource BackgroundThemeColor}"/>
+        <Setter Property="BarTextColor" Value="{StaticResource TextThemeColor}"/>
+    </Style>
+    <Style TargetType="demo:IconView">
+        <Setter Property="ThemeName" Value="Dark"/>
+    </Style>
+    <Style TargetType="charts:ChartView">
+        <Setter Property="Theme" Value="Dark"/>
+    </Style>
+    <Style TargetType="charts:PieChartView">
+        <Setter Property="Theme" Value="Dark"/>
+    </Style>
+</ResourceDictionary>

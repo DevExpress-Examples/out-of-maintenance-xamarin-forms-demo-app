@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{DynamicResource GridCellBackgroundColor}"
+             xmlns:dxg="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo;assembly=DemoCenter.Forms"
+             x:Class="DemoCenter.Forms.DemoModules.Drawer.Views.InnerViews.DrawerCustomersPage">
+    <ContentPage.Content>
+        <dxg:DataGridView ItemsSource="{Binding Path=Customers}"
+                          IsReadOnly="true"
+                          ShowGroupedColumns="False"
+                          IsColumnHeaderVisible="false"
+                          Tap="OnTap">
+            <dxg:DataGridView.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="TextColor"
+                            Value="{DynamicResource GridCellFontColor}"/>
+                </Style>
+            </dxg:DataGridView.Resources>
+            <dxg:DataGridView.GroupRowStyle>
+                <dxg:GroupRowStyle FontSize="16" Padding="22"/>
+            </dxg:DataGridView.GroupRowStyle>
+            <dxg:DataGridView.Columns>
+                <dxg:TextColumn FieldName="CompanyName" IsGrouped="True"/>
+                <dxg:TemplateColumn FieldName="Name">
+                    <dxg:TemplateColumn.DisplayTemplate>
+                        <OnIdiom x:TypeArguments="DataTemplate">
+                            <OnIdiom.Phone>
+                                <DataTemplate>
+                                    <StackLayout Margin="14"
+                                                 Spacing="0">
+                                        <Grid RowSpacing="0"
+                                              ColumnSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <ContentView Grid.Row="0"
+                                                         Grid.Column="0"
+                                                         Grid.RowSpan="3"
+                                                         BackgroundColor="Transparent">
+                                                <ContentView BackgroundColor="{DynamicResource GridCellBorderColor}"
+                                                             HeightRequest="62" WidthRequest="60" VerticalOptions="Center">
+                                                    <Image Margin="1"
+                                                           VerticalOptions="CenterAndExpand"
+                                                           Source="{Binding Item.Photo}"
+                                                           Aspect="AspectFill"
+                                                           HeightRequest="60"
+                                                           WidthRequest="60"/>  
+                                                </ContentView>
+                                            </ContentView>
+
+                                            <Label Text="{Binding Value}"
+                                                   Grid.Row="0"
+                                                   Grid.Column="1"
+                                                   Margin="14, 0, 0, 7"/>
+                                            <Label Text="{Binding Item.Position}"
+                                                   Grid.Row="1"
+                                                   Grid.Column="1"
+                                                   Margin="14, 0, 0, 7"/>
+                                            <Label Text="{Binding Item.Phone}"
+                                                   Grid.Row="2"
+                                                   Grid.Column="1"
+                                                   Margin="14, 0, 0, 0"/>
+                                            <demo:IconView Grid.Column="2" 
+                                                           Grid.Row="0" 
+                                                           Grid.RowSpan="3" 
+                                                           VerticalOptions="CenterAndExpand"
+                                                           HorizontalOptions="EndAndExpand"
+                                                           ForegroundColor="{DynamicResource TabPageDetailIconColor}"
+                                                           HeightRequest="25"
+                                                           WidthRequest="25"
+                                                           ImageSource="TabView.detail.svg"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </OnIdiom.Phone>
+                            <OnIdiom.Tablet>
+                                <DataTemplate>
+                                    <StackLayout Spacing="0"
+                                                 Margin="20">
+                                        <Grid RowSpacing="0"
+                                              ColumnSpacing="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <ContentView Grid.Row="0"
+                                                         Grid.Column="0"
+                                                         BackgroundColor="{DynamicResource GridCellBorderColor}">
+                                                <Image Margin="1"
+                                                       Source="{Binding Item.Photo}"
+                                                       Aspect="AspectFill"
+                                                       HeightRequest="100"
+                                                       WidthRequest="100"/>
+                                            </ContentView>
+
+                                            <Grid Grid.Row="0"
+                                                  Grid.Column="1"
+                                                  Margin="20, 0, 0, 0"
+                                                  RowSpacing="0"
+                                                  ColumnSpacing="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="80"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Margin="0, 0, 0, 10"
+                                                       Text="Name:"
+                                                       FontAttributes="Bold"
+                                                       Grid.Row="0"
+                                                       Grid.Column="0"/>
+                                                <Label Margin="0, 0, 0, 10"
+                                                       Text="{Binding Value}"
+                                                       Grid.Row="0"
+                                                       Grid.Column="1"/>
+
+                                                <Label Margin="0, 0, 0, 10"
+                                                       Text="Position:"
+                                                       FontAttributes="Bold"
+                                                       Grid.Row="1"
+                                                       Grid.Column="0"/>
+                                                <Label Margin="0, 0, 0, 10"
+                                                       Text="{Binding Item.Position}"
+                                                       Grid.Row="1"
+                                                       Grid.Column="1"/>
+
+                                                <Label Margin="0, 0, 0, 10"
+                                                       Text="Phone:"
+                                                       FontAttributes="Bold"
+                                                       Grid.Row="2"
+                                                       Grid.Column="0"/>
+                                                <Label Margin="0, 0, 0, 10"
+                                                       Text="{Binding Item.Phone}"
+                                                       Grid.Row="2"
+                                                       Grid.Column="1"/>
+
+                                                <Label Margin="0, 0, 0, 10"
+                                                       Text="Email:"
+                                                       FontAttributes="Bold"
+                                                       Grid.Row="3"
+                                                       Grid.Column="0"/>
+                                                <Label Margin="0, 0, 0, 10"
+                                                       Text="{Binding Item.Email}"
+                                                       Grid.Row="3"
+                                                       Grid.Column="1"/>
+
+                                                <Label Text="Address:"
+                                                       FontAttributes="Bold"
+                                                       Grid.Row="4"
+                                                       Grid.Column="0"/>
+                                                <Label Text="{Binding Item.Address}"
+                                                       Grid.Row="4"
+                                                       Grid.Column="1"/>
+
+                                            </Grid>
+                                        </Grid>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </OnIdiom.Tablet>
+                        </OnIdiom>
+                    </dxg:TemplateColumn.DisplayTemplate>
+                </dxg:TemplateColumn>
+            </dxg:DataGridView.Columns>
+        </dxg:DataGridView>
+    </ContentPage.Content>
+</ContentPage>

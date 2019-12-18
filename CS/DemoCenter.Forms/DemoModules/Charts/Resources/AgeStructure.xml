@@ -1,0 +1,115 @@
+<?xml version="1.0" standalone="yes"?>
+<QualitativeDataSets>
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="QualitativeData">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="Argument" type="xs:string"/>
+          <xs:element name="Value" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>  
+    <DataSets>
+        <DataSetContainer>
+            <Name>Male: 0-14 and 65+ years old</Name>
+            <DataSet>
+                <QualitativeData>
+                    <Argument>US</Argument>
+                    <Value>53077788</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Brazil</Argument>
+                    <Value>30965129</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Russia</Argument>
+                    <Value>18537533</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Japan</Argument>
+                    <Value>23553607</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>UK</Argument>
+                    <Value>10931853</Value>
+                </QualitativeData>
+            </DataSet>
+        </DataSetContainer>
+        <DataSetContainer>
+            <Name>Male: 15-64 years</Name>
+            <DataSet>
+                <QualitativeData>
+                    <Argument>US</Argument>
+                    <Value>106612970</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Brazil</Argument>
+                    <Value>70533639</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Russia</Argument>
+                    <Value>47326980</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Japan</Argument>
+                    <Value>37897740</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>UK</Argument>
+                    <Value>21124412</Value>
+                </QualitativeData>
+            </DataSet>
+        </DataSetContainer>
+        <DataSetContainer>
+            <Name>Female: 0-14 and 65+ years old</Name>
+            <DataSet>
+                <QualitativeData>
+                    <Argument>US</Argument>
+                    <Value>57379942</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Brazil</Argument>
+                    <Value>32517934</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Russia</Argument>
+                    <Value>25391403</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Japan</Argument>
+                    <Value>27452017</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>UK</Argument>
+                    <Value>11839696</Value>
+                </QualitativeData>
+            </DataSet>
+        </DataSetContainer>
+        <DataSetContainer>
+            <Name>Female: 15-64 years</Name>
+            <DataSet>
+                <QualitativeData>
+                    <Argument>US</Argument>
+                    <Value>106924828</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Brazil</Argument>
+                    <Value>71806963</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Russia</Argument>
+                    <Value>51099499</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Japan</Argument>
+                    <Value>37798769</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>UK</Argument>
+                    <Value>20534467</Value>
+                </QualitativeData>
+            </DataSet>
+        </DataSetContainer>
+    </DataSets>
+</QualitativeDataSets>

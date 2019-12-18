@@ -1,0 +1,65 @@
+<?xml version="1.0" standalone="yes"?>
+<QualitativeDataSets>
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="QualitativeData">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="Argument" type="xs:string"/>
+          <xs:element name="Value" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>  
+    <DataSets>
+        <DataSetContainer>
+            <Name>Male</Name>
+            <DataSet>
+                <QualitativeData>
+                    <Argument>US</Argument>
+                    <Value>159690758</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Brazil</Argument>
+                    <Value>101498768</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Russia</Argument>
+                    <Value>101498768</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Japan</Argument>
+                    <Value>61451347</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>UK</Argument>
+                    <Value>32056265</Value>
+                </QualitativeData>
+            </DataSet>
+        </DataSetContainer>
+        <DataSetContainer>
+            <Name>Female</Name>
+            <DataSet>
+                <QualitativeData>
+                    <Argument>US</Argument>
+                    <Value>164304770</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Brazil</Argument>
+                    <Value>104324897</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Russia</Argument>
+                    <Value>76490902</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Japan</Argument>
+                    <Value>65250786</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>UK</Argument>
+                    <Value>32374163</Value>
+                </QualitativeData>
+            </DataSet>
+        </DataSetContainer>
+    </DataSets>
+</QualitativeDataSets>

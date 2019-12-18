@@ -1,0 +1,73 @@
+<?xml version="1.0" standalone="yes"?>
+<DateTimeDataSets>
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="DateTimeData">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="Argument" type="xs:dateTime"/>
+          <xs:element name="Value" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>  
+    <DataSets>
+        <DataSetContainer>
+            <Name>DevAV North</Name>
+            <DataSet>
+                <DateTimeData>
+                    <Argument>2012-01-01</Argument>
+                    <Value>362.5</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2013-01-01</Argument>
+                    <Value>348.4</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2014-01-01</Argument>
+                    <Value>279.0</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2015-01-01</Argument>
+                    <Value>230.9</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-01-01</Argument>
+                    <Value>203.5</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2017-01-01</Argument>
+                    <Value>197.1</Value>
+                </DateTimeData>
+            </DataSet>
+        </DataSetContainer>
+        <DataSetContainer>
+            <Name>DevAV South</Name>
+            <DataSet>
+                <DateTimeData>
+                    <Argument>2012-01-01</Argument>
+                    <Value>277.0</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2013-01-01</Argument>
+                    <Value>328.5</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2014-01-01</Argument>
+                    <Value>297.0</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2015-01-01</Argument>
+                    <Value>255.3</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2016-01-01</Argument>
+                    <Value>173.5</Value>
+                </DateTimeData>
+                <DateTimeData>
+                    <Argument>2017-01-01</Argument>
+                    <Value>131.8</Value>
+                </DateTimeData>
+            </DataSet>
+        </DataSetContainer>
+    </DataSets>
+</DateTimeDataSets>

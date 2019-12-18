@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             x:Class="DemoCenter.Forms.Charts.Views.PieChartContainer">
+    <ContentView.Resources>
+        <charts:PieSeriesHintOptions x:Key="pieSeriesHintOptions"
+                                     PointTextPattern="{}{VP$#}%"/>
+        <charts:PieSeriesLabel x:Key="pieSeriesLabel"
+                               Position="Inside"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding ChartModel.Title}"
+                   FontFamily="Roboto"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <charts:PieChartView Grid.Row="1"
+                                 SelectionMode="Single"
+                                 SelectionBehavior="Hatch">
+                <charts:PieChartView.ChartStyle>
+                    <charts:PieChartStyle SeriesIndent="16"
+                                          Palette="{Binding ChartModel.Palette}"/>
+                </charts:PieChartView.ChartStyle>
+                <charts:PieChartView.Hint>
+                    <charts:PieHint ShowMode="OnTap"/>
+                </charts:PieChartView.Hint>
+                <charts:PieChartView.Series>
+                    <charts:PieSeries HintOptions="{StaticResource pieSeriesHintOptions}"
+                                      Label="{StaticResource pieSeriesLabel}">
+                        <charts:PieSeries.Data>
+                            <charts:PieSeriesDataAdapter DataSource="{Binding ChartModel.Rating}" 
+                                                         LabelDataMember="Label" 
+                                                         ValueDataMember="Value"/>
+                        </charts:PieSeries.Data>
+                    </charts:PieSeries>
+                    <charts:PieSeries HintOptions="{StaticResource pieSeriesHintOptions}"
+                                      Label="{StaticResource pieSeriesLabel}">
+                        <charts:PieSeries.Data>
+                            <charts:PieSeriesDataAdapter DataSource="{Binding ChartModel.Security}" 
+                                                         LabelDataMember="Label" 
+                                                         ValueDataMember="Value"/>
+                        </charts:PieSeries.Data>
+                    </charts:PieSeries>
+                </charts:PieChartView.Series>
+            </charts:PieChartView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             x:Class="DemoCenter.Forms.Charts.Views.BubbleChartContainer">
+    <ContentView.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding ChartModel.Title}"
+                   FontFamily="Roboto"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <charts:ChartView x:Name="bubbleChart"
+                              Grid.Row="1"
+                              SelectionKind="Point"
+                              SelectionMode="Single"
+                              SelectionChanged="OnBubbleSelectionChanged">
+                
+                <charts:ChartView.Series>
+                    <charts:BubbleSeries x:Name="bubbleSeries"
+                                         ColorEach="true">
+                        <charts:BubbleSeries.Label>
+                            <charts:BubbleSeriesLabel Position="Outside"
+                                                      TextPattern="{}{W$$#.##B}"
+                                                      Angle="90"/>
+                        </charts:BubbleSeries.Label>
+                        <charts:BubbleSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.SeriesData}" ArgumentDataMember="Date">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Weight" Member="WorldwideGrosses"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:BubbleSeries.Data>
+                    </charts:BubbleSeries>
+                </charts:ChartView.Series>
+                
+                <charts:ChartView.AxisX>
+                    <charts:DateTimeAxisX MeasureUnit="Year"
+                                          GridAlignment="Year"
+                                          GridSpacing="2">
+                        <charts:DateTimeAxisX.Label>
+                            <charts:AxisLabel TextFormat="yyyy"/>
+                        </charts:DateTimeAxisX.Label>
+                    </charts:DateTimeAxisX>
+                </charts:ChartView.AxisX>
+                <charts:ChartView.AxisY>
+                    <charts:NumericAxisY AlwaysShowZeroLevel="false">
+                        <charts:NumericAxisY.Title>
+                            <charts:AxisTitle Text="Production Budget, Millions of Dollars"/>
+                        </charts:NumericAxisY.Title>
+                    </charts:NumericAxisY>
+                </charts:ChartView.AxisY>
+                <charts:ChartView.ChartStyle>
+                    <charts:ChartStyle Palette="{Binding ChartModel.Palette}"/>
+                </charts:ChartView.ChartStyle>
+                <charts:ChartView.Hint>
+                    <charts:Hint/>
+                </charts:ChartView.Hint>
+            </charts:ChartView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

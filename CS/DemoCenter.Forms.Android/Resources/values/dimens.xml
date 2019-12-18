@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="app_company_text_size">18sp</dimen>
+  <dimen name="app_name_text_size">22sp</dimen>
+  <dimen name="app_version_text_size">16sp</dimen>
+  <dimen name="app_platform_text_size">14sp</dimen>
+</resources>

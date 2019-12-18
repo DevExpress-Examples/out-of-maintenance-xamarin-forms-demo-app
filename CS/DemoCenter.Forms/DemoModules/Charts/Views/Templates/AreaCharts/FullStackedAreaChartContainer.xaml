@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             x:Class="DemoCenter.Forms.Charts.Views.FullStackedAreaChartContainer">
+    <ContentView.Resources>
+        <charts:MarkerSeriesLabel x:Key="stackedAreaSeriesLabel"
+                                  TextPattern="${V$#.#}M"/>
+        <charts:SeriesHintOptions x:Key="fullStackedAreaSeriesHintOptions"
+                                  PointTextPattern="{}{S}&#x0a;{A$yyyy}: {VP$#%}"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding ChartModel.Title}"
+                   FontFamily="Roboto"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <charts:ChartView Grid.Row="1"
+                              SelectionMode="Single"
+                              SelectionKind="Series">
+                <charts:ChartView.Series>
+                    <charts:FullStackedAreaSeries DisplayName="{Binding ChartModel.DevAVEast.Name}"
+                                                  HintOptions="{StaticResource fullStackedAreaSeriesHintOptions}"
+                                                  Label="{StaticResource stackedAreaSeriesLabel}"
+                                                  MarkersVisible="true">
+                        <charts:FullStackedAreaSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVEast.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:FullStackedAreaSeries.Data>
+                    </charts:FullStackedAreaSeries>
+                    <charts:FullStackedAreaSeries DisplayName="{Binding ChartModel.DevAVWest.Name}"
+                                                  HintOptions="{StaticResource fullStackedAreaSeriesHintOptions}"
+                                                  Label="{StaticResource stackedAreaSeriesLabel}"
+                                                  MarkersVisible="true">
+                        <charts:FullStackedAreaSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVWest.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:FullStackedAreaSeries.Data>
+                    </charts:FullStackedAreaSeries>
+                    <charts:FullStackedAreaSeries DisplayName="{Binding ChartModel.DevAVSouth.Name}"
+                                                  HintOptions="{StaticResource fullStackedAreaSeriesHintOptions}"
+                                                  Label="{StaticResource stackedAreaSeriesLabel}"
+                                                  MarkersVisible="true">
+                        <charts:FullStackedAreaSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVSouth.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:FullStackedAreaSeries.Data>
+                    </charts:FullStackedAreaSeries>
+                    <charts:FullStackedAreaSeries DisplayName="{Binding ChartModel.DevAVCenter.Name}"
+                                                  HintOptions="{StaticResource fullStackedAreaSeriesHintOptions}"
+                                                  Label="{StaticResource stackedAreaSeriesLabel}"
+                                                  MarkersVisible="true">
+                        <charts:FullStackedAreaSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVCenter.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:FullStackedAreaSeries.Data>
+                    </charts:FullStackedAreaSeries>
+                    <charts:FullStackedAreaSeries DisplayName="{Binding ChartModel.DevAVNorth.Name}"
+                                                  HintOptions="{StaticResource fullStackedAreaSeriesHintOptions}"
+                                                  Label="{StaticResource stackedAreaSeriesLabel}"
+                                                  MarkersVisible="true">
+                        <charts:FullStackedAreaSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVNorth.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:FullStackedAreaSeries.Data>
+                    </charts:FullStackedAreaSeries>    
+                </charts:ChartView.Series>
+                <charts:ChartView.Legend>
+                    <charts:Legend HorizontalPosition="Center"
+                                   VerticalPosition="BottomOutside"
+                                   Orientation="LeftToRight"/>
+                </charts:ChartView.Legend>
+                <charts:ChartView.Hint>
+                    <charts:Hint/>
+                </charts:ChartView.Hint>
+                <charts:ChartView.AxisX>
+                    <charts:DateTimeAxisX MeasureUnit="Year">
+                        <charts:DateTimeAxisX.Label>
+                            <charts:AxisLabel TextFormat="yyyy"/>
+                        </charts:DateTimeAxisX.Label>
+                    </charts:DateTimeAxisX>
+                </charts:ChartView.AxisX>
+                <charts:ChartView.AxisY>
+                    <charts:NumericAxisY>
+                        <charts:NumericAxisY.Label>
+                            <charts:AxisLabel TextFormat="#%"/>
+                        </charts:NumericAxisY.Label>
+                    </charts:NumericAxisY>
+                </charts:ChartView.AxisY>
+            </charts:ChartView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 39 39" style="enable-background:new 0 0 39 39;" xml:space="preserve">
+<linearGradient  gradientUnits="userSpaceOnUse" x1="1" y1="20.5" x2="37" y2="20.5" gradientTransform="matrix(1 0 0 -1 0 40)">
+	<stop  offset="0" style="stop-color:#00A0FF"/>
+	<stop  offset="1" style="stop-color:#0EA1FD"/>
+</linearGradient>
+<path fill="#0EA1FD" d="M36,35V22.7c0.6-0.3,1-1,1-1.7s-0.4-1.4-1-1.7v-8.1c0,0,0,0,0-0.1c0,0,0,0,0-0.1c0-0.6-0.4-1-1-1h-8
+	c-0.6,0-1,0.4-1,1c0,0,0,0,0,0.1c0,0,0,0,0,0.1V15h-6V7c0-0.6-0.4-1-1-1h-8c-0.6,0-1,0.4-1,1v5H4V3c0-0.6-0.4-1-1-1S2,2.4,2,3v23.2
+	c-0.6,0.3-1,1-1,1.7s0.4,1.4,1,1.7V36c0,0.6,0.4,1,1,1h33c0.6,0,1-0.4,1-1S36.6,35,36,35z M5,27.9c0-0.1,0-0.2,0-0.3l5-4.1V35H4
+	v-5.3C4.6,29.3,5,28.7,5,27.9z M12,21.8l2.4-1.9C14.6,20,14.8,20,15,20h0.1l2.9,4.6V35h-6V21.8z M12,15.3V8h6v12.8l-1.2-1.9
+	c0.1-0.3,0.2-0.6,0.2-0.9c0-1.1-0.9-2-2-2s-2,0.9-2,2c0,0.1,0,0.3,0,0.4l-1,0.9V15.3z M20,27.8l1.3,2.1C21.1,30.2,21,30.6,21,31
+	c0,1.1,0.9,2,2,2s2-0.9,2-2v-0.1l1-0.9v5h-6V27.8z M28,28.3l6-5.2V35h-6V28.3z M28,12h6v7.3c-0.6,0.3-1,1-1,1.7c0,0.1,0,0.2,0,0.3
+	l-5,4.4V12z M26,17v10.4l-2.1,1.9c-0.2-0.1-0.5-0.2-0.7-0.2L20,24v-7H26z M10,14v1.3v5.6l-6,4.9V14H10z"/>
+</svg>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DemoCenter.Forms"
+             x:Class="DemoCenter.Forms.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary MergedWith="local:Charts.Templates.ChartTemplates"/>
+            </ResourceDictionary.MergedDictionaries>
+            <OnPlatform x:TypeArguments="x:String" x:Key="Univia-Pro">
+                <On Platform="Android" Value="univia-pro-regular.ttf#Univia-Pro"/>
+                <On Platform="iOS" Value="Univia Pro Regular"/>
+             </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="Univia-Pro Medium">
+                <On Platform="Android" Value="univia-pro-medium.ttf#Univia-Pro Medium"/>
+                <On Platform="iOS" Value="Univia Pro Medium"/>
+            </OnPlatform>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

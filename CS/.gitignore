@@ -1,0 +1,5 @@
+.vs/*
+packages/*
+obj/*
+bin/*
+Resources/Resource.designer.cs

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             x:Class="DemoCenter.Forms.Charts.Views.LineChartContainer">
+    <ContentView.Resources>
+        <charts:SeriesHintOptions x:Key="lineSeriesHintOptions"
+                                  PointTextPattern="{}{A$yyyy}: {V}M"/>
+        <charts:ConstantLineTitle x:Key="emptyConstantLineTitle" Visible="false"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding ChartModel.Title}"
+                   FontFamily="Roboto"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <charts:ChartView Grid.Row="1"
+                              SelectionMode="Single"
+                              SelectionKind="Series">
+                <charts:ChartView.Series>
+                    <charts:LineSeries DisplayName="{Binding ChartModel.Europe.Name}"
+                                       MarkersVisible="true"
+                                       HintOptions="{StaticResource lineSeriesHintOptions}">
+                        <charts:LineSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Europe.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:LineSeries.Data>
+                    </charts:LineSeries>
+                    
+                    <charts:LineSeries DisplayName="{Binding ChartModel.Americas.Name}"
+                                       MarkersVisible="true"
+                                       HintOptions="{StaticResource lineSeriesHintOptions}">
+                        <charts:LineSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Americas.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:LineSeries.Data>
+                    </charts:LineSeries>
+                    
+                    <charts:LineSeries DisplayName="{Binding ChartModel.Africa.Name}"
+                                       MarkersVisible="true"
+                                       HintOptions="{StaticResource lineSeriesHintOptions}">
+                        <charts:LineSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Africa.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                            </charts:SeriesDataAdapter>
+                        </charts:LineSeries.Data>
+                    </charts:LineSeries>
+                    
+                </charts:ChartView.Series>
+                <charts:ChartView.Hint>
+                    <charts:Hint>
+                        <charts:Hint.Behavior>
+                            <charts:TooltipHintBehavior/>
+                        </charts:Hint.Behavior>
+                    </charts:Hint>
+                </charts:ChartView.Hint>
+                <charts:ChartView.Legend>
+                    <charts:Legend HorizontalPosition="Center"
+                                   VerticalPosition="BottomOutside"
+                                   Orientation="LeftToRight"/>
+                </charts:ChartView.Legend>
+                <charts:ChartView.AxisX>
+                    <charts:DateTimeAxisX>
+                        <charts:DateTimeAxisX.Strips>
+                            <charts:DateTimeStrip MaxLimitEnabled="false"
+                                                  VisibleInLegend="false"
+                                                  MinLimit="{Binding ChartModel.CurrentDate}"/>
+                        </charts:DateTimeAxisX.Strips>
+                        <charts:DateTimeAxisX.ConstantLines>
+                            <charts:DateTimeConstantLine AxisValue="{Binding ChartModel.CurrentDate}"
+                                                         VisibleInLegend="false">
+                                <charts:DateTimeConstantLine.Title>
+                                    <charts:ConstantLineTitle Text="{Binding ChartModel.CurrentDate, StringFormat='{0:yyyy}'}"/>
+                                </charts:DateTimeConstantLine.Title>
+                            </charts:DateTimeConstantLine>
+                        </charts:DateTimeAxisX.ConstantLines>
+                        <charts:DateTimeAxisX.Label>
+                            <charts:AxisLabel TextFormat="yyyy"/>
+                        </charts:DateTimeAxisX.Label>
+                    </charts:DateTimeAxisX>
+                </charts:ChartView.AxisX>
+                <charts:ChartView.AxisY>
+                    <charts:NumericAxisY>
+                        <charts:NumericAxisY.Label>
+                            <charts:AxisLabel TextFormat="#M"/>
+                        </charts:NumericAxisY.Label>
+                        <charts:NumericAxisY.Title>
+                            <charts:AxisTitle Text="Population mid-year, millions"/>
+                        </charts:NumericAxisY.Title>
+                    </charts:NumericAxisY>
+                </charts:ChartView.AxisY>
+            </charts:ChartView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

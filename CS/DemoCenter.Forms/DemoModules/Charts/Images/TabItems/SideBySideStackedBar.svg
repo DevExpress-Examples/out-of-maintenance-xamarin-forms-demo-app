@@ -1,0 +1,37 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 32 32"
+    id="vector">
+    <path
+        id="path"
+        d="M 29 21 L 24 21 L 24 30 L 29 30 L 29 21 Z M 14 19 L 9 19 L 9 30 L 14 30 L 14 19 Z"
+        fill="#8e8e93"/>
+    <path
+        id="path_1"
+        d="M 24 2 L 29 2 L 29 21 L 24 21 Z"
+        fill="#8e8e93"
+        fill-opacity="0.5"/>
+    <path
+        id="path_2"
+        d="M 9 8 L 14 8 L 14 19 L 9 19 Z"
+        fill="#8e8e93"
+        fill-opacity="0.5"/>
+    <path
+        id="path_3"
+        d="M 18 16 L 23 16 L 23 30 L 18 30 Z"
+        fill="#8e8e93"/>
+    <path
+        id="path_4"
+        d="M 18 7 L 23 7 L 23 16 L 18 16 Z"
+        fill="#8e8e93"
+        fill-opacity="0.5"/>
+    <path
+        id="path_5"
+        d="M 3 22 L 8 22 L 8 30 L 3 30 Z"
+        fill="#8e8e93"/>
+    <path
+        id="path_6"
+        d="M 3 15 L 8 15 L 8 22 L 3 22 Z"
+        fill="#8e8e93"
+        fill-opacity="0.5"/>
+</svg>

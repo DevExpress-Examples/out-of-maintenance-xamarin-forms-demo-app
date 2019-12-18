@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:local="clr-namespace:DemoCenter.Forms"
+                    x:Class="DemoCenter.Forms.Charts.Templates.ChartTemplates">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary MergedWith="local:Charts.Templates.AreaChartTemplates"/>
+        <ResourceDictionary MergedWith="local:Charts.Templates.BarChartTemplates"/>
+        <ResourceDictionary MergedWith="local:Charts.Templates.LineChartTemplates"/>
+        <ResourceDictionary MergedWith="local:Charts.Templates.PieChartTemplates"/>
+        <ResourceDictionary MergedWith="local:Charts.Templates.PointChartTemplates"/>
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

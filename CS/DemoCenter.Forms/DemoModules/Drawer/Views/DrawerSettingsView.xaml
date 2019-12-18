@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoCenter.Forms.Views.DrawerSettingsView"
+             xmlns:dxnav="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
+             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo;assembly=DemoCenter.Forms"
+             xmlns:effects="clr-namespace:DemoCenter.Forms.Effects;assembly=DemoCenter.Forms"
+             xmlns:iOSSpec="clr-namespace:DemoCenter.PlatformConfiguration.iOSSpecific;assembly=DemoCenter.Forms"
+             iOSSpec:Page.DisablePopInteractive="True">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="menuTemplate" x:Name="menuTemplate">
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         Orientation="Horizontal"
+                         Spacing="30"
+                         HeightRequest="20">
+                <demo:IconView HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               ForegroundColor="{StaticResource TitleIconColor}"
+                               ImageSource="{Binding Icon}"
+                               Margin="0,0,0,0"
+                               WidthRequest="20"/>
+                <Label Text="{Binding Name}" 
+                       FontSize="14"
+                       FontAttributes="None"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       BackgroundColor="Transparent"/>
+            </StackLayout>
+        </DataTemplate>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontAttributes" Value="None"/>
+            <Setter Property="TextColor" Value="{StaticResource NavigationTextColor}"/>
+        </Style>
+        <Style TargetType="demo:RadioButton">
+            <Setter Property="FlexLayout.Basis">
+                <Setter.Value>
+                    <OnIdiom x:TypeArguments="FlexBasis" Tablet="25%" Phone="130"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FlexLayout.Grow" Value="0"/>
+            <Setter Property="FlexLayout.Shrink" Value="0"/>
+            <Setter Property="Padding" Value="0,10"/>            
+            <Setter Property="HeightRequest" Value="50"/>            
+        </Style>
+        <Style TargetType="FlexLayout">
+            <Setter Property="Direction" Value="Row"/>
+            <Setter Property="Wrap" Value="Wrap"/>
+            <Setter Property="JustifyContent" Value="SpaceAround"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <dxnav:DrawerView x:Name="drawerView"
+                          DrawerPosition="{Binding SelectedPosition}"
+                          DrawerBehavior="{Binding SelectedBehavior}"
+                          VerticalOptions="FillAndExpand"
+                          DrawerHeight="Auto"
+                          DrawerShadowColor="{DynamicResource DrawerSettingsSeparatorColor}"
+                          ScrimColor="{DynamicResource DrawerScrimColor}">
+            <dxnav:DrawerView.DrawerWidth>
+                <OnIdiom x:TypeArguments="dxnav:TabItemLength" Tablet="0.3*" Phone="0.6*"/> 
+            </dxnav:DrawerView.DrawerWidth>
+            <dxnav:DrawerView.DrawerContent>
+                <StackLayout Orientation="Vertical"
+                             x:Name="menu"
+                             Margin="30,30"
+                             Spacing="25"
+                             HorizontalOptions="FillAndExpand"/>
+            </dxnav:DrawerView.DrawerContent>
+            <dxnav:DrawerView.MainContent>
+                <StackLayout Orientation="Vertical" BackgroundColor="{DynamicResource BackgroundThemeColor}">
+                    <StackLayout BackgroundColor="{DynamicResource DrawerTopPanelBackgroundColor}"
+                                 Spacing="0">
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="0"
+                                     Padding="20,0"
+                                     Spacing="21"
+                                     BackgroundColor="Transparent"
+                                     VerticalOptions="CenterAndExpand"
+                                     HorizontalOptions="FillAndExpand">
+                            <demo:IconView Margin="0,17,0,0"
+                                           HorizontalOptions="Start"
+                                           ImageSource="hamburger_menu.svg"
+                                           ForegroundColor="{DynamicResource TitleIconColor}"
+                                           WidthRequest="22">
+                                <demo:IconView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnMenuClicked"/>
+                                </demo:IconView.GestureRecognizers>
+                            </demo:IconView>
+                            <Label HorizontalOptions="Start"
+                                   Text="Tap to Open"
+                                   TextColor="{DynamicResource DrawerTopPanelFontColor}"
+                                   BackgroundColor="Transparent"
+                                   VerticalOptions="Center"
+                                   FontFamily="Roboto-Medium"
+                                   FontSize="18"
+                                   FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout.Effects>
+                            <effects:ShadowEffect Elevation="16"
+                                                  DistanceY="0"
+                                                  DistanceX="0"
+                                                  Radius="3"
+                                                  Color="Black"
+                                                  Opacity="0.5"/>
+                            </StackLayout.Effects>
+                    </StackLayout>
+                     <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition>
+                                <ColumnDefinition.Width>
+                                    <OnIdiom x:TypeArguments="GridLength" Phone="0*" Tablet="0.1*"/>
+                                </ColumnDefinition.Width>
+                            </ColumnDefinition>
+                            <ColumnDefinition>
+                                <ColumnDefinition.Width>
+                                    <OnIdiom x:TypeArguments="GridLength" Phone="*" Tablet="0.8*"/>
+                                </ColumnDefinition.Width>
+                            </ColumnDefinition>
+                            <ColumnDefinition>
+                                <ColumnDefinition.Width>
+                                    <OnIdiom x:TypeArguments="GridLength" Phone="0*" Tablet="0.1*"/>
+                                </ColumnDefinition.Width>
+                            </ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <ScrollView Grid.Column="1"
+                                    Orientation="Vertical">
+                            <StackLayout Orientation="Vertical" Padding="20,17">
+                                <Label Text="Transitions" TextColor="{DynamicResource NavigationTextColor}"/>
+                                <FlexLayout x:Name="positionSelector"
+                                            Padding="27,0,0,0"/>
+
+                                <ContentView BackgroundColor="{DynamicResource DrawerSettingsSeparatorColor}"
+                                             HeightRequest="1" Margin="0,10,0,30"/>
+
+                                <Label Text="Position" TextColor="{DynamicResource NavigationTextColor}"/>
+                                <FlexLayout x:Name="behaviorSelector"
+                                            Padding="27,0,0,0"/>
+                            </StackLayout>
+                        </ScrollView>
+                    </Grid>
+                </StackLayout>
+            </dxnav:DrawerView.MainContent>
+        </dxnav:DrawerView>
+    </ContentPage.Content>
+</ContentPage>

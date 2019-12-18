@@ -1,0 +1,65 @@
+<?xml version="1.0" standalone="yes"?>
+<QualitativeDataSets>
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="QualitativeData">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="Argument" type="xs:string"/>
+          <xs:element name="Value" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+    <DataSets>
+        <DataSetContainer>
+            <Name>Projectors</Name>
+            <DataSet>
+                <QualitativeData>
+                    <Argument>Asia</Argument>
+                    <Value>1325</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Australia</Argument>
+                    <Value>963</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Europe</Argument>
+                    <Value>565</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>N.America</Argument>
+                    <Value>787</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>S.America</Argument>
+                    <Value>1125</Value>
+                </QualitativeData>
+            </DataSet>
+        </DataSetContainer>
+        <DataSetContainer>
+            <Name>Televisions</Name>
+            <DataSet>
+                <QualitativeData>
+                    <Argument>Asia</Argument>
+                    <Value>653</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Australia</Argument>
+                    <Value>123</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>Europe</Argument>
+                    <Value>532</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>N.America</Argument>
+                    <Value>332</Value>
+                </QualitativeData>
+                <QualitativeData>
+                    <Argument>S.America</Argument>
+                    <Value>865</Value>
+                </QualitativeData>
+            </DataSet>
+        </DataSetContainer>
+    </DataSets>
+</QualitativeDataSets>

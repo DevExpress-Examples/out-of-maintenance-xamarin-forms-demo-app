@@ -1,0 +1,13 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 32 32"
+    id="vector">
+    <path
+        id="path"
+        d="M 0 12 L 10 20 L 25 3 L 32 12 L 32 32 L 0 32 L 0 12 Z"
+        fill="#c1c1c3"/>
+    <path
+        id="path_1"
+        d="M 0 24 L 4 20 L 12 26 L 25 11 L 32 20 L 32 32 L 0 32 L 0 24 Z"
+        fill="#8e8e93"/>
+</svg>
