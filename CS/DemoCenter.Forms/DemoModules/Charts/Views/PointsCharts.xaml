@@ -11,7 +11,7 @@
              BackgroundColor="{DynamicResource BackgroundThemeColor}">
     <ContentPage.Resources>
         <charts:SeriesHintOptions x:Key="pointSeriesHintOptions"
-                                  PointTextPattern="{}{A$LLL}: {V}°C"/>
+                                  PointTextPattern="{}{A$LLLL}: {V}°C"/>
         <local:PointTypeToImageSourceConverter x:Key="pointTypeToImageSourceConverter"/>
         <DataTemplate x:Key="headerItemTemplate">
             <demo:TabButton ImageSource="{Binding PointType, Converter={StaticResource pointTypeToImageSourceConverter}}" IsSelected="{Binding IsSelected}" IsVertical="{Binding IsVertical}"/>

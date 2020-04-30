@@ -14,6 +14,10 @@
             <demo:TabButton ImageSource="{Binding BarType, Converter={StaticResource barTypeToImageSourceConverter}}" IsSelected="{Binding IsSelected}" IsVertical="{Binding IsVertical}"/>
         </DataTemplate>
         <local:BarChartTemplateSelector x:Key="barChartTemplateSelector"
+                                        SideBySideRangeBarChartTemplate="{StaticResource sideBySideRangeBarChartTemplate}"
+                                        RangeBarChartTemplate="{StaticResource rangeBarChartTemplate}"
+                                        PopulationPyramidTemplate="{StaticResource populationPyramidTemplate}"
+                                        CryptocurrencyPortfolioTemplate="{StaticResource cryptocurrencyPortfolioTemplate}"
                                         BarChartTemplate="{StaticResource barChartTemplate}"
                                         StackedBarChartTemplate="{StaticResource stackedBarChartTemplate}"
                                         SideBySideStackedBarChartTemplate="{StaticResource sideBySideStackedBarChartTemplate}"

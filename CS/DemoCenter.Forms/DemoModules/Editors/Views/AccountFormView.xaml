@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DemoCenter.Forms.Views.AccountFormView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
+    xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+    xmlns:converters="clr-namespace:DemoCenter.Forms.DemoModules.Editors.Converters"
+    BackgroundColor="{DynamicResource BackgroundThemeColor}"
+    ios:Page.UseSafeArea="True">
+     <ContentPage.Resources>
+        <ResourceDictionary>
+             <ResourceDictionary.MergedDictionaries>
+                <demo:EditorsAndControlsResources/>
+             </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout Margin="12">
+            <dxe:ComboBoxEdit
+                LabelText="Box Mode"
+                BoxMode="{Binding SelectedBoxMode}"
+                SelectedItem="{Binding SelectedBoxMode}"
+                StartIcon="{Binding SelectedBoxMode, Converter={converters:BoxModeToImageSourceConverter Outlined='boxmode_outlined', Filled='boxmode_filled'}}"
+                ItemsSource="{Binding BoxModes}"
+                ItemTemplate="{StaticResource BoxModeComboBoxItemTemplate}"
+                ReserveBottomTextLine="True"/>
+            <dxe:TextEdit
+                BoxMode="{Binding SelectedBoxMode}"
+                StartIcon="editors_name"
+                Text="{Binding Login, Mode=TwoWay}"
+                HasError="{Binding LoginHasError}"
+                LabelText="Login"
+                HelpText="*Required"
+                ErrorText="Login is required"/>
+            <dxe:PasswordEdit
+                BoxMode="{Binding SelectedBoxMode}"
+                StartIcon="editors_password"
+                Text="{Binding Password, Mode=TwoWay}"
+                HasError="{Binding PasswordHasError}"
+                LabelText="Password"
+                HelpText="*Required"
+                ErrorText="The password should contain more than 5 characters, have at least one uppercase and one lowercase letter, and one number."/>
+            <dxe:TextEdit
+                BoxMode="{Binding SelectedBoxMode}"
+                StartIcon="editors_email"
+                Text="{Binding Email, Mode=TwoWay}"
+                HasError="{Binding EmailHasError}"
+                LabelText="Email"
+                TextHorizontalAlignment="End"
+                ErrorText="Email is required"
+                HelpText="*Required"
+                Suffix="@devexpress.com"
+                AffixIndent="0"
+                ClearIconVisibility="Never"/>
+            <dxe:TextEdit
+                BoxMode="{Binding SelectedBoxMode}"
+                StartIcon="editors_phone"
+                Text="{Binding Phone, Mode=TwoWay}"
+                HasError="{Binding PhoneHasError}"
+                LabelText="Phone"
+                Mask="(000) 000-0000"
+                ErrorText="Incorrect phone number"
+                HelpText="Do not include a country code"
+                Keyboard="Telephone"/>
+            <dxe:MultilineEdit
+                BoxMode="{Binding SelectedBoxMode}"
+                StartIcon="editors_notes"
+                Text="{Binding Notes, Mode=TwoWay}"
+                HasError="{Binding NotesHasError}"
+                MinLineCount="2"
+                MaxLineCount="4"
+                LabelText="Notes"
+                MaxCharacterCount="100"/>
+             <dxe:SimpleButton Text="SUBMIT" Clicked="OnSubmitClicked" FontAttributes="Bold" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

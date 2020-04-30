@@ -14,6 +14,7 @@
             <demo:TabButton ImageSource="{Binding AreaType, Converter={StaticResource areaTypeToImageSourceConverter}}" IsSelected="{Binding IsSelected}" IsVertical="{Binding IsVertical}"/>
         </DataTemplate>
         <local:AreaChartTemplateSelector x:Key="areaChartTemplateSelector"
+                                         RangeAreaChartTemplate="{StaticResource rangeAreaChartTemplate}"
                                          AreaChartTemplate="{StaticResource areaChartTemplate}"
                                          StackedAreaChartTemplate="{StaticResource stackedAreaChartTemplate}"
                                          FullStackedAreaChartTemplate="{StaticResource fullStackedAreaChartTemplate}"

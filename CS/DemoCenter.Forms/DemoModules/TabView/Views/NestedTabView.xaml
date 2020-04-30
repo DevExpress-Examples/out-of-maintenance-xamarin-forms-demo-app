@@ -567,8 +567,8 @@
                                     HeaderPadding="0">
                 <navigation:TabViewItem.HeaderIcon>
                     <OnPlatform x:TypeArguments="ImageSource">
-                        <On Platform="Android" Value="nested_all.xml"/>
-                        <On Platform="iOS" Value="nested_all"/>
+                        <On Platform="Android" Value="nested_all.xml" />
+                        <On Platform="iOS" Value="nested_all" />
                     </OnPlatform>
                 </navigation:TabViewItem.HeaderIcon>
                 <navigation:TabView x:Name="nestedTabView"
@@ -607,8 +607,8 @@
                                     HeaderPadding="0">
                 <navigation:TabViewItem.HeaderIcon>
                     <OnPlatform x:TypeArguments="ImageSource">
-                        <On Platform="Android" Value="nested_cart.xml"/>
-                        <On Platform="iOS" Value="nested_cart"/>
+                        <On Platform="Android" Value="nested_cart.xml" />
+                        <On Platform="iOS" Value="nested_cart" />
                     </OnPlatform>
                 </navigation:TabViewItem.HeaderIcon>
                 <Grid ColumnSpacing="0" RowSpacing="0">
@@ -651,8 +651,8 @@
                                     HeaderPadding="0">
                 <navigation:TabViewItem.HeaderIcon>
                     <OnPlatform x:TypeArguments="ImageSource">
-                        <On Platform="Android" Value="nested_wish_list.xml"/>
-                        <On Platform="iOS" Value="nested_wish_list"/>
+                        <On Platform="Android" Value="nested_wish_list.xml" />
+                        <On Platform="iOS" Value="nested_wish_list" />
                     </OnPlatform>
                 </navigation:TabViewItem.HeaderIcon>
                 <Grid ColumnSpacing="0" RowSpacing="0">

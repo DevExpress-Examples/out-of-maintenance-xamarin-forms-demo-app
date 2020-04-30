@@ -29,7 +29,7 @@
                                               MarkersVisible="true">
                         <charts:StackedAreaSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.NorthAmerica.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:StackedAreaSeries.Data>
                     </charts:StackedAreaSeries>
@@ -39,7 +39,7 @@
                                               MarkersVisible="true">
                         <charts:StackedAreaSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Europe.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:StackedAreaSeries.Data>
                     </charts:StackedAreaSeries>    
@@ -49,7 +49,7 @@
                                               MarkersVisible="true">
                         <charts:StackedAreaSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Australia.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:StackedAreaSeries.Data>
                     </charts:StackedAreaSeries>

@@ -9,9 +9,9 @@
 	<key>CFBundleName</key>
 	<string>Xamarin Demo Center</string>
 	<key>CFBundleShortVersionString</key>
-	<string>19.2.4</string>
+	<string>20.1.3</string>
 	<key>CFBundleVersion</key>
-	<string>19.2.4</string>
+	<string>20.1.3</string>
 	<key>MinimumOSVersion</key>
 	<string>9.0</string>
 	<key>UIAppFonts</key>

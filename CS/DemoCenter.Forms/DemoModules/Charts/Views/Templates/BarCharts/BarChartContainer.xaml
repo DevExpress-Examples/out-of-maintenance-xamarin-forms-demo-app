@@ -24,7 +24,7 @@
                                       HintOptions="{StaticResource barSeriesHintOptions}">
                         <charts:BarSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.MaleSeriesData.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:BarSeries.Data>
                     </charts:BarSeries>                    
@@ -32,7 +32,7 @@
                                       HintOptions="{StaticResource barSeriesHintOptions}">
                         <charts:BarSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.FemaleSeriesData.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:BarSeries.Data>
                     </charts:BarSeries>
@@ -40,7 +40,7 @@
                 <charts:ChartView.Legend>
                     <charts:Legend HorizontalPosition="Right"
                                    VerticalPosition="Top"
-                                   Orientation="TopToBottom"/>
+                                   Orientation="TopToBottom" />
                 </charts:ChartView.Legend>
                 <charts:ChartView.Hint>
                     <charts:Hint/>

@@ -23,7 +23,7 @@
                                                  HintOptions="{StaticResource fullStackedBarSeriesHintOptions}">
                         <charts:FullStackedBarSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.ProjectorsSeriesData.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:FullStackedBarSeries.Data>
                     </charts:FullStackedBarSeries>
@@ -31,7 +31,7 @@
                                                  HintOptions="{StaticResource fullStackedBarSeriesHintOptions}">
                         <charts:FullStackedBarSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.TelevisionsSeriesData.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:FullStackedBarSeries.Data>
                     </charts:FullStackedBarSeries>

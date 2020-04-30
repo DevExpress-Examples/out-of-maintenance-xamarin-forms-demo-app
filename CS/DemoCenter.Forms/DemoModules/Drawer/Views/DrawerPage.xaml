@@ -15,10 +15,10 @@
                                HeightRequest="500"
                                SelectionChanged="OnSelectionChanged">
             <datagrid:DataGridView.CellStyle>
-                <datagrid:CellStyle FontSize="16" Padding="22"/>
+                <datagrid:CellStyle FontSize="16" Padding="22" />
             </datagrid:DataGridView.CellStyle>
             <datagrid:DataGridView.Columns>
-                <datagrid:TextColumn FieldName="Key"/>
+                <datagrid:TextColumn FieldName="Key" />
             </datagrid:DataGridView.Columns>
         </datagrid:DataGridView>
     </dxnav:DrawerPage.DrawerContent>

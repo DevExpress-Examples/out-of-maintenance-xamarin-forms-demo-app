@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:BaseGridContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:dxg="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+             x:Class="DemoCenter.Forms.Views.DragDropView"
+             xmlns:views="clr-namespace:DemoCenter.Forms.Views"
+             xmlns:local="clr-namespace:DemoCenter.Forms"
+             BackgroundColor="{DynamicResource BackgroundThemeColor}">
+    <views:BaseGridContentPage.Resources>
+        <local:BoolToObjectConverter x:Key="boolToTextDecorationsConverter" TrueValue="Strikethrough" FalseValue="None"/>
+        <local:BoolToObjectConverter x:Key="boolToOpacityConverter" TrueValue="0.5" FalseValue="1"/>
+        <Style x:Key="labelStyle" TargetType="Label">
+            <Setter Property="FontSize">
+                <Setter.Value>
+                    <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="14"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="TextColor" Value="{DynamicResource GridCellFontColor}"/>
+            <Setter Property="FontFamily" Value="{DynamicResource GridCellFontFamily}"/>
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnIdiom x:TypeArguments="Thickness" Phone="14, 20, 14, 20" Tablet="15, 24, 15, 24"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
+    </views:BaseGridContentPage.Resources>
+    <ContentPage.Content>
+        <dxg:DataGridView x:Name="grid" ItemsSource="{Binding EmployeeTasks}" AllowSort="False" AllowDragDropRows="True"
+                          DragRow="Grid_DragRow" DragRowOver="Grid_DragRowOver" Tap="Grid_Tap" CompleteRowDragDrop="Grid_CompleteRowDragDrop">
+            <dxg:DataGridView.Columns>
+                <dxg:CheckBoxColumn FieldName="Completed" Width="108"/>
+                <dxg:TemplateColumn FieldName="Name" >
+                    <dxg:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <!--<Label Text="{Binding Path=Value}" TextDecorations="{Binding Path=Item.Completed, Converter={StaticResource boolToTextDecorationsConverter}}"/>-->
+                            <!--TODO - https://github.com/xamarin/Xamarin.Forms/issues/8272-->
+                            <Label Style="{StaticResource labelStyle}" Opacity="{Binding Path=Item.Completed, Converter={StaticResource boolToOpacityConverter}}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Path=Value}" TextDecorations="{Binding Path=Item.Completed, Converter={StaticResource boolToTextDecorationsConverter}}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </DataTemplate>
+                    </dxg:TemplateColumn.DisplayTemplate>
+                </dxg:TemplateColumn>
+                <dxg:TemplateColumn FieldName="DueDate" Width="105">
+                    <dxg:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Label Style="{StaticResource labelStyle}" Opacity="{Binding Path=Item.Completed, Converter={StaticResource boolToOpacityConverter}}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Path=Value, StringFormat='{0:d}'}" TextDecorations="{Binding Path=Item.Completed, Converter={StaticResource boolToTextDecorationsConverter}}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </DataTemplate>
+                    </dxg:TemplateColumn.DisplayTemplate>
+                </dxg:TemplateColumn>
+            </dxg:DataGridView.Columns>
+        </dxg:DataGridView>
+    </ContentPage.Content>
+</views:BaseGridContentPage>

@@ -33,11 +33,13 @@
         </charts:NumericAxisX>
         
         <charts:NumericAxisY x:Key="powerAxis"
-                             Position="Near"
                              AlwaysShowZeroLevel="false">
             <charts:NumericAxisY.Layout>
-                <charts:AxisLayout Anchor1="0.35" Anchor2="1.0"/>
+                <charts:AxisLayout Anchor1="0.35" Anchor2="1.0" />
             </charts:NumericAxisY.Layout>
+            <charts:NumericAxisY.DisplayPosition>
+                <charts:AxisDisplayPositionNear/>
+            </charts:NumericAxisY.DisplayPosition>
             <charts:NumericAxisY.Label>
                 <charts:AxisLabel TextFormat="#"/>
             </charts:NumericAxisY.Label>
@@ -48,12 +50,14 @@
         </charts:NumericAxisY>
 
         <charts:NumericAxisY x:Key="fuelRateAxis"
-                             Position="Near"
                              GridAlignment="10"
                              AlwaysShowZeroLevel="false">
             <charts:NumericAxisY.Layout>
-                <charts:AxisLayout Anchor1="0.0" Anchor2="0.3"/>
+                <charts:AxisLayout Anchor1="0.0" Anchor2="0.3" />
             </charts:NumericAxisY.Layout>
+            <charts:NumericAxisY.DisplayPosition>
+                <charts:AxisDisplayPositionNear/>
+            </charts:NumericAxisY.DisplayPosition>
             <charts:NumericAxisY.Label>
                 <charts:AxisLabel TextFormat="#.#"/>
             </charts:NumericAxisY.Label>
@@ -68,12 +72,14 @@
         </charts:NumericAxisY>
             
         <charts:NumericAxisY x:Key="torqueAxis"
-                             Position="Far"
                              GridAlignment="25"
                              AlwaysShowZeroLevel="false">
             <charts:NumericAxisY.Label>
                 <charts:AxisLabel TextFormat="#"/>
             </charts:NumericAxisY.Label>
+            <charts:NumericAxisY.DisplayPosition>
+                <charts:AxisDisplayPositionFar/>
+            </charts:NumericAxisY.DisplayPosition>
             <charts:NumericAxisY.Title>
                 <charts:AxisTitle Text="Torque (N*m)"
                                   Alignment="Center"/>
@@ -97,8 +103,7 @@
             
             <charts:ChartView x:Name="chart"
                               Grid.Row="1"
-                              SelectionMode="Single"
-                              SelectionKind="Series"
+                              SelectionMode="None"
                               AxisX="{StaticResource Key=RPMaxis}"
                               AxisY="{StaticResource Key=powerAxis}">
                 <charts:ChartView.Series>
@@ -148,7 +153,7 @@
                                        MarkersVisible="true">
                         <charts:LineSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding NEPower}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:LineSeries.Data>
                         <charts:LineSeries.HintOptions>
@@ -167,7 +172,7 @@
                                        MarkersVisible="true">
                         <charts:LineSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding MKRPower}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:LineSeries.Data>
                         <charts:LineSeries.HintOptions>
@@ -187,7 +192,7 @@
                                        AxisY="{StaticResource Key=torqueAxis}">
                         <charts:LineSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding NETorque}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:LineSeries.Data>
                         <charts:LineSeries.HintOptions>
@@ -207,7 +212,7 @@
                                        AxisY="{StaticResource Key=torqueAxis}">
                         <charts:LineSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding MKRTorque}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:LineSeries.Data>
                         <charts:LineSeries.HintOptions>

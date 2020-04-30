@@ -29,8 +29,8 @@
                         </charts:BubbleSeries.Label>
                         <charts:BubbleSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.SeriesData}" ArgumentDataMember="Date">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
-                                <charts:ValueDataMember Type="Weight" Member="WorldwideGrosses"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
+                                <charts:ValueDataMember Type="Weight" Member="WorldwideGrosses" />
                             </charts:SeriesDataAdapter>
                         </charts:BubbleSeries.Data>
                     </charts:BubbleSeries>

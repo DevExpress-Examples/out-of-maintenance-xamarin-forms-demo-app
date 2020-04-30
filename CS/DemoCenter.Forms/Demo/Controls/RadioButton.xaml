@@ -7,16 +7,17 @@
              Padding="0">
     <ContentView.Content>
         <StackLayout Orientation="Horizontal" Spacing="14">
-            <demo:IconView VerticalOptions="CenterAndExpand"
-                           HorizontalOptions="Start"
-                           ImageSource="{Binding BackgroundImage}"
-                           WidthRequest="20"
-                           HeightRequest="20"/>
+            <demo:IconView
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Start"
+                ImageSource="{Binding BackgroundImage}"
+                WidthRequest="20"
+                HeightRequest="20" />
             <Label Text="{Binding LabelText}"
                    MaxLines="1"
                    LineBreakMode="NoWrap"
                    VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="StartAndExpand"/>
+                   HorizontalOptions="StartAndExpand" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

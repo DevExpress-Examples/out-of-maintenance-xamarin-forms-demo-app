@@ -25,14 +25,14 @@
                         </Grid.ColumnDefinitions>
                                             
                         <ContentView Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" BackgroundColor="{DynamicResource GridCellBorderColor}">
-                            <Image Margin="1" Source="{Binding Photo}" Aspect="AspectFill" HeightRequest="120" WidthRequest="100"/>
+                            <Image Margin="1" Source="{Binding Photo}" Aspect="AspectFill" HeightRequest="120" WidthRequest="100" />
                         </ContentView>
                         <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="1" Margin="14, 0, 0, 7"/>
                         <Label Text="{Binding Position}" Grid.Row="1" Grid.Column="1" Margin="14, 0, 0, 7"/>
                         <Label Text="{Binding Phone}" Grid.Row="2" Grid.Column="1" Margin="14, 0, 0, 0"/>
                     </Grid>
                                         
-                    <Label Text="{Binding Notes}" Margin="0, 14, 0, 0"/>
+                    <Label Text="{Binding Notes}" Margin="0, 14, 0, 0" />
                 </StackLayout>
             </OnIdiom.Phone>
 
@@ -45,7 +45,7 @@
                         </Grid.ColumnDefinitions>
                                         
                         <ContentView Grid.Row="0" Grid.Column="0" BackgroundColor="{DynamicResource GridCellBorderColor}">
-                            <Image Margin="1" Source="{Binding Photo}" Aspect="AspectFill" HeightRequest="120" WidthRequest="100"/>
+                            <Image Margin="1" Source="{Binding Photo}" Aspect="AspectFill" HeightRequest="120" WidthRequest="100" />
                         </ContentView>
                                             
                         <Grid Grid.Row="0" Grid.Column="1" Margin="20, 0, 0, 0" RowSpacing="0" ColumnSpacing="0">

@@ -14,11 +14,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Label Text="{Binding ChartModel.Title}"
-                   FontFamily="Roboto"
-                   TextColor="{DynamicResource TextThemeColor}"
-                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
-            <charts:ChartView Grid.Row="1"
+            <charts:ChartView Grid.Row="1" x:Name="ch"
                               SelectionMode="Single"
                               SelectionKind="Series">
                 <charts:ChartView.Series>
@@ -27,7 +23,7 @@
                                        HintOptions="{StaticResource lineSeriesHintOptions}">
                         <charts:LineSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Europe.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:LineSeries.Data>
                     </charts:LineSeries>
@@ -37,7 +33,7 @@
                                        HintOptions="{StaticResource lineSeriesHintOptions}">
                         <charts:LineSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Americas.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:LineSeries.Data>
                     </charts:LineSeries>
@@ -47,7 +43,7 @@
                                        HintOptions="{StaticResource lineSeriesHintOptions}">
                         <charts:LineSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Africa.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:LineSeries.Data>
                     </charts:LineSeries>
@@ -76,12 +72,12 @@
                             <charts:DateTimeConstantLine AxisValue="{Binding ChartModel.CurrentDate}"
                                                          VisibleInLegend="false">
                                 <charts:DateTimeConstantLine.Title>
-                                    <charts:ConstantLineTitle Text="{Binding ChartModel.CurrentDate, StringFormat='{0:yyyy}'}"/>
+                                    <charts:ConstantLineTitle Text="{Binding ChartModel.CurrentDate, StringFormat='{0:yyyy}'}" />
                                 </charts:DateTimeConstantLine.Title>
                             </charts:DateTimeConstantLine>
                         </charts:DateTimeAxisX.ConstantLines>
                         <charts:DateTimeAxisX.Label>
-                            <charts:AxisLabel TextFormat="yyyy"/>
+                            <charts:AxisLabel TextFormat="yyyy" />
                         </charts:DateTimeAxisX.Label>
                     </charts:DateTimeAxisX>
                 </charts:ChartView.AxisX>

@@ -10,15 +10,18 @@
         <local:DepartmentToImageConverter x:Key="DepartmentToImageConverter"/>
     </ContentPage.Resources>
     <dxg:DataGridView ItemsSource="{Binding Path=Employees}" RowHeight="90" GroupRowHeight="68">
+        <dxg:DataGridView.CellStyle>
+            <dxg:CellStyle ImagePadding="10"/>
+        </dxg:DataGridView.CellStyle>
         <dxg:DataGridView.Columns>
             <dxg:ImageColumn FieldName="Image" Caption="Photo" Width="100">
                 <dxg:ImageColumn.FixedStyle>
-                    <OnIdiom x:TypeArguments="dxg:FixedStyle" Tablet="None" Phone="Start"/>
+                    <OnIdiom x:TypeArguments="dxg:FixedStyle" Tablet="None" Phone="Start" />
                 </dxg:ImageColumn.FixedStyle>
             </dxg:ImageColumn>
             <dxg:TextColumn FieldName="FullName" IsReadOnly="true">
                 <dxg:TextColumn.Width>
-                    <OnIdiom x:TypeArguments="GridLength" Tablet="200" Phone="120"/>
+                    <OnIdiom x:TypeArguments="GridLength" Tablet="200" Phone="120" />
                 </dxg:TextColumn.Width>
             </dxg:TextColumn>
             <dxg:TextColumn FieldName="GroupName" GroupCaptionDisplayFormat="{}{1}" IsGrouped="true">
@@ -37,17 +40,17 @@
             </dxg:TextColumn>
             <dxg:TextColumn FieldName="JobTitle">
                 <dxg:TextColumn.MinWidth>
-                    <OnIdiom x:TypeArguments="x:Double" Tablet="200" Phone="120"/>
+                    <OnIdiom x:TypeArguments="x:Double" Tablet="200" Phone="120" />
                 </dxg:TextColumn.MinWidth>
             </dxg:TextColumn>
             <dxg:TextColumn FieldName="Phone">
                 <dxg:TextColumn.MinWidth>
-                    <OnIdiom x:TypeArguments="x:Double" Tablet="200" Phone="120"/>
+                    <OnIdiom x:TypeArguments="x:Double" Tablet="200" Phone="120" />
                 </dxg:TextColumn.MinWidth>
             </dxg:TextColumn>
             <dxg:DateColumn FieldName="HireDate">
                 <dxg:TextColumn.MinWidth>
-                    <OnIdiom x:TypeArguments="x:Double" Tablet="200" Phone="120"/>
+                    <OnIdiom x:TypeArguments="x:Double" Tablet="200" Phone="120" />
                 </dxg:TextColumn.MinWidth>
             </dxg:DateColumn>
         </dxg:DataGridView.Columns>

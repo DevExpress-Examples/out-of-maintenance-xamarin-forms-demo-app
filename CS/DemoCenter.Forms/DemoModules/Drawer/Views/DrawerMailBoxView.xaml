@@ -18,22 +18,22 @@
         <ResourceDictionary>
             <viewModels:SelectedToValueConverter x:Key="selectedColorConverter"
                                                  SelectedValue="#2188ff"
-                                                 NormalValue="{StaticResource TitleIconColor}"/>
+                                                 NormalValue="{StaticResource TitleIconColor}" />
             <viewModels:SelectedToValueConverter x:Key="selectedFontConverter"
                                                  SelectedValue="Bold"
-                                                 NormalValue="None"/>
+                                                 NormalValue="None" />
             <viewModels:SelectedToValueConverter x:Key="visibleCountConverter"
                                                  SelectedValue="true"
-                                                 NormalValue="false"/>
+                                                 NormalValue="false" />
             <x:String x:Key="formatTime">{0:HH:mm}</x:String>
             <Style TargetType="Label">
-                <Setter Property="BackgroundColor" Value="Transparent"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="FontFamily" Value="Roboto"/>
-                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="FontSize" Value="16" />
             </Style>
             <Style TargetType="Button">
-                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="FontFamily" Value="Roboto" />
             </Style>
             <DataTemplate x:Key="folderTemplate">
                 <demo:NonSelectableViewCell Height="46">
@@ -41,9 +41,9 @@
                           BackgroundColor="{StaticResource DrawerBackGroundColor}"
                           HorizontalOptions="FillAndExpand">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <demo:IconView Grid.Column="0"
                                        HorizontalOptions="Center"
@@ -57,7 +57,7 @@
                                VerticalOptions="Center"
                                VerticalTextAlignment="Center"
                                TextColor="{Binding IsSelected, Converter={StaticResource selectedColorConverter}}"
-                               FontAttributes="{Binding IsSelected, Converter={StaticResource selectedFontConverter}}"/>
+                               FontAttributes="{Binding IsSelected, Converter={StaticResource selectedFontConverter}}" />
                         <Label Grid.Column="2"
                                Text="{Binding Count}"
                                VerticalOptions="Center"
@@ -65,7 +65,7 @@
                                VerticalTextAlignment="Center"
                                IsVisible="{Binding ShowCount, Converter={StaticResource visibleCountConverter}}"
                                TextColor="{Binding IsSelected, Converter={StaticResource selectedColorConverter}}"
-                               FontAttributes="{Binding IsSelected, Converter={StaticResource selectedFontConverter}}"/>
+                               FontAttributes="{Binding IsSelected, Converter={StaticResource selectedFontConverter}}" />
                     </Grid>
                 </demo:NonSelectableViewCell>
             </DataTemplate>
@@ -73,9 +73,9 @@
                 <ViewCell>
                     <Grid ColumnSpacing="16" Padding="16,16" BackgroundColor="{StaticResource BackgroundThemeColor}">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="46"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="46" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <RelativeLayout Grid.Column="0">
                         <editors:ColorItem HorizontalOptions="Start"
@@ -83,7 +83,7 @@
                                            PickerColor="{Binding CategoryColor}"
                                            ShowFlag="False"
                                            WidthRequest="46"
-                                           HeightRequest="46"/>
+                                           HeightRequest="46" />
                             <Label Margin="0"
                                    Text="{Binding SenderAvatarText}"
                                    TextColor="White"
@@ -95,7 +95,7 @@
                                    HorizontalOptions="Start"
                                    VerticalOptions="StartAndExpand"
                                    WidthRequest="46"
-                                   HeightRequest="46"/>
+                                   HeightRequest="46" />
                         </RelativeLayout>
                         <StackLayout Grid.Column="1"
                                      Orientation="Vertical"
@@ -104,23 +104,23 @@
                             <Label Text="{Binding SenderName}"
                                    MaxLines="1"
                                    TextColor="{DynamicResource NavigationTextColor}"
-                                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+                                   BackgroundColor="{DynamicResource BackgroundThemeColor}" />
                             <Label Text="{Binding Subject}"
                                    MaxLines="1"
                                    FontAttributes="None"
                                    TextColor="{DynamicResource NavigationTextColor}"
-                                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+                                   BackgroundColor="{DynamicResource BackgroundThemeColor}" />
                             <Label Text="{Binding Body}"
                                    MaxLines="1"
                                    FontAttributes="None"
                                    TextColor="{DynamicResource DrawerGrayFontColor}"
-                                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+                                   BackgroundColor="{DynamicResource BackgroundThemeColor}" />
                         </StackLayout>
                         <Label Grid.Column="2"
                                TextColor="{DynamicResource DrawerGrayFontColor}"
                                Text="{Binding SentDate, StringFormat={StaticResource formatTime}}"
                                FontAttributes="None"
-                               VerticalOptions="StartAndExpand"/>
+                               VerticalOptions="StartAndExpand" />
                     </Grid>
                 </ViewCell>
             </DataTemplate>
@@ -148,9 +148,9 @@
                           VerticalOptions="CenterAndExpand"
                           BindingContext="{Binding OwnerInfo}">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="74"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="74" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Frame Grid.Row="0"
                                CornerRadius="37"
@@ -162,7 +162,7 @@
                             <Frame.BorderColor> 
                                 <OnPlatform x:TypeArguments="Color" Android="White" iOS="{StaticResource TabItemBorderColor}"/>
                             </Frame.BorderColor>
-                            <Image Source="{Binding Avatar}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            <Image Source="{Binding Avatar}" VerticalOptions="Center" HorizontalOptions="Center"  />
                         </Frame>
                         <Label Margin="0,5,0,0"
                                Text="{Binding Name}"
@@ -170,13 +170,13 @@
                                HorizontalOptions="StartAndExpand"
                                VerticalOptions="CenterAndExpand"
                                Grid.Row="1"
-                               BackgroundColor="Transparent"/>
+                               BackgroundColor="Transparent" />
                         <Label Text="{Binding Email}"
                                TextColor="{DynamicResource NavigationTextColor}"
                                HorizontalOptions="StartAndExpand"
                                VerticalOptions="CenterAndExpand"
                                Grid.Row="2"
-                               FontAttributes="None"/>
+                               FontAttributes="None" />
                     </Grid>
                 </AbsoluteLayout>
             </dxnav:DrawerView.DrawerHeaderContent>
@@ -187,7 +187,7 @@
                           SelectedItem="{Binding SelectedFolder, Mode=TwoWay}"
                           ItemTemplate="{StaticResource folderTemplate}"
                           SeparatorVisibility="None"
-                          Margin="25,0"/>
+                          Margin="25,0" />
             </dxnav:DrawerView.DrawerContent>
             <dxnav:DrawerView.MainContent>
                 <StackLayout Orientation="Vertical" IsClippedToBounds="True">
@@ -206,7 +206,7 @@
                                            ForegroundColor="{DynamicResource TitleIconColor}"
                                            WidthRequest="22">
                                 <demo:IconView.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="OnMenuClicked"/>
+                                    <TapGestureRecognizer Tapped="OnMenuClicked" />
                                 </demo:IconView.GestureRecognizers>
                             </demo:IconView>
                             <Label HorizontalOptions="Start"
@@ -215,7 +215,7 @@
                                    BackgroundColor="Transparent"
                                    VerticalOptions="Center"
                                    FontFamily="Roboto-Medium"
-                                   FontSize="18"/>
+                                   FontSize="18" />
                         </StackLayout>
                         <StackLayout.Effects>
                             <effects:ShadowEffect Elevation="16"

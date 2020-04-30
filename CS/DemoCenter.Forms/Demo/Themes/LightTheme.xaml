@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
-                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-                    x:Class="DemoCenter.Forms.Themes.LightTheme"
-                    xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"             
-                    xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="DemoCenter.Forms.Themes.LightTheme"
+             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"             
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts">
+    <Color x:Key="AccentColor">#2088ff</Color>
+
     <Color x:Key="BackgroundThemeColor">#ffffff</Color>
     <Color x:Key="GridCellLinesColor">#ebebeb</Color>
+
+    <Color x:Key="GridAdvancedLayoutRowBorderColor">#B6BAC1</Color>
+
+    <Color x:Key="GridCustomAppearanceOddRowBackgroundColor">#F7F7F7</Color>
+    <Color x:Key="GridCustomAppearanceFontColor">#55575C</Color>
+    <Color x:Key="GridCustomAppearancePositiveFontColor">#00AE00</Color>
+    <Color x:Key="GridCustomAppearanceNegativeFontColor">#FF5458</Color>
+
     <Color x:Key="TabItemBackgroundColor">#f9f9f9</Color>
     <Color x:Key="MainPageBackgroundColor">#e8e8e8</Color>
     <Color x:Key="TabItemBorderColor">#ebebeb</Color>
@@ -36,7 +46,10 @@
     <Color x:Key="DrawerBackGroundColor">#ffffff</Color>
     <Color x:Key="DrawerGrayFontColor">#959aa0</Color>
     <Color x:Key="DrawerScrimColor">#A0000000</Color>
-    
+
+    <Color x:Key="EditorSettingsSeparatorColor">#EBEBEB</Color>
+    <Color x:Key="EditorSettingsTextColor">#de000000</Color>
+
     <Color x:Key="NestedTabViewSeparatorColor">#ebebeb</Color>
     <Color x:Key="NestedTabViewFavoriteColor">#de6d6f</Color>
     <Color x:Key="NestedTabViewCartColor">#27b24f</Color>
@@ -51,12 +64,15 @@
     <Color x:Key="TabPageDetailIconColor">#9ba0a7</Color>
     <Color x:Key="TabPageFavoriteColor">#ffaa24</Color>
     <Color x:Key="TabPageSeparatorColor">#d7dce4</Color>
+
+    <Color x:Key="SliderMaximumTrackColor-iOS">#dfe0e2</Color>
+
   <Style TargetType="NavigationPage">
-      <Setter Property="BarBackgroundColor" Value="{StaticResource BackgroundThemeColor}"/>
-        <Setter Property="BarTextColor" Value="{StaticResource TextThemeColor}"/>
+      <Setter Property="BarBackgroundColor" Value="{StaticResource BackgroundThemeColor}" />
+        <Setter Property="BarTextColor" Value="{StaticResource TextThemeColor}" />
   </Style>
   <Style TargetType="demo:IconView">
-    <Setter Property="ThemeName" Value="Light"/>
+    <Setter Property="ThemeName" Value="Light" />
   </Style>
   <Style TargetType="charts:ChartView">
         <Setter Property="Theme" Value="Light"/>

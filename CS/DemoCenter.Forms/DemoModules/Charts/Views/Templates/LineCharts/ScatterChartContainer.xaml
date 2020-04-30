@@ -19,8 +19,11 @@
                    TextColor="{DynamicResource TextThemeColor}"
                    BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
             <charts:ChartView Grid.Row="1"
+                              x:Name="chart"
                               SelectionMode="Single"
-                              SelectionKind="Point">
+                              SelectionKind="Point"
+                              AxisXNavigationMode="ScrollingAndZooming"
+                              AxisYNavigationMode="ScrollingAndZooming">
                 <charts:ChartView.Series>
                     <charts:ScatterLineSeries Data="{Binding ChartModel.SeriesData}"
                                               DisplayName="{Binding ChartModel.Title}"
@@ -38,30 +41,37 @@
                     </charts:Hint>
                 </charts:ChartView.Hint>
                 <charts:ChartView.AxisX>
-                    <charts:NumericAxisX GridAlignment="3">
+                    <charts:NumericAxisX GridAlignment="3" x:Name="AxisX">
                         <charts:NumericAxisX.Style>
-                            <charts:AxisStyle MajorGridlinesVisible="True"/>
+                            <charts:AxisStyle MajorGridlinesVisible="True"
+                                              MinorGridLinesVisible="True"
+                                              MajorTickmarksVisible="True"
+                                              MinorTickmarksVisible="True"
+                                              LineColor="#33000000"/>
                         </charts:NumericAxisX.Style>
-                        <charts:NumericAxisX.ConstantLines>
-                            <charts:NumericConstantLine AxisValue="0"
-                                                        ShowBehind="true">
-                                <charts:NumericConstantLine.Title>
-                                    <charts:ConstantLineTitle Visible="false"/>
-                                </charts:NumericConstantLine.Title>
-                            </charts:NumericConstantLine>
-                        </charts:NumericAxisX.ConstantLines>
+                        <charts:NumericAxisX.DisplayPosition>
+                            <charts:AxisDisplayPositionRelative NumericPosition="0" RelativeAxis="{Binding AxisY, Source={x:Reference chart}}"/>
+                        </charts:NumericAxisX.DisplayPosition>
+                        <charts:NumericAxisX.Label>
+                            <charts:AxisLabel Position="Inside"/>
+                        </charts:NumericAxisX.Label>
                     </charts:NumericAxisX>
                 </charts:ChartView.AxisX>
                 <charts:ChartView.AxisY>
-                    <charts:NumericAxisY GridAlignment="3">
-                        <charts:NumericAxisY.ConstantLines>
-                            <charts:NumericConstantLine AxisValue="0"
-                                                        ShowBehind="true">
-                                <charts:NumericConstantLine.Title>
-                                    <charts:ConstantLineTitle Visible="false"/>
-                                </charts:NumericConstantLine.Title>
-                            </charts:NumericConstantLine>
-                        </charts:NumericAxisY.ConstantLines>
+                    <charts:NumericAxisY GridAlignment="3" x:Name="AxisY">
+                        <charts:NumericAxisY.Style>
+                            <charts:AxisStyle MajorGridlinesVisible="True"
+                                              MinorGridLinesVisible="True"
+                                              MajorTickmarksVisible="True"
+                                              MinorTickmarksVisible="True"
+                                              LineColor="#33000000"/>
+                        </charts:NumericAxisY.Style>
+                        <charts:NumericAxisY.DisplayPosition>
+                            <charts:AxisDisplayPositionRelative NumericPosition="0" RelativeAxis="{Binding AxisX, Source={x:Reference chart}}"/>
+                        </charts:NumericAxisY.DisplayPosition>
+                        <charts:NumericAxisY.Label>
+                            <charts:AxisLabel Position="Inside"/>
+                        </charts:NumericAxisY.Label>
                     </charts:NumericAxisY>
                 </charts:ChartView.AxisY>
             </charts:ChartView>

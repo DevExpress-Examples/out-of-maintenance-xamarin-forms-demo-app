@@ -30,7 +30,7 @@
                                        MarkersVisible="true">
                         <charts:AreaSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVNorth.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:AreaSeries.Data>
                     </charts:AreaSeries>
@@ -40,7 +40,7 @@
                                        MarkersVisible="true">
                         <charts:AreaSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVSouth.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:AreaSeries.Data>
                     </charts:AreaSeries>

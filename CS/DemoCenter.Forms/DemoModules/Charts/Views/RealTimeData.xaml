@@ -26,21 +26,21 @@
                         <charts:LineSeries DisplayName="X Axis">
                             <charts:LineSeries.Data>
                                 <charts:SeriesDataAdapter DataSource="{Binding XAxisData}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Type="Value" Member="Value"/>
+                                    <charts:ValueDataMember Type="Value" Member="Value" />
                                 </charts:SeriesDataAdapter>
                             </charts:LineSeries.Data>
                         </charts:LineSeries>
                         <charts:LineSeries DisplayName="Y Axis">
                             <charts:LineSeries.Data>
                                 <charts:SeriesDataAdapter DataSource="{Binding YAxisData}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Type="Value" Member="Value"/>
+                                    <charts:ValueDataMember Type="Value" Member="Value" />
                                 </charts:SeriesDataAdapter>
                             </charts:LineSeries.Data>
                         </charts:LineSeries>
                         <charts:LineSeries DisplayName="Z Axis">
                             <charts:LineSeries.Data>
                                 <charts:SeriesDataAdapter DataSource="{Binding ZAxisData}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Type="Value" Member="Value"/>
+                                    <charts:ValueDataMember Type="Value" Member="Value" />
                                 </charts:SeriesDataAdapter>
                             </charts:LineSeries.Data>
                         </charts:LineSeries>

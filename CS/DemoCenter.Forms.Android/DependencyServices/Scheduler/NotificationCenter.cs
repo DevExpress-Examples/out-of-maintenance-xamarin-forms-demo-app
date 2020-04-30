@@ -1,44 +1,43 @@
-﻿/*                                                         
-               Copyright (c) 2019 Developer Express Inc.                
-{*******************************************************************}   
-{                                                                   }   
-{       Developer Express Mobile UI for Xamarin.Forms               }   
-{                                                                   }   
-{                                                                   }   
-{       Copyright (c) 2019 Developer Express Inc.                   }   
-{       ALL RIGHTS RESERVED                                         }   
-{                                                                   }   
-{   The entire contents of this file is protected by U.S. and       }   
-{   International Copyright Laws. Unauthorized reproduction,        }   
-{   reverse-engineering, and distribution of all or any portion of  }   
-{   the code contained in this file is strictly prohibited and may  }   
-{   result in severe civil and criminal penalties and will be       }   
-{   prosecuted to the maximum extent possible under the law.        }   
-{                                                                   }   
-{   RESTRICTIONS                                                    }   
-{                                                                   }   
-{   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           }   
-{   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          }   
-{   SECRETS OF DEVELOPER EXPRESS INC. THE REGISTERED DEVELOPER IS   }   
-{   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING         }   
-{   CONTROLS AS PART OF AN EXECUTABLE PROGRAM ONLY.                 }   
-{                                                                   }   
-{   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      }   
-{   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        }   
-{   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       }   
-{   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  }   
-{   AND PERMISSION FROM DEVELOPER EXPRESS INC.                      }   
-{                                                                   }   
-{   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       }   
-{   ADDITIONAL RESTRICTIONS.                                        }   
-{                                                                   }   
-{*******************************************************************}   
+﻿/*
+               Copyright (c) 2015-2020 Developer Express Inc.
+{*******************************************************************}
+{                                                                   }
+{       Developer Express Mobile UI for Xamarin.Forms               }
+{                                                                   }
+{                                                                   }
+{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       ALL RIGHTS RESERVED                                         }
+{                                                                   }
+{   The entire contents of this file is protected by U.S. and       }
+{   International Copyright Laws. Unauthorized reproduction,        }
+{   reverse-engineering, and distribution of all or any portion of  }
+{   the code contained in this file is strictly prohibited and may  }
+{   result in severe civil and criminal penalties and will be       }
+{   prosecuted to the maximum extent possible under the law.        }
+{                                                                   }
+{   RESTRICTIONS                                                    }
+{                                                                   }
+{   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           }
+{   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          }
+{   SECRETS OF DEVELOPER EXPRESS INC. THE REGISTERED DEVELOPER IS   }
+{   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING         }
+{   CONTROLS AS PART OF AN EXECUTABLE PROGRAM ONLY.                 }
+{                                                                   }
+{   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      }
+{   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        }
+{   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       }
+{   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  }
+{   AND PERMISSION FROM DEVELOPER EXPRESS INC.                      }
+{                                                                   }
+{   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       }
+{   ADDITIONAL RESTRICTIONS.                                        }
+{                                                                   }
+{*******************************************************************}
 */
 using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.Content;
-using Android.Support.V4.App;
 using DemoCenter.Forms.Droid;
 using DevExpress.XamarinForms.Scheduler;
 using Java.Sql;
@@ -60,7 +59,7 @@ namespace DemoCenter.Forms.Droid {
                     TriggeredReminder reminder = reminders[i];
                     var pendingIntent = PendingIntent.GetBroadcast(AAplication.Context, i, CreateIntent(reminder), PendingIntentFlags.UpdateCurrent);
                     alarm.Cancel(pendingIntent);
-                    AlarmManagerCompat.SetExactAndAllowWhileIdle(alarm, (int)AlarmType.RtcWakeup, ToNativeDate(reminder.AlertTime).Time, pendingIntent);
+                    alarm.SetExact((int)AlarmType.RtcWakeup, ToNativeDate(reminder.AlertTime).Time, pendingIntent);
                 } else {
                     var pendingIntent = PendingIntent.GetBroadcast(AAplication.Context, i, CreateIntent(), PendingIntentFlags.UpdateCurrent);
                     alarm.Cancel(pendingIntent);

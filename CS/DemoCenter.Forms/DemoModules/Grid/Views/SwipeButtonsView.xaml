@@ -9,11 +9,11 @@
     <ContentPage.Content>
         <dxg:DataGridView x:Name="grid" ItemsSource="{Binding OutlookData}">
             <dxg:DataGridView.StartSwipeItems>
-                <dxg:SwipeItem Caption="Sender Info" BackgroundColor="#26a95e" Tap="OnShowCustomerInfo"/>
+                <dxg:SwipeItem Caption="Sender Info" BackgroundColor="#26a95e" Tap="OnShowCustomerInfo" />
             </dxg:DataGridView.StartSwipeItems>
             <dxg:DataGridView.EndSwipeItems>
-                <dxg:SwipeItem Caption="Reply" BackgroundColor="#797bff" Tap="OnReply"/>
-                <dxg:SwipeItem Caption="Remove" BackgroundColor="#ff3b30" Tap="OnDelete"/>
+                <dxg:SwipeItem Caption="Reply" BackgroundColor="#797bff" Tap="OnReply" />
+                <dxg:SwipeItem Caption="Remove" BackgroundColor="#ff3b30" Tap="OnDelete" />
             </dxg:DataGridView.EndSwipeItems>
             <dxg:DataGridView.Columns>
                 <dxg:TextColumn FieldName="From.Name" Caption="From" Width="150">
@@ -21,7 +21,7 @@
                         <OnIdiom x:TypeArguments="GridLength" Phone="110" Tablet="150"/>
                     </dxg:TextColumn.Width>
                 </dxg:TextColumn>
-                <dxg:TextColumn FieldName="Subject"/>
+                <dxg:TextColumn FieldName="Subject" />
                 <dxg:DateColumn FieldName="Sent" Width="150">
                     <dxg:DateColumn.IsVisible>
                         <OnIdiom x:TypeArguments="x:Boolean" Phone="false" Tablet="true"/>

@@ -71,7 +71,7 @@
                                 <charts:PieSeriesLabel TextPattern="{}${V}M" Position="Inside"/>
                             </charts:DonutSeries.Label>
                             <charts:DonutSeries.CenterLabel>
-                                <charts:PieCenterTextLabel TextPattern="Total &#10; {TV}M"/>
+                                <charts:PieCenterTextLabel TextPattern="Total &#10; {TV}M" />
                             </charts:DonutSeries.CenterLabel>
                         </charts:DonutSeries>
                     </charts:PieChartView.Series>
@@ -93,11 +93,12 @@
                        TextColor="{DynamicResource TextThemeColor}"
                        BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
                 <charts:ChartView x:Name="chart"
-                                  Grid.Row="1">
+                                  Grid.Row="1"
+                                  SelectionMode="None">
                     <charts:ChartView.AxisX>
                         <charts:DateTimeAxisX MeasureUnit="Year">
                             <charts:DateTimeAxisX.Range>
-                                <charts:DateTimeRange SideMargin="0.2"/>
+                                <charts:DateTimeRange SideMargin="0.2" />
                             </charts:DateTimeAxisX.Range>
                         </charts:DateTimeAxisX>
                     </charts:ChartView.AxisX>
@@ -105,7 +106,7 @@
                     <charts:ChartView.AxisY>
                         <charts:NumericAxisY AutoRangeMode="VisibleValues" AlwaysShowZeroLevel="{Binding SelectedItem, Source={x:Reference pieChart}, Converter={StaticResource selectionConverter}, ConverterParameter=true}">
                             <charts:NumericAxisY.Label>
-                                <charts:AxisLabel TextFormat="{}$#M"/>
+                                <charts:AxisLabel TextFormat="{}$#M" />
                             </charts:NumericAxisY.Label>
                         </charts:NumericAxisY>
                     </charts:ChartView.AxisY>
@@ -126,16 +127,16 @@
                                                   MarkersVisible="true">
                             <charts:StackedAreaSeries.Data>
                                 <charts:SeriesDataAdapter DataSource="{Binding SeriesDataByYears[0]}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Type="Value" Member="Value"/>
+                                    <charts:ValueDataMember Type="Value" Member="Value" />
                                 </charts:SeriesDataAdapter>
                             </charts:StackedAreaSeries.Data>
                             <charts:StackedAreaSeries.HintOptions>
-                                <charts:SeriesCrosshairOptions PointTextPattern="{}${V$#.##}M"/>
+                                <charts:SeriesCrosshairOptions PointTextPattern="{}${V$#.##}M" />
                             </charts:StackedAreaSeries.HintOptions>
                             <charts:StackedAreaSeries.Style>
                                 <charts:AreaSeriesStyle Fill="{Binding Palette[0]}">
                                     <charts:AreaSeriesStyle.MarkerStyle>
-                                        <charts:MarkerStyle Fill="{Binding Palette[0]}"/>
+                                        <charts:MarkerStyle Fill="{Binding Palette[0]}" />
                                     </charts:AreaSeriesStyle.MarkerStyle>
                                 </charts:AreaSeriesStyle>
                             </charts:StackedAreaSeries.Style>
@@ -145,16 +146,16 @@
                                                   MarkersVisible="true">
                             <charts:StackedAreaSeries.Data>
                                 <charts:SeriesDataAdapter DataSource="{Binding SeriesDataByYears[1]}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Type="Value" Member="Value"/>
+                                    <charts:ValueDataMember Type="Value" Member="Value" />
                                 </charts:SeriesDataAdapter>
                             </charts:StackedAreaSeries.Data>
                             <charts:StackedAreaSeries.HintOptions>
-                                <charts:SeriesCrosshairOptions PointTextPattern="{}${V$#.##}M"/>
+                                <charts:SeriesCrosshairOptions PointTextPattern="{}${V$#.##}M" />
                             </charts:StackedAreaSeries.HintOptions>
                             <charts:StackedAreaSeries.Style>
                                 <charts:AreaSeriesStyle Fill="{Binding Palette[1]}">
                                     <charts:AreaSeriesStyle.MarkerStyle>
-                                        <charts:MarkerStyle Fill="{Binding Palette[1]}"/>
+                                        <charts:MarkerStyle Fill="{Binding Palette[1]}" />
                                     </charts:AreaSeriesStyle.MarkerStyle>
                                 </charts:AreaSeriesStyle>
                             </charts:StackedAreaSeries.Style>
@@ -164,16 +165,16 @@
                                                   MarkersVisible="true">
                             <charts:StackedAreaSeries.Data>
                                 <charts:SeriesDataAdapter DataSource="{Binding SeriesDataByYears[2]}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Type="Value" Member="Value"/>
+                                    <charts:ValueDataMember Type="Value" Member="Value" />
                                 </charts:SeriesDataAdapter>
                             </charts:StackedAreaSeries.Data>
                             <charts:StackedAreaSeries.HintOptions>
-                                <charts:SeriesCrosshairOptions PointTextPattern="{}${V$#.##}M"/>
+                                <charts:SeriesCrosshairOptions PointTextPattern="{}${V$#.##}M" />
                             </charts:StackedAreaSeries.HintOptions>
                             <charts:StackedAreaSeries.Style>
                                 <charts:AreaSeriesStyle Fill="{Binding Palette[2]}">
                                     <charts:AreaSeriesStyle.MarkerStyle>
-                                        <charts:MarkerStyle Fill="{Binding Palette[2]}"/>
+                                        <charts:MarkerStyle Fill="{Binding Palette[2]}" />
                                     </charts:AreaSeriesStyle.MarkerStyle>
                                 </charts:AreaSeriesStyle>
                             </charts:StackedAreaSeries.Style>
@@ -183,16 +184,16 @@
                                                   MarkersVisible="true">
                             <charts:StackedAreaSeries.Data>
                                 <charts:SeriesDataAdapter DataSource="{Binding SeriesDataByYears[3]}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Type="Value" Member="Value"/>
+                                    <charts:ValueDataMember Type="Value" Member="Value" />
                                 </charts:SeriesDataAdapter>
                             </charts:StackedAreaSeries.Data>
                             <charts:StackedAreaSeries.HintOptions>
-                                <charts:SeriesCrosshairOptions PointTextPattern="{}${V$#.##}M"/>
+                                <charts:SeriesCrosshairOptions PointTextPattern="{}${V$#.##}M" />
                             </charts:StackedAreaSeries.HintOptions>
                             <charts:StackedAreaSeries.Style>
                                 <charts:AreaSeriesStyle Fill="{Binding Palette[3]}">
                                     <charts:AreaSeriesStyle.MarkerStyle>
-                                        <charts:MarkerStyle Fill="{Binding Palette[3]}"/>
+                                        <charts:MarkerStyle Fill="{Binding Palette[3]}" />
                                     </charts:AreaSeriesStyle.MarkerStyle>
                                 </charts:AreaSeriesStyle>
                             </charts:StackedAreaSeries.Style>
@@ -202,16 +203,16 @@
                                                   MarkersVisible="true">
                             <charts:StackedAreaSeries.Data>
                                 <charts:SeriesDataAdapter DataSource="{Binding SeriesDataByYears[4]}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Type="Value" Member="Value"/>
+                                    <charts:ValueDataMember Type="Value" Member="Value" />
                                 </charts:SeriesDataAdapter>
                             </charts:StackedAreaSeries.Data>
                             <charts:StackedAreaSeries.HintOptions>
-                                <charts:SeriesCrosshairOptions PointTextPattern="{}${V$#.##}M"/>
+                                <charts:SeriesCrosshairOptions PointTextPattern="{}${V$#.##}M" />
                             </charts:StackedAreaSeries.HintOptions>
                             <charts:StackedAreaSeries.Style>
                                 <charts:AreaSeriesStyle Fill="{Binding Palette[4]}">
                                     <charts:AreaSeriesStyle.MarkerStyle>
-                                        <charts:MarkerStyle Fill="{Binding Palette[4]}"/>
+                                        <charts:MarkerStyle Fill="{Binding Palette[4]}" />
                                     </charts:AreaSeriesStyle.MarkerStyle>
                                 </charts:AreaSeriesStyle>
                             </charts:StackedAreaSeries.Style>

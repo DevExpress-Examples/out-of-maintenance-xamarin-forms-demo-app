@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <AbsoluteLayout xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
@@ -8,19 +7,26 @@
                 VerticalOptions="FillAndExpand"
                 BackgroundColor="{DynamicResource BackgroundThemeColor}">
     <AbsoluteLayout.GestureRecognizers>
-        <TapGestureRecognizer x:Name="gestureRecognizer" NumberOfTapsRequired="1" Tapped="GroupItemViewTapped"/>
+        <TapGestureRecognizer x:Name="gestureRecognizer" NumberOfTapsRequired="1" Tapped="GroupItemViewTapped" />
     </AbsoluteLayout.GestureRecognizers>
-    <demo:IconView AbsoluteLayout.LayoutBounds="30,16,-1,64"
-                   ImageSource="{Binding Icon}"/>
-    <views:LabelEx AbsoluteLayout.LayoutBounds="0,64,-1,-1"
-                   Margin="0"
-                   HorizontalTextAlignment="Center"
-                   Text="{Binding Title}"
-                   FontSize="16"
-                   FontFamily="{StaticResource Univia-Pro}"
-                   MaxLines="2"
-                   LineHeight="1"
-                   LineBreakMode="NoWrap"
-                   TextColor="{DynamicResource TextThemeColor}"
-                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+    <demo:IconView
+        AbsoluteLayout.LayoutBounds="30,16,-1,64"
+        ImageSource="{Binding Icon}"/>
+    <demo:IconView
+        AbsoluteLayout.LayoutFlags="All"
+        AbsoluteLayout.LayoutBounds="0.8,0.03,0.25,0.25"
+        IsVisible="{Binding ShowBadge}"
+        ImageSource="{Binding BadgeIcon}"/>
+    <views:LabelEx
+        AbsoluteLayout.LayoutBounds="0,64,-1,-1"
+        Margin="0"
+        HorizontalTextAlignment="Center"
+        Text="{Binding Title}"
+        FontSize="16"
+        FontFamily="{StaticResource Univia-Pro}"
+        MaxLines="2"
+        LineHeight="1"
+        LineBreakMode="NoWrap"
+        TextColor="{DynamicResource TextThemeColor}"
+        BackgroundColor="{DynamicResource BackgroundThemeColor}" />
 </AbsoluteLayout>

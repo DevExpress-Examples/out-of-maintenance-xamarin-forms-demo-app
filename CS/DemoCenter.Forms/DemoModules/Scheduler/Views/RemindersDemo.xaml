@@ -24,7 +24,7 @@
                                                            StatusId="Status" 
                                                            Subject="Subject"
                                                            LabelId="Label" 
-                                                           TimeZoneId="TimeZoneId"/>
+                                                           TimeZoneId="TimeZoneId" />
                             </dxsch:DataSource.AppointmentMappings>
                         </dxsch:DataSource>
                     </dxsch:SchedulerDataStorage.DataSource>
@@ -41,7 +41,7 @@
                BackgroundColor="{DynamicResource ReminderButtonBackgroundColor}">
             <demo:IconView ImageSource="Bell.svg" WidthRequest="24" HeightRequest="24" HorizontalOptions="Center" VerticalOptions="Center"/>
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnClicked"/>
+                <TapGestureRecognizer Tapped="OnClicked" />
             </Frame.GestureRecognizers>
         </Frame>
     </AbsoluteLayout>

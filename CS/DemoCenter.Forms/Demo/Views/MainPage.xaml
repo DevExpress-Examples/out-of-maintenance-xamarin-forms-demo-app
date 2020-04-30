@@ -1,130 +1,144 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
-             xmlns:dcIOs="clr-namespace:DemoCenter.PlatformConfiguration.iOSSpecific;assembly=DemoCenter.Forms"
-             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo" 
-             xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core" 
-             xmlns:views="clr-namespace:DemoCenter.Forms.Views" 
-             x:Class="DemoCenter.Forms.Views.MainPage" 
-             x:Name="mainPage"
-             dcIOs:Page.DisablePopInteractive="True"
-             ios:Page.UseSafeArea="true"
-             BackgroundColor="{DynamicResource MainPageBackgroundColor}">
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:dcIOs="clr-namespace:DemoCenter.PlatformConfiguration.iOSSpecific;assembly=DemoCenter.Forms"
+    xmlns:demo="clr-namespace:DemoCenter.Forms.Demo" 
+    xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core" 
+    xmlns:views="clr-namespace:DemoCenter.Forms.Views" 
+    x:Class="DemoCenter.Forms.Views.MainPage" 
+    x:Name="mainPage"
+    dcIOs:Page.DisablePopInteractive="True"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{DynamicResource MainPageBackgroundColor}"
+    >
     <NavigationPage.TitleView>
-        <Grid Margin="0"
-              ColumnSpacing="0"
-              RowSpacing="0"
-              BackgroundColor="{DynamicResource BackgroundThemeColor}">
+        <Grid
+            Margin="0"
+            ColumnSpacing="0"
+            RowSpacing="0"
+            BackgroundColor="{DynamicResource BackgroundThemeColor}">
             <Grid.ColumnDefinitions>
-                <forms:ColumnDefinition Width="auto"/>
-                <forms:ColumnDefinition Width="*"/>
-                <forms:ColumnDefinition Width="auto"/>
+                <forms:ColumnDefinition Width="auto" />
+                <forms:ColumnDefinition Width="*" />
+                <forms:ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
-            <demo:IconView Grid.Column="0"
-                           HeightRequest="24"
-                           WidthRequest="24"
-                           HorizontalOptions="StartAndExpand"
-                           ImageSource="Info.svg"
-                           VerticalOptions="CenterAndExpand"
-                           ForegroundColor="{DynamicResource TitleIconColor}">
+            <demo:IconView 
+                Grid.Column="0"
+                HeightRequest="24"
+                WidthRequest="24"
+                HorizontalOptions="StartAndExpand"
+                ImageSource="Info.svg"
+                VerticalOptions="CenterAndExpand"
+                ForegroundColor="{DynamicResource TitleIconColor}">
                 <demo:IconView.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnInfoClicked"/>
+                    <TapGestureRecognizer Tapped="OnInfoClicked" />
                 </demo:IconView.GestureRecognizers>
             </demo:IconView>
-            <demo:IconView Grid.Column="2"
-                           HeightRequest="24"
-                           WidthRequest="24"
-                           HorizontalOptions="EndAndExpand"
-                           ImageSource="Palette.svg"
-                           VerticalOptions="CenterAndExpand"
-                           ForegroundColor="{DynamicResource TitleIconColor}">
+            <demo:IconView
+                Grid.Column="2"
+                HeightRequest="24"
+                WidthRequest="24"
+                HorizontalOptions="EndAndExpand"
+                ImageSource="Palette.svg"
+                VerticalOptions="CenterAndExpand"
+                ForegroundColor="{DynamicResource TitleIconColor}">
                 <demo:IconView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ThemeCommand}" CommandParameter="{Binding}"/>
+                    <TapGestureRecognizer Command="{Binding ThemeCommand}" CommandParameter="{Binding}" />
                 </demo:IconView.GestureRecognizers>
                 <demo:IconView.Margin>
                     <OnPlatform x:TypeArguments="Thickness" Android="0,0,16,0" iOS="0"/>
                 </demo:IconView.Margin>
             </demo:IconView>
-            <Label Grid.Column="1"
-                   Text="{Binding TitleText}"
-                   FontSize="Large"
-                   FontFamily="{StaticResource Univia-Pro Medium}"
-                   HorizontalOptions="Center"
-                   TextColor="{DynamicResource TextThemeColor}"
-                   BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Label 
+                Grid.Column="1"
+                Text="{Binding TitleText}"
+                FontSize="Large"
+                FontFamily="{StaticResource Univia-Pro Medium}"
+                HorizontalOptions="Center"
+                TextColor="{DynamicResource TextThemeColor}"
+                BackgroundColor="{DynamicResource BackgroundThemeColor}">
                 <Label.Margin>
                     <OnPlatform x:TypeArguments="Thickness" Android="0" iOS="0,4,0,0"/>
                 </Label.Margin>
             </Label>
         </Grid>
     </NavigationPage.TitleView>
-    <demo:NonSelectableListView x:Name="mainListView"
-                                ItemsSource="{Binding Items}"
-                                BackgroundColor="Transparent"
-                                ItemSelected="MainListView_ItemSelected"
-                                SelectionMode="None"
-                                RowHeight="201"
-                                HasUnevenRows="false"
-                                VerticalOptions="FillAndExpand"
-                                VerticalScrollBarVisibility="Never"
-                                SeparatorVisibility="None">
+    <demo:NonSelectableListView 
+        x:Name="mainListView"
+        ItemsSource="{Binding Items}"
+        BackgroundColor="Transparent"
+        ItemSelected="MainListView_ItemSelected"
+        SelectionMode="None"
+        RowHeight="201"
+        HasUnevenRows="false"
+        VerticalOptions="FillAndExpand"
+        VerticalScrollBarVisibility="Never"
+        SeparatorVisibility="None">
         <ListView.Header>
-            <StackLayout Margin="0,0,0,0"
-                         BackgroundColor="{DynamicResource BackgroundThemeColor}">
-            <Label Text="{Binding SubTitle}"
-                   FontFamily="{StaticResource Univia-Pro}"
-                   FontSize="Medium"
-                   VerticalOptions="StartAndExpand"
-                   HorizontalOptions="Fill"
-                   HorizontalTextAlignment="Center"
-                   HeightRequest="35"
-                   TextColor="{DynamicResource TextThemeColor}"
-                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <StackLayout
+                Margin="0,0,0,0"
+                BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Label
+                Text="{Binding SubTitle}"
+                FontFamily="{StaticResource Univia-Pro}"
+                FontSize="Medium"
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Center"
+                HeightRequest="35"
+                TextColor="{DynamicResource TextThemeColor}"
+                BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
                 <BoxView Color="{DynamicResource MainPageBackgroundColor}"
-                         HeightRequest="10"/>
+                         HeightRequest="10" />
             </StackLayout>
         </ListView.Header>
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <RelativeLayout BackgroundColor="{DynamicResource BackgroundThemeColor}"
-                                    Margin="10,0,10,10"
-                                    Padding="0">
-                        <Label RelativeLayout.YConstraint="21" 
-                               RelativeLayout.XConstraint="15"
-                               HeightRequest="24"
-                               Text="{Binding Title}"
-                               LineBreakMode="NoWrap"
-                               Style="{DynamicResource ListItemTextStyle}"
-                               TextColor="{DynamicResource TextThemeColor}"
-                               FontFamily="{StaticResource Univia-Pro}"
-                               FontSize="22"
-                               BackgroundColor="Transparent"/>
-                        <Button RelativeLayout.YConstraint="26"
-                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1,Constant=-70}"
-                                Text="MORE"
-                                TextColor="{DynamicResource DemoIconColor}"
-                                FontFamily="{StaticResource Univia-Pro Medium}"
-                                FontSize="16"
-                                HeightRequest="22"
-                                WidthRequest="54"
-                                Padding="0"
-                                Command="{Binding BindingContext.NavigationControlCommand, Source={Reference mainPage}}"
-                                CommandParameter="{Binding Module}"
-                                BackgroundColor="Transparent"/>
-                        <ScrollView RelativeLayout.XConstraint="0"
-                                    RelativeLayout.YConstraint="56"
-                                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-56}"    
-                                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                                    Padding="10,0,0,0"
-                                    Margin="0"
-                                    VerticalOptions="Fill"
-                                    HorizontalOptions="Fill"
-                                    Orientation="Horizontal"
-                                    HorizontalScrollBarVisibility="Never">
-                            <views:DemosGroupView SourceModule="{Binding Module}" 
-                                                  ItemSelectedCommand="{Binding BindingContext.NavigationDemoCommand, Source={Reference mainPage}}"/>
+                    <RelativeLayout
+                        BackgroundColor="{DynamicResource BackgroundThemeColor}"
+                        Margin="10,0,10,10"
+                        Padding="0">
+                        <Label
+                            RelativeLayout.YConstraint="21" 
+                            RelativeLayout.XConstraint="15"
+                            HeightRequest="24"
+                            Text="{Binding Title}"
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemTextStyle}"
+                            TextColor="{DynamicResource TextThemeColor}"
+                            FontFamily="{StaticResource Univia-Pro}"
+                            FontSize="22"
+                            BackgroundColor="Transparent"/>
+                        <Button
+                            RelativeLayout.YConstraint="26"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1,Constant=-70}"
+                            Text="MORE"
+                            TextColor="{DynamicResource DemoIconColor}"
+                            FontFamily="{StaticResource Univia-Pro Medium}"
+                            FontSize="16"
+                            HeightRequest="22"
+                            WidthRequest="54"
+                            Padding="0"
+                            Command="{Binding BindingContext.NavigationControlCommand, Source={Reference mainPage}}"
+                            CommandParameter="{Binding Module}"
+                            BackgroundColor="Transparent"/>
+                        <ScrollView 
+                            RelativeLayout.XConstraint="0"
+                            RelativeLayout.YConstraint="56"
+                            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-56}"    
+                            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                            Padding="10,0,0,0"
+                            Margin="0"
+                            VerticalOptions="Fill"
+                            HorizontalOptions="Fill"
+                            Orientation="Horizontal"
+                            HorizontalScrollBarVisibility="Never">
+                            <views:DemosGroupView 
+                                SourceModule="{Binding Module}" 
+                                ItemSelectedCommand="{Binding BindingContext.NavigationDemoCommand, Source={Reference mainPage}}"/>
                         </ScrollView>
                     </RelativeLayout>
                 </ViewCell>

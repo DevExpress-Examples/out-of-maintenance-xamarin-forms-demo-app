@@ -23,10 +23,10 @@
                     </charts:CandleStickSeries.HintOptions>
                     <charts:CandleStickSeries.Data>
                         <charts:SeriesDataAdapter DataSource="{Binding StockPrices}" ArgumentDataMember="Date">
-                            <charts:ValueDataMember Type="High" Member="High"/>
-                            <charts:ValueDataMember Type="Low" Member="Low"/>
-                            <charts:ValueDataMember Type="Open" Member="Open"/>
-                            <charts:ValueDataMember Type="Close" Member="Close"/>
+                            <charts:ValueDataMember Type="High" Member="High" />
+                            <charts:ValueDataMember Type="Low" Member="Low" />
+                            <charts:ValueDataMember Type="Open" Member="Open" />
+                            <charts:ValueDataMember Type="Close" Member="Close" />
                         </charts:SeriesDataAdapter>
                     </charts:CandleStickSeries.Data>
                 </charts:CandleStickSeries>
@@ -37,12 +37,13 @@
                         <charts:CalculatedSeriesDataAdapter Series="{Binding Series[0], Source={x:Reference chart}}"/>
                     </charts:BollingerBandsIndicator.Data>
                     <charts:BollingerBandsIndicator.Style>
-                        <charts:BollingerBandsIndicatorStyle Stroke="#e95ddc" UpperStroke="#e95ddc" LowerStroke="#e95ddc"/>
+                        <charts:BollingerBandsIndicatorStyle Stroke="#e95ddc" UpperStroke="#e95ddc" LowerStroke="#e95ddc"
+                                                             StrokeThickness="1"  LowerStrokeThickness="1" UpperStrokeThickness="1" />
                     </charts:BollingerBandsIndicator.Style>
                     <charts:BollingerBandsIndicator.HintOptions>
                         <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: &#10;Upper: ${UV$###.##}&#10;Value: ${V$###.##}&#10;Lower: ${LV$###.##}"
                                                        AxisLineVisible="false"
-                                                       AxisLabelVisible="false"/>
+                                                       AxisLabelVisible="false" />
                     </charts:BollingerBandsIndicator.HintOptions>
                 </charts:BollingerBandsIndicator>
 
@@ -52,17 +53,17 @@
                         <charts:CalculatedSeriesDataAdapter Series="{Binding Series[0], Source={x:Reference chart}}"/>
                     </charts:MovingAverageIndicator.Data>
                     <charts:MovingAverageIndicator.Style>
-                        <charts:LineIndicatorStyle Stroke="#9859c9"/>
+                        <charts:LineIndicatorStyle Stroke="#9859c9" StrokeThickness="1" />
                     </charts:MovingAverageIndicator.Style>
                     <charts:MovingAverageIndicator.HintOptions>
                         <charts:SeriesCrosshairOptions PointTextPattern="{}{S}: ${V$###.##}"
                                                        AxisLineVisible="false"
-                                                       AxisLabelVisible="false"/>
+                                                       AxisLabelVisible="false" />
                     </charts:MovingAverageIndicator.HintOptions>
                 </charts:MovingAverageIndicator>
                 <charts:BarSeries DisplayName="Volume">
                     <charts:BarSeries.HintOptions>
-                        <charts:SeriesCrosshairOptions PointTextPattern="Volume: ${V$#,###}"/>
+                        <charts:SeriesCrosshairOptions PointTextPattern="Volume: ${V$#,###}" />
                     </charts:BarSeries.HintOptions>
                     <charts:BarSeries.Style>
                         <charts:BarSeriesStyle Fill="#ff2196F3"/>
@@ -70,15 +71,17 @@
                     <charts:BarSeries.Data>
                         <charts:SeriesDataAdapter DataSource="{Binding StockPrices}"
                                                   ArgumentDataMember="Date">
-                            <charts:ValueDataMember Type="Value" Member="Volume"/>
+                            <charts:ValueDataMember Type="Value" Member="Volume" />
                         </charts:SeriesDataAdapter>
                     </charts:BarSeries.Data>
                     <charts:BarSeries.AxisY>
-                        <charts:NumericAxisY Position="Near"
-                                             LabelTextFormatter="{local:AxisLabelTextFormatter}">
+                        <charts:NumericAxisY LabelTextFormatter="{local:AxisLabelTextFormatter}">
                             <charts:NumericAxisY.Layout>
-                                <charts:AxisLayout Anchor1="0" Anchor2="0.25"/>
+                                <charts:AxisLayout Anchor1="0" Anchor2="0.25" />
                             </charts:NumericAxisY.Layout>
+                            <charts:NumericAxisY.DisplayPosition>
+                                <charts:AxisDisplayPositionNear/>
+                            </charts:NumericAxisY.DisplayPosition>
                             <charts:NumericAxisY.Label>
                                 <charts:AxisLabel Position="Inside"/>
                             </charts:NumericAxisY.Label>
@@ -93,8 +96,10 @@
             </charts:ChartView.Series>
             <charts:ChartView.AxisY>
                 <charts:NumericAxisY AlwaysShowZeroLevel="false"
-                                     Position="Far"
                                      AutoRangeMode="VisibleValues">
+                    <charts:NumericAxisY.DisplayPosition>
+                        <charts:AxisDisplayPositionFar/>
+                    </charts:NumericAxisY.DisplayPosition>
                     <charts:NumericAxisY.Label>
                         <charts:AxisLabel Position="Inside"
                                           TextFormat="$#"/>
@@ -114,6 +119,8 @@
                     </charts:Hint.Behavior>
                 </charts:Hint>
             </charts:ChartView.Hint>
+
+
         </charts:ChartView>
     </ContentPage.Content>
 </ContentPage>

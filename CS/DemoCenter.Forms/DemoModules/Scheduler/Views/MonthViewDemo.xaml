@@ -20,7 +20,7 @@
                                                        RecurrenceInfo="RecurrenceInfo"
                                                        StatusId="Status" 
                                                        Subject="Subject"
-                                                       LabelId="Label"/>
+                                                       LabelId="Label" />
                         </dxsch:DataSource.AppointmentMappings>
                     </dxsch:DataSource>
                 </dxsch:SchedulerDataStorage.DataSource>                

@@ -4,6 +4,9 @@
                     xmlns:templateView="clr-namespace:DemoCenter.Forms.Charts.Views"
                     x:Class="DemoCenter.Forms.Charts.Templates.AreaChartTemplates">
 
+    <DataTemplate x:Key="rangeAreaChartTemplate">
+        <templateView:RangeAreaChartContainer/>
+    </DataTemplate>
     <DataTemplate x:Key="areaChartTemplate">
         <templateView:AreaChartContainer/>
     </DataTemplate>

@@ -9,19 +9,19 @@
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor"
-                    Value="{DynamicResource GridCellFontColor}"/>
+                    Value="{DynamicResource GridCellFontColor}" />
         </Style>
         <Style TargetType="demo:IconView">
             <Setter Property="WidthRequest"
-                    Value="24"/>
+                    Value="24" />
             <Setter Property="HeightRequest"
-                    Value="24"/>
+                    Value="24" />
             <Setter Property="ForegroundColor"
-                    Value="#B7B7B7"/>
+                    Value="#B7B7B7" />
             <Setter Property="VerticalOptions"
-                    Value="Start"/>
+                    Value="Start" />
             <Setter Property="HorizontalOptions"
-                    Value="End"/>
+                    Value="End" />
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -32,16 +32,16 @@
                     <Grid RowSpacing="15"
                           ColumnSpacing="13">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
                         <ContentView Grid.Row="0"
@@ -57,43 +57,43 @@
                                        Source="{Binding Photo}"
                                        Aspect="AspectFill"
                                        HeightRequest="120"
-                                       WidthRequest="100"/>
+                                       WidthRequest="100" />
                             </ContentView>
                         </ContentView>
                         <demo:IconView
                             Grid.Row="0"
                             Grid.Column="1"
-                            ImageSource="Demo.Icon.Person.svg"/>
+                            ImageSource="Demo.Icon.Person.svg" />
                         <Label Text="{Binding Name}"
                                Grid.Row="0"
-                               Grid.Column="2"/>
+                               Grid.Column="2" />
                         <demo:IconView
                             Grid.Row="1"
                             Grid.Column="1"
-                            ImageSource="Demo.Icon.Card.svg"/>
+                            ImageSource="Demo.Icon.Card.svg" />
                         <Label Text="{Binding CompanyName}"
                                Grid.Row="1"
-                               Grid.Column="2"/>
+                               Grid.Column="2" />
                         <demo:IconView
                             Grid.Row="2"
                             Grid.Column="1"
-                            ImageSource="Demo.Icon.Portfolio.svg"/>
+                            ImageSource="Demo.Icon.Portfolio.svg" />
                         <Label Text="{Binding Position}"
                                Grid.Row="2"
-                               Grid.Column="2"/>
+                               Grid.Column="2" />
                         <demo:IconView
                             Grid.Row="3"
                             Grid.Column="1"
-                            ImageSource="Demo.Icon.Phone.svg"/>
+                            ImageSource="Demo.Icon.Phone.svg" />
                         <Label Text="{Binding Phone}"
                                Grid.Row="3"
-                               Grid.Column="2"/>
+                               Grid.Column="2" />
                         <demo:IconView Grid.Column="1"
                                        Grid.Row="4"
-                                       ImageSource="Demo.Icon.Location.svg"/>
+                                       ImageSource="Demo.Icon.Location.svg" />
                         <Label Text="{Binding Address}"
                                Grid.Row="4"
-                               Grid.Column="2"/>
+                               Grid.Column="2" />
                     </Grid>
                 </StackLayout>
             </OnIdiom.Phone>
@@ -104,16 +104,16 @@
                     <Grid RowSpacing="15"
                           ColumnSpacing="13">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
                         <ContentView Grid.Row="0"
@@ -127,56 +127,56 @@
                                        Source="{Binding Photo}"
                                        Aspect="AspectFill"
                                        HeightRequest="120"
-                                       WidthRequest="100"/>
+                                       WidthRequest="100" />
                             </ContentView>
                         </ContentView>
                         <Label Margin="0, 0, 0, 10"
                                Text="Name:"
                                FontAttributes="Bold"
                                Grid.Row="0"
-                               Grid.Column="1"/>
+                               Grid.Column="1" />
                         <Label Margin="0, 0, 0, 10"
                                Text="{Binding Name}"
                                Grid.Row="0"
-                               Grid.Column="2"/>
+                               Grid.Column="2" />
 
                         <Label Margin="0, 0, 0, 10"
                                Text="Company:"
                                FontAttributes="Bold"
                                Grid.Row="1"
-                               Grid.Column="1"/>
+                               Grid.Column="1" />
                         <Label Margin="0, 0, 0, 10"
                                Text="{Binding CompanyName}"
                                Grid.Row="1"
-                               Grid.Column="2"/>
+                               Grid.Column="2" />
 
                         <Label Margin="0, 0, 0, 10"
                                Text="Position:"
                                FontAttributes="Bold"
                                Grid.Row="2"
-                               Grid.Column="1"/>
+                               Grid.Column="1" />
                         <Label Margin="0, 0, 0, 10"
                                Text="{Binding Position}"
                                Grid.Row="2"
-                               Grid.Column="2"/>
+                               Grid.Column="2" />
 
                         <Label Margin="0, 0, 0, 10"
                                Text="Phone:"
                                FontAttributes="Bold"
                                Grid.Row="3"
-                               Grid.Column="1"/>
+                               Grid.Column="1" />
                         <Label Margin="0, 0, 0, 10"
                                Text="{Binding Phone}"
                                Grid.Row="3"
-                               Grid.Column="2"/>
+                               Grid.Column="2" />
 
                         <Label Text="Address:"
                                FontAttributes="Bold"
                                Grid.Row="4"
-                               Grid.Column="1"/>
+                               Grid.Column="1" />
                         <Label Text="{Binding Address}"
                                Grid.Row="4"
-                               Grid.Column="2"/>
+                               Grid.Column="2" />
                     </Grid>
                 </StackLayout>
             </OnIdiom.Tablet>

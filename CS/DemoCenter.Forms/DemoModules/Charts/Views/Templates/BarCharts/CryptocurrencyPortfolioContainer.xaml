@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:RotationHandleView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:local="clr-namespace:DemoCenter.Forms"
+             x:Class="DemoCenter.Forms.Charts.Views.CryptocurrencyPortfolioContainer"
+             x:Name="cryptocurrencyContainer">
+    <ContentView.Resources>
+        <charts:SeriesHintOptions x:Key="CryptocurrencyPortfolioSeriesHintOptions"
+                                  PointTextPattern="{}{A}: {S} {V$#,###}%"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding ChartModel.Title}"
+                   FontFamily="Roboto"
+                   TextColor="{DynamicResource TextThemeColor}"
+                   BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <charts:ChartView Grid.Row="1"
+                              Rotated="True"
+                              x:Name="chart">
+                <charts:ChartView.Series>
+                    <charts:BarSeries DisplayName="{Binding ChartModel.CryptocurrencyPortfolio.Name}"
+                                      HintOptions="{StaticResource CryptocurrencyPortfolioSeriesHintOptions}">
+                        <charts:BarSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.CryptocurrencyPortfolio.DataSet}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value" Member="Value" />
+                            </charts:SeriesDataAdapter>
+                        </charts:BarSeries.Data>
+                        <charts:BarSeries.Label>
+                            <charts:BarSeriesLabel Position="Outside" Behavior="Cut" TextPattern="{}{V}%"/>
+                        </charts:BarSeries.Label>
+                    </charts:BarSeries>
+                </charts:ChartView.Series>
+                <charts:ChartView.Legend>
+                    <charts:Legend HorizontalPosition="Left"
+                                   VerticalPosition="Top"
+                                   Orientation="TopToBottom"/>
+                </charts:ChartView.Legend>
+                <charts:ChartView.Hint>
+                    <charts:Hint/>
+                </charts:ChartView.Hint>
+                <charts:ChartView.AxisX>
+                    <charts:QualitativeAxisX>
+                        <charts:QualitativeAxisX.DisplayPosition>
+                            <charts:AxisDisplayPositionRelative NumericPosition="0" RelativeAxis="{Binding AxisY, Source={x:Reference chart}}"/>
+                        </charts:QualitativeAxisX.DisplayPosition>
+                    </charts:QualitativeAxisX>
+                </charts:ChartView.AxisX>
+                <charts:ChartView.AxisY>
+                    <charts:NumericAxisY
+                             LabelTextFormatter="{local:CryptocurrencyPortfolioAxisLabelTextFormatter}"
+                             GridAlignment="15">
+                        <charts:NumericAxisY.Range>
+                            <charts:NumericRange Min="-40" Max="40"/>
+                        </charts:NumericAxisY.Range>
+                        <charts:NumericAxisY.Style>
+                            <charts:AxisStyle MajorTickmarksVisible="True" MinorTickmarksVisible="True" />
+                        </charts:NumericAxisY.Style>
+                    </charts:NumericAxisY>
+                </charts:ChartView.AxisY>
+            </charts:ChartView>
+        </Grid>
+    </ContentView.Content>
+</local:RotationHandleView>

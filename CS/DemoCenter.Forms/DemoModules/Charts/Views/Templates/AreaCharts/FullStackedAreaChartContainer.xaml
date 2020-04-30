@@ -7,7 +7,7 @@
         <charts:MarkerSeriesLabel x:Key="stackedAreaSeriesLabel"
                                   TextPattern="${V$#.#}M"/>
         <charts:SeriesHintOptions x:Key="fullStackedAreaSeriesHintOptions"
-                                  PointTextPattern="{}{S}&#x0a;{A$yyyy}: {VP$#%}"/>
+                                  PointTextPattern="{}{S}&#x0a;{A$yyyy}: {VP$0.##}%"/>
     </ContentView.Resources>
     <ContentView.Content>
         <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
@@ -29,7 +29,7 @@
                                                   MarkersVisible="true">
                         <charts:FullStackedAreaSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVEast.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:FullStackedAreaSeries.Data>
                     </charts:FullStackedAreaSeries>
@@ -39,7 +39,7 @@
                                                   MarkersVisible="true">
                         <charts:FullStackedAreaSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVWest.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:FullStackedAreaSeries.Data>
                     </charts:FullStackedAreaSeries>
@@ -49,7 +49,7 @@
                                                   MarkersVisible="true">
                         <charts:FullStackedAreaSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVSouth.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:FullStackedAreaSeries.Data>
                     </charts:FullStackedAreaSeries>
@@ -59,7 +59,7 @@
                                                   MarkersVisible="true">
                         <charts:FullStackedAreaSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVCenter.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:FullStackedAreaSeries.Data>
                     </charts:FullStackedAreaSeries>
@@ -69,7 +69,7 @@
                                                   MarkersVisible="true">
                         <charts:FullStackedAreaSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVNorth.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:FullStackedAreaSeries.Data>
                     </charts:FullStackedAreaSeries>    

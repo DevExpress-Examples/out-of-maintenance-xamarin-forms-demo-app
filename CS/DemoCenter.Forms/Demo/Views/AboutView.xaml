@@ -1,39 +1,45 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ScrollView xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
-            x:Class="DemoCenter.Forms.Demo.Views.AboutView"
-            x:Name="scrollView"
-            Padding="0"
-            Margin="0"
-            HorizontalOptions="Fill"
-            VerticalOptions="Fill"
-            Orientation="Vertical"
-            VerticalScrollBarVisibility="Never">
+<ScrollView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+    x:Class="DemoCenter.Forms.Demo.Views.AboutView"
+    x:Name="scrollView"
+    Padding="0"
+    Margin="0"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill"
+    Orientation="Vertical"
+    VerticalScrollBarVisibility="Never">
         <StackLayout BackgroundColor="{DynamicResource BackgroundThemeColor}">
-            <ContentView HorizontalOptions="FillAndExpand" 
-                         HeightRequest="237"
-                         WidthRequest="340">
+            <ContentView                
+                HorizontalOptions="FillAndExpand" 
+                HeightRequest="237"
+                WidthRequest="340">
                 <Grid>
-                    <demo:IconView VerticalOptions="FillAndExpand" 
-                                   HorizontalOptions="FillAndExpand" 
-                                   ImageSource="AboutHeader.svg"/>
-                    <Label VerticalOptions="End"
-                           HorizontalOptions="End"
-                           Margin="6,4"
-                           TextColor="{DynamicResource SecondaryTextColor}"
-                           FontSize="12">
+                    <demo:IconView
+                        VerticalOptions="FillAndExpand" 
+                        HorizontalOptions="FillAndExpand" 
+                        ImageSource="AboutHeader.svg"/>
+                    <Label
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        Margin="6,4"
+                        TextColor="{DynamicResource SecondaryTextColor}"
+                        FontSize="12">
                         <Label.FormattedText>
                             <FormattedString>
                                 <FormattedString.Spans>
-                                    <Span Text="{Binding Version}"/>
+                                    <Span Text="{Binding Version}" />
                                 </FormattedString.Spans>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
                 </Grid>
             </ContentView>
-            <StackLayout Orientation="Vertical" Spacing="20">
+            <StackLayout 
+                Orientation="Vertical"
+                Spacing="20">
                 <StackLayout.Padding>
                     <OnIdiom x:TypeArguments="Thickness" Tablet="40,20,40,40" Phone="30,20,30,40"/>
                 </StackLayout.Padding>
@@ -41,7 +47,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="This application demonstrates DevExpress components that help you create business solutions for the Xamarin.Forms platform."/>
+                                <Span Text="This application demonstrates DevExpress components that help you create business solutions for the Xamarin.Forms platform." />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
@@ -50,14 +56,15 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Xamarin is a trademark or registered trademark of Microsoft Corporation."/>
+                                <Span Text="Xamarin is a trademark or registered trademark of Microsoft Corporation." />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
                 <BoxView BackgroundColor="{DynamicResource TabItemBorderColor}" HeightRequest="1"/>
-                <Grid Margin="0" RowSpacing="20" HeightRequest="64">
+                <Grid Margin="0" RowSpacing="20" HeightRequest="108">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="24"/>
                         <RowDefinition Height="24"/>
                         <RowDefinition Height="24"/>
                     </Grid.RowDefinitions>
@@ -69,14 +76,16 @@
                         <ColumnDefinition Width="24"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                        <demo:IconView x:Name="productIcon"
-                                       ImageSource="ProductPage.svg"
-                                       Grid.Column="0"/>
-                        <Label x:Name="productLabel"
-                               Text="Product Page"
-                               TextColor="{DynamicResource TextThemeColor}"
-                               Grid.Column="1"
-                               VerticalOptions="Center"/>
+                        <demo:IconView
+                            x:Name="productIcon"
+                        ImageSource="ProductPage.svg"
+                        Grid.Column="0"/>
+                        <Label
+                            x:Name="productLabel"
+                            Text="Product Page"
+                            TextColor="{DynamicResource TextThemeColor}"
+                            Grid.Column="1"
+                            VerticalOptions="Center"/>
                     </Grid>
                     <Grid Grid.Row="1" Margin="0" Padding="0" ColumnSpacing="20">
                         <Grid.GestureRecognizers>
@@ -86,12 +95,31 @@
                             <ColumnDefinition Width="24"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <demo:IconView ImageSource="Documentation.svg"
-                                       Grid.Column="0"/>
-                        <Label Text="Documentation"
-                               TextColor="{DynamicResource TextThemeColor}"
-                               Grid.Column="1"
-                               VerticalOptions="Center"/>
+                        <demo:IconView
+                            ImageSource="Documentation.svg"
+                            Grid.Column="0"/>
+                        <Label
+                            Text="Documentation"
+                            TextColor="{DynamicResource TextThemeColor}"
+                            Grid.Column="1"
+                            VerticalOptions="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="0" Padding="0" ColumnSpacing="20">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding OpenWebCommand}" CommandParameter="{Binding SourceCodeUrl}"/>
+                        </Grid.GestureRecognizers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <demo:IconView
+                            ImageSource="SourceCode.svg"
+                            Grid.Column="0"/>
+                        <Label
+                            Text="Source Code"
+                            TextColor="{DynamicResource TextThemeColor}"
+                            Grid.Column="1"
+                            VerticalOptions="Center"/>
                     </Grid>
                 </Grid>
             </StackLayout>

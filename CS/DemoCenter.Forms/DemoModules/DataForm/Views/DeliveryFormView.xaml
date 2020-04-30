@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DemoCenter.Forms.Views.DeliveryFormView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
+    xmlns:df="clr-namespace:DevExpress.XamarinForms.DataForm;assembly=DevExpress.XamarinForms.Editors"
+    BackgroundColor="{DynamicResource BackgroundThemeColor}"
+    ios:Page.UseSafeArea="True">
+
+    <ContentPage.Resources>
+        <Style TargetType="dxe:TextEdit">
+            <Setter Property="ClearIconVisibility" Value="Never" />
+        </Style>
+        <Style TargetType="dxe:SimpleButton">
+            <Setter Property="CornerRadius" Value="0"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <df:DataFormView
+            CommitMode="Manually"
+            ValidationMode="PropertyChanged"
+            DataObject="{Binding Model}"
+            x:Name="dataForm"
+            EditorLabelColor="#8a8d93"
+            EditorBoxMode="Filled"
+            EditorHorizontalSpacing="10"
+            ReserveBottomTextLine="True"
+            Margin="0,0,10,0"/>
+        <dxe:SimpleButton Grid.Row="1" TextColor="White" Padding="22" BackgroundColor="#2088ff" Text="SUBMIT" Clicked="Submit_OnClicked" />
+    </Grid>    
+</ContentPage>

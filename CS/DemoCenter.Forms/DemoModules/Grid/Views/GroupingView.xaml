@@ -10,13 +10,13 @@
             <dxg:DataGridView.Columns>
                 <dxg:NumberColumn FieldName="OrderID" Caption="OrderID" IsGrouped="true">
                 </dxg:NumberColumn>
-                <dxg:TextColumn FieldName="ProductName" MinWidth="100"/>
-                <dxg:DateColumn FieldName="OrderDate">
+                <dxg:TextColumn FieldName="ProductName" MinWidth="110"/>
+                <dxg:DateColumn FieldName="OrderDate" MinWidth="105">
                     <dxg:DateColumn.IsVisible>
                         <OnIdiom x:TypeArguments="x:Boolean" Phone="false" Tablet="true"/>
                     </dxg:DateColumn.IsVisible>
                 </dxg:DateColumn>
-                <dxg:DateColumn FieldName="ShippedDate">
+                <dxg:DateColumn FieldName="ShippedDate" MinWidth="105">
                     <dxg:DateColumn.IsVisible>
                         <OnIdiom x:TypeArguments="x:Boolean" Phone="false" Tablet="true"/>
                     </dxg:DateColumn.IsVisible>
@@ -30,11 +30,11 @@
                 </dxg:NumberColumn>
             </dxg:DataGridView.Columns>
             <dxg:DataGridView.GroupSummaries>
-                <dxg:GridColumnSummary FieldName="Total" Type="Sum"/>
+                <dxg:GridColumnSummary FieldName="Total" Type="Sum" />
             </dxg:DataGridView.GroupSummaries>
             <dxg:DataGridView.TotalSummaries>
                 <dxg:GridColumnSummary FieldName="ProductName" Type="Count"/>
-                <dxg:GridColumnSummary FieldName="Total" Type="Sum"/>
+                <dxg:GridColumnSummary FieldName="Total" Type="Sum" />
             </dxg:DataGridView.TotalSummaries>
         </dxg:DataGridView>
     </ContentPage.Content>

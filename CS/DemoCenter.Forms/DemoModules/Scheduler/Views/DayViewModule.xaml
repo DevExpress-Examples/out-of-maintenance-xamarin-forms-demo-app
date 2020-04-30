@@ -4,5 +4,5 @@
              xmlns:dxsch="clr-namespace:DevExpress.XamarinForms.Scheduler;assembly=DevExpress.XamarinForms.Scheduler"
              x:Class="DemoCenter.Forms.Views.DayViewModule"
              BackgroundColor="{DynamicResource BackgroundThemeColor}">
-    <dxsch:DayView x:Name="dayView" DayCount="1" Start="{Binding Start}" Tap="DayView_OnTap"/>
+    <dxsch:DayView x:Name="dayView" DayCount="1" Start="{Binding Start}" Tap="DayView_OnTap" />
 </ContentPage>

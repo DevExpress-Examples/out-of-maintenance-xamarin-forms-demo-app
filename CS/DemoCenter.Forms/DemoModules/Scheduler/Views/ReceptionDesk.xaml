@@ -20,7 +20,7 @@
                                                        RecurrenceInfo="RecurrenceInfo"
                                                        StatusId="PaymentStateId" 
                                                        Subject="Subject"
-                                                       LabelId="IssueId"/>
+                                                       LabelId="IssueId" />
                         </dxsch:DataSource.AppointmentMappings>
                     </dxsch:DataSource>
                 </dxsch:SchedulerDataStorage.DataSource>                

@@ -12,14 +12,14 @@
                    AbsoluteLayout.LayoutBounds="0,0,1,1"
                    HorizontalTextAlignment="Center"
                    HorizontalOptions="FillAndExpand"
-                   VerticalOptions="Center"/>
+                   VerticalOptions="Center" />
             <demo:IconView HorizontalOptions="Start"
                            ImageSource="hamburger_menu.svg"
                            ForegroundColor="{DynamicResource TitleIconColor}"
                            WidthRequest="22"
                            AbsoluteLayout.LayoutBounds="0,12,22,22">
                 <demo:IconView.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnMenuClicked"/>
+                    <TapGestureRecognizer Tapped="OnMenuClicked" />
                 </demo:IconView.GestureRecognizers>
             </demo:IconView>
         </AbsoluteLayout>

@@ -31,7 +31,7 @@
                                 </Grid.Margin>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="16"/>
+                                    <ColumnDefinition Width="16" />
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Value, StringFormat='{0:0.00}'}"
                                        Grid.Column="0"

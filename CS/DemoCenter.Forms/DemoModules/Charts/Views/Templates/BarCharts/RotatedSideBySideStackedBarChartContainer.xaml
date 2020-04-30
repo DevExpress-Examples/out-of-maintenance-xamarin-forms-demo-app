@@ -27,7 +27,7 @@
                                                        StackedGroup="1">
                         <charts:SideBySideStackedBarSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Male0to14and65SeriesData.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:SideBySideStackedBarSeries.Data>
                     </charts:SideBySideStackedBarSeries>
@@ -36,7 +36,7 @@
                                                        StackedGroup="1">
                         <charts:SideBySideStackedBarSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Male15to64SeriesData.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:SideBySideStackedBarSeries.Data>
                     </charts:SideBySideStackedBarSeries>    
@@ -45,7 +45,7 @@
                                                        StackedGroup="2">
                         <charts:SideBySideStackedBarSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Female0to14and65SeriesData.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:SideBySideStackedBarSeries.Data>
                     </charts:SideBySideStackedBarSeries>
@@ -54,7 +54,7 @@
                                                        StackedGroup="2">
                         <charts:SideBySideStackedBarSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.Female15to64SeriesData.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:SideBySideStackedBarSeries.Data>
                     </charts:SideBySideStackedBarSeries>    

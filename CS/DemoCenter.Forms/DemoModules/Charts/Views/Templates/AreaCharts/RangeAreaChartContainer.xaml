@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             x:Class="DemoCenter.Forms.Charts.Views.RangeAreaChartContainer">
+    <ContentView.Resources>
+        <charts:SeriesHintOptions x:Key="rangeAreaSeriesHintOptions"
+                                  PointTextPattern="{}{S}&#x0a;{A$LLLL}&#x0a;Maximum: {V1} °C&#x0a;Minimum: {V2} °C"/>
+        <charts:RangeAreaSeriesLabel x:Key="rangeAreaSeriesLabel"
+                                     Visible="True"
+                                     Kind="TwoLabels"
+                                     LowValueAngle="-90"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label
+                Text="{Binding ChartModel.Title}"
+                FontFamily="Roboto"
+                TextColor="{DynamicResource TextThemeColor}"
+                BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
+            <charts:ChartView Grid.Row="1"
+                              SelectionMode="Single"
+                              SelectionKind="Series">
+                <charts:ChartView.Series>
+                    <charts:RangeAreaSeries HintOptions="{StaticResource rangeAreaSeriesHintOptions}"
+                                            Label="{StaticResource rangeAreaSeriesLabel}"
+                                            Line1MarkersVisible="true"
+                                            Line2MarkersVisible="true"
+                                            DisplayName="Richmond Temperature">
+                        <charts:RangeAreaSeries.Style>
+                            <charts:RangeAreaSeriesStyle Fill="#FF81C1F6"
+                                                         Alpha="0.5">
+                                <charts:RangeAreaSeriesStyle.Line1Style>
+                                    <charts:LineSeriesStyle Stroke="#ff327bb7"/>
+                                </charts:RangeAreaSeriesStyle.Line1Style>
+                                <charts:RangeAreaSeriesStyle.Line2Style>
+                                    <charts:LineSeriesStyle Stroke="#FF42a5f6"/>
+                                </charts:RangeAreaSeriesStyle.Line2Style>
+                            </charts:RangeAreaSeriesStyle>
+                        </charts:RangeAreaSeries.Style>
+                        <charts:RangeAreaSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.RichmondWeatherData}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value1" Member="Value1" />
+                                <charts:ValueDataMember Type="Value2" Member="Value2" />
+                            </charts:SeriesDataAdapter>
+                        </charts:RangeAreaSeries.Data>
+                    </charts:RangeAreaSeries>
+                    <charts:RangeAreaSeries HintOptions="{StaticResource rangeAreaSeriesHintOptions}"
+                                            Label="{StaticResource rangeAreaSeriesLabel}"
+                                            Line1MarkersVisible="true"
+                                            Line2MarkersVisible="true"
+                                            DisplayName="Houston Temperature">
+                        <charts:RangeAreaSeries.Style>
+                            <charts:RangeAreaSeriesStyle Fill="#ffff9090"
+                                                         Alpha="0.5">
+                                <charts:RangeAreaSeriesStyle.Line1Style>
+                                    <charts:LineSeriesStyle Stroke="#ffff6363"/>
+                                </charts:RangeAreaSeriesStyle.Line1Style>
+                                <charts:RangeAreaSeriesStyle.Line2Style>
+                                    <charts:LineSeriesStyle Stroke="#FFff9090"/>
+                                </charts:RangeAreaSeriesStyle.Line2Style>
+                            </charts:RangeAreaSeriesStyle>
+                        </charts:RangeAreaSeries.Style>
+                        <charts:RangeAreaSeries.Data>
+                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.HoustonWeatherData}" ArgumentDataMember="Argument">
+                                <charts:ValueDataMember Type="Value1" Member="Value1" />
+                                <charts:ValueDataMember Type="Value2" Member="Value2" />
+                            </charts:SeriesDataAdapter>
+                        </charts:RangeAreaSeries.Data>
+                    </charts:RangeAreaSeries>
+                </charts:ChartView.Series>
+                <charts:ChartView.Hint>
+                    <charts:Hint/>
+                </charts:ChartView.Hint>
+                <charts:ChartView.Legend>
+                    <charts:Legend Visible="True"/>
+                </charts:ChartView.Legend>
+                <charts:ChartView.AxisX>
+                    <charts:DateTimeAxisX MeasureUnit="Month"
+                                          GridSpacing="2">
+                        <charts:DateTimeAxisX.Label>
+                            <charts:AxisLabel TextFormat="LLLL"/>
+                        </charts:DateTimeAxisX.Label>
+                    </charts:DateTimeAxisX>
+                </charts:ChartView.AxisX>
+                <charts:ChartView.AxisY>
+                    <charts:NumericAxisY AlwaysShowZeroLevel="True">
+                        <charts:NumericAxisY.Title>
+                            <charts:AxisTitle Text="°C"
+                                              Alignment="Outside"/>
+                        </charts:NumericAxisY.Title>
+                    </charts:NumericAxisY>
+                </charts:ChartView.AxisY>
+            </charts:ChartView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

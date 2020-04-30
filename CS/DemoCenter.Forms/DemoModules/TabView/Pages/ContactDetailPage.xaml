@@ -97,6 +97,8 @@
                                        BackgroundColor="Transparent"
                                        PickerColor="{Binding CategoryColor}"
                                        ShowFlag="False"
+                                       MinimumWidthRequest="80"
+                                       MinimumHeightRequest="80"
                                        WidthRequest="80"
                                        HeightRequest="80"/>
                     <Label Grid.Column="0"

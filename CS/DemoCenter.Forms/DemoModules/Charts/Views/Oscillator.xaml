@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage x:Class="DemoCenter.Forms.Views.Oscillator"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts" 
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{DynamicResource BackgroundThemeColor}">
+    <ContentPage.Content>
+        <demo:Panel>
+            <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <charts:ChartView Grid.Row="1" x:Name="chart" AxisXNavigationMode="ScrollingAndZooming" AxisYNavigationMode="ScrollingAndZooming">
+                    <charts:ChartView.Series>
+                        <charts:ScatterLineSeries DisplayName="X Axis">
+                            <charts:ScatterLineSeries.Data>
+                                <charts:SeriesDataAdapter DataSource="{Binding OscillatorSeriesData}" ArgumentDataMember="Argument">
+                                    <charts:ValueDataMember Type="Value" Member="Value" />
+                                </charts:SeriesDataAdapter>
+                            </charts:ScatterLineSeries.Data>
+                        </charts:ScatterLineSeries>
+                    </charts:ChartView.Series>
+                    <charts:ChartView.AxisX>
+                        <charts:NumericAxisX>
+                            <charts:NumericAxisX.DisplayPosition>
+                                <charts:AxisDisplayPositionRelative NumericPosition="0" RelativeAxis="{Binding AxisY, Source={x:Reference chart}}"/>
+                            </charts:NumericAxisX.DisplayPosition>
+                            <charts:NumericAxisX.Style>
+                                <charts:AxisStyle MajorGridlinesVisible="True"
+                                                  MinorGridLinesVisible="True"
+                                                  MajorTickmarksVisible="True"
+                                                  MinorTickmarksVisible="True"
+                                                  LineColor="#33000000"/>
+                            </charts:NumericAxisX.Style>
+                            <charts:NumericAxisX.Range>
+                                <charts:NumericRange Min="-1.0" Max="1.0"/>
+                            </charts:NumericAxisX.Range>
+                        </charts:NumericAxisX>
+                    </charts:ChartView.AxisX>
+                    <charts:ChartView.AxisY>
+                        <charts:NumericAxisY>
+                            <charts:NumericAxisY.DisplayPosition>
+                                <charts:AxisDisplayPositionRelative NumericPosition="0" RelativeAxis="{Binding AxisX, Source={x:Reference chart}}"/>
+                            </charts:NumericAxisY.DisplayPosition>
+                            <charts:NumericAxisY.Style>
+                                <charts:AxisStyle MajorGridlinesVisible="True"
+                                                  MinorGridLinesVisible="True"
+                                                  MajorTickmarksVisible="True"
+                                                  MinorTickmarksVisible="True"
+                                                  LineColor="#33000000"/>
+                            </charts:NumericAxisY.Style>
+                            <charts:NumericAxisY.Range>
+                                <charts:NumericRange Min="-1.0" Max="1.0"/>
+                            </charts:NumericAxisY.Range>
+                        </charts:NumericAxisY>
+                    </charts:ChartView.AxisY>
+                </charts:ChartView>
+            </Grid>
+        </demo:Panel>
+    </ContentPage.Content>
+</ContentPage>

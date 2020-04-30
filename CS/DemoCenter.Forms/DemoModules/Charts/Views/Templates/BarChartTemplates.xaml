@@ -4,8 +4,20 @@
                     xmlns:templateView="clr-namespace:DemoCenter.Forms.Charts.Views"
                     x:Class="DemoCenter.Forms.Charts.Templates.BarChartTemplates">
     
+    <DataTemplate x:Key="sideBySideRangeBarChartTemplate">
+        <templateView:SideBySideRangeBarChartContainer/>
+    </DataTemplate>
+    <DataTemplate x:Key="rangeBarChartTemplate">
+        <templateView:RangeBarChartContainer/>
+    </DataTemplate>
     <DataTemplate x:Key="barChartTemplate">
         <templateView:BarChartContainer/>
+    </DataTemplate>
+    <DataTemplate x:Key="populationPyramidTemplate">
+        <templateView:PopulationPyramidContainer/>
+    </DataTemplate>
+    <DataTemplate x:Key="cryptocurrencyPortfolioTemplate">
+        <templateView:CryptocurrencyPortfolioContainer/>
     </DataTemplate>
     <DataTemplate x:Key="stackedBarChartTemplate">
         <templateView:StackedBarChartContainer/>

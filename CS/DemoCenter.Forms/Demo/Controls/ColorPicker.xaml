@@ -4,20 +4,13 @@
              xmlns:editors="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Core"
              x:Class="DemoCenter.Forms.Demo.ColorPicker"
              Padding="0">
-    <ContentView HorizontalOptions="FillAndExpand"
-                 VerticalOptions="Start"
-                 Margin="30"
-                 Padding="25,20"
-                 BackgroundColor="{DynamicResource BackgroundThemeColor}">
+    <ContentView  HorizontalOptions="FillAndExpand" VerticalOptions="Start" Margin="30" Padding="25,20"
+                BackgroundColor="{DynamicResource BackgroundThemeColor}">
         <StackLayout>
             <Label Text="{Binding Title}"/>
-            <editors:ColorSelector x:Name="colorsSelector"
-                                   Margin="23"
-                                   Items="{Binding LabelModels}"
-                                   SelectedItem="{Binding SelectedItem}"
-                                   ItemSize="48"
-                                   HorizontalOptions="FillAndExpand"
-                                   VerticalOptions="FillAndExpand">
+            <editors:ColorSelector x:Name="colorsSelector" Margin="23"
+                                         Items="{Binding LabelModels}" SelectedItem="{Binding SelectedItem}" ItemSize="48"
+                                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             </editors:ColorSelector>
             <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="End">
                 <Button Text="CANCEL" 

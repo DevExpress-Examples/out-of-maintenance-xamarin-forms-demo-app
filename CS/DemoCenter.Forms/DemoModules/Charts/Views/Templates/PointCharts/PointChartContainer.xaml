@@ -5,7 +5,7 @@
              x:Class="DemoCenter.Forms.Charts.Views.PointChartContainer">
     <ContentView.Resources>
         <charts:SeriesHintOptions x:Key="pointSeriesHintOptions"
-                                  PointTextPattern="{}{A$LLL}: {V}°C"/>
+                                  PointTextPattern="{}{A$LLLL}: {V}°C"/>
     </ContentView.Resources>
     <ContentView.Content>
         <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
@@ -26,7 +26,7 @@
                                         ColorEach="false">
                         <charts:PointSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.NightMin.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:PointSeries.Data>
                     </charts:PointSeries>
@@ -35,7 +35,7 @@
                                         ColorEach="false">
                         <charts:PointSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DayMax.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:PointSeries.Data>
                     </charts:PointSeries>
@@ -53,7 +53,7 @@
                                           GridAlignment="Month"
                                           GridSpacing="2">
                         <charts:DateTimeAxisX.Label>
-                            <charts:AxisLabel TextFormat="LLL"/>
+                            <charts:AxisLabel TextFormat="LLLL"/>
                         </charts:DateTimeAxisX.Label>
                     </charts:DateTimeAxisX>
                 </charts:ChartView.AxisX>

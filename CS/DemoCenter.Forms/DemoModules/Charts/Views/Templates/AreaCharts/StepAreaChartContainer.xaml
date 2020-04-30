@@ -20,14 +20,15 @@
                                            MarkersVisible="true">
                         <charts:StepAreaSeries.Data>
                             <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DieselPrices.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value"/>
+                                <charts:ValueDataMember Type="Value" Member="Value" />
                             </charts:SeriesDataAdapter>
                         </charts:StepAreaSeries.Data>
                         <charts:StepAreaSeries.Label>
-                            <charts:MarkerSeriesLabel Angle="-45"/>
+                            <charts:MarkerSeriesLabel Angle="-45"
+                                                      TextPattern="{}{V$#.##}"/>
                         </charts:StepAreaSeries.Label>
                         <charts:StepAreaSeries.HintOptions>
-                            <charts:SeriesHintOptions PointTextPattern="{}{A$LLL yyyy}: ${V}/gallon"/>
+                            <charts:SeriesHintOptions PointTextPattern="{}{A$LLLL yyyy}: ${V}/gallon"/>
                         </charts:StepAreaSeries.HintOptions>
                     </charts:StepAreaSeries>
                 </charts:ChartView.Series>
@@ -37,12 +38,15 @@
                             <charts:AxisTitle Text="$/gallon"
                                               Alignment="Outside"/>
                         </charts:NumericAxisY.Title>
+                        <charts:NumericAxisY.Label>
+                            <charts:AxisLabel TextFormat="#.##"/>
+                        </charts:NumericAxisY.Label>
                     </charts:NumericAxisY >
                 </charts:ChartView.AxisY>
                 <charts:ChartView.AxisX>
                     <charts:DateTimeAxisX MeasureUnit="Month">
                         <charts:DateTimeAxisX.Label>
-                            <charts:AxisLabel TextFormat="LLL yyyy"/>
+                            <charts:AxisLabel TextFormat="LLLL yyyy"/>
                         </charts:DateTimeAxisX.Label>
                     </charts:DateTimeAxisX>
                 </charts:ChartView.AxisX>

@@ -1,41 +1,43 @@
-﻿/*                                                         
-               Copyright (c) 2019 Developer Express Inc.                
-{*******************************************************************}   
-{                                                                   }   
-{       Developer Express Mobile UI for Xamarin.Forms               }   
-{                                                                   }   
-{                                                                   }   
-{       Copyright (c) 2019 Developer Express Inc.                   }   
-{       ALL RIGHTS RESERVED                                         }   
-{                                                                   }   
-{   The entire contents of this file is protected by U.S. and       }   
-{   International Copyright Laws. Unauthorized reproduction,        }   
-{   reverse-engineering, and distribution of all or any portion of  }   
-{   the code contained in this file is strictly prohibited and may  }   
-{   result in severe civil and criminal penalties and will be       }   
-{   prosecuted to the maximum extent possible under the law.        }   
-{                                                                   }   
-{   RESTRICTIONS                                                    }   
-{                                                                   }   
-{   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           }   
-{   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          }   
-{   SECRETS OF DEVELOPER EXPRESS INC. THE REGISTERED DEVELOPER IS   }   
-{   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING         }   
-{   CONTROLS AS PART OF AN EXECUTABLE PROGRAM ONLY.                 }   
-{                                                                   }   
-{   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      }   
-{   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        }   
-{   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       }   
-{   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  }   
-{   AND PERMISSION FROM DEVELOPER EXPRESS INC.                      }   
-{                                                                   }   
-{   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       }   
-{   ADDITIONAL RESTRICTIONS.                                        }   
-{                                                                   }   
-{*******************************************************************}   
+﻿/*
+               Copyright (c) 2015-2020 Developer Express Inc.
+{*******************************************************************}
+{                                                                   }
+{       Developer Express Mobile UI for Xamarin.Forms               }
+{                                                                   }
+{                                                                   }
+{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       ALL RIGHTS RESERVED                                         }
+{                                                                   }
+{   The entire contents of this file is protected by U.S. and       }
+{   International Copyright Laws. Unauthorized reproduction,        }
+{   reverse-engineering, and distribution of all or any portion of  }
+{   the code contained in this file is strictly prohibited and may  }
+{   result in severe civil and criminal penalties and will be       }
+{   prosecuted to the maximum extent possible under the law.        }
+{                                                                   }
+{   RESTRICTIONS                                                    }
+{                                                                   }
+{   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           }
+{   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          }
+{   SECRETS OF DEVELOPER EXPRESS INC. THE REGISTERED DEVELOPER IS   }
+{   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING         }
+{   CONTROLS AS PART OF AN EXECUTABLE PROGRAM ONLY.                 }
+{                                                                   }
+{   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      }
+{   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        }
+{   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       }
+{   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  }
+{   AND PERMISSION FROM DEVELOPER EXPRESS INC.                      }
+{                                                                   }
+{   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       }
+{   ADDITIONAL RESTRICTIONS.                                        }
+{                                                                   }
+{*******************************************************************}
 */
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 
 namespace DemoCenter.Forms.Data {
@@ -84,6 +86,28 @@ namespace DemoCenter.Forms.Data {
             seriesData = XmlDataDeserializer.GetData<QualitativeDataSets>("Resources.DevAVSalesMixByRegion.xml");
         }
     }
+
+    public class PopulationPyramidData {
+        readonly QualitativeDataSets seriesData;
+
+        public DataSetContainer<QualitativeData> MaleSeriesData => seriesData.DataSets[0];
+        public DataSetContainer<QualitativeData> FemaleSeriesData => seriesData.DataSets[1];
+
+        public PopulationPyramidData() {
+            seriesData = XmlDataDeserializer.GetData<QualitativeDataSets>("Resources.PopulationPyramid.xml");
+        }
+    }
+
+    public class CryptocurrencyPortfolioData {
+        readonly QualitativeDataSets seriesData;
+
+        public DataSetContainer<QualitativeData> SymbolsData => seriesData.DataSets[0];
+        
+        public CryptocurrencyPortfolioData() {
+			seriesData = XmlDataDeserializer.GetData<QualitativeDataSets>("Resources.CryptocurrencyPortfolio.xml");
+		}
+    }
+
 
     public class AverageDieselPricesData {
         readonly DateTimeDataSets seriesData;
@@ -328,6 +352,36 @@ namespace DemoCenter.Forms.Data {
                 new NumericData(5300, 26.1),
                 new NumericData(6100, 21.4),
                 new NumericData(7000, 18.1)};
+        }
+    }
+
+    public class HeadphonesData {
+        public IList<NumericData> FirstHeadphones90 = new List<NumericData>();
+        public IList<NumericData> FirstHeadphones100 = new List<NumericData>();
+        public IList<NumericData> SecondHeadphones90 = new List<NumericData>();
+        public IList<NumericData> SecondHeadphones100 = new List<NumericData>();
+
+        public HeadphonesData() {
+            using (Stream stream = GetType().Assembly.GetManifestResourceStream("Resources.HeadphoneComparison.dat")) {
+                StreamReader reader = new StreamReader(stream);
+                string data = reader.ReadToEnd();
+                String[] dataItems = data.Split(new String[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 1; i < dataItems.Length; i++) {
+                    String[] row = dataItems[i].Split(new String[] { " " }, StringSplitOptions.RemoveEmptyEntries)[1]
+                        .Split(new String[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    double frequency = Convert.ToDouble(row[1], CultureInfo.InvariantCulture);
+                    double thd90 = Convert.ToDouble(row[2], CultureInfo.InvariantCulture);
+                    double thd100 = Convert.ToDouble(row[3], CultureInfo.InvariantCulture);
+                    int headphoneNumber = Convert.ToInt32(row[0], CultureInfo.InvariantCulture);
+                    if (headphoneNumber == 1) {
+                        FirstHeadphones90.Add(new NumericData(frequency, thd90));
+                        FirstHeadphones100.Add(new NumericData(frequency, thd100));
+                    } else if (headphoneNumber == 2) {
+                        SecondHeadphones90.Add(new NumericData(frequency, thd90));
+                        SecondHeadphones100.Add(new NumericData(frequency, thd100));
+                    }
+                }
+            }
         }
     }
 }

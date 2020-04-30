@@ -2,4 +2,4 @@
 packages/*
 obj/*
 bin/*
-Resources/Resource.designer.cs
+*Resource.[Dd]esigner.cs
