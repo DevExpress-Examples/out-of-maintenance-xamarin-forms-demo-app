@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -46,58 +46,52 @@ using Xamarin.Forms.Platform.Android;
 [assembly: Xamarin.Forms.Dependency(typeof(ThemeLoaderImplementation))]
 [assembly: Xamarin.Forms.Dependency(typeof(Environment_Android))]
 namespace DemoCenter.Forms.Droid {
-    public class ThemeLoaderImplementation : IThemeLoader {
+    public class ThemeLoaderImplementation : Java.Lang.Object, IThemeLoader {
 
         public ThemeLoaderImplementation() { }
 
         public MainActivity Activity { get; set; }
 
         public void LoadTheme(ResourceDictionary theme, bool isLightTheme) {
+            Activity.UpdateNightMode(isLightTheme);
             Android.Graphics.Color backgroundColor = ((Xamarin.Forms.Color)theme["BackgroundThemeColor"]).ToAndroid();
             Device.BeginInvokeOnMainThread(() => {
-                var currentWindow = GetCurrentWindow();
+                Window currentWindow = GetCurrentWindow();
                 currentWindow.DecorView.SystemUiVisibility = isLightTheme ? (StatusBarVisibility)SystemUiFlags.LightStatusBar | (StatusBarVisibility)SystemUiFlags.LightNavigationBar : 0;
-                if(Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop) {
+                if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop) {
                     currentWindow.SetStatusBarColor(backgroundColor);
                 }
                 if(Build.VERSION.SdkInt >= BuildVersionCodes.OMr1) {
                     currentWindow.SetNavigationBarColor(backgroundColor);
                 }
             });
+
         }
         Window GetCurrentWindow() {
-            var window = Activity.Window;
+            Window window = Activity.Window;
             window.ClearFlags(WindowManagerFlags.TranslucentStatus);
             window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
             return window;
         }
     }
 
-
-    public class Environment_Android : DemoCenter.Forms.Themes.IEnvironment {
-
+    public class Environment_Android : Java.Lang.Object, IEnvironment {
         public MainActivity Activity { get; set; }
 
         public Task<bool> IsLightOperatingSystemTheme() { 
-            //Ensure the device is running Android Froyo or higher because UIMode was added in Android Froyo, API 8.0
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Froyo) {
                 UiMode uiModeFlags = Activity.ApplicationContext.Resources.Configuration.UiMode & UiMode.NightMask;
                 switch (uiModeFlags) {
                     case UiMode.NightYes:
                         return Task.FromResult(false);
-
                     case UiMode.NightNo:
                         return Task.FromResult(true);
-
-                    default:
-                        return Task.FromResult(true);
+                    default:	
+                        return Task.FromResult(true);	
                 }
-            }
-            else {
+            } else {
                 return Task.FromResult(true);
             }
         }
     }
 }
-
-

@@ -3,7 +3,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DemoCenter.Forms.Views.DrawerSettingsView"
-             xmlns:dxnav="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
+             xmlns:dxn="http://schemas.devexpress.com/xamarin/2014/forms/navigation"
              xmlns:demo="clr-namespace:DemoCenter.Forms.Demo;assembly=DemoCenter.Forms"
              xmlns:effects="clr-namespace:DemoCenter.Forms.Effects;assembly=DemoCenter.Forms"
              xmlns:iOSSpec="clr-namespace:DemoCenter.PlatformConfiguration.iOSSpecific;assembly=DemoCenter.Forms"
@@ -17,7 +17,7 @@
                 <demo:IconView HorizontalOptions="Start"
                                VerticalOptions="Center"
                                ForegroundColor="{StaticResource TitleIconColor}"
-                               ImageSource="{Binding Icon}"
+                               Source="{Binding Icon}"
                                Margin="0,0,0,0"
                                WidthRequest="20" />
                 <Label Text="{Binding Name}" 
@@ -52,24 +52,24 @@
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <dxnav:DrawerView x:Name="drawerView"
+        <dxn:DrawerView x:Name="drawerView"
                           DrawerPosition="{Binding SelectedPosition}"
                           DrawerBehavior="{Binding SelectedBehavior}"
                           VerticalOptions="FillAndExpand"
                           DrawerHeight="Auto"
                           DrawerShadowColor="{DynamicResource DrawerSettingsSeparatorColor}"
                           ScrimColor="{DynamicResource DrawerScrimColor}">
-            <dxnav:DrawerView.DrawerWidth>
-                <OnIdiom x:TypeArguments="dxnav:TabItemLength" Tablet="0.3*" Phone="0.6*"/> 
-            </dxnav:DrawerView.DrawerWidth>
-            <dxnav:DrawerView.DrawerContent>
+            <dxn:DrawerView.DrawerWidth>
+                <OnIdiom x:TypeArguments="dxn:TabItemLength" Tablet="0.3*" Phone="0.6*"/> 
+            </dxn:DrawerView.DrawerWidth>
+            <dxn:DrawerView.DrawerContent>
                 <StackLayout Orientation="Vertical"
                              x:Name="menu"
                              Margin="30,30"
                              Spacing="25"
                              HorizontalOptions="FillAndExpand"/>
-            </dxnav:DrawerView.DrawerContent>
-            <dxnav:DrawerView.MainContent>
+            </dxn:DrawerView.DrawerContent>
+            <dxn:DrawerView.MainContent>
                 <StackLayout Orientation="Vertical" BackgroundColor="{DynamicResource BackgroundThemeColor}">
                     <StackLayout BackgroundColor="{DynamicResource DrawerTopPanelBackgroundColor}"
                                  Spacing="0">
@@ -80,10 +80,9 @@
                                      BackgroundColor="Transparent"
                                      VerticalOptions="CenterAndExpand"
                                      HorizontalOptions="FillAndExpand">
-                            <demo:IconView Margin="0,17,0,0"
+                            <demo:IconView Margin="0,12,0,10"
                                            HorizontalOptions="Start"
-                                           ImageSource="hamburger_menu.svg"
-                                           ForegroundColor="{DynamicResource TitleIconColor}"
+                                           Source="info"
                                            WidthRequest="22">
                                 <demo:IconView.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnMenuClicked" />
@@ -128,21 +127,21 @@
                         <ScrollView Grid.Column="1"
                                     Orientation="Vertical">
                             <StackLayout Orientation="Vertical" Padding="20,17">
-                                <Label Text="Transitions" TextColor="{DynamicResource NavigationTextColor}" />
+                                <Label Text="Position" TextColor="{DynamicResource NavigationTextColor}" />
                                 <FlexLayout x:Name="positionSelector"
                                             Padding="27,0,0,0"/>
 
                                 <ContentView BackgroundColor="{DynamicResource DrawerSettingsSeparatorColor}"
                                              HeightRequest="1" Margin="0,10,0,30" />
 
-                                <Label Text="Position" TextColor="{DynamicResource NavigationTextColor}" />
+                                <Label Text="Transitions" TextColor="{DynamicResource NavigationTextColor}" />
                                 <FlexLayout x:Name="behaviorSelector"
                                             Padding="27,0,0,0"/>
                             </StackLayout>
                         </ScrollView>
                     </Grid>
                 </StackLayout>
-            </dxnav:DrawerView.MainContent>
-        </dxnav:DrawerView>
+            </dxn:DrawerView.MainContent>
+        </dxn:DrawerView>
     </ContentPage.Content>
 </ContentPage>

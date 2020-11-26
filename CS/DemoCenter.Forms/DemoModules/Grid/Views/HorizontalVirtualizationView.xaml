@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseGridContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                           xmlns:dxg="http://schemas.devexpress.com/xamarin/2014/forms/datagrid"
+                           x:Class="DemoCenter.Forms.Views.HorizontalVirtualizationView"
+                           xmlns:local="clr-namespace:DemoCenter.Forms.Views"
+                           BackgroundColor="{DynamicResource BackgroundThemeColor}">
+    <local:BaseGridContentPage.Resources>
+        <Style x:Key="labelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource GridCellFontColor}"/>
+            <Setter Property="FontFamily" Value="{DynamicResource GridCellFontFamily}"/>
+            <Setter Property="HorizontalTextAlignment" Value="End"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize">
+                <Setter.Value>
+                    <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="14"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Padding">
+                <Setter.Value>
+                    <OnIdiom x:TypeArguments="Thickness" Phone="14, 20, 14, 20" Tablet="15, 24, 15, 24"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="quaterColumnTemplate">
+            <Grid>
+                <local:BarControl Value="{Binding Path=Value}" MaxValue="100000" Color="{DynamicResource GridHorizontalVirtualizationQuarterBarColor}" Margin="5"/>
+                <Label Text="{Binding Path=Value, StringFormat='{0:C2}'}" Style="{StaticResource Key=labelStyle}"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="yearTotalColumnTemplate">
+            <Grid>
+                <local:BarControl Value="{Binding Path=Value}" MaxValue="400000" Color="{DynamicResource GridHorizontalVirtualizationYearBarColor}" Margin="5"/>
+                <Label Text="{Binding Path=Value, StringFormat='{0:C2}'}" Style="{StaticResource Key=labelStyle}"/>
+            </Grid>
+        </DataTemplate>
+    </local:BaseGridContentPage.Resources>
+    <dxg:DataGridView x:Name="dataGridView" ItemsSource="{Binding Path=Data}"
+                      AutoGenerateColumnsMode="None"
+                      AllowVirtualHorizontalScrolling="True">
+        <dxg:DataGridView.CellStyle>
+            <dxg:CellStyle SelectionColor="{DynamicResource GridHorizontalVirtualizationSelectionColor}"/>
+        </dxg:DataGridView.CellStyle>
+    </dxg:DataGridView>
+</local:BaseGridContentPage>

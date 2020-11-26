@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="DemoCenter.Forms.Themes.DarkTheme"
              xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
-             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts">
+             xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts">
     <Color x:Key="AccentColor">#2088ff</Color>
 
     <Color x:Key="BackgroundThemeColor">#303030</Color>
@@ -15,6 +15,10 @@
     <Color x:Key="GridCustomAppearanceFontColor">#E7E7E7</Color>
     <Color x:Key="GridCustomAppearancePositiveFontColor">#00AE00</Color>
     <Color x:Key="GridCustomAppearanceNegativeFontColor">#FF5458</Color>
+
+    <Color x:Key="GridHorizontalVirtualizationSelectionColor">#2B4B6F</Color>
+    <Color x:Key="GridHorizontalVirtualizationQuarterBarColor">#6E5091</Color>
+    <Color x:Key="GridHorizontalVirtualizationYearBarColor">#A675E4</Color>
 
     <Color x:Key="TabItemBackgroundColor">#454545</Color>
     <Color x:Key="MainPageBackgroundColor">#454545</Color>
@@ -49,6 +53,10 @@
 
     <Color x:Key="EditorSettingsSeparatorColor">#555555</Color>
     <Color x:Key="EditorSettingsTextColor">#dee7e7e7</Color>
+    
+    <Color x:Key="CollectionViewGrayFontColor">#8e8e8e</Color>
+    <Color x:Key="CollectionViewItemBorderColor">#424242</Color>
+    <Color x:Key="CollectionViewItemFontColor">#e7e7e7</Color>
 
     <Color x:Key="NestedTabViewSeparatorColor">#303030</Color>
     <Color x:Key="NestedTabViewFavoriteColor">#de6d6f</Color>
@@ -57,6 +65,13 @@
     <Color x:Key="ReminderButtonBackgroundColor">#2088FF</Color>
 
     <Color x:Key="AvatarBorderColor">Transparent</Color>
+
+    <Color x:Key="ShadowedBackgroundColor">#7d000000</Color>
+    <Color x:Key="ErrorReportHeaderColor">#e7e7e7</Color>
+    <Color x:Key="ErrorReportMainTextColor">#e7e7e7</Color>
+    <Color x:Key="ErrorReportNoteTextColor">#8e8e8e</Color>
+    <Color x:Key="ErrorReportUrlTextColor">#2088ff</Color>
+    <Color x:Key="ErrorReportSendButtonTextColor">#ffffff</Color>
 
     <Color x:Key="TabPagesHeaderSelectedBackground">#2d4259</Color>
     <Color x:Key="TabPagesHeaderSelectedTextColor">#2088FF</Color>
@@ -74,10 +89,10 @@
     <Style TargetType="demo:IconView">
         <Setter Property="ThemeName" Value="Dark" />
     </Style>
-    <Style TargetType="charts:ChartView">
+    <Style TargetType="dxc:ChartView">
         <Setter Property="Theme" Value="Dark"/>
     </Style>
-    <Style TargetType="charts:PieChartView">
+    <Style TargetType="dxc:PieChartView">
         <Setter Property="Theme" Value="Dark"/>
     </Style>
 </ResourceDictionary>

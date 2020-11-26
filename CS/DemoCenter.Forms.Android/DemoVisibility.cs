@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -42,21 +42,21 @@ using DemoCenter.Forms.Droid;
 [assembly: Xamarin.Forms.Dependency(typeof(TabPagesImplementation))]
 
 namespace DemoCenter.Forms.Droid {
-    public class DrawerPagesImplementation : IDrawerPages {
+    public class DrawerPagesImplementation : Java.Lang.Object, IDrawerPages {
         public bool CanBeShown() {
             if (Android.OS.Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop)
                 return false;
             return true;
         }
     }
-    public class NestedTabViewImplementation : INestedTabView {
+    public class NestedTabViewImplementation : Java.Lang.Object, INestedTabView {
         public bool CanBeShown() {
             if (Android.OS.Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop)
                 return false;
             return true;
         }
     }
-    public class TabPagesImplementation : ITabPages {
+    public class TabPagesImplementation : Java.Lang.Object, ITabPages {
         public bool CanBeShown() {
             if (Android.OS.Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop)
                 return false;

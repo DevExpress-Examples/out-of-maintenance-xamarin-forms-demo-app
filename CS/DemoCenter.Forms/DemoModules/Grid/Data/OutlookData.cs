@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -44,6 +44,7 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
         public virtual string Subject { get; set; }
         public virtual Customer From { get; set; }
         public virtual DateTime Sent { get; set; }
+        public virtual TimeSpan Time { get; set; }
         public virtual bool HasAttachment { get; set; }
         public virtual long Size { get; set; }
         public virtual double HoursActive { get; set; }

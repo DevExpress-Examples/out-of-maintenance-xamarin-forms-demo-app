@@ -10,6 +10,7 @@
         <ResourceDictionary MergedWith="local:Charts.Templates.LineChartTemplates" />
         <ResourceDictionary MergedWith="local:Charts.Templates.PieChartTemplates" />
         <ResourceDictionary MergedWith="local:Charts.Templates.PointChartTemplates" />
+         <ResourceDictionary MergedWith="local:Charts.Templates.ColorizerTemplates" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

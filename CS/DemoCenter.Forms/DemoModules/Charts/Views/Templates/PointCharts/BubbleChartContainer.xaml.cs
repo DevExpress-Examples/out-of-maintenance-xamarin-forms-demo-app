@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -41,7 +41,8 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.Charts.Views {
     public partial class BubbleChartContainer : ContentView {
 		public BubbleChartContainer() {
-			InitializeComponent();
+            DevExpress.XamarinForms.Charts.Initializer.Init();
+            InitializeComponent();
 		}
 
         void OnBubbleSelectionChanged(object sender, DevExpress.XamarinForms.Charts.SelectionChangedEventArgs e) {

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -45,13 +45,14 @@ using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Views {
     public partial class DemoTabPages : TabPage {
-        readonly DemoTabPagesViewModel viewModel;
         public DemoTabPages() {
-            BindingContext = viewModel = new DemoTabPagesViewModel();
+            DevExpress.XamarinForms.Navigation.Initializer.Init();
+            BindingContext = new DemoTabPagesViewModel();
             InitializeComponent();
         }
+
         public async void On_ItemSelected(object sender, DataGridGestureEventArgs args) {
-            if(args.Item != null)
+            if (args.Item != null)
                 await OpenDetailPage(GetContactInfo(args.Item));
         }
 
@@ -69,6 +70,7 @@ namespace DemoCenter.Forms.Views {
             return Navigation.PushAsync(new ContactDetailPage(contact));
         }
     }
+
     public class UpperCaseConverter : IValueConverter {
         public object Convert(object value, Type targetType,
                               object parameter, CultureInfo culture) {
@@ -80,10 +82,11 @@ namespace DemoCenter.Forms.Views {
             return value?.ToString().ToLowerInvariant();
         }
     }
+
     public class CallTypeToIconConverter : IValueConverter {
         public object Convert(object value, Type targetType,
                              object parameter, CultureInfo culture) {
-            return String.Format("TabView.{0}.svg", value.ToString().ToLowerInvariant());
+            return String.Format("demotabview_{0}", value.ToString().ToLowerInvariant());
         }
 
         public object ConvertBack(object value, Type targetType,
@@ -91,6 +94,7 @@ namespace DemoCenter.Forms.Views {
             return null;
         }
     }
+
     public class ContactIconTemplateSelector : DataTemplateSelector {
         public DataTemplate PhotoTemplate { get; set; }
         public DataTemplate IconTemplate { get; set; }

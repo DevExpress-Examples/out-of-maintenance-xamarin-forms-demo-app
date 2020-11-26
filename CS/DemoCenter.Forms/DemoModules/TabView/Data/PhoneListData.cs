@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -48,12 +48,12 @@ namespace DemoCenter.Forms.Data {
     public class GroupedPhoneList: NotificationObject {
         bool isSelected;
         public string GroupName { get; set; }
-        public string GroupIconSource { get; set; }
+        public ImageSource GroupIconSource { get; set; }
         public bool ShowGroupIcon { get; set; }
         public PhoneList Contacts { get; set; }
         public bool IsSelected {
-            get => isSelected;
-            set => SetProperty(ref isSelected, value);
+            get => this.isSelected;
+            set => SetProperty(ref this.isSelected, value);
         }
     }
 
@@ -66,21 +66,24 @@ namespace DemoCenter.Forms.Data {
         public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
+        public string FullName => String.Format("{0} {1}", FirstName, LastName);
         public string Phone { get; set; }
         public string ContactCategory { get; set; }
-        public string Initials { get { return FirstName.Substring(0, 1) + LastName.Substring(0, 1); } }
-        public Color CategoryColor { get { return getContactColor(); } }
+        public string Initials => FirstName.Substring(0, 1) + LastName.Substring(0, 1);
+        public Color CategoryColor => GetContactColor();
 
-        internal static Color getContactColor() {
-            Color contactColor = Color.Default;
-            if(contactColor == Color.Default) {
-                contactColor = ContactColors.GetColor(new Random().Next(10));
+        internal Color GetContactColor() {
+            if (this.contactColor == Color.Default) {
+                this.contactColor = ContactColors.GetRandomColor();
             }
-            return contactColor;
+            return this.contactColor;
         }
     }
     public class ContactColors {
+        public static Color GetRandomColor() {
+            return GetColor(new Random().Next(10));
+        }
+
         public static Color GetColor(int colorNumber) {
             switch(colorNumber) {
                 case 1: return Color.FromHex("#f15558");

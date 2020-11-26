@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -65,6 +65,7 @@ namespace DemoCenter.Forms.Views {
         }
 
         public DrawerPageExample() {
+            DevExpress.XamarinForms.Navigation.Initializer.Init();
             cachedPages = new Dictionary<DemoPage, Page>();
             InitializeComponent();
             pagesList.ItemsSource = DemoPages.ToList();

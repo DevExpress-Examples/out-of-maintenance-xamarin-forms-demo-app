@@ -2,7 +2,7 @@
 <ContentPage x:Class="DemoCenter.Forms.Views.CompaniesTabView"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:navigation="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
+             xmlns:dxn="http://schemas.devexpress.com/xamarin/2014/forms/navigation"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
              ios:Page.UseSafeArea="true"
@@ -70,7 +70,7 @@
                                                Grid.Row="0"
                                                WidthRequest="24"
                                                HeightRequest="24"
-                                               ImageSource="Demo.Icon.Location.svg"
+                                               Source="demotabview_location"
                                                VerticalOptions="Start"
                                                HorizontalOptions="End">
                                     <demo:IconView.Margin>
@@ -81,7 +81,7 @@
                                                Grid.Row="1"
                                                WidthRequest="24"
                                                HeightRequest="24"
-                                               ImageSource="Demo.Icon.Phone.svg"
+                                               Source="demotabview_phone"
                                                VerticalOptions="Start"
                                                HorizontalOptions="End">
                                     <demo:IconView.Margin>
@@ -92,7 +92,7 @@
                                                Grid.Row="2"
                                                WidthRequest="24"
                                                HeightRequest="24"
-                                               ImageSource="Demo.Icon.WWW.svg"
+                                               Source="demotabview_www"
                                                VerticalOptions="Start"
                                                HorizontalOptions="End">
                                     <demo:IconView.Margin>
@@ -157,7 +157,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <navigation:TabView x:Name="tabControl"
+        <dxn:TabView x:Name="tabControl"
                             IsHeaderPanelShadowVisible="False"
                             BackgroundColor="{DynamicResource BackgroundThemeColor}"
                             HeaderPanelBackgroundColor="{DynamicResource TabViewHeaderBackgroundColor}"

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -36,6 +36,7 @@
 */
 using System.Reflection;
 using System.Runtime.InteropServices;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: AssemblyTitle("DevExpress.XamarinForms.DemoCenter")]
@@ -45,8 +46,8 @@ using Xamarin.Forms.Xaml;
 [assembly: AssemblyCopyright("Copyright (c) 2015-2020 Developer Express Inc.")]
 [assembly: AssemblyTrademark("DevExpress(R)")]
 
-[assembly: AssemblyVersion("20.1.3")]
-[assembly: AssemblyFileVersion("20.1.3")]
+[assembly: AssemblyVersion("20.2.3")]
+[assembly: AssemblyFileVersion("20.2.3")]
 
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -56,3 +57,9 @@ using Xamarin.Forms.Xaml;
 [assembly: System.Resources.NeutralResourcesLanguage("en-US")]
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+
+[assembly: ExportFont("roboto-regular.ttf", Alias = "Roboto")]
+[assembly: ExportFont("roboto-medium.ttf", Alias = "Roboto-Medium")]
+[assembly: ExportFont("roboto-bold.ttf", Alias = "Roboto-Bold")]
+[assembly: ExportFont("univia-pro-regular.ttf", Alias = "Univia-Pro")]
+[assembly: ExportFont("univia-pro-medium.ttf", Alias = "Univia-Pro Medium")]

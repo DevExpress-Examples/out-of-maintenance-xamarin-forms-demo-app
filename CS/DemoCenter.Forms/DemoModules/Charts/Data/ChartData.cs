@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -39,6 +39,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using DevExpress.XamarinForms.Charts;
+using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Data {
     public class OutsideVendorCostsData {
@@ -52,7 +54,7 @@ namespace DemoCenter.Forms.Data {
         }
     }
 
-    public class PopulationStructureData {   
+    public class PopulationStructureData {
         readonly QualitativeDataSets seriesData;
 
         public DataSetContainer<QualitativeData> MaleSeriesData => seriesData.DataSets[0];
@@ -102,12 +104,11 @@ namespace DemoCenter.Forms.Data {
         readonly QualitativeDataSets seriesData;
 
         public DataSetContainer<QualitativeData> SymbolsData => seriesData.DataSets[0];
-        
+
         public CryptocurrencyPortfolioData() {
 			seriesData = XmlDataDeserializer.GetData<QualitativeDataSets>("Resources.CryptocurrencyPortfolio.xml");
 		}
     }
-
 
     public class AverageDieselPricesData {
         readonly DateTimeDataSets seriesData;
@@ -227,7 +228,7 @@ namespace DemoCenter.Forms.Data {
         public IList<PieData> PieData { get; private set; } = new List<PieData>();
 
         public SalesByYearsData() {
-            for (int j = 0; j < values.Count; j++) {  
+            for (int j = 0; j < values.Count; j++) {
                 List<DateTimeData> seriesData = new List<DateTimeData>();
                 StartDate = new DateTime(DateTime.Now.Year, 1, 1).AddYears(-10);
                 for (int i = 0; i < values[j].Count; i++)
@@ -355,6 +356,30 @@ namespace DemoCenter.Forms.Data {
         }
     }
 
+    public class SplineData {
+        public IList<DateTimeData> SeriesData = new List<DateTimeData>();
+
+        public SplineData() {
+            SeriesData = new List<DateTimeData>() {
+                new DateTimeData(new DateTime(1999, 1, 15), 0),
+                new DateTimeData(new DateTime(1999, 2, 1), 20 * 10e11),
+                new DateTimeData(new DateTime(1999, 2, 15), 200 * 10e11),
+                new DateTimeData(new DateTime(1999, 3, 1), 220 * 10e11),
+                new DateTimeData(new DateTime(1999, 3, 15), 160 * 10e11),
+                new DateTimeData(new DateTime(1999, 4, 1), 290 * 10e11),
+                new DateTimeData(new DateTime(1999, 4, 15), 80 * 10e11),
+                new DateTimeData(new DateTime(1999, 5, 1), 60 * 10e11),
+                new DateTimeData(new DateTime(1999, 5, 15), 0),
+                new DateTimeData(new DateTime(1999, 6, 1), 80 * 10e11),
+                new DateTimeData(new DateTime(1999, 6, 15), 20 * 10e11),
+                new DateTimeData(new DateTime(1999, 7, 1), 260 * 10e11),
+                new DateTimeData(new DateTime(1999, 7, 15), 20 * 10e11),
+                new DateTimeData(new DateTime(1999, 8, 1), 10 * 10e11),
+                new DateTimeData(new DateTime(1999, 8, 15), 30 * 10e11),
+                new DateTimeData(new DateTime(1999, 9, 1), 0)};
+        }
+    }
+
     public class HeadphonesData {
         public IList<NumericData> FirstHeadphones90 = new List<NumericData>();
         public IList<NumericData> FirstHeadphones100 = new List<NumericData>();
@@ -382,6 +407,128 @@ namespace DemoCenter.Forms.Data {
                     }
                 }
             }
+        }
+    }
+
+    public class TemperaturePoint {
+        public double Temperature { get; private set; }
+        public DateTime Time { get; private set; }
+
+        public TemperaturePoint(DateTime time, double temperature) {
+            Temperature = temperature;
+            Time = time;
+        }
+    }
+
+    public class TemperatureData {
+        const int PointsCount = 250;
+
+        List<TemperaturePoint> data = new List<TemperaturePoint>(PointsCount);
+
+        internal double OptimalTemperature {
+            get { return 53; }
+        }
+        internal List<TemperaturePoint> SeriesData {
+            get { return data; }
+        }
+
+        internal TemperatureData() {
+            Random random = new Random(9);
+            DateTime date = new DateTime(2010, 1, 1, 0, 0, 0);
+            double preTemperature = 50;
+            for (int i = 0; i < PointsCount; i++) {
+                TimeSpan time = TimeSpan.FromSeconds(i);
+                double temperature = preTemperature + (random.NextDouble() - 0.5) * 10;
+                if (temperature > 90)
+                    temperature -= 20;
+                if (temperature < 20)
+                    temperature += 10;
+                TemperaturePoint temperaturePoint = new TemperaturePoint(date + time, temperature);
+                data.Add(temperaturePoint);
+                preTemperature = temperature;
+            }
+        }
+    }
+
+    public class LightSpectorData {
+        public IList<NumericData> LightSpectors { get; }
+
+        public LightSpectorData() {
+            LightSpectors = new List<NumericData>();
+            using (Stream stream = GetType().Assembly.GetManifestResourceStream("Resources.LightSpector.dat")) {
+                StreamReader reader = new StreamReader(stream);
+                string data = reader.ReadToEnd();
+                String[] dataItems = data.Split(new String[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < dataItems.Length; i++) {
+                    String[] row = dataItems[i].Split(new String[] {" "}, StringSplitOptions.RemoveEmptyEntries);
+                    double argument = Convert.ToDouble(row[0], CultureInfo.InvariantCulture);
+                    double value = Convert.ToDouble(row[1], CultureInfo.InvariantCulture);
+                    LightSpectors.Add(new NumericData(argument, value));
+                }
+            }
+        }
+    }
+
+    public class LightSpectorColorizer : ICustomPointColorizer, ILegendItemProvider {
+        Color waveLengthToColor(double waveLength) {
+            double gamma = 0.8;
+            double red = 0.0;
+            double green = 0.0;
+            double blue = 0.0;
+            if (waveLength <= 440) {
+                double attenuation = 0.3 + 0.7 * (waveLength - 380) / (440 - 380);
+                red = Math.Pow((-(waveLength - 440) / (440 - 380)) * attenuation, gamma);
+                green = 0.0;
+                blue = Math.Pow(1.0 * attenuation, gamma);
+            } else if (waveLength <= 490) {
+                red = 0.0;
+                green = Math.Pow((waveLength - 440) / (490 - 440), gamma);
+                blue = 1.0;
+            } else if (waveLength <= 510) {
+                red = 0.0;
+                green = 1.0;
+                blue = Math.Pow(-(waveLength - 510) / (510 - 490), gamma);
+            } else if (waveLength <= 580) {
+                red = Math.Pow((waveLength - 510) / (580 - 510), gamma);
+                green = 1.0;
+                blue = 0.0;
+            } else if (waveLength <= 645) {
+                red = 1.0;
+                green = Math.Pow(-(waveLength - 645) / (645 - 580), gamma);
+                blue = 0.0;
+            } else if (waveLength <= 750) {
+                double attenuation = 0.3 + 0.7 * (750 - waveLength) / (750 - 645);
+                red = Math.Pow(1.0 * attenuation, gamma);
+                green = 0.0;
+                blue = 0.0;
+            }
+            return Color.FromRgb(red, green, blue);
+        }
+
+        protected virtual double[] GetWavesForLegend() {
+            return new double[0];
+        }
+
+        Color ICustomPointColorizer.GetColor(ColoredPointInfo info) {
+            return waveLengthToColor(info.NumericArgument);
+        }
+        ILegendItemProvider ICustomPointColorizer.GetLegendItemProvider() {
+            return this;
+        }
+
+        CustomLegendItem ILegendItemProvider.GetLegendItem(int index) {
+            double waveLength = GetWavesForLegend()[index];
+            Color color = waveLengthToColor(waveLength);
+            return new CustomLegendItem($"{waveLength} nm", color);
+        }
+        int ILegendItemProvider.GetLegendItemCount() {
+            return GetWavesForLegend().Length;
+        }
+    }
+
+    public class LightSpectorColorizerWithCustomLegend : LightSpectorColorizer {
+        protected override double[] GetWavesForLegend() {
+            return new double[] { 400, 440, 480, 540, 580, 610, 650 };
         }
     }
 }

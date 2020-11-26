@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
-             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts" 
+             xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts" 
              ios:Page.UseSafeArea="true"
              BackgroundColor="{DynamicResource BackgroundThemeColor}">
     <ContentPage.Content>
@@ -15,125 +15,125 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
 
-                <charts:ChartView Grid.Row="0" AxisXNavigationMode="ScrollingAndZooming" AxisYNavigationMode="ScrollingAndZooming">
-                    <charts:ChartView.ChartStyle>
-                        <charts:ChartStyle Padding="5,5,0,0" />
-                    </charts:ChartView.ChartStyle>
-                    <charts:ChartView.Series>
+                <dxc:ChartView Grid.Row="0" AxisXNavigationMode="ScrollingAndZooming" AxisYNavigationMode="ScrollingAndZooming">
+                    <dxc:ChartView.ChartStyle>
+                        <dxc:ChartStyle Padding="5,5,0,0" />
+                    </dxc:ChartView.ChartStyle>
+                    <dxc:ChartView.Series>
 
-                        <charts:LineSeries>
-                            <charts:LineSeries.Data>
-                                <charts:SeriesDataAdapter DataSource="{Binding LeftChannelData}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Member="Value" Type="Value" />
-                                </charts:SeriesDataAdapter>
-                            </charts:LineSeries.Data>
-                            <charts:LineSeries.Style>
-                                <charts:LineSeriesStyle StrokeThickness="1" />
-                            </charts:LineSeries.Style>
-                            <charts:LineSeries.AxisY>
-                                <charts:NumericAxisY>
-                                    <charts:NumericAxisY.Layout>
-                                        <charts:AxisLayout Anchor1="0.51" Anchor2="1" />
-                                    </charts:NumericAxisY.Layout>
-                                    <charts:NumericAxisY.Style>
-                                        <charts:AxisStyle MajorTickmarksVisible="True" MajorGridlinesVisible="True" />
-                                    </charts:NumericAxisY.Style>
-                                    <charts:NumericAxisY.Title>
-                                        <charts:AxisTitle Text="Left Channel"/>
-                                    </charts:NumericAxisY.Title>
-                                </charts:NumericAxisY>
-                            </charts:LineSeries.AxisY>
-                        </charts:LineSeries>
+                        <dxc:LineSeries>
+                            <dxc:LineSeries.Data>
+                                <dxc:SeriesDataAdapter DataSource="{Binding LeftChannelData}" ArgumentDataMember="Argument">
+                                    <dxc:ValueDataMember Member="Value" Type="Value" />
+                                </dxc:SeriesDataAdapter>
+                            </dxc:LineSeries.Data>
+                            <dxc:LineSeries.Style>
+                                <dxc:LineSeriesStyle StrokeThickness="1" />
+                            </dxc:LineSeries.Style>
+                            <dxc:LineSeries.AxisY>
+                                <dxc:NumericAxisY>
+                                    <dxc:NumericAxisY.Layout>
+                                        <dxc:AxisLayout Anchor1="0.51" Anchor2="1" />
+                                    </dxc:NumericAxisY.Layout>
+                                    <dxc:NumericAxisY.Style>
+                                        <dxc:AxisStyle MajorTickmarksVisible="True" MajorGridlinesVisible="True" />
+                                    </dxc:NumericAxisY.Style>
+                                    <dxc:NumericAxisY.Title>
+                                        <dxc:AxisTitle Text="Left Channel"/>
+                                    </dxc:NumericAxisY.Title>
+                                </dxc:NumericAxisY>
+                            </dxc:LineSeries.AxisY>
+                        </dxc:LineSeries>
 
-                        <charts:LineSeries>
-                            <charts:LineSeries.Data>
-                                <charts:SeriesDataAdapter DataSource="{Binding RightChannelData}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Member="Value" Type="Value" />
-                                </charts:SeriesDataAdapter>
-                            </charts:LineSeries.Data>
-                            <charts:LineSeries.Style>
-                                <charts:LineSeriesStyle StrokeThickness="1" />
-                            </charts:LineSeries.Style>
-                            <charts:LineSeries.AxisY>
-                                <charts:NumericAxisY>
-                                    <charts:NumericAxisY.Layout>
-                                        <charts:AxisLayout Anchor1="0" Anchor2="0.49" />
-                                    </charts:NumericAxisY.Layout>
-                                    <charts:NumericAxisY.Style>
-                                        <charts:AxisStyle MajorTickmarksVisible="True" MajorGridlinesVisible="True" />
-                                    </charts:NumericAxisY.Style>
-                                    <charts:NumericAxisY.Title>
-                                        <charts:AxisTitle Text="Right Channel"/>
-                                    </charts:NumericAxisY.Title>
-                                </charts:NumericAxisY>
-                            </charts:LineSeries.AxisY>
-                        </charts:LineSeries>
+                        <dxc:LineSeries>
+                            <dxc:LineSeries.Data>
+                                <dxc:SeriesDataAdapter DataSource="{Binding RightChannelData}" ArgumentDataMember="Argument">
+                                    <dxc:ValueDataMember Member="Value" Type="Value" />
+                                </dxc:SeriesDataAdapter>
+                            </dxc:LineSeries.Data>
+                            <dxc:LineSeries.Style>
+                                <dxc:LineSeriesStyle StrokeThickness="1" />
+                            </dxc:LineSeries.Style>
+                            <dxc:LineSeries.AxisY>
+                                <dxc:NumericAxisY>
+                                    <dxc:NumericAxisY.Layout>
+                                        <dxc:AxisLayout Anchor1="0" Anchor2="0.49" />
+                                    </dxc:NumericAxisY.Layout>
+                                    <dxc:NumericAxisY.Style>
+                                        <dxc:AxisStyle MajorTickmarksVisible="True" MajorGridlinesVisible="True" />
+                                    </dxc:NumericAxisY.Style>
+                                    <dxc:NumericAxisY.Title>
+                                        <dxc:AxisTitle Text="Right Channel"/>
+                                    </dxc:NumericAxisY.Title>
+                                </dxc:NumericAxisY>
+                            </dxc:LineSeries.AxisY>
+                        </dxc:LineSeries>
                       
-                    </charts:ChartView.Series>
-                    <charts:ChartView.AxisX>
-                        <charts:DateTimeAxisX MeasureUnit="Millisecond">
-                            <charts:DateTimeAxisX.Label>
-                                <charts:AxisLabel TextFormat="mm:ss.SSS" />
-                            </charts:DateTimeAxisX.Label>
-                            <charts:DateTimeAxisX.Range>
-                                <charts:DateTimeRange SideMargin="0" />
-                            </charts:DateTimeAxisX.Range>
-                            <charts:DateTimeAxisX.Style>
-                                <charts:AxisStyle MinorTickmarksVisible="True" MajorTickmarksVisible="True" MajorGridlinesVisible="True" />
-                            </charts:DateTimeAxisX.Style>
-                            <charts:DateTimeAxisX.Strips>
-                                <charts:DateTimeStrip MinLimit="{Binding StripMinLimit}" MaxLimit="{Binding StripMaxLimit}" />
-                            </charts:DateTimeAxisX.Strips>
-                        </charts:DateTimeAxisX> 
-                    </charts:ChartView.AxisX>
-                </charts:ChartView>
+                    </dxc:ChartView.Series>
+                    <dxc:ChartView.AxisX>
+                        <dxc:DateTimeAxisX MeasureUnit="Millisecond">
+                            <dxc:DateTimeAxisX.Label>
+                                <dxc:AxisLabel TextFormat="mm:ss.SSS" />
+                            </dxc:DateTimeAxisX.Label>
+                            <dxc:DateTimeAxisX.Range>
+                                <dxc:DateTimeRange SideMargin="0" />
+                            </dxc:DateTimeAxisX.Range>
+                            <dxc:DateTimeAxisX.Style>
+                                <dxc:AxisStyle MinorTickmarksVisible="True" MajorTickmarksVisible="True" MajorGridlinesVisible="True" />
+                            </dxc:DateTimeAxisX.Style>
+                            <dxc:DateTimeAxisX.Strips>
+                                <dxc:DateTimeStrip MinLimit="{Binding StripMinLimit}" MaxLimit="{Binding StripMaxLimit}" />
+                            </dxc:DateTimeAxisX.Strips>
+                        </dxc:DateTimeAxisX> 
+                    </dxc:ChartView.AxisX>
+                </dxc:ChartView>
 
-                <charts:ChartView Grid.Row="1" AxisXNavigationMode="ScrollingAndZooming" AxisYNavigationMode="ScrollingAndZooming">
-                    <charts:ChartView.ChartStyle>
-                        <charts:ChartStyle Padding="5" />
-                    </charts:ChartView.ChartStyle>
-                    <charts:ChartView.Series>
-                        <charts:LineSeries>
-                            <charts:LineSeries.Data>
-                                <charts:SeriesDataAdapter DataSource="{Binding FrequencyData}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Member="Value" Type="Value" />
-                                </charts:SeriesDataAdapter>
-                            </charts:LineSeries.Data>
-                            <charts:LineSeries.Style>
-                                <charts:LineSeriesStyle StrokeThickness="1" Stroke="#67AC5B" />
-                            </charts:LineSeries.Style>
-                        </charts:LineSeries>
-                    </charts:ChartView.Series>
-                    <charts:ChartView.AxisX>
-                        <charts:NumericAxisX>
-                            <charts:NumericAxisX.Range>
-                                <charts:NumericRange Min="30" Max="11025" SideMargin="0" />
-                            </charts:NumericAxisX.Range>
-                            <charts:NumericAxisX.Style>
-                                <charts:AxisStyle MinorGridLinesVisible="True" MajorGridlinesVisible="True" MinorTickmarksVisible="True" MajorTickmarksVisible="True" />
-                            </charts:NumericAxisX.Style>
-                            <charts:NumericAxisX.Title>
-                                <charts:AxisTitle Text="Hz"/>
-                            </charts:NumericAxisX.Title>
-                            <charts:NumericAxisX.LogarithmicOptions>
-                                <charts:AxisLogarithmicOptions Enabled="True" Base="10"/>
-                            </charts:NumericAxisX.LogarithmicOptions>
-                        </charts:NumericAxisX>
-                    </charts:ChartView.AxisX>
-                    <charts:ChartView.AxisY>
-                        <charts:NumericAxisY>
-                            <charts:NumericAxisY.Range>
-                                <charts:NumericRange Min="-150" Max="0" SideMargin="0" />
-                            </charts:NumericAxisY.Range>
-                            <charts:NumericAxisY.Style>
-                                <charts:AxisStyle MajorTickmarksVisible="True" />
-                            </charts:NumericAxisY.Style>
-                            <charts:NumericAxisY.Title>
-                                <charts:AxisTitle Text="Frequency Spectrum, dB"/>
-                            </charts:NumericAxisY.Title>
-                        </charts:NumericAxisY>
-                    </charts:ChartView.AxisY>
-                </charts:ChartView>
+                <dxc:ChartView Grid.Row="1" AxisXNavigationMode="ScrollingAndZooming" AxisYNavigationMode="ScrollingAndZooming">
+                    <dxc:ChartView.ChartStyle>
+                        <dxc:ChartStyle Padding="5" />
+                    </dxc:ChartView.ChartStyle>
+                    <dxc:ChartView.Series>
+                        <dxc:LineSeries>
+                            <dxc:LineSeries.Data>
+                                <dxc:SeriesDataAdapter DataSource="{Binding FrequencyData}" ArgumentDataMember="Argument">
+                                    <dxc:ValueDataMember Member="Value" Type="Value" />
+                                </dxc:SeriesDataAdapter>
+                            </dxc:LineSeries.Data>
+                            <dxc:LineSeries.Style>
+                                <dxc:LineSeriesStyle StrokeThickness="1" Stroke="#67AC5B" />
+                            </dxc:LineSeries.Style>
+                        </dxc:LineSeries>
+                    </dxc:ChartView.Series>
+                    <dxc:ChartView.AxisX>
+                        <dxc:NumericAxisX>
+                            <dxc:NumericAxisX.Range>
+                                <dxc:NumericRange Min="30" Max="11025" SideMargin="0" />
+                            </dxc:NumericAxisX.Range>
+                            <dxc:NumericAxisX.Style>
+                                <dxc:AxisStyle MinorGridLinesVisible="True" MajorGridlinesVisible="True" MinorTickmarksVisible="True" MajorTickmarksVisible="True" />
+                            </dxc:NumericAxisX.Style>
+                            <dxc:NumericAxisX.Title>
+                                <dxc:AxisTitle Text="Hz"/>
+                            </dxc:NumericAxisX.Title>
+                            <dxc:NumericAxisX.LogarithmicOptions>
+                                <dxc:AxisLogarithmicOptions Enabled="True" Base="10"/>
+                            </dxc:NumericAxisX.LogarithmicOptions>
+                        </dxc:NumericAxisX>
+                    </dxc:ChartView.AxisX>
+                    <dxc:ChartView.AxisY>
+                        <dxc:NumericAxisY>
+                            <dxc:NumericAxisY.Range>
+                                <dxc:NumericRange Min="-150" Max="0" SideMargin="0" />
+                            </dxc:NumericAxisY.Range>
+                            <dxc:NumericAxisY.Style>
+                                <dxc:AxisStyle MajorTickmarksVisible="True" />
+                            </dxc:NumericAxisY.Style>
+                            <dxc:NumericAxisY.Title>
+                                <dxc:AxisTitle Text="Frequency Spectrum, dB"/>
+                            </dxc:NumericAxisY.Title>
+                        </dxc:NumericAxisY>
+                    </dxc:ChartView.AxisY>
+                </dxc:ChartView>
 
             </Grid>
         </demo:Panel>

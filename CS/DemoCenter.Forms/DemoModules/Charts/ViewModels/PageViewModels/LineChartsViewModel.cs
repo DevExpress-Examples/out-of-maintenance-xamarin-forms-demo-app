@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -49,9 +49,12 @@ namespace DemoCenter.Forms.Charts.ViewModels {
         }
     }
 
-
     public class LineChartsViewModel : ChartsViewModelBase {
         static readonly List<ChartItemInfoContainerBase> content = new List<ChartItemInfoContainerBase>() {
+            new LineChartItemInfoContainer(
+                viewModel: new SplineChartViewModel(),
+                type: LineType.Spline
+            ),
             new LineChartItemInfoContainer(
                 viewModel: new LineChartViewModel(),
                 type: LineType.Simple

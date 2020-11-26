@@ -1,13 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                    xmlns:local="clr-namespace:DemoCenter.Forms.Views"
-                    xmlns:editors="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Core"
-                    xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
+                    xmlns:dxe="http://schemas.devexpress.com/xamarin/2014/forms/editors"
+                    xmlns:dxdf="http://schemas.devexpress.com/xamarin/2014/forms/dataform"
                     xmlns:converters="clr-namespace:DemoCenter.Forms.DemoModules.Editors.Converters"
                     xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
                     x:Class="DemoCenter.Forms.Demo.EditorsAndControlsResources">
-
     <Style x:Key="SliderStyle" TargetType="Slider">
         <Setter Property="Minimum" Value="0"/>
         <Setter Property="Maximum" Value="8"/>
@@ -17,13 +15,11 @@
         <Setter Property="MinimumTrackColor" Value="{DynamicResource AccentColor}"/>
         <Setter Property="MaximumTrackColor" Value="{DynamicResource SliderMaximumTrackColor-iOS}"/>
     </Style>
-
     <Style x:Key="SeparatorStyle" TargetType="BoxView">
         <Setter Property="BackgroundColor" Value="{DynamicResource EditorSettingsSeparatorColor}"/>
         <Setter Property="HeightRequest" Value="1"/>
         <Setter Property="VerticalOptions" Value="End"/>
     </Style>
-
     <Style x:Key="TextStyle" TargetType="Label">
         <Setter Property="FontFamily" Value="Roboto"/>
         <Setter Property="FontAttributes" Value="Bold"/>
@@ -31,11 +27,8 @@
         <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
         <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
     </Style>
-
     <Color x:Key="IconForegroundColor">#9a9797</Color>
-
     <Style x:Key="CornerRadiusIconStyle" TargetType="demo:IconView">
-        <Setter Property="ForegroundColor" Value="{StaticResource IconForegroundColor}"/>
         <Setter Property="WidthRequest" Value="24"/>
         <Setter Property="HeightRequest" Value="24"/>
         <Setter Property="MinimumWidthRequest" Value="24"/>
@@ -44,7 +37,6 @@
         <Setter Property="HorizontalOptions" Value="Start"/>
         <Setter Property="Margin" Value="8,0,20,0"/>
     </Style>
-
     <Style x:Key="ComboBoxStyleBase" TargetType="dxe:ComboBoxEdit">
         <Setter Property="Margin" Value="0"/>
         <Setter Property="BoxPadding" Value="12,10,12,6"/>
@@ -53,102 +45,74 @@
         <Setter Property="DisabledBorderThickness" Value="0"/>
         <Setter Property="ReserveBottomTextLine" Value="False"/>
     </Style>
-
     <Style x:Key="ComboBoxItemContainer" TargetType="StackLayout">
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="Padding" Value="12,12"/>
     </Style>
-
     <DataTemplate x:Key="ColorComboBoxItemTemplate">
         <StackLayout Style="{StaticResource ComboBoxItemContainer}">
-            <demo:IconView Style="{StaticResource ComboBoxItemIconViewStyle}"
-                     ImageSource="frame.svg"
-                     ForegroundColor="{Binding Color}"/>
+            <BoxView Style="{StaticResource ComboBoxItemBoxViewStyle}" BackgroundColor="{Binding Color}"/>
             <Label Style="{StaticResource ComboBoxItemLabelStyle}" Text="{Binding Name}"/>
         </StackLayout>
     </DataTemplate>
-
     <Style x:Key="ComboBoxItemIconViewStyle" TargetType="demo:IconView">
         <Setter Property="HorizontalOptions" Value="Start"/>
         <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
         <Setter Property="WidthRequest" Value="24"/>
         <Setter Property="HeightRequest" Value="24"/>
     </Style>
-
+    <Style x:Key="ComboBoxItemBoxViewStyle" TargetType="BoxView">
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+        <Setter Property="WidthRequest" Value="24"/>
+        <Setter Property="HeightRequest" Value="24"/>
+    </Style>
     <Style x:Key="ComboBoxItemLabelStyle" TargetType="Label">
         <Setter Property="FontFamily" Value="Roboto"/>
         <Setter Property="TextColor" Value="{DynamicResource EditorSettingsTextColor}"/>
         <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
         <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
     </Style>
-
     <DataTemplate x:Key="BoxModeComboBoxItemTemplate">
         <StackLayout Style="{StaticResource ComboBoxItemContainer}">
             <demo:IconView Style="{StaticResource ComboBoxItemIconViewStyle}"
-                ForegroundColor="{StaticResource IconForegroundColor}"
-                ImageSource="{Binding 
-                    Converter={converters:BoxModeToImageNameConverter Outlined='boxMode_outlined.svg', Filled='boxMode_filled.svg'}}"/>
+                Source="{Binding
+                    Converter={converters:BoxModeToImageSourceConverter Outlined='boxmode_outlined', Filled='boxmode_filled'}}"/>
             <Label Style="{StaticResource ComboBoxItemLabelStyle}" Text="{Binding }"/>
         </StackLayout>
     </DataTemplate>
-
     <DataTemplate x:Key="CornerModeComboBoxItemTemplate">
         <StackLayout Style="{StaticResource ComboBoxItemContainer}">
             <demo:IconView Style="{StaticResource ComboBoxItemIconViewStyle}"
-                ForegroundColor="{StaticResource IconForegroundColor}"
-                ImageSource="{Binding 
-                    Converter={converters:CornerModeToImageNameConverter Cut='cornerMode_cut.svg', Round='cornerMode_round.svg'}}"/>
+                Source="{Binding Converter={converters:CornerModeToImageSourceConverter Cut='cornermode_cut', Round='cornermode_round'}}"/>
             <Label Style="{StaticResource ComboBoxItemLabelStyle}" Text="{Binding }"/>
         </StackLayout>
     </DataTemplate>
-
     <Style x:Key="ColorComboBoxStyle" TargetType="dxe:ComboBoxEdit" BasedOn="{StaticResource ComboBoxStyleBase}">
         <Setter Property="DisplayMember" Value="Name"/>
         <Setter Property="StartIcon" Value="frame"/>
         <Setter Property="ItemsSource" Value="{Binding Colors}"/>
         <Setter Property="ItemTemplate" Value="{StaticResource ColorComboBoxItemTemplate}" />
     </Style>
-
-    <!--<Style x:Key="BoxModeComboBoxStyle" TargetType="dxe:ComboBoxEdit" BasedOn="{StaticResource ComboBoxStyleBase}">
-        <Setter Property="SelectedItem" Value="{Binding SelectedBoxMode}"/>
-        <Setter Property="StartIcon" Value="{Binding SelectedBoxMode, Converter={converters:BoxModeToImageSourceConverter Outlined='boxmode_outlined', Filled='boxmode_filled'}}"/>
-        <Setter Property="IconColor" Value="{StaticResource IconForegroundColor}"/>
-        <Setter Property="ItemsSource" Value="{Binding BoxModes}"/>
-        <Setter Property="ItemTemplate" Value="{StaticResource BoxModeComboBoxItemTemplate}" />
-    </Style>-->
-
-    <!--<Style x:Key="CornerModeComboBoxStyle" TargetType="dxe:ComboBoxEdit" BasedOn="{StaticResource ComboBoxStyleBase}">
-        <Setter Property="SelectedItem" Value="{Binding SelectedCornerMode}"/>
-        <Setter Property="StartIcon" Value="{Binding SelectedCornerMode, Converter={converters:CornerModeToImageSourceConverter Cut='cornermode_cut', Round='cornermode_round'}}"/>
-        <Setter Property="IconColor" Value="{StaticResource IconForegroundColor}"/>
-        <Setter Property="ItemsSource" Value="{Binding CornerModes}"/>
-        <Setter Property="ItemTemplate" Value="{StaticResource CornerModeComboBoxItemTemplate}" />
-    </Style>-->
-
     <Style x:Key="LayoutItemContainerStyle" TargetType="StackLayout">
-        <Setter Property="Margin" Value="0,8"/>
+        <Setter Property="Margin" Value="16"/>
         <Setter Property="Spacing" Value="0"/>
     </Style>
-
     <Style x:Key="SliderItemContainerStyle" TargetType="StackLayout">
         <Setter Property="Margin" Value="0,8"/>
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="Spacing" Value="0"/>
     </Style>
-
     <Style x:Key="SwitchItemContainerStyle" TargetType="StackLayout">
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="Spacing" Value="0"/>
     </Style>
-
     <Style x:Key="SwitchStyle-iOS" TargetType="Switch">
         <Setter Property="OnColor" Value="{DynamicResource AccentColor}"/>
     </Style>
-
     <Style x:Key="SwitchStyle-Android" TargetType="Switch">
         <Setter Property="ThumbColor" Value="{DynamicResource AccentColor}"/>
     </Style>
-
     <Style x:Key="SwitchStyle" TargetType="Switch">
         <Style.BasedOn>
             <OnPlatform x:TypeArguments="Style">
@@ -159,18 +123,29 @@
         <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
         <Setter Property="HorizontalOptions" Value="End"/>
     </Style>
-
     <Style x:Key="EditorContainerStyle" TargetType="Grid">
         <Setter Property="ColumnSpacing" Value="0"/>
         <Setter Property="RowSpacing" Value="0"/>
         <Setter Property="RowDefinitions">
             <Setter.Value>
                 <RowDefinitionCollection>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="150"/>
                     <RowDefinition Height="*"/>
-                </RowDefinitionCollection>   
+                </RowDefinitionCollection>
             </Setter.Value>
         </Setter>
     </Style>
-
+    <Style x:Key="EditorSettingsFormStyle" TargetType="dxdf:DataFormView">
+        <Setter Property="EditorLabelPosition" Value="Top"/>
+        <Setter Property="IsAutoGenerationEnabled" Value="True"/>
+        <Setter Property="CommitMode" Value="PropertyChanged"/>
+        <Setter Property="RowSeparatorThickness" Value="1"/>
+        <Setter Property="RowSeparatorColor" Value="{DynamicResource EditorSettingsSeparatorColor}"/>
+        <Setter Property="ContentPadding" Value="0"/>
+        <Setter Property="EditorPadding" Value="16,12"/>
+        <Setter Property="EditorLabelColor" Value="{DynamicResource EditorSettingsTextColor}"/>
+        <Setter Property="EditorLabelFontAttributes" Value="Bold"/>
+        <Setter Property="EditorLabelFontFamily" Value="Roboto"/>
+        <Setter Property="EditorLabelFontSize" Value="16"/>
+    </Style>
 </ResourceDictionary>

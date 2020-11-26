@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -41,6 +41,7 @@ using System.Threading.Tasks;
 using DemoCenter.Forms.Models;
 using DemoCenter.Forms.ViewModels.Services;
 using DemoCenter.Forms.Views;
+using DevExpress.XamarinForms.Core.Internal;
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Services {
@@ -53,20 +54,19 @@ namespace DemoCenter.Forms.Services {
 
         public NavigationService() {
             PageBinders = new Dictionary<Type, Func<Page>>();
-            controlPagePushed = false;
-            demoPagePushed = false;
+            this.controlPagePushed = false;
+            this.demoPagePushed = false;
         }
         public void SetNavigator(NavigationPage navPage) {
             this.navigator = navPage;
         }
         public async Task Push(object viewModel) {
             Type vmType = viewModel.GetType();
-            Func<Page> pageBuilder = null;
-            if (PageBinders.TryGetValue(vmType, out pageBuilder)) {
+            if (PageBinders.TryGetValue(vmType, out Func<Page> pageBuilder)) {
                 Page page = pageBuilder();
-                if(!controlPagePushed) {
+                if (!this.controlPagePushed) {
                     page.BindingContext = viewModel;
-                    controlPagePushed = true;
+                    this.controlPagePushed = true;
                     await PushAsync(page);
                 }
             }
@@ -74,12 +74,12 @@ namespace DemoCenter.Forms.Services {
 
         void Page_Disappearing(object sender, EventArgs e) {
             Page page = sender as Page;
-            if(page != null) {
+            if (page != null) {
                 page.Disappearing -= Page_Disappearing;
-                if(page is ControlPage) {
-                    controlPagePushed = false;
+                if (page is ControlPage) {
+                    this.controlPagePushed = false;
                 } else {
-                    demoPagePushed = false;
+                    this.demoPagePushed = false;
                     GC.Collect();
                 }
             }
@@ -88,17 +88,32 @@ namespace DemoCenter.Forms.Services {
         public async Task<Page> PushPage(object viewModel) {
             Page page = null;
             DemoItem item = viewModel as DemoItem;
-            if (!demoPagePushed &&
+
+            if (!this.demoPagePushed &&
                 item != null &&
                 item.Module != null &&
                 item.Module.IsSubclassOf(typeof(Page))
             ) {
-                demoPagePushed = true;
-                page = (Page)Activator.CreateInstance(item.Module);
-                page.Title = item.PageTitle;
-            }
-            if (page != null) {
-                await PushAsync(page);
+                ErrorDialogPage errorDialogPage = this.navigator.CurrentPage as ErrorDialogPage;
+                try {
+                    page = (Page)Activator.CreateInstance(item.Module);
+                    page.Title = item.PageTitle;
+
+                    if (page != null) {
+                        this.demoPagePushed = true;
+                        await PushAsync(page);
+                    }
+
+                } catch(Exception e) {
+#if DEBUG
+                    throw;
+#endif
+                    if (errorDialogPage != null) {
+                       errorDialogPage.ShowError(e);
+                    } else {
+                        throw;
+                    }
+                }
             }
             return await Task.FromResult(page);
         }
@@ -110,8 +125,8 @@ namespace DemoCenter.Forms.Services {
         async Task PushAsync(Page page) {
             page.Disappearing += Page_Disappearing;
             NavigationPage.SetBackButtonTitle(page, "Back");
-            navigator.BackgroundColor = (Color)Application.Current.Resources["BackgroundThemeColor"];
-            await navigator.PushAsync(page);
+            this.navigator.BackgroundColor = (Color)Application.Current.Resources["BackgroundThemeColor"];
+            await this.navigator.PushAsync(page);
         }
     }
 }

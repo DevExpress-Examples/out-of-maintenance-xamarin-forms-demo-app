@@ -1,95 +1,82 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<views:ErrorDialogPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+             xmlns:views="clr-namespace:DemoCenter.Forms.Views"
+             xmlns:dxcv="http://schemas.devexpress.com/xamarin/2014/forms/collectionview" 
              x:Class="DemoCenter.Forms.Views.ControlPage"
              ios:Page.UseSafeArea="true"
              Title="{Binding Title}"
              BackgroundColor="{DynamicResource BackgroundThemeColor}">
-    <ListView
-        x:Name="ItemsListView"
-        BackgroundColor="{DynamicResource BackgroundThemeColor}"
-        HasUnevenRows="false"
-        IsPullToRefreshEnabled="false"
-        ItemSelected="ItemsListView_ItemSelected"
-        ItemsSource="{Binding DemoItems}"
-        RowHeight="98"
-        SelectedItem="{Binding SelectedItem}"
-        SeparatorVisibility="None"
-        VerticalOptions="Fill">
-        <x:Arguments>
-            <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
-        </x:Arguments>
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <AbsoluteLayout
-                        VerticalOptions="FillAndExpand"
-                        HorizontalOptions="FillAndExpand"
-                        BackgroundColor="{DynamicResource BackgroundThemeColor}">
-                        <Grid
-                            Margin="16,0"
-                            BackgroundColor="{DynamicResource BackgroundThemeColor}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="auto" />
-                            </Grid.RowDefinitions>
-                            <demo:IconView Grid.Column="0"
-                                Margin="26"
-                                HeightRequest="42"
-                                WidthRequest="42" 
-                                ImageSource="{Binding Icon}"/>
+    <views:ErrorDialogPage.PageContent>
+        <dxcv:DXCollectionView
+            x:Name="collectionView"
+            BackgroundColor="{DynamicResource BackgroundThemeColor}"
+            ItemsSource="{Binding DemoItems}" SelectionMode="Single" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+            <dxcv:DXCollectionView.ItemTemplate>
+                <DataTemplate>
+                        <AbsoluteLayout
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Transparent">
                             <Grid
-                                Grid.Column="1"
-                                Margin="0,16,0,0"
-                                BackgroundColor="{DynamicResource BackgroundThemeColor}">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto" />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <Label
-                                    Grid.Row="0"
-                                    Margin="0,0,0,2"
-                                    BackgroundColor="{DynamicResource BackgroundThemeColor}"
-                                    FontSize="16"
-                                    FontFamily="{StaticResource Univia-Pro}"
-                                    LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemTextStyle}"
-                                    Text="{Binding ControlsPageTitle}"
-                                    TextColor="{DynamicResource TextThemeColor}"
-                                    VerticalOptions="Start" />
-                                <Label
-                                    Grid.Row="1"
-                                    BackgroundColor="{DynamicResource BackgroundThemeColor}"
-                                    FontSize="12"
-                                    LineBreakMode="WordWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    Text="{Binding Description}"
-                                    TextColor="{DynamicResource TextThemeColor}"
-                                    VerticalOptions="Start" />
+                                Margin="16,0"
+                                BackgroundColor="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <demo:IconView Grid.Column="0"
+                                    Margin="26"
+                                    HeightRequest="42"
+                                    WidthRequest="42" 
+                                    Source="{Binding Icon}"/>
+                                <Grid
+                                    Grid.Column="1"
+                                    Margin="0,16,0,0"
+                                    BackgroundColor="Transparent">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                        Grid.Row="0"
+                                        Margin="0,0,0,2"
+                                        BackgroundColor="Transparent"
+                                        FontSize="16"
+                                        FontFamily="Univia-Pro"
+                                        LineBreakMode="NoWrap"
+                                        Style="{DynamicResource ListItemTextStyle}"
+                                        Text="{Binding ControlsPageTitle}"
+                                        TextColor="{DynamicResource TextThemeColor}"
+                                        VerticalOptions="Start" />
+                                    <Label
+                                        Grid.Row="1"
+                                        BackgroundColor="Transparent"
+                                        FontSize="12"
+                                        LineBreakMode="WordWrap"
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        Text="{Binding Description}"
+                                        TextColor="{DynamicResource TextThemeColor}"
+                                        VerticalOptions="Start" />
+                                </Grid>
                             </Grid>
+                            <demo:IconView
+                                AbsoluteLayout.LayoutFlags="All"
+                                AbsoluteLayout.LayoutBounds="0.993, 0.25, 0.175, 0.18"
+                                IsVisible="{Binding ShowBadge}"
+                                Source="{Binding BadgeIcon}"/>
                             <BoxView
-                                Grid.Row="1"
-                                Grid.Column="0"
-                                Grid.ColumnSpan="2"
-                                Margin="0"
+                                AbsoluteLayout.LayoutFlags="WidthProportional"
+                                AbsoluteLayout.LayoutBounds="0, 98, 1, 1"
+                                Margin="20,0"
                                 Color="{DynamicResource GridCellLinesColor}"
                                 HeightRequest="1"
                                 IsVisible="{Binding ShowItemUnderline}" />
-                        </Grid>
-                        <demo:IconView
-                            AbsoluteLayout.LayoutFlags="All"
-                            AbsoluteLayout.LayoutBounds="1.05, 0.24, 0.175, 0.175"
-                            IsVisible="{Binding ShowBadge}"
-                            ImageSource="{Binding BadgeIcon}"/>
-                    </AbsoluteLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
-</ContentPage>
+                        </AbsoluteLayout>
+                </DataTemplate>
+            </dxcv:DXCollectionView.ItemTemplate>
+        </dxcv:DXCollectionView>
+    </views:ErrorDialogPage.PageContent>
+</views:ErrorDialogPage>

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -46,11 +46,11 @@ namespace DemoCenter.Forms {
                 return null;
 
             switch (type) {
-                case AreaType.Range: return "TabItems.RangeArea.svg";
-                case AreaType.Simple: return "TabItems.Area.svg";
-                case AreaType.Stacked: return "TabItems.StackedArea.svg";
-                case AreaType.FullStacked: return "TabItems.FullStackedArea.svg";
-                case AreaType.Step: return "TabItems.StepArea.svg";
+                case AreaType.Range: return "democharts_tabitems_rangearea";
+                case AreaType.Simple: return "democharts_tabitems_area";
+                case AreaType.Stacked: return "democharts_tabitems_stackedarea";
+                case AreaType.FullStacked: return "democharts_tabitems_fullstackedarea";
+                case AreaType.Step: return "democharts_tabitems_steparea";
                 default: throw new ArgumentException("The selector cannot handle the passed AreaType value.");
             }
         }
@@ -66,17 +66,17 @@ namespace DemoCenter.Forms {
                 return null;
 
             switch (type) {
-                case BarType.SideBySideRange: return "TabItems.SideBySideRangeBar.svg";
-                case BarType.Range: return "TabItems.RangeBar.svg";
-                case BarType.Simple: return "TabItems.Bar.svg";
-                case BarType.PopulationPyramid: return "TabItems.PopulationPyramid.svg";
-                case BarType.CryptocurrencyPortfolio: return "TabItems.CryptocurrencyPortfolio.svg";
-                case BarType.Stacked: return "TabItems.StackedBar.svg";
-                case BarType.SideBySideStacked: return "TabItems.SideBySideStackedBar.svg";
-                case BarType.FullStacked: return "TabItems.FullStackedBar.svg";
-                case BarType.SideBySideFullStacked: return "TabItems.SideBySideFullStackedBar.svg";
-                case BarType.RotatedStacked: return "TabItems.RotatedStackedBar.svg";
-                case BarType.RotatedSideBySide: return "TabItems.RotatedSideBySideStackedBar.svg";
+                case BarType.SideBySideRange: return "democharts_tabitems_sidebysiderangebar";
+                case BarType.Range: return "democharts_tabitems_rangebar";
+                case BarType.Simple: return "democharts_tabitems_bar";
+                case BarType.PopulationPyramid: return "democharts_tabitems_populationpyramid";
+                case BarType.CryptocurrencyPortfolio: return "democharts_tabitems_cryptocurrencyportfolio";
+                case BarType.Stacked: return "democharts_tabitems_stackedbar";
+                case BarType.SideBySideStacked: return "democharts_tabitems_sidebysidestackedbar";
+                case BarType.FullStacked: return "democharts_tabitems_fullstackedbar";
+                case BarType.SideBySideFullStacked: return "democharts_tabitems_sidebysidefullstackedbar";
+                case BarType.RotatedStacked: return "democharts_tabitems_rotatedstackedbar";
+                case BarType.RotatedSideBySide: return "democharts_tabitems_rotatedsidebysidestackedbar";
                 default: throw new ArgumentException("The selector cannot handle the passed BarType value.");
             }
         }
@@ -92,9 +92,10 @@ namespace DemoCenter.Forms {
                 return null;
 
             switch (type) {
-                case LineType.Simple: return "TabItems.Line.svg";
-                case LineType.Scatter: return "TabItems.Scatter.svg";
-                case LineType.Step: return "TabItems.StepLine.svg";
+                case LineType.Simple: return "democharts_tabitems_line";
+                case LineType.Scatter: return "democharts_tabitems_scatter";
+                case LineType.Step: return "democharts_tabitems_stepline";
+                case LineType.Spline: return "democharts_tabitems_spline";
                 default: throw new ArgumentException("The selector cannot handle the passed LineType value.");
             }
         }
@@ -110,8 +111,8 @@ namespace DemoCenter.Forms {
                 return null;
 
             switch (type) {
-                case PieType.Donut: return "TabItems.Donut.svg";
-                case PieType.Pie: return "TabItems.Pie.svg";
+                case PieType.Donut: return "democharts_tabitems_donut";
+                case PieType.Pie: return "democharts_tabitems_pie";
                 default: throw new ArgumentException("The selector cannot handle the passed PieType value.");
             }
         }
@@ -127,8 +128,27 @@ namespace DemoCenter.Forms {
                 return null;
 
             switch (type) {
-                case PointType.Point: return "TabItems.Point.svg";
-                case PointType.Bubble: return "TabItems.Bubble.svg";
+                case PointType.Point: return "democharts_tabitems_point";
+                case PointType.Bubble: return "democharts_tabitems_bubble";
+                default: throw new ArgumentException("The selector cannot handle the passed PointType value.");
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
+            throw new NotImplementedException();
+        }
+    }
+
+    class ColorizerTypeToImageSourceConverter : IValueConverter {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
+            if (!(value is ColorizerType type))
+                return null;
+
+            switch (type) {
+                case ColorizerType.Bubble: return "democharts_tabitems_bubble";
+                case ColorizerType.Bar: return "democharts_tabitems_bar";
+                case ColorizerType.GradientSegmentColorizer: return "democharts_tabitems_lightspector";
+                case ColorizerType.OperationSurfaceTemperature: return "democharts_tabitems_surfacetemperature";
                 default: throw new ArgumentException("The selector cannot handle the passed PointType value.");
             }
         }

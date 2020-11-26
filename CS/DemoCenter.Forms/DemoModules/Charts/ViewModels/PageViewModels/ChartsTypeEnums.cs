@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -58,7 +58,8 @@ namespace DemoCenter.Forms.Charts.ViewModels {
     public enum LineType {
         Simple,
         Scatter,
-        Step
+        Step,
+        Spline
     }
     public enum PieType {
         Donut,
@@ -67,5 +68,11 @@ namespace DemoCenter.Forms.Charts.ViewModels {
     public enum PointType {
         Point,
         Bubble
+    }
+    public enum ColorizerType {
+        Bubble,
+        Bar,
+        OperationSurfaceTemperature,
+        GradientSegmentColorizer
     }
 }

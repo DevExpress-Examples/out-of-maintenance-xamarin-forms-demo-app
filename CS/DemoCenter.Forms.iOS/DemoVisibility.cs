@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -36,23 +36,24 @@
 */
 using DemoCenter.Forms.Data;
 using DemoCenter.Forms.iOS;
+using Foundation;
 
 [assembly: Xamarin.Forms.Dependency(typeof(DrawerPagesImplementation))]
 [assembly: Xamarin.Forms.Dependency(typeof(NestedTabViewImplementation))]
 [assembly: Xamarin.Forms.Dependency(typeof(TabPagesImplementation))]
 
 namespace DemoCenter.Forms.iOS {
-    public class DrawerPagesImplementation : IDrawerPages {
+    public class DrawerPagesImplementation : NSObject, IDrawerPages {
         public bool CanBeShown() {
             return true;
         }
     }
-    public class NestedTabViewImplementation : INestedTabView {
+    public class NestedTabViewImplementation : NSObject, INestedTabView {
         public bool CanBeShown() {
             return true;
         }
     }
-    public class TabPagesImplementation : ITabPages {
+    public class TabPagesImplementation : NSObject, ITabPages {
         public bool CanBeShown() {
             return true;
         }

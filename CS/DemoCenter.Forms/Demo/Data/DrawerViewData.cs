@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -46,38 +46,37 @@ namespace DemoCenter.Forms.Data {
     }
 
     public class DrawerViewData : IDemoData {
-        List<DemoItem> demoItems;
-        IDrawerPages drawerPages;
+        readonly IDrawerPages drawerPages;
 
         public DrawerViewData() {
-            drawerPages = DependencyService.Get<IDrawerPages>();
+            this.drawerPages = DependencyService.Get<IDrawerPages>();
 
-            demoItems = new List<DemoItem>() {
+            DemoItems = new List<DemoItem>() {
                 new DemoItem() {
                     Title = "First Look",
                     Description="Demonstrates the DrawerView’s general features.",
                     Module = typeof(DrawerMailBoxView),
-                    Icon = "DrawerList.FirstLook.svg"
+                    Icon = "drawer_firstlook",
                 },
                 new DemoItem() {
                     Title = "Drawer"+Environment.NewLine+"Settings",
                     ControlsPageTitle = "Drawer Settings",
                     Description="This demo allows you to configure various settings and see how they affect the View.",
                     Module = typeof(DrawerSettingsView),
-                    Icon = "DrawerList.DrawerSettings.svg"
+                    Icon = "drawer_drawersettings",
                 }
             };
-            if (drawerPages.CanBeShown())
-                demoItems.Add(new DemoItem() {
+            if (this.drawerPages.CanBeShown())
+                DemoItems.Add(new DemoItem() {
                     Title = "Root-Level" + Environment.NewLine + "Drawer",
                     ControlsPageTitle = "Root-Level Drawer",
                     Description = "Demonstrates the DrawerPage’s general features.",
                     Module = typeof(DrawerPageExample),
-                    Icon = "DrawerList.Pages.svg",
+                    Icon = "drawer_pages",
                     ShowItemUnderline = false
                 });
         }
-        public List<DemoItem> DemoItems => demoItems;
-        public string Title { get { return "Drawer"; } }
+        public List<DemoItem> DemoItems { get; }
+        public string Title => "Drawer";
     }
 }

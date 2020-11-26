@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -43,6 +43,7 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.Views {
     public partial class Selection : ContentPage {
         public Selection() {
+            DevExpress.XamarinForms.Charts.Initializer.Init();
             InitializeComponent();
         }
     }

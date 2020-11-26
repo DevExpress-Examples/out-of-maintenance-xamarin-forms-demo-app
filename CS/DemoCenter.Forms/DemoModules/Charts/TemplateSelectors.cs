@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -104,6 +104,7 @@ namespace DemoCenter.Forms {
                 case LineType.Simple: return LineChartTemplate;
                 case LineType.Scatter: return ScatterChartTemplate;
                 case LineType.Step: return StepLineChartTemplate;
+                case LineType.Spline: return SplineChartTemplate;
                 default: throw new ArgumentException("The selector cannot handle the passed LineType value.");
             }
         }
@@ -111,6 +112,7 @@ namespace DemoCenter.Forms {
         public DataTemplate LineChartTemplate { get; set; }
         public DataTemplate ScatterChartTemplate { get; set; }
         public DataTemplate StepLineChartTemplate { get; set; }
+        public DataTemplate SplineChartTemplate { get; set; }
     }
 
     class PieChartTemplateSelector : DataTemplateSelector {
@@ -143,5 +145,25 @@ namespace DemoCenter.Forms {
 
         public DataTemplate BubbleChartTemplate { get; set; }
         public DataTemplate PointChartTemplate { get; set; }
+    }
+
+    class ColorizerTemplateSelector : DataTemplateSelector {
+        protected override DataTemplate OnSelectTemplate(object item, BindableObject container) {
+            if (!(item is ColorizerItemInfoContainer infoContainer))
+                return null;
+
+            switch (infoContainer.ColorizerType) {
+                case ColorizerType.Bubble: return BubbleColorizerTemplate;
+                case ColorizerType.Bar: return BarColorizerTemplate;
+                case ColorizerType.OperationSurfaceTemperature: return OperationSurfaceTemperatureTemplate;
+                case ColorizerType.GradientSegmentColorizer: return GradientSegmentColorizerTemplate;
+                default:throw new ArgumentException("The selector cannot handle the passed ColorizerType value.");
+            }
+        }
+
+        public DataTemplate BubbleColorizerTemplate { get; set; }
+        public DataTemplate BarColorizerTemplate { get; set; }
+        public DataTemplate OperationSurfaceTemperatureTemplate { get; set; }
+        public DataTemplate GradientSegmentColorizerTemplate { get; set; }
     }
 }

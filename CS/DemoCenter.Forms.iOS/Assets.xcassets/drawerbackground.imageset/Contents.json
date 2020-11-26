@@ -1,0 +1,32 @@
+{
+  "images": [
+    {
+        "filename": "light.DrawerHeader.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "dark.DrawerHeader.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "idiom": "universal"
+    },
+    {
+      "filename": "light.DrawerHeader.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "light"
+        }
+      ],
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

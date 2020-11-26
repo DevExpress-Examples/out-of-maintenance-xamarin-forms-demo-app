@@ -10,7 +10,7 @@
             <demo:IconView
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Start"
-                ImageSource="{Binding BackgroundImage}"
+                Source="{Binding BackgroundImage}"
                 WidthRequest="20"
                 HeightRequest="20" />
             <Label Text="{Binding LabelText}"

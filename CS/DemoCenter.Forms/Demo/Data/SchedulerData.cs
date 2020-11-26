@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -43,11 +43,11 @@ using DemoCenter.Forms.Views;
 namespace DemoCenter.Forms.Data {
     public class SchedulerData : IDemoData {
         public static DemoItem GetItem(Type module) {
-            var items = demoItems.Where((d) => d.Module == module);
+            IEnumerable<DemoItem> items = demoItems.Where((d) => d.Module == module);
             return items.Any() ? items.Last() : null;
         }
 
-        static List<DemoItem> demoItems;
+        static readonly List<DemoItem> demoItems;
 
         static SchedulerData() {
             demoItems = new List<DemoItem>() {
@@ -55,31 +55,31 @@ namespace DemoCenter.Forms.Data {
                     Title = "Day View",
                     Description="This is a detailed view of appointments for one or several days.",
                     Module = typeof(DayViewDemo),
-                    Icon = "SchedulerList.DayView.svg"},
+                    Icon = "scheduler_dayview"},
                  new DemoItem() {
                     Title = "Work Week View",
                     Description="Displays appointments for working days in a week.",
                     Module = typeof(ReceptionDesk),
-                    Icon = "SchedulerList.WorkWeekView.svg"},
+                    Icon = "scheduler_workweekview"},
                 new DemoItem() {
                     Title = "Week View",
                     Description="Displays appointments for an entire week.",
                     Module = typeof(WeekViewDemo),
-                    Icon = "SchedulerList.WeekView.svg"},
+                    Icon = "scheduler_weekview"},
                 new DemoItem() {
                     Title = "Month View",
                     Description="An overview of appointments for a month.",
                     Module = typeof(MonthViewDemo),
-                    Icon = "SchedulerList.MonthView.svg",
-                    ShowItemUnderline = false},
+                    Icon = "scheduler_monthview"},
                 new DemoItem() {
                     Title = "Reminders",
                     Description="Illustrates how to add reminders to appointments.",
                     Module = typeof(RemindersDemo),
-                    Icon = "SchedulerList.Reminders.svg"},
+                    Icon = "scheduler_reminders",
+                    ShowItemUnderline = false},
             };
         }
         public List<DemoItem> DemoItems => demoItems;
-        public string Title { get { return "SchedulerView"; } }
+        public string Title => "SchedulerView";
     }
 }

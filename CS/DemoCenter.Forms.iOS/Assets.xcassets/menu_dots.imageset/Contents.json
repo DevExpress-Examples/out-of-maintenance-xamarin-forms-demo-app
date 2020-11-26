@@ -1,0 +1,32 @@
+{
+  "images": [
+    {
+        "filename": "light_menu_dots.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "dark_menu_dots.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "idiom": "universal"
+    },
+    {
+      "filename": "light_menu_dots.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "light"
+        }
+      ],
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

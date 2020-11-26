@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<dxnav:DrawerPage xmlns="http://xamarin.com/schemas/2014/forms"
+<dxn:DrawerPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                  xmlns:dxnav="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
-                  xmlns:datagrid="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+                  xmlns:dxn="http://schemas.devexpress.com/xamarin/2014/forms/navigation"
+                  xmlns:dxg="http://schemas.devexpress.com/xamarin/2014/forms/datagrid"
                   x:Class="DemoCenter.Forms.Views.DrawerPageExample"
                   IsDrawerOpened="True"
                   DrawerPosition="Left"
                   DrawerBehavior="Push"
                   DrawerWidth="0.7*">
-    <dxnav:DrawerPage.DrawerContent>
-        <datagrid:DataGridView x:Name="pagesList"
+    <dxn:DrawerPage.DrawerContent>
+        <dxg:DataGridView x:Name="pagesList"
                                IsColumnHeaderVisible="False"
                                HeightRequest="500"
                                SelectionChanged="OnSelectionChanged">
-            <datagrid:DataGridView.CellStyle>
-                <datagrid:CellStyle FontSize="16" Padding="22" />
-            </datagrid:DataGridView.CellStyle>
-            <datagrid:DataGridView.Columns>
-                <datagrid:TextColumn FieldName="Key" />
-            </datagrid:DataGridView.Columns>
-        </datagrid:DataGridView>
-    </dxnav:DrawerPage.DrawerContent>
-</dxnav:DrawerPage>
-
+            <dxg:DataGridView.CellStyle>
+                <dxg:CellStyle FontSize="16" Padding="22" />
+            </dxg:DataGridView.CellStyle>
+            <dxg:DataGridView.Columns>
+                <dxg:TextColumn FieldName="Key" />
+            </dxg:DataGridView.Columns>
+        </dxg:DataGridView>
+    </dxn:DrawerPage.DrawerContent>
+</dxn:DrawerPage>

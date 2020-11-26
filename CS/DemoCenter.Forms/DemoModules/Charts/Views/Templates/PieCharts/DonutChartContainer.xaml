@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts"
              x:Class="DemoCenter.Forms.Charts.Views.DonutChartContainer">
     <ContentView.Resources>
-        <charts:PieSeriesHintOptions x:Key="donutSeriesHintOptions"
+        <dxc:PieSeriesHintOptions x:Key="donutSeriesHintOptions"
                                      PointTextPattern="{}{L}: {VP}%"/>
     </ContentView.Resources>
     <ContentView.Content>
@@ -17,44 +17,44 @@
                    FontFamily="Roboto"
                    TextColor="{DynamicResource TextThemeColor}"
                    BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
-            <charts:PieChartView Grid.Row="1"
+            <dxc:PieChartView Grid.Row="1"
                                  SelectionMode="Single"
                                  SelectionBehavior="Explode">
-                <charts:PieChartView.ChartStyle>
-                    <charts:PieChartStyle SeriesIndent="16"
+                <dxc:PieChartView.ChartStyle>
+                    <dxc:PieChartStyle SeriesIndent="16"
                                           Palette="{Binding ChartModel.Palette}"/>
-                </charts:PieChartView.ChartStyle>
-                <charts:PieChartView.Hint>
-                    <charts:PieHint ShowMode="OnTap"/>
-                </charts:PieChartView.Hint>
-                <charts:PieChartView.Series>
-                    <charts:DonutSeries HintOptions="{StaticResource donutSeriesHintOptions}">
-                        <charts:DonutSeries.Data>
-                            <charts:PieSeriesDataAdapter DataSource="{Binding ChartModel.SecuritiesByTypes}" 
+                </dxc:PieChartView.ChartStyle>
+                <dxc:PieChartView.Hint>
+                    <dxc:PieHint ShowMode="OnTap"/>
+                </dxc:PieChartView.Hint>
+                <dxc:PieChartView.Series>
+                    <dxc:DonutSeries HintOptions="{StaticResource donutSeriesHintOptions}">
+                        <dxc:DonutSeries.Data>
+                            <dxc:PieSeriesDataAdapter DataSource="{Binding ChartModel.SecuritiesByTypes}" 
                                                          LabelDataMember="Label" 
                                                          ValueDataMember="Value"/>
-                        </charts:DonutSeries.Data>
-                        <charts:DonutSeries.CenterLabel>
-                            <charts:PieCenterTextLabel TextPattern="Securities&#x0a;By Types"/>
-                        </charts:DonutSeries.CenterLabel>
-                    </charts:DonutSeries>
-                    <charts:DonutSeries HintOptions="{StaticResource donutSeriesHintOptions}">
-                        <charts:DonutSeries.Data>
-                            <charts:PieSeriesDataAdapter DataSource="{Binding ChartModel.SecuritiesByRisk}"
+                        </dxc:DonutSeries.Data>
+                        <dxc:DonutSeries.CenterLabel>
+                            <dxc:PieCenterTextLabel TextPattern="Securities&#x0a;By Types"/>
+                        </dxc:DonutSeries.CenterLabel>
+                    </dxc:DonutSeries>
+                    <dxc:DonutSeries HintOptions="{StaticResource donutSeriesHintOptions}">
+                        <dxc:DonutSeries.Data>
+                            <dxc:PieSeriesDataAdapter DataSource="{Binding ChartModel.SecuritiesByRisk}"
                                                          LabelDataMember="Label" 
                                                          ValueDataMember="Value"/>
-                        </charts:DonutSeries.Data>
-                        <charts:DonutSeries.CenterLabel>
-                            <charts:PieCenterTextLabel TextPattern="Securities&#x0a;By Risk"/>
-                        </charts:DonutSeries.CenterLabel>
-                    </charts:DonutSeries>
-                </charts:PieChartView.Series>
-                <charts:PieChartView.Legend>
-                    <charts:Legend Orientation="LeftToRight"
+                        </dxc:DonutSeries.Data>
+                        <dxc:DonutSeries.CenterLabel>
+                            <dxc:PieCenterTextLabel TextPattern="Securities&#x0a;By Risk"/>
+                        </dxc:DonutSeries.CenterLabel>
+                    </dxc:DonutSeries>
+                </dxc:PieChartView.Series>
+                <dxc:PieChartView.Legend>
+                    <dxc:Legend Orientation="LeftToRight"
                                    HorizontalPosition="Center"
                                    VerticalPosition="BottomOutside"/>
-                </charts:PieChartView.Legend>
-            </charts:PieChartView>
+                </dxc:PieChartView.Legend>
+            </dxc:PieChartView>
         </Grid>
     </ContentView.Content>
 </ContentView>

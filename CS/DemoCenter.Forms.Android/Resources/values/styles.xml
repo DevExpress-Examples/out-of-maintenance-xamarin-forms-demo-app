@@ -3,7 +3,7 @@
 
   <style name="MainTheme" parent="MainTheme.Base" >
   </style>
-  <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+  <style name="MainTheme.Base" parent="Theme.AppCompat.DayNight">
     <item name="android:windowBackground">@drawable/splash_foreground</item>
     <item name="windowNoTitle">true</item>
     <item name="windowActionBar">false</item>
@@ -19,7 +19,7 @@
     <item name="spinBars">true</item>
     <item name="color">#808080</item>
   </style>
-  <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+  <style name="AppCompatDialogStyle" parent="Theme.AppCompat.DayNight.Dialog">
     <item name="colorAccent">@color/colorAccent</item>
   </style>
     
@@ -28,5 +28,4 @@
       <item name="android:actionMenuTextColor">#888888</item>
       <item name="colorControlNormal">#888888</item>
   </style>
-    
 </resources>

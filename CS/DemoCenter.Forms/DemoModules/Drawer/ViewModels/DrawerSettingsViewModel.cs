@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -34,7 +34,6 @@
 {                                                                   }
 {*******************************************************************}
 */
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -79,7 +78,6 @@ namespace DemoCenter.Forms.DemoModules.Drawer.ViewModels {
             PositionToDisplayName.Add(Position.Bottom, "Bottom");
         }
 
-
         List<MenuItem> menuItems;
 
         public List<MenuItem> MenuItems {
@@ -91,7 +89,6 @@ namespace DemoCenter.Forms.DemoModules.Drawer.ViewModels {
                 }
             }
         }
-
 
         List<string> behaviorVariants;
 
@@ -137,10 +134,10 @@ namespace DemoCenter.Forms.DemoModules.Drawer.ViewModels {
 
         public string Name { get; set; }
 
-        public string Icon => string.Format("DemoCenter.Forms.DemoModules.Drawer.Images.{0}.svg",
+        public string Icon => string.Format("demodrawer_{0}",
             this.Name.ToLowerInvariant());
     }
-
+    
     public class DrawerEnumToStringConverter : IValueConverter {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
             try {

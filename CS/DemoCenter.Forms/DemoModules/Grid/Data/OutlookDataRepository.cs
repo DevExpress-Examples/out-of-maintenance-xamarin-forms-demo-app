@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -147,6 +147,7 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
             data.Id = id;
             data.From = GetCustomer(UserIds[random.Next(UserIds.Length - 1)]);
             data.Sent = DateTime.Today.AddDays(-random.Next(50));
+            data.Time = TimeSpan.FromMinutes(random.Next(24 * 60));
             data.HasAttachment = random.Next(2) == 0;
             data.Size = random.Next(3000);
             data.Priority = (Priority)random.Next(5);

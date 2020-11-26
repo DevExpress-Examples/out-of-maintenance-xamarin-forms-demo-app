@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -57,11 +57,9 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
         public ColorViewModel() {
         }
 
-
         public ColorViewModel(string name, Color color) {
             Name = name;
             Color = color;
         }
     }
 }
-

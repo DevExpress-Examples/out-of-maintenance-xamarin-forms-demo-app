@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -80,7 +80,7 @@ namespace DemoCenter.Forms.Views {
             if (rowData == null)
                 return "";
 
-            return rowData.Value.ToString().Replace(" ", "") + ".svg";
+            return "demogrid_" + rowData.Value.ToString().Replace(" ", "").ToLowerInvariant();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {

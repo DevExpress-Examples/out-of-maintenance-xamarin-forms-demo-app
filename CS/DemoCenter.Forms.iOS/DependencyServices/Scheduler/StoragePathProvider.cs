@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -38,11 +38,12 @@ using System;
 using System.IO;
 using DemoCenter.Forms.iOS;
 using Xamarin.Forms;
+using Foundation;
 
 [assembly: Dependency(typeof(StoragePathProvider))]
 
 namespace DemoCenter.Forms.iOS {
-    public class StoragePathProvider : IStoragePathProvider {
+    public class StoragePathProvider : NSObject, IStoragePathProvider {
         public string GetPath(string fileName) {
             string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             string libraryPath = Path.Combine(documentsPath, "..", "Library");

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -41,13 +41,13 @@ using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Views {
     public partial class NestedTabView : ContentPage {
-       
         public NestedTabView() {
-            this.BindingContext = new NestedTabViewModel();
-            ((NestedTabViewModel)this.BindingContext).PropertyChanged += OnModelPropertyChanged;
+            DevExpress.XamarinForms.Navigation.Initializer.Init();
+            BindingContext = new NestedTabViewModel();
+            ((NestedTabViewModel)BindingContext).PropertyChanged += OnModelPropertyChanged;
             InitializeComponent();
         }
-        void UpdateSizeChanged(Object sender, EventArgs e) {
+        void UpdateSizeChanged(object sender, EventArgs e) {
             if (Device.Idiom == TargetIdiom.Tablet) {
                 ListView list = (ListView)sender;
                 if (list != null)
@@ -56,16 +56,15 @@ namespace DemoCenter.Forms.Views {
         }
 
         void UpdateItemSize(double width) {
-            int count = nestedTabView.Items.Count;
+            int count = this.nestedTabView.Items.Count;
             if (count != 0) {
-                double itemWidth = (width - (nestedTabView.HeaderPanelItemSpacing * (count-1))) / count;
+                double itemWidth = (width - (this.nestedTabView.HeaderPanelItemSpacing * (count-1))) / count;
                 for (int i = 0; i < count; i++)
-                    nestedTabView.Items[i].HeaderWidth = itemWidth;
+                    this.nestedTabView.Items[i].HeaderWidth = itemWidth;
             }
         }
         void OnModelPropertyChanged(object sender, PropertyChangedEventArgs e) {
             OnPropertyChanged(e.PropertyName);
         }
-
     }
 }

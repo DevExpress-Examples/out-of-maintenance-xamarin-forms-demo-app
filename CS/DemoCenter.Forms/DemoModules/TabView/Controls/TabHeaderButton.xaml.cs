@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -74,9 +74,9 @@ namespace DemoCenter.Forms.Demo {
         static void OnShowIconPropertyChanged(BindableObject bindable, object oldValue, object newValue) => ((TabHeaderButton)bindable).UpdateShowIcon();
         public bool ShowIcon { get => (bool)GetValue(ShowIconProperty); set => SetValue(ShowIconProperty, value); }
 
-        public static readonly BindableProperty IconSourceProperty = BindableProperty.Create("IconSource", typeof(string), typeof(TabHeaderButton), propertyChanged: OnIconSourcePropertyChanged, defaultValue: string.Empty);
+        public static readonly BindableProperty IconSourceProperty = BindableProperty.Create("IconSource", typeof(ImageSource), typeof(TabHeaderButton), propertyChanged: OnIconSourcePropertyChanged, defaultValue: null);
         static void OnIconSourcePropertyChanged(BindableObject bindable, object oldValue, object newValue) => ((TabHeaderButton)bindable).UpdateIconSource();
-        public string IconSource { get => (string)GetValue(IconSourceProperty); set => SetValue(IconSourceProperty, value); }
+        public ImageSource IconSource { get => (ImageSource)GetValue(IconSourceProperty); set => SetValue(IconSourceProperty, value); }
 
         public TabHeaderButton() {
 			InitializeComponent();
@@ -133,7 +133,7 @@ namespace DemoCenter.Forms.Demo {
             }
         }
         void UpdateIconSource() {
-            icon.ImageSource = IconSource;
+            icon.Source = IconSource;
         }
     }
 }

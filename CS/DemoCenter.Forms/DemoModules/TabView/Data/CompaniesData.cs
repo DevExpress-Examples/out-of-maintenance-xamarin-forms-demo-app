@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -61,8 +61,8 @@ namespace DemoCenter.Forms.Data {
         public string Fax { get; set; }
         public string Website { get; set; }
         public bool IsSelected {
-            get => isSelected;
-            set => SetProperty(ref isSelected, value);
+            get => this.isSelected;
+            set => SetProperty(ref this.isSelected, value);
         }
 
         public string ViewCity { get { return String.Format("{0} ({1})", City, State); } }

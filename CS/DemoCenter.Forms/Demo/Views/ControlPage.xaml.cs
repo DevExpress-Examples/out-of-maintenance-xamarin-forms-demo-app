@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -37,12 +37,13 @@
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Views {
-    public partial class ControlPage : ContentPage {
+    public partial class ControlPage : ErrorDialogPage {
 		public ControlPage () {
 			InitializeComponent ();          
 		}
-        private void ItemsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e) {
-            ItemsListView.SelectedItem = null;
-        }        
+        protected override void OnAppearing() {
+            this.collectionView.SelectedItem = null;
+            base.OnAppearing();
+        }
     }
 }

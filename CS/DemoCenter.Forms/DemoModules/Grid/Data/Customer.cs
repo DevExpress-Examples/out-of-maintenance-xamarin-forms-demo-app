@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -44,9 +44,9 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
         string name;
 
         public string Name {
-            get { return name; }
+            get => this.name;
             set {
-                name = value;
+                this.name = value;
                 if (Photo == null) {
                     string resourceName = "DemoCenter.Forms.DemoModules.Grid.Images." + value.Replace(" ", "_") + ".jpg";
                     if (!String.IsNullOrEmpty(resourceName))
@@ -55,8 +55,11 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
             }
         }
 
+        public Customer() {
+        }
+
         public Customer(string name) {
-            this.Name = name;
+            Name = name;
         }
 
         public int Id { get; set; }
@@ -70,23 +73,24 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
         public string Email { get; set; }
 
         public int CompareTo(Customer other) {
-            return Comparer<string>.Default.Compare(this.Name, other.Name);
+            return Comparer<string>.Default.Compare(Name, other.Name);
         }
 
         bool IEquatable<Customer>.Equals(Customer other) {
-            return this.Name == other.Name;
+            return Name == other.Name;
         }
 
         public Customer Clone() {
-            Customer result = new Customer(Name);
-            result.Id = Id;
-            result.BirthDate = BirthDate;
-            result.HireDate = HireDate;
-            result.Position = Position;
-            result.Address = Address;
-            result.Phone = Phone;
-            result.Notes = Notes;
-            result.Email = Email;
+            Customer result = new Customer(Name) {
+                Id = Id,
+                BirthDate = BirthDate,
+                HireDate = HireDate,
+                Position = Position,
+                Address = Address,
+                Phone = Phone,
+                Notes = Notes,
+                Email = Email
+            };
 
             return result;
         }

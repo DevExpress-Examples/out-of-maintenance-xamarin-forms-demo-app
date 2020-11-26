@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -34,54 +34,92 @@
 {                                                                   }
 {*******************************************************************}
 */
+using System;
 using System.Collections.Generic;
 using DemoCenter.Forms.Models;
 using DemoCenter.Forms.Views;
 
 namespace DemoCenter.Forms.Data {
     public class EditorsData : IDemoData {
-        List<DemoItem> demoItems;
+        readonly List<DemoItem> demoItems;
 
         public EditorsData() {
-            demoItems = new List<DemoItem>() {
+            this.demoItems = new List<DemoItem>() {
                 new DemoItem() {
                     Title = "Editors",
                     Description="Shows the TextEdit, PasswordEdit, MultilineEdit, and SimpleButton editors on a registration form.",
                     Module = typeof(AccountFormView),
-                    Icon = "Editors.DataForms.svg",
-                    DemoItemStatus = DemoItemStatus.New
+                    Icon = "editors_dataforms",
+                    DemoItemStatus = DemoItemStatus.Updated
                 },
                 new DemoItem() {
                     Title = "Combo Box",
                     Description = "Shows how to customize the ComboBoxEdit.",
                     Module = typeof(ComboBoxEditView),
-                    Icon = "Editors.ComboBoxEdit.svg",
+                    Icon = "editors_comboboxedit"
+                },
+                new DemoItem() {
+                    Title = "Auto Complete",
+                    ControlsPageTitle = "Text Editor with Autocomplete",
+                    Description = "Shows how to customize the AutoCompleteEdit.",
+                    Module = typeof(AutoCompleteEditAsyncView),
                     DemoItemStatus = DemoItemStatus.New,
-                    ShowItemUnderline = false
-
+                    Icon = "editors_autocomplete"
+                },
+                new DemoItem() {
+                    Title = "Phone Book",
+                    PageTitle = "Phone Number Editor"+Environment.NewLine+"with Autocomplete",
+                    ControlsPageTitle = "Phone Book with Autocomplete",
+                    Description = "Shows how to use the AutoCompleteEdit in a phone book.",
+                    Module = typeof(AutoCompleteEditView),
+                    DemoItemStatus = DemoItemStatus.New,
+                    Icon = "editors_autocomplete_custom"
                 },
                 new DemoItem() {
                     Title = "Text Edit",
                     Description = "Demonstrates different TextEdit customization options.",
                     Module = typeof(TextEditView),
-                    Icon = "Editors.TextEdit.svg",
+                    Icon = "editors_textedit"
+                },
+                new DemoItem() {
+                    Title = "Numeric Edit",
+                    Description = "Demonstrates different NumericEdit customization options.",
+                    Module = typeof(NumericEditView),
                     DemoItemStatus = DemoItemStatus.New,
-                    ShowItemUnderline = false
-
+                    Icon = "editors_numericedit"
+                },
+                new DemoItem() {
+                    Title = "Date Edit",
+                    Description = "Demonstrates different DateEdit customization options.",
+                    Module = typeof(DateEditView),
+                    DemoItemStatus = DemoItemStatus.New,
+                    Icon = "editors_dateedit"
+                },
+                new DemoItem() {
+                    Title = "Time Edit",
+                    Description = "Demonstrates different TimeEdit customization options.",
+                    Module = typeof(TimeEditView),
+                    DemoItemStatus = DemoItemStatus.New,
+                    Icon = "editors_timeedit"
+                },
+                new DemoItem() {
+                    Title = "Check Edit",
+                    Description = "Demonstrates different TimeEdit customization options.",
+                    Module = typeof(CheckEditView),
+                    DemoItemStatus = DemoItemStatus.New,
+                    Icon = "editors_checkedit"
                 },
                 new DemoItem() {
                     Title = "Simple Button",
                     Description = "Illustrates SimpleButton customization options.",
                     Module = typeof(SimpleButtonView),
-                    Icon = "Controls.Buttons.svg",
-                    DemoItemStatus = DemoItemStatus.New,
+                    Icon = "controls_buttons",
                     ShowItemUnderline = false
                 }
-
             };
         }
 
-        public List<DemoItem> DemoItems => demoItems;
-        public string Title { get { return "Editors"; } }
+        public List<DemoItem> DemoItems => this.demoItems;
+        public string Title => "Editors";
     }
 }

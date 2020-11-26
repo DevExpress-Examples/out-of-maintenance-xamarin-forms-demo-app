@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -46,52 +46,52 @@ namespace DemoCenter.Forms.DemoModules.TabView.ViewModels {
 
         IList<CallInfo> calls;
         public IList<CallInfo> CallsHistory {
-            get => calls;
+            get => this.calls;
             set {
-                calls = value;
+                this.calls = value;
                 OnPropertyChanged(nameof(CallsHistory));
             }
         }
 
         public string Name {
-            get => contact.Name;
+            get => this.contact.Name;
         }
 
         public ImageSource Photo {
-            get => contact.Photo;
+            get => this.contact.Photo;
         }
         
         public bool HasPhoto {
-            get => contact.HasPhoto;
+            get => this.contact.HasPhoto;
         }
 
         public string Initials {
-            get => contact.Initials;
+            get => this.contact.Initials;
         }
         
         public Color CategoryColor {
-            get => contact.CategoryColor;
+            get => this.contact.CategoryColor;
         }
 
         public string Email {
-            get => contact.Email;
+            get => this.contact.Email;
         }
 
         public string Phone {
-            get => contact.Phone;
+            get => this.contact.Phone;
         }
 
         public ContactDetailPageViewModel(PhoneContact contact) {
-            rand = new Random();
+            this.rand = new Random();
             this.contact = contact;
             GenerateCallsHistory();
         }
 
         void GenerateCallsHistory() {
-            int callsCount = rand.Next(2, 7);
+            int callsCount = this.rand.Next(2, 7);
             List<CallInfo> callsHistory = new List<CallInfo>();
             for (int i = 0; i < callsCount; i++) {
-                int randParameter = rand.Next(1, 35);
+                int randParameter = this.rand.Next(1, 35);
                 callsHistory.Add(new CallInfo() {
                     CallType = (CallType)((i + randParameter) % 3),
                     Date = DateTime.UtcNow.AddHours( -1 * (i + randParameter)).AddMinutes(randParameter)

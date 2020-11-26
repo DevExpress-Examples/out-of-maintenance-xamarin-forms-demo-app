@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -52,10 +52,10 @@ namespace DemoCenter.Forms.DemoModules.Grid.ViewModels {
 
         bool isRefreshing = false;
         public bool IsRefreshing {
-            get { return isRefreshing; }
+            get { return this.isRefreshing; }
             set {
-                if (isRefreshing != value) {
-                    isRefreshing = value;
+                if (this.isRefreshing != value) {
+                    this.isRefreshing = value;
                     OnPropertyChanged("IsRefreshing");
                 }
             }
@@ -63,10 +63,10 @@ namespace DemoCenter.Forms.DemoModules.Grid.ViewModels {
 
         bool isUpdateLocked = false;
         public bool IsUpdateLocked {
-            get { return isUpdateLocked; }
+            get { return this.isUpdateLocked; }
             set {
-                if (isUpdateLocked != value) {
-                    isUpdateLocked = value;
+                if (this.isUpdateLocked != value) {
+                    this.isUpdateLocked = value;
                     OnPropertyChanged("IsUpdateLocked");
                 }
             }
@@ -74,67 +74,55 @@ namespace DemoCenter.Forms.DemoModules.Grid.ViewModels {
 
         ICommand pullToRefreshCommand = null;
         public ICommand PullToRefreshCommand {
-            get { return pullToRefreshCommand; }
+            get { return this.pullToRefreshCommand; }
             set {
-                if (pullToRefreshCommand != value) {
-                    pullToRefreshCommand = value;
+                if (this.pullToRefreshCommand != value) {
+                    this.pullToRefreshCommand = value;
                     OnPropertyChanged("PullToRefreshCommand");
-                }
-            }
-        }
-
-        ICommand loadMoreCommand = null;
-        public ICommand LoadMoreCommand {
-            get { return loadMoreCommand; }
-            set {
-                if (loadMoreCommand != value) {
-                    loadMoreCommand = value;
-                    OnPropertyChanged("LoadMoreCommand");
                 }
             }
         }
 
         ObservableCollection<Order> orders;
         public ObservableCollection<Order> Orders {
-            get { return orders; }
+            get { return this.orders; }
             set {
-                if (orders != value) {
-                    orders = value;
+                if (this.orders != value) {
+                    this.orders = value;
                     OnPropertyChanged("Orders");
                 }
             }
         }
-        public ObservableCollection<Customer> Customers { get { return repository.Customers; } }
-        public BindingList<Quote> Quotes { get { return market.Quotes; } }
+        public ObservableCollection<Customer> Customers { get { return this.repository.Customers; } }
+        public BindingList<Quote> Quotes { get { return this.market.Quotes; } }
         public Command SwipeButtonCommand { get; set; }
-        public Command RefreshCommand { get { return refreshCommand; } }
+        public Command RefreshCommand { get { return this.refreshCommand; } }
 
         public MainGridViewModel(OrdersRepository repository) {
             this.repository = repository;
             Orders = repository.Orders;
             this.refreshCommand = new Command(ExecuteRefreshCommand);
             this.market = new MarketSimulator();
-            this.PullToRefreshCommand = new Command(ExecutePullToRefreshCommand);
-            this.LoadMoreCommand = new Command(ExecuteLoadMoreCommand);
+            PullToRefreshCommand = new Command(ExecutePullToRefreshCommand);
         }
 
         void ExecuteRefreshCommand() {
-            repository.RefreshOrders();
-            Orders = repository.Orders;
+            this.repository.RefreshOrders();
+            Orders = this.repository.Orders;
         }
         
         public void OnOrderRemove(int row) {
-            Console.WriteLine("before" + this.Orders.Count);
-            this.Orders.RemoveAt(row);
-            Console.WriteLine("after" + this.Orders.Count);
+            Console.WriteLine("before" + Orders.Count);
+            Orders.RemoveAt(row);
+            Console.WriteLine("after" + Orders.Count);
         }
 
         bool marketSimulationOn;
         public void StartMarketSimulation() {
-            if (marketSimulationOn)
+            if (this.marketSimulationOn)
                 return;
 
-            marketSimulationOn = true;
+            this.marketSimulationOn = true;
             Device.StartTimer(TimeSpan.FromSeconds(0.5), SimulateMarketWorker);
         }
 
@@ -147,7 +135,7 @@ namespace DemoCenter.Forms.DemoModules.Grid.ViewModels {
         }
 
         bool SimulateMarketWorker() {
-            if (!marketSimulationOn)
+            if (!this.marketSimulationOn)
                 return false;
 
             SimulateNextStep();
@@ -157,7 +145,7 @@ namespace DemoCenter.Forms.DemoModules.Grid.ViewModels {
         void SimulateNextStep() {
             IsUpdateLocked = true;
             Device.BeginInvokeOnMainThread(() => {
-                market.SimulateNextStep();
+                this.market.SimulateNextStep();
                 IsUpdateLocked = false;
             });
         }
@@ -168,54 +156,6 @@ namespace DemoCenter.Forms.DemoModules.Grid.ViewModels {
                 SimulateNextStep();
                 IsRefreshing = false;
             });
-        }
-
-        void ExecuteLoadMoreCommand() {
-            Task.Run(() => {
-                Thread.Sleep(1000);
-                Device.BeginInvokeOnMainThread(() => {
-                    repository.LoadMoreOrders();
-                    IsRefreshing = false;
-                });
-            });
-        }
-    }
-
-    public class LoadMoreDataCommand : ICommand {
-        readonly Action execute;
-
-        int numOfLoadMore;
-        public event EventHandler CanExecuteChanged;
-        bool canExecute = true;
-
-        public LoadMoreDataCommand(Action execute) {
-            this.execute = execute;
-        }
-
-        public bool CanExecute(object parameter) {
-            return canExecute;
-        }
-
-        public void Execute(object parameter) {
-            numOfLoadMore++;
-            if (numOfLoadMore < 3) {
-                ChangeCanExecute(true);
-                this.execute();
-            } else {
-                ChangeCanExecute(false);
-                TryDownloadAgain();
-            }
-        }
-
-        async void TryDownloadAgain() {
-            await Task.Delay(5000);
-            numOfLoadMore = 0;
-            ChangeCanExecute(true);
-        }
-        void ChangeCanExecute(bool canExecute) {
-            this.canExecute = canExecute;
-            if (CanExecuteChanged != null)
-                CanExecuteChanged(this, new EventArgs());
         }
     }
 }

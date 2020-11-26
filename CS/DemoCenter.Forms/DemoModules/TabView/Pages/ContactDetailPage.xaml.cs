@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -42,9 +42,9 @@ namespace DemoCenter.Forms.DemoModules.TabView.Pages {
     public partial class ContactDetailPage : ContentPage {
         readonly ContactDetailPageViewModel viewModel;
         public ContactDetailPage(PhoneContact contactInfo) {
-            viewModel = new ContactDetailPageViewModel(contactInfo);
+            this.viewModel = new ContactDetailPageViewModel(contactInfo);
             InitializeComponent();
-            BindingContext = viewModel;
+            BindingContext = this.viewModel;
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts"
              xmlns:local="clr-namespace:DemoCenter.Forms"
              x:Class="DemoCenter.Forms.Charts.Views.RangeBarChartContainer">
     <ContentView.Resources>
-        <charts:SeriesHintOptions x:Key="barSeriesHintOptions"
+        <dxc:SeriesHintOptions x:Key="barSeriesHintOptions"
                                   PointTextPattern="{}{S}:&#10;Max price: {HV$0.##} &#10;Min price: {LV$0.##}"/>
     </ContentView.Resources>
     <ContentView.Content>
@@ -18,94 +18,94 @@
                    FontFamily="Roboto"
                    TextColor="{DynamicResource TextThemeColor}"
                    BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
-            <charts:ChartView Grid.Row="1"
+            <dxc:ChartView Grid.Row="1"
                               AxisXNavigationMode="ScrollingAndZooming"
                               x:Name="chart">
-                <charts:ChartView.Series>
-                    <charts:RangeBarSeries DisplayName="WTI"
+                <dxc:ChartView.Series>
+                    <dxc:RangeBarSeries DisplayName="WTI"
                                            HintOptions="{StaticResource barSeriesHintOptions}"
                                            BarWidth="0.6">
-                        <charts:RangeBarSeries.Style>
-                            <charts:BarSeriesStyle Fill="#FFff6e86"/>
-                        </charts:RangeBarSeries.Style>
-                        <charts:RangeBarSeries.Label>
-                            <charts:RangeBarSeriesLabel Position="Outside"
+                        <dxc:RangeBarSeries.Style>
+                            <dxc:BarSeriesStyle Fill="#FFff6e86"/>
+                        </dxc:RangeBarSeries.Style>
+                        <dxc:RangeBarSeries.Label>
+                            <dxc:RangeBarSeriesLabel Position="Outside"
                                                         Kind="HighValueLabel"
                                                         TextPattern="{}{V$0.##}">
-                            </charts:RangeBarSeriesLabel>
-                        </charts:RangeBarSeries.Label>
-                        <charts:RangeBarSeries.Data>
-                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.WTISeriesData}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value1" Member="Value1" />
-                                <charts:ValueDataMember Type="Value2" Member="Value2" />
-                            </charts:SeriesDataAdapter>
-                        </charts:RangeBarSeries.Data>
-                    </charts:RangeBarSeries>                    
-                    <charts:RangeBarSeries DisplayName="Brent"
+                            </dxc:RangeBarSeriesLabel>
+                        </dxc:RangeBarSeries.Label>
+                        <dxc:RangeBarSeries.Data>
+                            <dxc:SeriesDataAdapter DataSource="{Binding ChartModel.WTISeriesData}" ArgumentDataMember="Argument">
+                                <dxc:ValueDataMember Type="Value1" Member="Value1" />
+                                <dxc:ValueDataMember Type="Value2" Member="Value2" />
+                            </dxc:SeriesDataAdapter>
+                        </dxc:RangeBarSeries.Data>
+                    </dxc:RangeBarSeries>                    
+                    <dxc:RangeBarSeries DisplayName="Brent"
                                            HintOptions="{StaticResource barSeriesHintOptions}"
                                            BarWidth="0.4">
-                        <charts:RangeBarSeries.Style>
-                            <charts:BarSeriesStyle Fill="#FF01b0ee"/>
-                        </charts:RangeBarSeries.Style>
-                        <charts:RangeBarSeries.Label>
-                            <charts:RangeBarSeriesLabel Position="Outside"
+                        <dxc:RangeBarSeries.Style>
+                            <dxc:BarSeriesStyle Fill="#FF01b0ee"/>
+                        </dxc:RangeBarSeries.Style>
+                        <dxc:RangeBarSeries.Label>
+                            <dxc:RangeBarSeriesLabel Position="Outside"
                                                         Kind="TwoLabels"
                                                         TextPattern="{}{V$0.##}">
-                            </charts:RangeBarSeriesLabel>
-                        </charts:RangeBarSeries.Label>
-                        <charts:RangeBarSeries.Data>
-                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.BrentSeriesData}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value1" Member="Value1" />
-                                <charts:ValueDataMember Type="Value2" Member="Value2" />
-                            </charts:SeriesDataAdapter>
-                        </charts:RangeBarSeries.Data>
-                    </charts:RangeBarSeries>
-                </charts:ChartView.Series>
-                <charts:ChartView.AxisY>
-                    <charts:NumericAxisY AlwaysShowZeroLevel="False">
-                        <charts:NumericAxisY.Style>
-                            <charts:AxisStyle MajorGridlinesVisible="True"/>
-                        </charts:NumericAxisY.Style>
-                        <charts:NumericAxisY.Range>
-                            <charts:NumericRange Max="75"
+                            </dxc:RangeBarSeriesLabel>
+                        </dxc:RangeBarSeries.Label>
+                        <dxc:RangeBarSeries.Data>
+                            <dxc:SeriesDataAdapter DataSource="{Binding ChartModel.BrentSeriesData}" ArgumentDataMember="Argument">
+                                <dxc:ValueDataMember Type="Value1" Member="Value1" />
+                                <dxc:ValueDataMember Type="Value2" Member="Value2" />
+                            </dxc:SeriesDataAdapter>
+                        </dxc:RangeBarSeries.Data>
+                    </dxc:RangeBarSeries>
+                </dxc:ChartView.Series>
+                <dxc:ChartView.AxisY>
+                    <dxc:NumericAxisY AlwaysShowZeroLevel="False">
+                        <dxc:NumericAxisY.Style>
+                            <dxc:AxisStyle MajorGridlinesVisible="True"/>
+                        </dxc:NumericAxisY.Style>
+                        <dxc:NumericAxisY.Range>
+                            <dxc:NumericRange Max="75"
                                                  Min="40"/>
-                        </charts:NumericAxisY.Range>
-                        <charts:NumericAxisY.Title>
-                            <charts:AxisTitle Text="$/Barrel"
+                        </dxc:NumericAxisY.Range>
+                        <dxc:NumericAxisY.Title>
+                            <dxc:AxisTitle Text="$/Barrel"
                                               Alignment="Outside"/>
-                        </charts:NumericAxisY.Title>
-                    </charts:NumericAxisY>
-                </charts:ChartView.AxisY>
-                <charts:ChartView.AxisX>
-                    <charts:DateTimeAxisX Range="{Binding ChartModel.VisualRange}"
+                        </dxc:NumericAxisY.Title>
+                    </dxc:NumericAxisY>
+                </dxc:ChartView.AxisY>
+                <dxc:ChartView.AxisX>
+                    <dxc:DateTimeAxisX Range="{Binding ChartModel.VisualRange}"
                                           MeasureUnit="Month">
-                        <charts:DateTimeAxisX.Label>
-                            <charts:AxisLabel TextFormat="LLLL"/>
-                        </charts:DateTimeAxisX.Label>
-                        <charts:DateTimeAxisX.Style>
-                            <charts:AxisStyle MajorTickmarksVisible="True"/>
-                        </charts:DateTimeAxisX.Style>
-                    </charts:DateTimeAxisX>
-                </charts:ChartView.AxisX>
-                <charts:ChartView.Legend>
-                    <charts:Legend HorizontalPosition="Center"
+                        <dxc:DateTimeAxisX.Label>
+                            <dxc:AxisLabel TextFormat="LLLL"/>
+                        </dxc:DateTimeAxisX.Label>
+                        <dxc:DateTimeAxisX.Style>
+                            <dxc:AxisStyle MajorTickmarksVisible="True"/>
+                        </dxc:DateTimeAxisX.Style>
+                    </dxc:DateTimeAxisX>
+                </dxc:ChartView.AxisX>
+                <dxc:ChartView.Legend>
+                    <dxc:Legend HorizontalPosition="Center"
                                    VerticalPosition="BottomOutside"
                                    Orientation="LeftToRight" />
-                </charts:ChartView.Legend>
-                <charts:ChartView.Hint>
-                    <charts:Hint>
-                        <charts:Hint.Behavior>
-                            <charts:CrosshairHintBehavior GroupHeaderTextPattern="{}{A$LLLL YYYY}">
-                                <charts:CrosshairHintBehavior.LabelPosition>
-                                    <charts:StaticCrosshairLabelPosition HorizontalAlignment="Left"
+                </dxc:ChartView.Legend>
+                <dxc:ChartView.Hint>
+                    <dxc:Hint>
+                        <dxc:Hint.Behavior>
+                            <dxc:CrosshairHintBehavior GroupHeaderTextPattern="{}{A$LLLL YYYY}">
+                                <dxc:CrosshairHintBehavior.LabelPosition>
+                                    <dxc:StaticCrosshairLabelPosition HorizontalAlignment="Left"
                                                                          VerticalAlignment="Top"/>
-                                </charts:CrosshairHintBehavior.LabelPosition>
-                            </charts:CrosshairHintBehavior>
-                        </charts:Hint.Behavior>
-                    </charts:Hint>
-                </charts:ChartView.Hint>
+                                </dxc:CrosshairHintBehavior.LabelPosition>
+                            </dxc:CrosshairHintBehavior>
+                        </dxc:Hint.Behavior>
+                    </dxc:Hint>
+                </dxc:ChartView.Hint>
                 
-            </charts:ChartView>
+            </dxc:ChartView>
         </Grid>
     </ContentView.Content>
 </ContentView>

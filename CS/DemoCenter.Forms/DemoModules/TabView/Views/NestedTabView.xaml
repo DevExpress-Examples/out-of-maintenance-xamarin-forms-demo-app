@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:navigation="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
-             xmlns:editors="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Core"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:dxn="http://schemas.devexpress.com/xamarin/2014/forms/navigation"
+             xmlns:coreeditors="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Core"
              xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
              xmlns:utils="clr-namespace:DemoCenter.Forms"
+             ios:Page.UseSafeArea="True"
              x:Class="DemoCenter.Forms.Views.NestedTabView"
              BackgroundColor="{DynamicResource BackgroundThemeColor}">
     <ContentPage.Resources>
@@ -109,28 +111,28 @@
                                 <OnIdiom x:TypeArguments="Thickness" Phone="0" Tablet="0,20,0,0"/>
                             </StackLayout.Margin>
                             <Grid Grid.Column="0">
-                                <editors:ColorItem Grid.Column="0"
+                                <coreeditors:ColorItem Grid.Column="0"
                                                    Grid.Row="0"
                                                    PickerColor="{DynamicResource TabItemBorderColor}"
                                                    ShowFlag="False">
-                                    <editors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.HasShadow>
                                         <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="false"/>
-                                    </editors:ColorItem.HasShadow>
-                                    <editors:ColorItem.WidthRequest>
+                                    </coreeditors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.WidthRequest>
-                                    <editors:ColorItem.HeightRequest>
+                                    </coreeditors:ColorItem.WidthRequest>
+                                    <coreeditors:ColorItem.HeightRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.HeightRequest>
-                                    <editors:ColorItem.GestureRecognizers>
+                                    </coreeditors:ColorItem.HeightRequest>
+                                    <coreeditors:ColorItem.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ChangeCart}"/>
-                                    </editors:ColorItem.GestureRecognizers>
-                                </editors:ColorItem>
+                                    </coreeditors:ColorItem.GestureRecognizers>
+                                </coreeditors:ColorItem>
                                 <demo:IconView Grid.Column="0"
                                                Grid.Row="0"
                                                VerticalOptions="CenterAndExpand"
                                                HorizontalOptions="CenterAndExpand"
-                                               ImageSource="Demo.Icon.CartButton.svg"
+                                               Source="demotabview_cartbutton"
                                                ForegroundColor="{Binding CanAddToCart, Converter={StaticResource addToCartConverter}}">
                                     <demo:IconView.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="24" Tablet="29"/>
@@ -144,28 +146,28 @@
                                 </demo:IconView>
                             </Grid>
                             <Grid Grid.Column="1">
-                                <editors:ColorItem Grid.Column="0"
+                                <coreeditors:ColorItem Grid.Column="0"
                                                    Grid.Row="0"
                                                    PickerColor="{DynamicResource TabItemBorderColor}"
                                                    ShowFlag="False">
-                                    <editors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.HasShadow>
                                         <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="false"/>
-                                    </editors:ColorItem.HasShadow>
-                                    <editors:ColorItem.WidthRequest>
+                                    </coreeditors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.WidthRequest>
-                                    <editors:ColorItem.HeightRequest>
+                                    </coreeditors:ColorItem.WidthRequest>
+                                    <coreeditors:ColorItem.HeightRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.HeightRequest>
-                                    <editors:ColorItem.GestureRecognizers>
+                                    </coreeditors:ColorItem.HeightRequest>
+                                    <coreeditors:ColorItem.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ChangeWishList}"/>
-                                    </editors:ColorItem.GestureRecognizers>
-                                </editors:ColorItem>
+                                    </coreeditors:ColorItem.GestureRecognizers>
+                                </coreeditors:ColorItem>
                                 <demo:IconView Grid.Column="0"
                                                Grid.Row="0"
                                                VerticalOptions="CenterAndExpand"
                                                HorizontalOptions="CenterAndExpand"
-                                               ImageSource="Demo.Icon.FavoriteButton.svg"
+                                               Source="demotabview_favoritebutton"
                                                ForegroundColor="{Binding CanAddToWishList, Converter={StaticResource addToWishListConverter}}">
                                     <demo:IconView.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="24" Tablet="29"/>
@@ -273,28 +275,28 @@
                                 <OnIdiom x:TypeArguments="Thickness" Phone="0" Tablet="0,20,16,0"/>
                             </StackLayout.Margin>
                             <Grid Grid.Column="1">
-                                <editors:ColorItem Grid.Column="0"
+                                <coreeditors:ColorItem Grid.Column="0"
                                                    Grid.Row="0"
                                                    PickerColor="{DynamicResource TabItemBorderColor}"
                                                    ShowFlag="False">
-                                    <editors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.HasShadow>
                                         <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="false"/>
-                                    </editors:ColorItem.HasShadow>
-                                    <editors:ColorItem.WidthRequest>
+                                    </coreeditors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.WidthRequest>
-                                    <editors:ColorItem.HeightRequest>
+                                    </coreeditors:ColorItem.WidthRequest>
+                                    <coreeditors:ColorItem.HeightRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.HeightRequest>
-                                    <editors:ColorItem.GestureRecognizers>
+                                    </coreeditors:ColorItem.HeightRequest>
+                                    <coreeditors:ColorItem.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ChangeWishList}"/>
-                                    </editors:ColorItem.GestureRecognizers>
-                                </editors:ColorItem>
+                                    </coreeditors:ColorItem.GestureRecognizers>
+                                </coreeditors:ColorItem>
                                 <demo:IconView Grid.Column="0"
                                                Grid.Row="0"
                                                VerticalOptions="CenterAndExpand"
                                                HorizontalOptions="CenterAndExpand"
-                                               ImageSource="Demo.Icon.FavoriteButton.svg"
+                                               Source="demotabview_favoritebutton"
                                                ForegroundColor="{Binding CanAddToWishList, Converter={StaticResource addToWishListConverter}}">
                                     <demo:IconView.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="24" Tablet="29"/>
@@ -308,28 +310,28 @@
                                 </demo:IconView>
                             </Grid>
                             <Grid Grid.Column="0">
-                                <editors:ColorItem Grid.Column="0"
+                                <coreeditors:ColorItem Grid.Column="0"
                                                    Grid.Row="0"
                                                    PickerColor="{DynamicResource TabItemBorderColor}"
                                                    ShowFlag="False">
-                                    <editors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.HasShadow>
                                         <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="false"/>
-                                    </editors:ColorItem.HasShadow>
-                                    <editors:ColorItem.WidthRequest>
+                                    </coreeditors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.WidthRequest>
-                                    <editors:ColorItem.HeightRequest>
+                                    </coreeditors:ColorItem.WidthRequest>
+                                    <coreeditors:ColorItem.HeightRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.HeightRequest>
-                                    <editors:ColorItem.GestureRecognizers>
+                                    </coreeditors:ColorItem.HeightRequest>
+                                    <coreeditors:ColorItem.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ChangeCart}"/>
-                                    </editors:ColorItem.GestureRecognizers>
-                                </editors:ColorItem>
+                                    </coreeditors:ColorItem.GestureRecognizers>
+                                </coreeditors:ColorItem>
                                 <demo:IconView Grid.Column="0"
                                                Grid.Row="0"
                                                VerticalOptions="CenterAndExpand"
                                                HorizontalOptions="CenterAndExpand"
-                                               ImageSource="Demo.Icon.DeleteButton.svg">
+                                               Source="demotabview_deletebutton">
                                     <demo:IconView.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="24" Tablet="29"/>
                                     </demo:IconView.WidthRequest>
@@ -436,28 +438,28 @@
                                 <OnIdiom x:TypeArguments="Thickness" Phone="0" Tablet="0,20,16,0"/>
                             </StackLayout.Margin>
                             <Grid Grid.Column="1">
-                                <editors:ColorItem Grid.Column="0"
+                                <coreeditors:ColorItem Grid.Column="0"
                                                    Grid.Row="0"
                                                    PickerColor="{DynamicResource TabItemBorderColor}"
                                                    ShowFlag="False">
-                                    <editors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.HasShadow>
                                         <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="false"/>
-                                    </editors:ColorItem.HasShadow>
-                                    <editors:ColorItem.WidthRequest>
+                                    </coreeditors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.WidthRequest>
-                                    <editors:ColorItem.HeightRequest>
+                                    </coreeditors:ColorItem.WidthRequest>
+                                    <coreeditors:ColorItem.HeightRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.HeightRequest>
-                                    <editors:ColorItem.GestureRecognizers>
+                                    </coreeditors:ColorItem.HeightRequest>
+                                    <coreeditors:ColorItem.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ChangeCart}"/>
-                                    </editors:ColorItem.GestureRecognizers>
-                                </editors:ColorItem>
+                                    </coreeditors:ColorItem.GestureRecognizers>
+                                </coreeditors:ColorItem>
                                 <demo:IconView Grid.Column="0"
                                                Grid.Row="0"
                                                VerticalOptions="CenterAndExpand"
                                                HorizontalOptions="CenterAndExpand"
-                                               ImageSource="Demo.Icon.CartButton.svg"
+                                               Source="demotabview_cartbutton"
                                                ForegroundColor="{Binding CanAddToCart, Converter={StaticResource addToCartConverter}}">
                                     <demo:IconView.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="24" Tablet="29"/>
@@ -471,28 +473,28 @@
                                 </demo:IconView>
                             </Grid>
                             <Grid Grid.Column="0">
-                                <editors:ColorItem Grid.Column="0"
+                                <coreeditors:ColorItem Grid.Column="0"
                                                    Grid.Row="0"
                                                    PickerColor="{DynamicResource TabItemBorderColor}"
                                                    ShowFlag="False">
-                                    <editors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.HasShadow>
                                         <OnPlatform x:TypeArguments="x:Boolean" Android="true" iOS="false"/>
-                                    </editors:ColorItem.HasShadow>
-                                    <editors:ColorItem.WidthRequest>
+                                    </coreeditors:ColorItem.HasShadow>
+                                    <coreeditors:ColorItem.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.WidthRequest>
-                                    <editors:ColorItem.HeightRequest>
+                                    </coreeditors:ColorItem.WidthRequest>
+                                    <coreeditors:ColorItem.HeightRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
-                                    </editors:ColorItem.HeightRequest>
-                                    <editors:ColorItem.GestureRecognizers>
+                                    </coreeditors:ColorItem.HeightRequest>
+                                    <coreeditors:ColorItem.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding ChangeWishList}"/>
-                                    </editors:ColorItem.GestureRecognizers>
-                                </editors:ColorItem>
+                                    </coreeditors:ColorItem.GestureRecognizers>
+                                </coreeditors:ColorItem>
                                 <demo:IconView Grid.Column="0"
                                                Grid.Row="0"
                                                VerticalOptions="CenterAndExpand"
                                                HorizontalOptions="CenterAndExpand"
-                                               ImageSource="Demo.Icon.DeleteButton.svg">
+                                               Source="demotabview_deletebutton">
                                     <demo:IconView.WidthRequest>
                                         <OnIdiom x:TypeArguments="x:Double" Phone="24" Tablet="29"/>
                                     </demo:IconView.WidthRequest>
@@ -546,7 +548,7 @@
         </DataTemplate>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <navigation:TabView ScrollAnimationEnabled="False"
+        <dxn:TabView ScrollAnimationEnabled="False"
                             SwipeEnabled="False"
                             HeaderPanelPosition="Bottom"
                             ItemHeaderWidth="*"
@@ -560,18 +562,13 @@
                             IsHeaderPanelShadowVisible="False"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="FillAndExpand">
-            <navigation:TabView.HeaderPanelHeight>
-                <OnIdiom x:TypeArguments="navigation:TabHeaderLength" Phone="60" Tablet="90"/>
-            </navigation:TabView.HeaderPanelHeight>
-            <navigation:TabViewItem HeaderText="All"
+            <dxn:TabView.HeaderPanelHeight>
+                <OnIdiom x:TypeArguments="dxn:TabHeaderLength" Phone="60" Tablet="90"/>
+            </dxn:TabView.HeaderPanelHeight>
+            <dxn:TabViewItem HeaderText="All"
+                                    HeaderIcon="nested_all"
                                     HeaderPadding="0">
-                <navigation:TabViewItem.HeaderIcon>
-                    <OnPlatform x:TypeArguments="ImageSource">
-                        <On Platform="Android" Value="nested_all.xml" />
-                        <On Platform="iOS" Value="nested_all" />
-                    </OnPlatform>
-                </navigation:TabViewItem.HeaderIcon>
-                <navigation:TabView x:Name="nestedTabView"
+                <dxn:TabView x:Name="nestedTabView"
                                     HeaderPanelPosition="Top"
                                     ItemsSource="{Binding AllProducts}"
                                     SelectedItem="{Binding SelectedCategory}"
@@ -592,25 +589,20 @@
                                     HeaderPanelIndent="30"
                                     HorizontalOptions="FillAndExpand"
                                     VerticalOptions="FillAndExpand">
-                    <navigation:TabView.HeaderPanelShadowHeight>
+                    <dxn:TabView.HeaderPanelShadowHeight>
                         <OnPlatform x:TypeArguments="x:Double" Android="5" iOS="3"/>
-                    </navigation:TabView.HeaderPanelShadowHeight>
-                    <navigation:TabView.HeaderPanelShadowRadius>
+                    </dxn:TabView.HeaderPanelShadowHeight>
+                    <dxn:TabView.HeaderPanelShadowRadius>
                         <OnPlatform x:TypeArguments="x:Double" Android="5" iOS="5"/>
-                    </navigation:TabView.HeaderPanelShadowRadius>
-                    <navigation:TabView.ItemHeaderFontSize>
+                    </dxn:TabView.HeaderPanelShadowRadius>
+                    <dxn:TabView.ItemHeaderFontSize>
                         <OnIdiom x:TypeArguments="x:Double" Phone="16" Tablet="18"/>
-                    </navigation:TabView.ItemHeaderFontSize>
-                </navigation:TabView>
-            </navigation:TabViewItem>
-            <navigation:TabViewItem HeaderText="Cart"
+                    </dxn:TabView.ItemHeaderFontSize>
+                </dxn:TabView>
+            </dxn:TabViewItem>
+            <dxn:TabViewItem HeaderText="Cart"
+                                    HeaderIcon="nested_cart"
                                     HeaderPadding="0">
-                <navigation:TabViewItem.HeaderIcon>
-                    <OnPlatform x:TypeArguments="ImageSource">
-                        <On Platform="Android" Value="nested_cart.xml" />
-                        <On Platform="iOS" Value="nested_cart" />
-                    </OnPlatform>
-                </navigation:TabViewItem.HeaderIcon>
                 <Grid ColumnSpacing="0" RowSpacing="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition>
@@ -646,15 +638,10 @@
                         </ListView.Margin>
                     </demo:NonSelectableListView>
                 </Grid>
-            </navigation:TabViewItem>
-            <navigation:TabViewItem HeaderText="Wish list"
+            </dxn:TabViewItem>
+            <dxn:TabViewItem HeaderText="Wish list"
+                                    HeaderIcon="nested_wish_list"
                                     HeaderPadding="0">
-                <navigation:TabViewItem.HeaderIcon>
-                    <OnPlatform x:TypeArguments="ImageSource">
-                        <On Platform="Android" Value="nested_wish_list.xml" />
-                        <On Platform="iOS" Value="nested_wish_list" />
-                    </OnPlatform>
-                </navigation:TabViewItem.HeaderIcon>
                 <Grid ColumnSpacing="0" RowSpacing="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition>
@@ -690,7 +677,7 @@
                         </ListView.Margin>
                     </demo:NonSelectableListView>
                 </Grid>
-            </navigation:TabViewItem>
-        </navigation:TabView>
+            </dxn:TabViewItem>
+        </dxn:TabView>
     </ContentPage.Content>
 </ContentPage>

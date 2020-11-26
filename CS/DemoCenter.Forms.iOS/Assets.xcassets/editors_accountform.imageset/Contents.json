@@ -1,0 +1,32 @@
+{
+  "images": [
+    {
+        "filename": "light.AccountForm.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "dark.AccountForm.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "idiom": "universal"
+    },
+    {
+      "filename": "light.AccountForm.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "light"
+        }
+      ],
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

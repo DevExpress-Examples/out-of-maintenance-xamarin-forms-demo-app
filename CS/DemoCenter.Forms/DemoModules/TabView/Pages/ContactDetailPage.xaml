@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dxgrid="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+             xmlns:dxg="http://schemas.devexpress.com/xamarin/2014/forms/datagrid"
              xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
              xmlns:editors="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Core"
              xmlns:forms="clr-namespace:DemoCenter.Forms;assembly=DemoCenter.Forms"
              x:Class="DemoCenter.Forms.DemoModules.TabView.Pages.ContactDetailPage"
+             BackgroundColor="{DynamicResource BackgroundThemeColor}"
              Title="{Binding Name}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <forms:InverseBoolConverter x:Key="inverseBoolConverter"/>
-            <Style TargetType="dxgrid:DataGridView">
+            <Style TargetType="dxg:DataGridView">
                 <Setter Property="BorderColor">Transparent</Setter>
                 <Setter Property="BorderThickness">0</Setter>
                 <Setter Property="SelectionMode">None</Setter>
@@ -43,11 +43,11 @@
             </Grid.RowDefinitions>
             <demo:IconView VerticalOptions="Fill"
                            HorizontalOptions="Fill"
-                           ImageSource="DrawerBackGround.svg"
+                           Source="drawerbackground"
                            Grid.ColumnSpan="2"
                            Grid.Row="0"
                            Grid.Column="0"
-                           SaveRatioOnScale="False"/>
+                           Aspect="Fill"/>
             <StackLayout Grid.Row="0" Orientation="Horizontal" Padding="15,25">
                 <Frame HasShadow="False"
                         IsVisible="{Binding HasPhoto}"
@@ -131,39 +131,39 @@
                          Padding="18,10"
                          Margin="0"
                          BackgroundColor="{StaticResource BackgroundThemeColor}">
-                <dxgrid:DataGridView AllowGroupCollapse="False"
+                <dxg:DataGridView AllowGroupCollapse="False"
                                      ShowGroupedColumns="True"
                                      IsColumnHeaderVisible="False"
                                      GroupRowTemplate="{StaticResource dateTemplate}"
                                      ItemsSource="{Binding CallsHistory}">
-                    <dxgrid:DataGridView.CellStyle>
-                        <dxgrid:CellStyle FontFamily="Roboto"
+                    <dxg:DataGridView.CellStyle>
+                        <dxg:CellStyle FontFamily="Roboto"
                                           Padding="15"
                                           FontColor="{DynamicResource DrawerGrayFontColor}"
                                           HorizontalLineThickness="0"
                                           SelectionColor="Transparent">
-                            <dxgrid:CellStyle.FontSize>
+                            <dxg:CellStyle.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double" iOS="14" Android="16"/>
-                            </dxgrid:CellStyle.FontSize>
-                        </dxgrid:CellStyle>
-                    </dxgrid:DataGridView.CellStyle>
-                    <dxgrid:DataGridView.GroupRowStyle>
-                        <dxgrid:GroupRowStyle Padding="0"
+                            </dxg:CellStyle.FontSize>
+                        </dxg:CellStyle>
+                    </dxg:DataGridView.CellStyle>
+                    <dxg:DataGridView.GroupRowStyle>
+                        <dxg:GroupRowStyle Padding="0"
                                               FontSize="14"
                                               BorderColor="{DynamicResource TabPageSeparatorColor}"
                                               BackgroundColor="Transparent"/>
-                    </dxgrid:DataGridView.GroupRowStyle>
-                    <dxgrid:DataGridView.Columns>
-                        <dxgrid:TemplateColumn FieldName="CallType"
+                    </dxg:DataGridView.GroupRowStyle>
+                    <dxg:DataGridView.Columns>
+                        <dxg:TemplateColumn FieldName="CallType"
                                                Width="35"
                                                HorizontalContentAlignment="End"
                                                DisplayTemplate="{StaticResource callTypeIconTemplate}"
                                                IsReadOnly="True"/>
-                        <dxgrid:TextColumn FieldName="CallType"
+                        <dxg:TextColumn FieldName="CallType"
                                            VerticalContentAlignment="Start"
                                            Width="*"
                                            IsReadOnly="True"/>
-                        <dxgrid:DateColumn SortOrder="Descending"
+                        <dxg:TimeColumn SortOrder="Descending"
                                            FieldName="Date"
                                            DisplayFormat="t"
                                            Width="100"
@@ -172,8 +172,8 @@
                                            IsGrouped="true"
                                            GroupInterval="DateRange"
                                            IsReadOnly="True"/>
-                    </dxgrid:DataGridView.Columns>
-                </dxgrid:DataGridView>
+                    </dxg:DataGridView.Columns>
+                </dxg:DataGridView>
             </ContentView>
         </Grid>
     </ContentPage.Content>

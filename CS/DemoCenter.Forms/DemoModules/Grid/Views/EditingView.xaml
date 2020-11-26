@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <local:BaseGridContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                            x:Class="DemoCenter.Forms.Views.EditingView"
-                           xmlns:dxg="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+                           xmlns:dxg="http://schemas.devexpress.com/xamarin/2014/forms/datagrid"
                            xmlns:local="clr-namespace:DemoCenter.Forms.Views"
                            xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
                            BackgroundColor="{DynamicResource BackgroundThemeColor}">
@@ -24,10 +24,11 @@
                           ValidationError="DataGridView_ValidationError">
             <dxg:DataGridView.Columns>
                 <dxg:NumberColumn FieldName="Id" Width="70" IsReadOnly="true"/>
-                <dxg:PickerColumn FieldName="Priority" MinWidth="120"/>
-                <dxg:TextColumn FieldName="From.Name" Caption="From" MinWidth="150"/>
-                <dxg:DateColumn FieldName="Sent" MinWidth="110"/>
-                <dxg:NumberColumn FieldName="Size" Width="90" DisplayFormat="{}{0} B"/>
+                <dxg:ComboBoxColumn FieldName="Priority" MinWidth="120"/>
+                <dxg:TextColumn FieldName="From.Name" Caption="From" MinWidth="150" ClearIconVisibility="Auto"/>
+                <dxg:DateColumn FieldName="Sent" Width="110"/>
+                <dxg:TimeColumn FieldName="Time" Width="100"/>
+                <dxg:NumberColumn FieldName="Size" Width="120" DisplayFormat="{}{0} B" IsUpDownIconVisible="True" UpDownIconAlignment="Start"/>
                 <dxg:TemplateColumn FieldName="HoursActive" MinWidth="180">
                     <dxg:TemplateColumn.DisplayTemplate>
                         <DataTemplate>
@@ -58,7 +59,7 @@
                 <dxg:CheckBoxColumn FieldName="HasAttachment" EditFormCaption="Has Attachment" Width="70">
                     <dxg:CheckBoxColumn.HeaderContentTemplate>
                         <DataTemplate>
-                            <demo:IconView HeightRequest="24" WidthRequest="24" HorizontalOptions="CenterAndExpand" ImageSource="Attachment.svg" VerticalOptions="Center"/>
+                            <demo:IconView HeightRequest="24" WidthRequest="24" HorizontalOptions="CenterAndExpand" Source="demogrid_attachment" VerticalOptions="Center"/>
                         </DataTemplate>
                     </dxg:CheckBoxColumn.HeaderContentTemplate>
                 </dxg:CheckBoxColumn>

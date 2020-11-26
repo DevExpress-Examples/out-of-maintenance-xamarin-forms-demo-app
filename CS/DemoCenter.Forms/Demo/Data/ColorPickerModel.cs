@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -62,16 +62,15 @@ namespace DemoCenter.Forms.Demo.Data {
         IList<LabelModel> labelModels = CreateLabelModels();
 
         public IList<LabelModel> LabelModels {
-            get => labelModels;
+            get => this.labelModels;
             set {
-                labelModels = value;
+                this.labelModels = value;
                 OnPropertyChanged(nameof(LabelModels));
             }
         }
 
-
         public Color Color {
-            get { return color; }
+            get { return this.color; }
             set {
                 if(Color == value)
                     return;
@@ -82,16 +81,16 @@ namespace DemoCenter.Forms.Demo.Data {
             }
         }
         public LabelModel SelectedItem {
-            get => selectedItem;
-            set { this.Color = value.Color;
+            get => this.selectedItem;
+            set { Color = value.Color;
                 OnPropertyChanged(nameof(SelectedItem));
             }
         }
 
         public String Title {
-            get { return title; }
+            get { return this.title; }
             set {
-                if(title == value)
+                if(this.title == value)
                     return;
 
                 this.title = value;
@@ -100,14 +99,14 @@ namespace DemoCenter.Forms.Demo.Data {
         }
 
         void ApplySelectedColor(Color selectedColor) {
-            foreach(LabelModel colorModel in labelModels) {
+            foreach(LabelModel colorModel in this.labelModels) {
                 if(colorModel.Color == selectedColor) {
-                    selectedItem = colorModel;
+                    this.selectedItem = colorModel;
                     return;
                 }
             }
-            selectedItem = new LabelModel() { Color = selectedColor, Id = labelModels.Count };
-            labelModels.Add(selectedItem);
+            this.selectedItem = new LabelModel() { Color = selectedColor, Id = this.labelModels.Count };
+            this.labelModels.Add(this.selectedItem);
         }
     }
 }

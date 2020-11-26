@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -64,7 +64,7 @@ namespace DemoCenter.Forms.Views {
         void Handle_Tap(object sender, DataGridGestureEventArgs e) {
             if (e.Item == null || dataGridView.EditorShowMode == EditorShowMode.Tap)
                 return;
-            var editFormPage = new EditFormPage(dataGridView, dataGridView.GetRow(e.RowHandle).Item);
+            var editFormPage = new EditFormPage(dataGridView, dataGridView.GetItem(e.RowHandle));
             editFormPage.Disappearing += EditFormPage_Disappearing;
             editFormPage.ValidateCell += DataGridView_ValidateCell;
             Navigation.PushAsync(editFormPage);

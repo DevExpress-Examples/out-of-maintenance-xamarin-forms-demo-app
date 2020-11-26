@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -41,6 +41,7 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.Views {
     public partial class DataFormAccountFormView : ContentPage {
         public DataFormAccountFormView() {
+            DevExpress.XamarinForms.DataForm.Initializer.Init();
             InitializeComponent();
             BindingContext = new AccountFormViewModel();
         }

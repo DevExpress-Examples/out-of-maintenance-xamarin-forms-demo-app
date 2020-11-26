@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -39,7 +39,7 @@ using DemoCenter.Forms.Models;
 
 namespace DemoCenter.Forms.Data {
     public class DemoGroupsData {
-        static List<DemoItem> demoItems;
+        static readonly List<DemoItem> demoItems;
 
         static DemoGroupsData() {
             demoItems = new List<DemoItem>() {
@@ -53,7 +53,6 @@ namespace DemoCenter.Forms.Data {
                     Description = "Editors",
                     Module = typeof(EditorsData)
                 },
-               
                 new DemoItem() {
                     Title = "Charts",
                     Description = "Charts",
@@ -72,12 +71,17 @@ namespace DemoCenter.Forms.Data {
                 new DemoItem() {
                     Title = "Tabs",
                     Description = "Tabs",
-                    Module = typeof(TabviewData)
+                    Module = typeof(TabViewData)
                 },
                 new DemoItem() {
                     Title = "Drawer",
                     Description = "Drawer",
                     Module = typeof(DrawerViewData)
+                },
+                new DemoItem() {
+                    Title = "CollectionView",
+                    Description = "CollectionView",
+                    Module = typeof(CollectionViewData)
                 }
             };
          }

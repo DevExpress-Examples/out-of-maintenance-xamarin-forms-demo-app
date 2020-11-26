@@ -2,15 +2,15 @@
 <ContentPage x:Class="DemoCenter.Forms.Views.PointsCharts"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts"
              xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
              xmlns:local="clr-namespace:DemoCenter.Forms"
-             xmlns:navigation="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
+             xmlns:dxn="http://schemas.devexpress.com/xamarin/2014/forms/navigation"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              ios:Page.UseSafeArea="true"
              BackgroundColor="{DynamicResource BackgroundThemeColor}">
     <ContentPage.Resources>
-        <charts:SeriesHintOptions x:Key="pointSeriesHintOptions"
+        <dxc:SeriesHintOptions x:Key="pointSeriesHintOptions"
                                   PointTextPattern="{}{A$LLLL}: {V}°C"/>
         <local:PointTypeToImageSourceConverter x:Key="pointTypeToImageSourceConverter"/>
         <DataTemplate x:Key="headerItemTemplate">
@@ -26,7 +26,7 @@
         </Style>
     </ContentPage.Resources>
     <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
-        <navigation:TabView x:Name="dxTabView"
+        <dxn:TabView x:Name="dxTabView"
                             BackgroundColor="{DynamicResource BackgroundThemeColor}"
                             HeaderPanelBackgroundColor="{DynamicResource TabItemBackgroundColor}"
                             HorizontalOptions="FillAndExpand"

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="DemoCenter.Forms.Views.AccountFormView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
+    xmlns:dxe="http://schemas.devexpress.com/xamarin/2014/forms/editors"
     xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
     xmlns:converters="clr-namespace:DemoCenter.Forms.DemoModules.Editors.Converters"
     BackgroundColor="{DynamicResource BackgroundThemeColor}"
@@ -54,6 +54,18 @@
                 Suffix="@devexpress.com"
                 AffixIndent="0"
                 ClearIconVisibility="Never"/>
+            <dxe:DateEdit
+                BoxMode="{Binding SelectedBoxMode}"
+                StartIcon="editors_age"
+                Date="{Binding BirthDate, Mode=TwoWay}"
+                HasError="{Binding BirthDateHasError}"
+                LabelText="Birth date"
+                TextHorizontalAlignment="End"
+                ErrorText="Birth date is required"
+                HelpText="*Required"
+                IsDateIconVisible="False"
+                ClearIconVisibility="Auto"
+                DisplayFormat="d"/>
             <dxe:TextEdit
                 BoxMode="{Binding SelectedBoxMode}"
                 StartIcon="editors_phone"

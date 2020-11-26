@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -45,6 +45,7 @@ namespace DemoCenter.Forms.Views {
         readonly Timer timer = new Timer();
 
         public SpectrumAnalyzer() {
+            DevExpress.XamarinForms.Charts.Initializer.Init();
             InitializeComponent();
             BindingContext = viewModel;
 

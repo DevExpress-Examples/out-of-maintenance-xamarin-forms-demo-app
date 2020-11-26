@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -42,6 +42,7 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.Views {
     public partial class DrawerMailBoxView : ContentPage {
         public DrawerMailBoxView() {
+            DevExpress.XamarinForms.Navigation.Initializer.Init();
             InitializeComponent();
 
             DrawerMailBoxViewModel bindingContext = new DrawerMailBoxViewModel(new MailMessagesRepository());

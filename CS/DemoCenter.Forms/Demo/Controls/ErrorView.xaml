@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxe="http://schemas.devexpress.com/xamarin/2014/forms/editors"
+             xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+             x:Class="DemoCenter.Forms.Demo.ErrorView"
+             BackgroundColor="{DynamicResource ShadowedBackgroundColor}">
+    <ContentView.Content>
+        <StackLayout
+            BackgroundColor="{DynamicResource BackgroundThemeColor}"
+            Padding="10"
+            VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <demo:IconView
+                Source="error_report"
+                HeightRequest="68"
+                WidthRequest="68"
+                Margin="0,30"/>
+            <Label Text="An unexpected error occurred."
+                TextColor="{DynamicResource ErrorReportHeaderColor}"
+                FontSize="18"
+                FontFamily="Roboto-Bold"
+                Margin="0,0,0,20"
+                WidthRequest="260"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"/>
+            <Label Text="We’ve generated an error report. To help us address this issue, please forward the report to DevExpress."
+                TextColor="{DynamicResource ErrorReportMainTextColor}"
+                Margin="40,0,40,20"
+                FontSize="14"
+                FontFamily="Roboto"
+                WidthRequest="260"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"/>
+            <Label
+                TextColor="{DynamicResource ErrorReportNoteTextColor}"
+                Margin="0,0,0,20"
+                FontSize="12"
+                FontFamily="Roboto"
+                WidthRequest="240"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Note: We use our 24/7 app monitoring tool ("/>
+                        <Span Text="Logify"
+                              TextColor="{DynamicResource ErrorReportUrlTextColor}"
+                              TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenWebCommand}" CommandParameter="{Binding LogifyUrl}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                        <Span Text=") to collect information about app exceptions."/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <StackLayout Orientation="Vertical" Margin="0,10,0,30" HorizontalOptions="Center">
+                 <dxe:SimpleButton
+                    Padding="12,0"
+                    Text="SEND THE ERROR REPORT"
+                    BackgroundColor="{DynamicResource ErrorReportUrlTextColor}"
+                    TextColor="{DynamicResource ErrorReportSendButtonTextColor}"
+                    FontSize="12"
+                    FontFamily="Roboto-Medium"
+                    CornerMode="Round"
+                    CornerRadius="4"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    Command="{Binding SendExceptionCommand}"
+                    Clicked="Button_Clicked"/>
+                 <dxe:SimpleButton
+                    Padding="12,0"
+                    Text="DON'T SEND THE REPORT"
+                    BackgroundColor="{DynamicResource BackgroundThemeColor}"
+                    TextColor="{DynamicResource ErrorReportUrlTextColor}"
+                    FontSize="12"
+                    FontFamily="Roboto-Medium"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    Clicked="Button_Clicked"/>
+                </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

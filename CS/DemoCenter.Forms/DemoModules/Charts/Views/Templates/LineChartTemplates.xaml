@@ -13,5 +13,8 @@
     <DataTemplate x:Key="stepLineChartTemplate">
         <templateView:StepLineChartContainer/>
     </DataTemplate>
+    <DataTemplate x:Key="splineChartTemplate">
+        <templateView:SplineChartContainer/>
+    </DataTemplate>
 
 </ResourceDictionary>

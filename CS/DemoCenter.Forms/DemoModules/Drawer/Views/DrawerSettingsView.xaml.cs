@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -40,10 +40,12 @@ using DemoCenter.Forms.Demo;
 using DemoCenter.Forms.DemoModules.Drawer.ViewModels;
 using Xamarin.Forms;
 using MenuItem = DemoCenter.Forms.DemoModules.Drawer.ViewModels.MenuItem;
+using RadioButton = DemoCenter.Forms.Demo.RadioButton;
 
 namespace DemoCenter.Forms.Views {
     public partial class DrawerSettingsView : ContentPage {
         public DrawerSettingsView() {
+            DevExpress.XamarinForms.Navigation.Initializer.Init();
             InitializeComponent();
             BindingContext = new DrawerSettingsViewModel();
             PrepareRadioLists();

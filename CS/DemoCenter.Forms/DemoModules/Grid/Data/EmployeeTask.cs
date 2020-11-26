@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -50,14 +50,10 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
 
         int status;
         public int Status {
-            get { return status; }
-            set { SetProperty(ref status, value, () => OnPropertyChanged("Completed")); }
+            get => this.status;
+            set => SetProperty(ref this.status, value, () => OnPropertyChanged("Completed"));
         }
 
-        public bool Completed {
-            get {
-                return Status == 100;
-            }
-        }
+        public bool Completed => Status == 100;
     }
 }

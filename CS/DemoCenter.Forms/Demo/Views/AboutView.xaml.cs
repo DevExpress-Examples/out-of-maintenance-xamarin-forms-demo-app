@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -36,10 +36,18 @@
 */
 using Xamarin.Forms;
 
-namespace DemoCenter.Forms.Demo.Views {
+namespace DemoCenter.Forms.Views {
     public partial class AboutView:ScrollView {
+
+        public static readonly BindableProperty OpenedByParentProperty = BindableProperty.Create(nameof(OpenedByParent), typeof(bool), typeof(AboutView), defaultValue: false);
+
         public AboutView() {
             InitializeComponent();
-        }        
+        }
+
+        public bool OpenedByParent {
+            get => (bool)GetValue(OpenedByParentProperty);
+            set => SetValue(OpenedByParentProperty, value);
+        }
     }
 }

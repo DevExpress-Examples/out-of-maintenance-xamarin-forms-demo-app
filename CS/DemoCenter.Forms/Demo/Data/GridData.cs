@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -41,74 +41,97 @@ using DemoCenter.Forms.Views;
 
 namespace DemoCenter.Forms.Data {
     public class GridData : IDemoData {
-        List<DemoItem> demoItems;
+        readonly List<DemoItem> demoItems;
 
         public GridData() {
-            demoItems = new List<DemoItem>() {
+            this.demoItems = new List<DemoItem>() {
                 new DemoItem() {
                     Title = "First Look",
-                    Description="Demonstrates the DataGridView’s basic features.",
+                    Description = "Demonstrates the DataGridView’s basic features.",
                     Module = typeof(FirstLookView),
-                    Icon = "GridList.FirstLook.svg"},
+                    Icon = "grid_firstlook"
+                },
+                new DemoItem() {
+                    Title = "Auto Filter Row",
+                    Description = "Demonstrates the Auto Filter Row that supports a straightforward search for data in columns.",
+                    Module = typeof(AutoFilterRowView),
+                    Icon = "grid_autofilterrow",
+                    DemoItemStatus = DemoItemStatus.New
+                },
+                new DemoItem() {
+                    Title = "Virtual Scrolling",
+                    Description = "Demonstrates the virtual scrolling feature, which significantly improves the performance of grids with many columns.",
+                    Module = typeof(HorizontalVirtualizationView),
+                    Icon = "grid_horizontalvirtualization",
+                    DemoItemStatus = DemoItemStatus.New
+                },
                 new DemoItem() {
                     Title = "Drag and Drop",
-                    Description="Demonstrates the grid's drag-and-drop functionality that allows users to reorder rows.",
+                    Description = "Demonstrates the grid's drag-and-drop functionality that allows users to reorder rows.",
                     Module = typeof(DragDropView),
-                    Icon = "GridList.DragDrop.svg",
-                    DemoItemStatus = DemoItemStatus.New},
-                new DemoItem() {
-                    Title = "Custom Appearance",
-                    Description="Shows how to customize the appearance of individual data cells.",
-                    Module = typeof(CustomAppearanceView),
-                    Icon = "GridList.CustomAppearance.svg",
-                    DemoItemStatus = DemoItemStatus.New},
-                new DemoItem() {
-                    Title = "Advanced Layout",
-                    Description="Demonstrates how the grid arranges data cells and column headers across multiple rows.",
-                    Module = typeof(AdvancedLayoutView),
-                    Icon = "GridList.AdvancedLayout.svg",
-                    DemoItemStatus = DemoItemStatus.New},
-                new DemoItem() {
-                    Title = "Real-Time Data",
-                    Description="Demonstrates a grid view that automatically displays new data when the data source changes.",
-                    Module = typeof(RealTimeDataView),
-                    Icon = "GridList.RealTimeData.svg"},
-                new DemoItem() {
-                    Title = "Row Auto Height",
-                    Description="Shows how the grid can automatically adjust row height to display the entire content of cells.",
-                    Module = typeof(RowAutoHeightView),
-                    Icon = "GridList.RowAutoHeight.svg"},
+                    Icon = "grid_dragdrop"
+                },
                 new DemoItem() {
                     Title = "Editing",
-                    Description="Demonstrates the grid’s inplace data editors.",
+                    Description = "Demonstrates the grid’s inplace data editors.",
                     Module = typeof(EditingView),
-                    Icon = "GridList.Editing.svg"},
+                    Icon = "grid_editing",
+                    DemoItemStatus = DemoItemStatus.Updated
+                },
                 new DemoItem() {
-                    Title = "Swipe"+Environment.NewLine+"Actions",
+                    Title = "Custom Appearance",
+                    Description = "Shows how to customize the appearance of individual data cells.",
+                    Module = typeof(CustomAppearanceView),
+                    Icon = "grid_customappearance"
+                },
+                new DemoItem() {
+                    Title = "Advanced Layout",
+                    Description = "Demonstrates how the grid arranges data cells and column headers across multiple rows.",
+                    Module = typeof(AdvancedLayoutView),
+                    Icon = "grid_advancedlayout"
+                },
+                new DemoItem() {
+                    Title = "Real-Time Data",
+                    Description = "Demonstrates a grid view that automatically displays new data when the data source changes.",
+                    Module = typeof(RealTimeDataView),
+                    Icon = "grid_realtimedata"
+                },
+                new DemoItem() {
+                    Title = "Row Auto Height",
+                    Description = "Shows how the grid can automatically adjust row height to display the entire content of cells.",
+                    Module = typeof(RowAutoHeightView),
+                    Icon = "grid_rowautoheight"
+                },
+                new DemoItem() {
+                    Title = "Swipe" + Environment.NewLine + "Actions",
                     ControlsPageTitle = "Swipe Actions",
-                    Description="Illustrates the UI that is extended with extra buttons when you swipe a data row.",
+                    Description = "Illustrates the UI that is extended with extra buttons when you swipe a data row.",
                     Module = typeof(SwipeButtonsView),
-                    Icon = "GridList.SwipeButtons.svg"},
+                    Icon = "grid_swipebuttons"
+                },
                 new DemoItem() {
                     Title = "Pull To Refresh",
-                    Description="Shows how to update the grid’s content with the pull-down gesture.",
+                    Description = "Shows how to update the grid’s content with the pull-down gesture.",
                     Module = typeof(PullToRefreshView),
-                    Icon = "GridList.PullToRefresh.svg"},
+                    Icon = "grid_pulltorefresh"
+                },
                 new DemoItem() {
-                    Title = "Infinite"+Environment.NewLine+"Data Source",
+                    Title = "Infinite" + Environment.NewLine + "Data Source",
                     ControlsPageTitle = "Infinite Data Source",
-                    Description="Shows how the grid requests new data when users scroll the grid to the end.",
+                    Description = "Shows how the grid requests new data when users scroll the grid to the end.",
                     Module = typeof(LoadMoreView),
-                    Icon = "GridList.InfiniteDataSource.svg"},
+                    Icon = "grid_infinitedatasource"
+                },
                 new DemoItem() {
                     Title = "Grouping",
-                    Description="Illustrates how the grid groups data against a column and calculates data summaries.",
+                    Description = "Illustrates how the grid groups data against a column and calculates data summaries.",
                     Module = typeof(GroupingView),
-                    Icon = "GridList.Grouping.svg",
-                    ShowItemUnderline = false}
+                    Icon = "grid_grouping",
+                    ShowItemUnderline = false
+                }
             };
         }
-        public List<DemoItem> DemoItems => demoItems;
-        public string Title { get { return "DataGridView"; } }
+        public List<DemoItem> DemoItems => this.demoItems;
+        public string Title => "DataGridView";
     }
 }

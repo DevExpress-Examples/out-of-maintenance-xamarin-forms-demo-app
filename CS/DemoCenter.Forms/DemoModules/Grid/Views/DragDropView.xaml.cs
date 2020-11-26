@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -36,10 +36,10 @@
 */
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DemoCenter.Forms.DemoModules.Grid.Data;
 using DevExpress.XamarinForms.DataGrid;
 using Xamarin.Forms;
-using System.Linq;
 
 namespace DemoCenter.Forms.Views {
     public partial class DragDropView : BaseGridContentPage {
@@ -54,12 +54,12 @@ namespace DemoCenter.Forms.Views {
         }
 
         void Grid_DragRow(object sender, DragRowEventArgs e) {
-            if (isAnimated) {
+            if (this.isAnimated) {
                 e.Allow = false;
                 return;
             }
             e.Allow = IsItemDraggable(e.DragItem);
-            isAnimated = e.Allow;
+            this.isAnimated = e.Allow;
         }
 
         void Grid_DragRowOver(object sender, DropRowEventArgs e) {
@@ -67,7 +67,7 @@ namespace DemoCenter.Forms.Views {
         }
 
         void Grid_CompleteRowDragDrop(object sender, CompleteRowDragDropEventArgs e) {
-            isAnimated = false;
+            this.isAnimated = false;
         }
 
         bool IsItemDraggable(object item) {
@@ -75,21 +75,30 @@ namespace DemoCenter.Forms.Views {
         }
 
         private void Grid_Tap(object sender, DataGridGestureEventArgs e) {
-            if (e.Element != DataGridElement.Row || e.FieldName != "Completed" || isAnimated)
+            if (e.Element != DataGridElement.Row || e.FieldName != "Completed" || this.isAnimated)
                 return;
-            var source = (IList<EmployeeTask>)grid.ItemsSource;
-            var task = (EmployeeTask)e.Item;
+            IList<EmployeeTask> source = (IList<EmployeeTask>)this.grid.ItemsSource;
+            EmployeeTask task = (EmployeeTask)e.Item;
             task.Status = task.Completed ? 0 : 100;
             int newRowHandle = task.Completed ? source.Count() - 1 : 0;
             if (e.RowHandle == newRowHandle)
                 return;
-            isAnimated = true;
+            this.isAnimated = true;
             Device.StartTimer(TimeSpan.FromMilliseconds(200), () => {
                 Device.BeginInvokeOnMainThread(() =>
-                    grid.MoveItem(e.RowHandle, newRowHandle, () => isAnimated = false)
+                    this.grid.MoveItem(e.RowHandle, newRowHandle, () => this.isAnimated = false)
                 );
                 return false;
             });
+        }
+
+        void Grid_CustomCellStyle(object sender, CustomCellStyleEventArgs e) {
+            if (e.FieldName == nameof(EmployeeTask.Name) || e.FieldName == nameof(EmployeeTask.DueDate)) {
+                if (((EmployeeTask)e.Item).Completed) {
+                    e.TextDecorations = TextDecorations.Strikethrough;
+                    e.FontColor = new Color(e.FontColor.R, e.FontColor.G, e.FontColor.B, 0.5);
+                }
+            }
         }
     }
 }

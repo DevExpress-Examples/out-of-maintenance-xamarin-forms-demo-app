@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -52,9 +52,9 @@ namespace DemoCenter.Forms.ViewModels {
 
         public IEnumerable<TeamAppointment> Appointments { get; protected set; }
         public DateTime Start {
-            get => start;
+            get => this.start;
             set {
-                start = value;
+                this.start = value;
                 NotifyPropertyChanged(nameof(Start));
             }
         }
@@ -72,9 +72,9 @@ namespace DemoCenter.Forms.ViewModels {
         }
 
         public int DaysCount {
-            get => daysCount;
+            get => this.daysCount;
             set {
-                daysCount = value;
+                this.daysCount = value;
                 NotifyPropertyChanged(nameof(DaysCount));
             }
         }

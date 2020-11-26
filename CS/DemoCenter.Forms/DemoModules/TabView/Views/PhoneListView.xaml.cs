@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -43,12 +43,13 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.Views {
     public partial class PhoneListView : ContentPage {
         public PhoneListView() {
+            Initializer.Init();
             InitializeComponent();
             BindingContext = new PhoneListViewModel();
         }
       
         async void OnItemClicked(object sender, EventArgs e) {
-            var action = await DisplayActionSheet("Group by", "Cancel", null, GroupParameterName.Alphabeticaly.ToString(), GroupParameterName.Category.ToString());
+            string action = await DisplayActionSheet("Group by", "Cancel", null, GroupParameterName.Alphabeticaly.ToString(), GroupParameterName.Category.ToString());
             if (action != null && action != "Cancel") {
                 PhoneListViewModel model = BindingContext as PhoneListViewModel;
                 if (model != null && model.GroupParameter.ToString() != action) {
@@ -56,14 +57,14 @@ namespace DemoCenter.Forms.Views {
                     model.SelectedItem = model.PhoneListData[0];
                     model.SetGroupByParameter(parameter);
                     if (model.GroupParameter == GroupParameterName.Alphabeticaly) {
-                        dxTabView.HeaderPanelPosition = Position.Right;
-                        dxTabView.HeaderPanelContentAlignment = ContentAlignment.Start;
+                        this.dxTabView.HeaderPanelPosition = Position.Right;
+                        this.dxTabView.HeaderPanelContentAlignment = ContentAlignment.Start;
                     } else {
-                        dxTabView.HeaderPanelPosition = Position.Bottom;
-                        dxTabView.HeaderPanelContentAlignment = ContentAlignment.Center;
+                        this.dxTabView.HeaderPanelPosition = Position.Bottom;
+                        this.dxTabView.HeaderPanelContentAlignment = ContentAlignment.Center;
                     }
-                    dxTabView.ItemsSource = model.PhoneListData;
-                    dxTabView.SelectedItem = model.PhoneListData[0];
+                    this.dxTabView.ItemsSource = model.PhoneListData;
+                    this.dxTabView.SelectedItem = model.PhoneListData[0];
                 }
             }
         }

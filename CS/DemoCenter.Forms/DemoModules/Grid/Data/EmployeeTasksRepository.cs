@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -46,23 +46,23 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
         public IList<EmployeeTask> EmployeeTasks { get; private set; }
 
         public EmployeeTasksRepository() {
-            var tasks = LoadTasks();
+            IList<EmployeeTask> tasks = LoadTasks();
             UpdateSource(tasks);
             EmployeeTasks = tasks;
         }
 
         IList<EmployeeTask> LoadTasks() {
-            var assembly = this.GetType().Assembly;
+            System.Reflection.Assembly assembly = GetType().Assembly;
             Stream stream = assembly.GetManifestResourceStream("EmployeeTasks.json");
             JObject jObject = JObject.Parse(new StreamReader(stream).ReadToEnd());
-            var list = jObject["EmployeeTasks"].ToObject<List<EmployeeTask>>().Take(30).ToList();
+            List<EmployeeTask> list = jObject["EmployeeTasks"].ToObject<List<EmployeeTask>>().Take(30).ToList();
             return new BindingList<EmployeeTask>(list);
         }
 
         void UpdateSource(IList<EmployeeTask> tasks) {
             Random random = new Random();
             for (int i = 0; i < tasks.Count; i++) {
-                var task = tasks[i];
+                EmployeeTask task = tasks[i];
                 task.StartDate = DateTime.Now.AddDays(random.Next(7) + 1);
                 task.DueDate = task.StartDate.AddDays(random.Next(3) + 1);
                 task.Status = i < tasks.Count * 2 / 3 ? 0 : 100;

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -95,8 +95,6 @@ namespace DemoCenter.Forms.DemoModules.Drawer.ViewModels {
                 }
             }
         }
-
-        public string BackgroundImage => string.Format("{0}.DrawerBackGround.svg", ThemeManager.ThemeName);
 
         public DrawerMailBoxViewModel(MailMessagesRepository messagesRepository) {
             this.repository = messagesRepository;

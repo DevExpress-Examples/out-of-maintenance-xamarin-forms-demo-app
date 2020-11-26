@@ -1,0 +1,32 @@
+{
+  "images": [
+    {
+        "filename": "light.MonthView.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "dark.MonthView.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "idiom": "universal"
+    },
+    {
+      "filename": "light.MonthView.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "light"
+        }
+      ],
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

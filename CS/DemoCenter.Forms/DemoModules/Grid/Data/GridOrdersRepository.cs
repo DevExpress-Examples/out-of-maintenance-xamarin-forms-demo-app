@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -60,7 +60,7 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
             : base() {
             this.orderCount = orderCount;
             this.now = DateTime.Now;
-            this.random = new Random((int)now.Ticks);
+            this.random = new Random((int)this.now.Ticks);
             this.availableCommodities = new List<Commodity>();
 
             GenerateCustomers();
@@ -76,34 +76,34 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
         }
 
         protected override Order GenerateOrder(int number) {
-            Order order = new Order(RandomItem<Customer>(Customers), number, RandomDateSince(now, TimeSpan.FromDays(180), TimeSpan.FromDays(30)), number % 3 == 0);
-            order.Priority = (OrderPriority)random.Next(0, 3);
-            order.Discount = random.Next(0, 30) / 100.0;
+            Order order = new Order(RandomItem<Customer>(Customers), number, RandomDateSince(this.now, TimeSpan.FromDays(180), TimeSpan.FromDays(30)), number % 3 == 0);
+            order.Priority = (OrderPriority)this.random.Next(0, 3);
+            order.Discount = this.random.Next(0, 30) / 100.0;
 
             for (int i = 0; i < entriesPerOrder; i++)
-                order.AddEntry(new OrderEntry(RandomItem<Commodity>(availableCommodities), number, number * 10));
+                order.AddEntry(new OrderEntry(RandomItem<Commodity>(this.availableCommodities), number, number * 10));
 
             return order;
         }
         protected override int GetOrderCount() {
-            return orderCount;
+            return this.orderCount;
         }
 
         DateTime RandomDateSince(DateTime sinceDate, TimeSpan offsetPast, TimeSpan offsetFuture) {
             TimeSpan totalSpan = offsetPast + offsetFuture;
-            int days = (int)(random.NextDouble() * totalSpan.TotalDays);
+            int days = (int)(this.random.NextDouble() * totalSpan.TotalDays);
             return (sinceDate - offsetPast).AddDays(days);
         }
 
         T RandomItem<T>(IList<T> list) {
-            int index = (int)(random.NextDouble() * 0.99 * (list.Count));
+            int index = (int)(this.random.NextDouble() * 0.99 * (list.Count));
             return list[index];
         }
 
         protected virtual void GenerateCommodities() {
-            availableCommodities.Add(new Commodity("Item #A"));
-            availableCommodities.Add(new Commodity("Item #B"));
-            availableCommodities.Add(new Commodity("Item #C"));
+            this.availableCommodities.Add(new Commodity("Item #A"));
+            this.availableCommodities.Add(new Commodity("Item #B"));
+            this.availableCommodities.Add(new Commodity("Item #C"));
         }
         void GenerateCustomers() {
             Customers.Add(

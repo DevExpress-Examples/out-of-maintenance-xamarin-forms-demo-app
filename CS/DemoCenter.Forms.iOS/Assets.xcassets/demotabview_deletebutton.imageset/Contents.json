@@ -1,0 +1,32 @@
+{
+  "images": [
+    {
+        "filename": "light.DeleteButton.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "dark.DeleteButton.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "idiom": "universal"
+    },
+    {
+      "filename": "light.DeleteButton.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "light"
+        }
+      ],
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

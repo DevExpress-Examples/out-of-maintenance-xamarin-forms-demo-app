@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -38,7 +38,9 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using Android.Support.V7.App;
 using DemoCenter.Forms.Themes;
+using DevExpress.Logify.Xamarin;
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Droid {
@@ -47,12 +49,17 @@ namespace DemoCenter.Forms.Droid {
         protected override void OnCreate(Bundle savedInstanceState) {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+#if DEBUG
+            LogifyAlert client = LogifyAlert.Instance;
+            client.ApiKey = "72A26488E1DD49B68CB4A6E8B9B8A128";
+            client.StartExceptionsHandling();
+#endif
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            var themeLoader = DependencyService.Get<IThemeLoader>() as ThemeLoaderImplementation;
-            if(themeLoader != null)
+            ThemeLoaderImplementation themeLoader = DependencyService.Get<IThemeLoader>() as ThemeLoaderImplementation;
+            if (themeLoader != null)
                 themeLoader.Activity = this;
-            var environment = DependencyService.Get<IEnvironment>() as Environment_Android;
+            Environment_Android environment = DependencyService.Get<IEnvironment>() as Environment_Android;
             if (environment != null)
                 environment.Activity = this;
 
@@ -69,6 +76,11 @@ namespace DemoCenter.Forms.Droid {
             App app = new App();
             app.ProcessNotificationIfNeed(intent.GetReminderId(), intent.GetRecurrenceIndex());
             LoadApplication(app);
+            
+        }
+        internal void UpdateNightMode(bool isLightTheme) {
+            AppCompatDelegate.DefaultNightMode = isLightTheme ? AppCompatDelegate.ModeNightNo : AppCompatDelegate.ModeNightYes;
+            Delegate.ApplyDayNight();
         }
     }
 }

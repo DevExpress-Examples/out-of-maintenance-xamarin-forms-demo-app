@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -36,6 +36,6 @@
 */
 namespace DemoCenter.Forms.ViewModels {
     public abstract class NavigationViewModelBase : NotificationObject {
-        public virtual string Title => string.Empty;
+        public virtual string Title => System.String.Empty;
     }
 }

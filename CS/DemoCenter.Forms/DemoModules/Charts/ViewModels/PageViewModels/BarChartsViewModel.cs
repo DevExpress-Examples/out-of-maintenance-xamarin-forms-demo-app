@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -93,8 +93,8 @@ namespace DemoCenter.Forms.Charts.ViewModels {
         public BarType BarType { get; }
 
         public BarChartItemInfoContainer(BarType type, ChartViewModelBase viewModel) {
-            this.BarType = type;
-            this.ChartModel = viewModel;
+            BarType = type;
+            ChartModel = viewModel;
         }
     }
 }

@@ -6,4 +6,3 @@
     android:background="?attr/colorPrimary"
     android:theme="@style/AppToolbarTheme"
     android:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-

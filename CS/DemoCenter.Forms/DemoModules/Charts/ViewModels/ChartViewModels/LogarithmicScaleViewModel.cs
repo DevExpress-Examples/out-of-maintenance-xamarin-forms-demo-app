@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -45,7 +45,7 @@ namespace DemoCenter.Forms.ViewModels {
     public class LogarithmicScaleViewModel : INotifyPropertyChanged {
         static DateTime BasisDate = new DateTime(2020, 1, 1);
 
-        const int SamplingFrequency = 22050; //Hz
+        const int SamplingFrequency = 22050; 
         const int DefaultFrameLength = 2048;
         const double sixteenBitSampleMaxVale = short.MaxValue;
         const double MinDb = -500d;

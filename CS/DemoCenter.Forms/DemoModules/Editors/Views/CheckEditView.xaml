@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
+    xmlns:dxe="http://schemas.devexpress.com/xamarin/2014/forms/editors"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:viewModel="clr-namespace:DemoCenter.Forms.DemoModules.Editors.ViewModels"
+    xmlns:dxdf="http://schemas.devexpress.com/xamarin/2014/forms/dataform"
+    x:Class="DemoCenter.Forms.Views.CheckEditView"
+    BackgroundColor="{DynamicResource BackgroundThemeColor}"
+    ios:Page.UseSafeArea="True">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <demo:EditorsAndControlsResources/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate
+                x:Key="IconListItemTemplate">
+                <StackLayout
+                    Orientation="Horizontal"
+                    Margin="5"
+                    HeightRequest="50">
+                    <Label
+                        Text="{Binding LabelText}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand"/>
+                    <demo:IconView
+                        Source="{Binding UncheckedGlyph}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End"
+                        ForegroundColor="{Binding Source={x:Reference edit}, Path=CheckBoxColor}"/>
+                    <demo:IconView
+                        Source="{Binding IndeterminateGlyph}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End"
+                        ForegroundColor="{Binding Source={x:Reference edit}, Path=CheckedCheckBoxColor}"
+                        IsVisible="{Binding Source={x:Reference edit}, Path=AllowIndeterminateInput}"/>
+                    <demo:IconView
+                        Source="{Binding CheckedGlyph}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End"
+                        ForegroundColor="{Binding Source={x:Reference edit}, Path=CheckedCheckBoxColor}"/>
+                </StackLayout>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModel:CheckEditViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid x:Name="container"
+              Style="{StaticResource EditorContainerStyle}">
+            <dxe:CheckEdit x:Name="edit"
+                           IsChecked="True"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand"
+                           Margin="16"
+
+                           Label="Check Edit"
+                           AllowIndeterminateInput="{Binding AllowIndeterminateInput}"
+                           CheckedCheckBoxImage="{Binding SelectedGlyph.CheckedGlyph}"
+                           IndeterminateCheckBoxImage="{Binding SelectedGlyph.IndeterminateGlyph}"
+                           UncheckedCheckBoxImage="{Binding SelectedGlyph.UncheckedGlyph}"
+
+                           CheckBoxPosition="{Binding CheckBoxPosition}"
+                           LabelVerticalAlignment="{Binding LabelVerticalAlignment}"
+                           LabelHorizontalAlignment="{Binding LabelHorizontalAlignment}"
+                           CheckBoxAlignment="{Binding CheckBoxAlignment}"
+
+                           CheckBoxColor="#5B5B5B"
+                           CheckedCheckBoxColor="{Binding SelectedCheckedColor}"/>
+
+            <BoxView x:Name="separator" Color="{DynamicResource EditorSettingsSeparatorColor}"/>
+
+            <dxdf:DataFormView x:Name="settingsDataForm"
+                               DataObject="{Binding}"
+                               Style="{StaticResource EditorSettingsFormStyle}">
+
+                <dxdf:DataFormSwitchItem x:Name="allowIndeterminateItem"
+                                         FieldName="AllowIndeterminateInput"
+                                         LabelText="Allow Indeterminate"
+                                         LabelPosition="Left"
+                                         LabelWidth="250"
+                                         EditorHorizontalAlignment="End"/>
+
+                <dxdf:DataFormComboBoxItem FieldName="SelectedGlyph"
+                                           LabelText="CheckBox Appearance"
+                                           DisplayMember="LabelText"
+                                           ItemTemplate="{StaticResource IconListItemTemplate}"/>
+
+                <dxdf:DataFormComboBoxItem x:Name="selectedColorItem"
+                                           FieldName="SelectedCheckedColor"
+                                           LabelText="Checked CheckBox Color"
+                                           DisplayMember="Name"
+                                           ValueMember="Color"
+                                           ItemTemplate="{StaticResource ColorComboBoxItemTemplate}"/>
+                <dxdf:DataFormView.Groups>
+                    <dxdf:DataFormGroup GroupName="Layout Options" IsCollapsed="True"/>
+                </dxdf:DataFormView.Groups>
+
+            </dxdf:DataFormView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

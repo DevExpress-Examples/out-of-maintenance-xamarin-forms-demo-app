@@ -24,7 +24,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <demo:IconView x:Name="icon"
-                           ImageSource="{Binding ImageSource}"
+                           Source="{Binding ImageSource}"
                            HeightRequest="30"
                            WidthRequest="30"
                            HorizontalOptions="Center"

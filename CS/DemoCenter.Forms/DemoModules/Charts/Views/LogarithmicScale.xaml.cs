@@ -35,13 +35,12 @@
 {*******************************************************************}
 */
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace DemoCenter.Forms.Views {
     public partial class LogarithmicScale : ContentPage {
         public LogarithmicScale() {
+            DevExpress.XamarinForms.Charts.Initializer.Init();
             InitializeComponent();
-            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
         }
     }
 }

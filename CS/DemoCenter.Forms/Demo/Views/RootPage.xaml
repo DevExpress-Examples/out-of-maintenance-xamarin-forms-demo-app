@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<navigation:DrawerPage
+<dxn:DrawerPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="DemoCenter.Forms.Views.RootPage"                                    
-    xmlns:navigation="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
-    xmlns:pages="clr-namespace:DemoCenter.Forms.Views"
-    xmlns:views="clr-namespace:DemoCenter.Forms.Demo.Views"
+    xmlns:dxn="http://schemas.devexpress.com/xamarin/2014/forms/navigation"
+    xmlns:views="clr-namespace:DemoCenter.Forms.Views"
     Padding="0"
     DrawerBehavior="Push"
     DrawerContentHeight="*"
@@ -13,14 +12,14 @@
     DrawerBackgroundColor="{DynamicResource BackgroundThemeColor}"
     DrawerShadowColor="Transparent"
     BackgroundColor="Transparent">
-    <navigation:DrawerPage.DrawerContent>
+    <dxn:DrawerPage.DrawerContent>
         <views:AboutView x:Name="aboutView"/>
-    </navigation:DrawerPage.DrawerContent>
-    <navigation:DrawerPage.MainContent>
+    </dxn:DrawerPage.DrawerContent>
+    <dxn:DrawerPage.MainContent>
         <NavigationPage x:Name="navPage">
             <x:Arguments>
-                <pages:MainPage x:Name="mainPage"/>
+                <views:MainPage x:Name="mainPage"/>
             </x:Arguments>
         </NavigationPage>
-    </navigation:DrawerPage.MainContent>
-</navigation:DrawerPage>
+    </dxn:DrawerPage.MainContent>
+</dxn:DrawerPage>

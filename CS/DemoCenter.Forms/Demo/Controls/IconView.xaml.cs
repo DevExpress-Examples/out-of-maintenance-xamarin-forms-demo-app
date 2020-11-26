@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -34,84 +34,39 @@
 {                                                                   }
 {*******************************************************************}
 */
-
-using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System;
 using DevExpress.XamarinForms.Core.Themes;
-using SkiaSharp;
-using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
-using SKSvg = SkiaSharp.Extended.Svg.SKSvg;
 
 namespace DemoCenter.Forms.Demo {
+    public partial class IconView: Image {
+        public static readonly BindableProperty ThemeNameProperty = BindableProperty.Create("ThemeName", typeof(string),
+            typeof(IconView), propertyChanged: ThemeNamePropertyChanged, defaultValue: Theme.Light);
 
-    public partial class IconView : SKCanvasView {
-        static Dictionary<string, SKPicture> imagesCache = new Dictionary<string, SKPicture>();
+        static void ThemeNamePropertyChanged(BindableObject bindable, object oldValue, object newValue) =>
+            ((IconView)bindable).OnThemeNameChanged((string)newValue);
 
         public static readonly BindableProperty ForegroundColorProperty = BindableProperty.Create("ForegroundColor",
             typeof(Color), typeof(IconView), defaultValue: Color.Default,
             propertyChanged: ForegroundColorPropertyChanged);
 
-        public static readonly BindableProperty SaveRatioOnScaleProperty = BindableProperty.Create("SaveRatioOnScale",
-            typeof(bool), typeof(IconView), defaultValue: true);
-
-        public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create("ImageSource",
-            typeof(string), typeof(IconView), propertyChanged: ImageSourcePropertyChanged);
-
-        public static readonly BindableProperty ThemeNameProperty = BindableProperty.Create("ThemeName", typeof(string),
-            typeof(IconView), propertyChanged: ThemeNamePropertyChanged, defaultValue: Theme.Light);
-
-        public static SKPicture LoadImage(string imageName, string themeName, bool force = false) {
-            System.Reflection.Assembly assembly = typeof(IconView).Assembly;
-            string value = GetThemedImageSourceName(themeName, imageName);
-            if (!imagesCache.ContainsKey(value)) {
-                if (assembly.GetManifestResourceInfo(value) == null) {
-                    value = imageName;
-                }
-
-            }
-            return LoadIconFromResource(value, assembly);
-        }
-
-        static void ImageSourcePropertyChanged(BindableObject bindable, object oldValue, object newValue) =>
-            ((IconView)bindable).OnImageSourceChanged((string)newValue);
-
-        static void ForegroundColorPropertyChanged(BindableObject bindable, object oldValue, object newValue) =>
-            ((IconView)bindable).InvalidateSurface();
-
-        static void ThemeNamePropertyChanged(BindableObject bindable, object oldValue, object newValue) =>
-            ((IconView)bindable).OnThemeNameChanged((string)newValue);
-
-        static string GetThemedImageSourceName(string themeName, string imageName) {
-            return String.Format("{0}.{1}", themeName, imageName);
-        }
-
-        static SKPicture LoadIconFromResource(string resourceName, System.Reflection.Assembly assembly, bool force = false) {
-            SKPicture img;
-            if (!imagesCache.TryGetValue(resourceName, out img) || force) {
-                using (Stream stream = assembly.GetManifestResourceStream(resourceName)) {
-                    if (stream == null)
-                        return null;
-                    img = LoadSvgFromStream(stream);
-                    imagesCache[resourceName] = img;
-                }
-            }
-            return img;
-        }
-
-        static SKPicture LoadSvgFromStream(Stream stream) {
-            return new SKSvg().Load(stream);
-        }
-
-        private SKPicture svg;
-        private SKMatrix matrix;
-        private bool matrixBuilt;
-        private double width;
-        private double height;
+        static void ForegroundColorPropertyChanged(BindableObject bindable, object oldValue, object newValue) { }
 
         public IconView() {
             InitializeComponent();
+            if (App.Current is DemoCenter.Forms.App demoCenterApp) {
+                demoCenterApp.ThemeChagedEvent += DemoCenterApp_ThemeChagedEvent;
+            }
+        }
+        
+        private void DemoCenterApp_ThemeChagedEvent(object sender, EventArgs e) {
+            if(Source is FileImageSource)
+                OnPropertyChanged(nameof(Image.Source));
+        }
+        
+        public string ThemeName {
+            get => (string)GetValue(ThemeNameProperty);
+            set => SetValue(ThemeNameProperty, value);
         }
 
         public Color ForegroundColor {
@@ -119,77 +74,8 @@ namespace DemoCenter.Forms.Demo {
             set => SetValue(ForegroundColorProperty, value);
         }
 
-        public string ImageSource {
-            get => (string)GetValue(ImageSourceProperty);
-            set => SetValue(ImageSourceProperty, value);
-        }
-
-        public string ThemeName {
-            get => (string)GetValue(ThemeNameProperty);
-            set => SetValue(ThemeNameProperty, value);
-        }
-
-        public bool SaveRatioOnScale {
-            get => (bool)GetValue(SaveRatioOnScaleProperty);
-            set => SetValue(SaveRatioOnScaleProperty, value);
-        }
-
         void OnThemeNameChanged(string newValue) {
-            if (String.IsNullOrEmpty(ImageSource) || imagesCache.ContainsKey(ImageSource)) {
-                return;
-            }
-            OnImageSourceChanged(ImageSource);
         }
 
-        void OnImageSourceChanged(string newValue, bool updateCache = false) {
-            if (!string.IsNullOrWhiteSpace(newValue)) {
-                svg = LoadImage(newValue, ThemeName, updateCache);
-            } else {
-                svg = null;
-            }
-            this.InvalidateSurface();
-        }
-        
-        void Handle_PaintSurface(object sender, SKPaintSurfaceEventArgs e) {
-            if (svg != null) {
-                if (!matrixBuilt) {
-                    SKSize info = e.Info.Size;
-                    float scaleX = info.Width / svg.CullRect.Width;
-                    float scaleY = info.Height / svg.CullRect.Height;
-                    if (SaveRatioOnScale) {
-                        float scale = Math.Min(scaleX, scaleY);
-                        matrix = SKMatrix.MakeScale(scale, scale);
-                    } else
-                        matrix = SKMatrix.MakeScale(scaleX, scaleY);
-                    matrixBuilt = true;
-                }
-
-                SKPaint paint = null;
-                var canvas = e.Surface.Canvas;
-
-
-                canvas.Clear();
-                if (ForegroundColor != Color.Default) {
-                    paint = new SKPaint();
-                    paint.ColorFilter =
-                        SKColorFilter.CreateBlendMode(ForegroundColor.ToSKColor(), SKBlendMode.SrcIn);
-                }
-
-                if (svg != null) {
-                    canvas?.DrawPicture(svg, ref matrix, paint);
-                    paint?.Dispose();
-                }
-                canvas.Flush();
-            }
-        }
-
-        protected override void OnSizeAllocated(double width, double height) {
-            base.OnSizeAllocated(width, height);
-            if (Math.Abs(this.width - width) > Double.Epsilon || Math.Abs(this.height - height) > Double.Epsilon) {
-                matrixBuilt = false;
-                this.width = width;
-                this.height = height;
-            }
-        }
     }
 }

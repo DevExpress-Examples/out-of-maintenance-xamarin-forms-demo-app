@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <local:BaseGridContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-                           xmlns:dxg="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+                           xmlns:dxg="http://schemas.devexpress.com/xamarin/2014/forms/datagrid"
                            x:Class="DemoCenter.Forms.Views.LoadMoreView"
                            xmlns:local="clr-namespace:DemoCenter.Forms.Views"
                            BackgroundColor="{DynamicResource BackgroundThemeColor}">

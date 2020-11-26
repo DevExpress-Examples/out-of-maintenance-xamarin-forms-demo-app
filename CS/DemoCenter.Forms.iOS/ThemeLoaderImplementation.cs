@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -54,21 +54,20 @@ namespace DemoCenter.Forms.iOS {
             });
         }
         UIViewController GetCurrentViewController() {
-            var window = UIApplication.SharedApplication.KeyWindow;
-            var viewController = window.RootViewController;
+            UIWindow window = UIApplication.SharedApplication.KeyWindow;
+            UIViewController viewController = window.RootViewController;
             while(viewController.PresentedViewController != null)
                 viewController = viewController.PresentedViewController;
             return viewController;
         }
     }
 
-
-    public class Environment_iOS : IEnvironment {
+    public class Environment_iOS : NSObject, IEnvironment {
         public async Task<bool> IsLightOperatingSystemTheme() {
             if (UIDevice.CurrentDevice.CheckSystemVersion(12, 0)) {
-                var currentUIViewController = await GetVisibleViewController();
+                UIViewController currentUIViewController = await GetVisibleViewController();
 
-                var userInterfaceStyle = currentUIViewController.TraitCollection.UserInterfaceStyle;
+                UIUserInterfaceStyle userInterfaceStyle = currentUIViewController.TraitCollection.UserInterfaceStyle;
 
                 switch (userInterfaceStyle) {
                     case UIUserInterfaceStyle.Light:
@@ -88,11 +87,10 @@ namespace DemoCenter.Forms.iOS {
             TaskCompletionSource<UIViewController> tcs = new TaskCompletionSource<UIViewController>();
             Device.BeginInvokeOnMainThread(() => {
                 try {
-                    var rootController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+                    UIViewController rootController = UIApplication.SharedApplication.KeyWindow.RootViewController;
 
-
-                    var navigationController = rootController.PresentedViewController as UINavigationController;
-                    var tabBarController = rootController.PresentedViewController as UITabBarController;
+                    UINavigationController navigationController = rootController.PresentedViewController as UINavigationController;
+                    UITabBarController tabBarController = rootController.PresentedViewController as UITabBarController;
                     if (navigationController != null)
                         tcs.SetResult(navigationController.TopViewController);
                     else if (tabBarController != null)

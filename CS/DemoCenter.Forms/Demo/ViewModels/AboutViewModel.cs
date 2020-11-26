@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -48,7 +48,6 @@ namespace DemoCenter.Forms.ViewModels {
         public string DocumentationUrl => "https://docs.devexpress.com/MobileControls/400545/xamarin-forms/index";
         public string SourceCodeUrl => "https://github.com/DevExpress-Examples/xamarin-forms-demo-app";
         public ICommand OpenWebCommand { get; }
-
 
         public AboutViewModel(IOpenUriService openService) {
             InitVersion();

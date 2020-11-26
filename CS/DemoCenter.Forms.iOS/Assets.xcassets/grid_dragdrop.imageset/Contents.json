@@ -1,0 +1,32 @@
+{
+  "images": [
+    {
+        "filename": "light.DragDrop.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "dark.DragDrop.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "idiom": "universal"
+    },
+    {
+      "filename": "light.DragDrop.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "light"
+        }
+      ],
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -46,7 +46,7 @@ using AAplication = Android.App.Application;
 
 [assembly: Dependency(typeof(NotificationCenter))]
 namespace DemoCenter.Forms.Droid {
-    public class NotificationCenter : INotificationCenter {
+    public class NotificationCenter : Java.Lang.Object, INotificationCenter {
         static Date ToNativeDate(DateTime dateTime) {
             long dateTimeUtcAsMilliseconds = (long)dateTime.ToUniversalTime().Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
             return new Date(dateTimeUtcAsMilliseconds);
@@ -57,11 +57,11 @@ namespace DemoCenter.Forms.Droid {
             for (int i = 0; i < maxCount; i++) {
                 if (i < reminders.Count) {
                     TriggeredReminder reminder = reminders[i];
-                    var pendingIntent = PendingIntent.GetBroadcast(AAplication.Context, i, CreateIntent(reminder), PendingIntentFlags.UpdateCurrent);
+                    PendingIntent pendingIntent = PendingIntent.GetBroadcast(AAplication.Context, i, CreateIntent(reminder), PendingIntentFlags.UpdateCurrent);
                     alarm.Cancel(pendingIntent);
                     alarm.SetExact((int)AlarmType.RtcWakeup, ToNativeDate(reminder.AlertTime).Time, pendingIntent);
                 } else {
-                    var pendingIntent = PendingIntent.GetBroadcast(AAplication.Context, i, CreateIntent(), PendingIntentFlags.UpdateCurrent);
+                    PendingIntent pendingIntent = PendingIntent.GetBroadcast(AAplication.Context, i, CreateIntent(), PendingIntentFlags.UpdateCurrent);
                     alarm.Cancel(pendingIntent);
                 }
             }

@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Xamarin Demo Center</string>
+	<string>com.devexpress.xamaringallery</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.devexpress.xamarindemocenter</string>
+	<string>com.devexpress.xamaringallery</string>
 	<key>CFBundleName</key>
-	<string>Xamarin Demo Center</string>
+	<string>DevExpress Xamarin Gallery</string>
 	<key>CFBundleShortVersionString</key>
-	<string>20.1.3</string>
+	<string>1.4</string>
 	<key>CFBundleVersion</key>
-	<string>20.1.3</string>
+	<string>1.4.5</string>
 	<key>MinimumOSVersion</key>
-	<string>9.0</string>
+	<string>9.3</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>univia-pro-regular.ttf</string>
@@ -43,5 +43,21 @@
 	<false/>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSContactsUsageDescription</key>
+	<string>This app needs Contacts access</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>This app needs Calendars access</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs Microphone access</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>This app needs Apple Music access</string>
+	<key>NSSiriUsageDescription</key>
+	<string>This app needs Siri access</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>This app needs Bluetooth access</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs Location access</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app needs Location access</string>
 </dict>
 </plist>

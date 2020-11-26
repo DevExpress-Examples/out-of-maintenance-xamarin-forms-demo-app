@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -35,27 +35,27 @@
 {*******************************************************************}
 */
 using System;
+using DemoCenter.Forms.ViewModels;
+using DevExpress.XamarinForms.Editors;
 using DevExpress.XamarinForms.Navigation;
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Views {
-    public partial class MainPage : ContentPage {
+    public partial class MainPage : ErrorDialogPage {
         public MainPage() {
             InitializeComponent();
-        }
-        private void MainListView_ItemSelected(object sender, SelectedItemChangedEventArgs e) {
-            mainListView.SelectedItem = null;
-        }
-        protected override void OnDisappearing() {
-            base.OnDisappearing();
-            (Application.Current.MainPage as DrawerPage).AreGesturesEnabled = false;
-        }
-        protected override void OnAppearing() {
-            base.OnAppearing();
-            (Application.Current.MainPage as DrawerPage).AreGesturesEnabled = true;
+            TitleViewExtensions.SetIsShadowVisible(this, false);
         }
         private void OnInfoClicked(object sender, EventArgs args) {
             (Application.Current.MainPage as DrawerPage).IsDrawerOpened = true;
+        }
+        public void DemoItem_TappedControlShortcut(object sender, System.EventArgs e) {
+            var groupItemView = (GroupItemView)sender;
+            if (BindingContext is MainViewModel viewModel && groupItemView != null) {
+                if (viewModel.NavigationDemoCommand != null) {
+                    viewModel.NavigationDemoCommand.Execute(groupItemView.BindingContext);
+                }
+            }
         }
     }
 }

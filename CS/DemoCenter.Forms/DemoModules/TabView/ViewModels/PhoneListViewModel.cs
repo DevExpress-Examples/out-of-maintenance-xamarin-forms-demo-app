@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -37,6 +37,7 @@
 using System.Collections.Generic;
 using DemoCenter.Forms.Data;
 using DevExpress.XamarinForms.Core.Themes;
+using Xamarin.Forms;
 
 namespace DemoCenter.Forms.ViewModels {
     public class PhoneListViewModel : NavigationViewModelBase {
@@ -105,12 +106,12 @@ namespace DemoCenter.Forms.ViewModels {
                 }
             }
         }
-        string GetGroupIconSource(string groupName) {
+        ImageSource GetGroupIconSource(string groupName) {
             switch(groupName) {
-                case "Star": return "Demo.Icon.Star.svg";
-                case "Work": return "Demo.Icon.Work.svg";
-                case "Family": return "Demo.Icon.Family.svg";
-                case "All": return "Demo.Icon.All.svg";
+                case "Star": return ImageSource.FromFile("demotabview_star");
+                case "Work": return ImageSource.FromFile("demotabview_work");
+                case "Family": return ImageSource.FromFile("demotabview_family");
+                case "All": return ImageSource.FromFile("demotabview_all");
                 default:
                     return string.Empty;
             }

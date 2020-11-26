@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -35,6 +35,8 @@
 {*******************************************************************}
 */
 using System;
+using System.Collections.Generic;
+using DemoCenter.Forms.Data;
 using DemoCenter.Forms.Demo;
 using DevExpress.XamarinForms.Core.Themes;
 
@@ -46,41 +48,51 @@ namespace DemoCenter.Forms.Models {
         DemoItemStatus demoItemStatus = DemoItemStatus.None;
         bool showItemUnderline = true;
 
+        Type module;
+        List<DemoItem> demoItems;
+
         public string Icon {
-            get => icon;
+            get => string.IsNullOrEmpty(this.icon)? "default_icon": this.icon;
             set {
-                icon = value;
-                PreloadIcon();
+                this.icon = value;
             }
         }
+        public bool Header { get; set; }
         public string Title { get; set; }
         public string PageTitle {
-            get => pageTitle ?? ControlsPageTitle;
-            set { pageTitle = value; }
+            get => this.pageTitle ?? ControlsPageTitle;
+            set { this.pageTitle = value; }
         }
         public string ControlsPageTitle {
-            get => controlsPageTitle ?? Title;
-            set { controlsPageTitle = value; }
+            get => this.controlsPageTitle ?? Title;
+            set { this.controlsPageTitle = value; }
         }
         public string Description { get; set; }
-        public Type Module { get; set; }
-        public bool ShowItemUnderline { get { return showItemUnderline; } set { showItemUnderline = value; } }
-        public DemoItemStatus DemoItemStatus { get { return demoItemStatus; } set { demoItemStatus = value; } }
 
-        public bool ShowBadge { get { return demoItemStatus != DemoItemStatus.None; } }
+        public Type Module {
+            get { return this.module; }
+            set {
+                this.module = value;
+                if (value != null && value.GetInterface("IDemoData")!=null) {
+                    this.demoItems = ((IDemoData)Activator.CreateInstance(value)).DemoItems;
+                }
+            }
+        }
+        public List<DemoItem> DemoItems { get { return this.demoItems; } }
+
+        public bool ShowItemUnderline { get { return this.showItemUnderline; } set { this.showItemUnderline = value; } }
+        public DemoItemStatus DemoItemStatus { get { return this.demoItemStatus; } set { this.demoItemStatus = value; } }
+
+        public bool ShowBadge { get { return this.demoItemStatus != DemoItemStatus.None; } }
 
         public string BadgeIcon {
             get {
-                if (demoItemStatus == DemoItemStatus.Updated) {
-                    return "badgeUpdated.svg";
-                } else if (demoItemStatus == DemoItemStatus.New) {
-                    return "badgeNew.svg";
+                if (this.demoItemStatus == DemoItemStatus.Updated) {
+                    return "badge_updated";
+                } else if (this.demoItemStatus == DemoItemStatus.New) {
+                    return "badge_new";
                 } else return string.Empty;
             }
-        }
-
-        void PreloadIcon() {
-            IconView.LoadImage(Icon, ThemeManager.ThemeName);
         }
     }
 }

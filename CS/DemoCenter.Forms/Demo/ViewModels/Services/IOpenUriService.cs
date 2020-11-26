@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -34,7 +34,6 @@
 {                                                                   }
 {*******************************************************************}
 */
-
 namespace DemoCenter.Forms.ViewModels.Services {
     public interface IOpenUriService {
         void Open(string uri);

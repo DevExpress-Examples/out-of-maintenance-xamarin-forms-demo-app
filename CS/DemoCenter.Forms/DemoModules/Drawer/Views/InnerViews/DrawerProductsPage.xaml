@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:datagrid="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+             xmlns:dxg="http://schemas.devexpress.com/xamarin/2014/forms/datagrid"
              x:Class="DemoCenter.Forms.DemoModules.Drawer.Views.InnerViews.DrawerProductsPage"
              BackgroundColor="{DynamicResource GridCellBackgroundColor}">
     <ContentPage.Resources>
@@ -122,17 +122,17 @@
 
     </ContentPage.Resources>
     <ContentPage.Content>
-        <datagrid:DataGridView ItemsSource="{Binding ProductsData}"
+        <dxg:DataGridView ItemsSource="{Binding ProductsData}"
                                ShowGroupedColumns="False"
                                IsColumnHeaderVisible="False">
-            <datagrid:DataGridView.GroupRowStyle>
-                <datagrid:GroupRowStyle FontSize="16" Padding="22" />
-            </datagrid:DataGridView.GroupRowStyle>
-            <datagrid:DataGridView.Columns>
-                <datagrid:TextColumn IsGrouped="True"
+            <dxg:DataGridView.GroupRowStyle>
+                <dxg:GroupRowStyle FontSize="16" Padding="22" />
+            </dxg:DataGridView.GroupRowStyle>
+            <dxg:DataGridView.Columns>
+                <dxg:TextColumn IsGrouped="True"
                                      FieldName="Category" />
-                <datagrid:TemplateColumn DisplayTemplate="{x:StaticResource Key=allListItemTemplate}" />
-            </datagrid:DataGridView.Columns>
-        </datagrid:DataGridView>
+                <dxg:TemplateColumn DisplayTemplate="{x:StaticResource Key=allListItemTemplate}" />
+            </dxg:DataGridView.Columns>
+        </dxg:DataGridView>
     </ContentPage.Content>
 </ContentPage>

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -42,17 +42,19 @@ using DemoCenter.Forms.iOS;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using Foundation;
 
 [assembly: ResolutionGroupName("DemoCenter")]
 [assembly: ExportEffect(typeof(PlatformShadowEffect), "PlatformShadowEffect")]
 namespace DemoCenter.Forms.iOS {
+    [Preserve(AllMembers = true)]
     public class PlatformShadowEffect : PlatformEffect {
         protected override void OnAttached() {
             try {
-                var control = Control as UIView;
+                UIView control = Control as UIView;
                 if(control == null)
                     control = Container as UIView;
-                var effect = (ShadowEffect)Element.Effects.FirstOrDefault(e => e is ShadowEffect);
+                ShadowEffect effect = (ShadowEffect)Element.Effects.FirstOrDefault(e => e is ShadowEffect);
                 if (effect != null && control != null) {
                     control.Layer.ShadowRadius = effect.Radius;
                     control.Layer.ShadowColor = effect.Color.ToCGColor();

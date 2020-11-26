@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -40,6 +40,7 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.Views {
     public partial class FirstLookDemo : ContentPage {
         public FirstLookDemo() {
+            DevExpress.XamarinForms.Scheduler.Initializer.Init();
             InitializeComponent();
             BindingContext = new EmployeeCalendarViewModel();
         }

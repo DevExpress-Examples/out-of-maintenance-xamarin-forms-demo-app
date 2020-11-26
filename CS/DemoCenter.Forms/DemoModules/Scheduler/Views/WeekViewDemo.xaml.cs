@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -43,21 +43,22 @@ namespace DemoCenter.Forms.Views {
         bool inNavigation = false;
 
         public WeekViewDemo() {
+            Initializer.Init();
             InitializeComponent();
             BindingContext = new EmployeeCalendarViewModel();
         }
 
         protected override void OnAppearing() {
             base.OnAppearing();
-            inNavigation = false;
+            this.inNavigation = false;
         }
 
         async void WeekView_OnTap(object sender, SchedulerGestureEventArgs e) {
-            if (inNavigation)
+            if (this.inNavigation)
                 return;
-            Page appointmentPage = storage.CreateAppointmentPageOnTap(e, true);
+            Page appointmentPage = this.storage.CreateAppointmentPageOnTap(e, true);
             if (appointmentPage != null) {
-                inNavigation = true;
+                this.inNavigation = true;
                 await Navigation.PushAsync(appointmentPage);
             }
         }

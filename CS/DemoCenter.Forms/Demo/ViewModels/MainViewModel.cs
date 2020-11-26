@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -47,22 +47,27 @@ namespace DemoCenter.Forms.ViewModels {
         public string TitleText => "DevExpress Mobile UI";
         public string SubTitle => "for Xamarin.Forms";
         public List<DemoItem> Items {
-            get => DemoGroupsData.DemoItems;
+            get => GetItems();
         }
         public ICommand NavigationControlCommand { get; }
         public ICommand NavigationDemoCommand { get; }
 
-
-
         public MainViewModel(INavigationService navigationService) {
-            NavigationControlCommand = new DelegateCommand<Type>((p) => {
+            NavigationControlCommand = new DelegateCommand<Type>(async (p) => {
                 ControlViewModel vm = new ControlViewModel(navigationService, (IDemoData)Activator.CreateInstance(p));
-                navigationService.Push(vm);
+                await navigationService.Push(vm);
             });
-            NavigationDemoCommand = new DelegateCommand<DemoItem>((p) => {
-                navigationService.PushPage(p);
-            });
+            NavigationDemoCommand = new DelegateCommand<DemoItem>(async (p) => await navigationService.PushPage(p));
 
+        }
+        List<DemoItem> GetItems() {
+            List<DemoItem> result = new List<DemoItem>();
+            result.Add(new DemoItem() {
+                Header = true,
+                Title = SubTitle
+            });
+            result.AddRange(DemoGroupsData.DemoItems);
+            return result;
         }
     }
 }

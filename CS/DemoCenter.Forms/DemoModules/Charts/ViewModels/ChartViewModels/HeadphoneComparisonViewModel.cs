@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -42,7 +42,7 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.DemoModules.Charts.ViewModels.ChartViewModels {
     public class HeadphoneComparisonViewModel {
         readonly HeadphonesData headphonesData;
-        readonly Color[] palette = PaletteLoader.LoadPalette("#FF4374AF", "#FFACC3E0", "#FFB34340", "#FFE1ADAB");
+        readonly Color[] palette = PaletteLoader.LoadPalette("#317cb9", "#75b8ef", "#f14848", "#fe908f");
         readonly IList<String> names;
 
         public IList<NumericData> FirstHeadphones90 => headphonesData.FirstHeadphones90;

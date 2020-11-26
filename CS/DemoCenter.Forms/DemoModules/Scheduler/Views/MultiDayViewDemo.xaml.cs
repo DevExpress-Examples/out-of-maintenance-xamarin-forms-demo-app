@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -43,6 +43,7 @@ namespace DemoCenter.Forms.Views {
         bool inNavigation = false;
 
         public MultiDayViewDemo() {
+            Initializer.Init();
             InitializeComponent();
             BindingContext = new EmployeeCalendarViewModel();
         }

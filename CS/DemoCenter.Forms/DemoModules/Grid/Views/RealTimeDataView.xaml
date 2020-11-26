@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <local:BaseGridContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                           xmlns:dxg="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+                           xmlns:dxg="http://schemas.devexpress.com/xamarin/2014/forms/datagrid"
                            xmlns:local="clr-namespace:DemoCenter.Forms.Views"
                            xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
                            x:Class="DemoCenter.Forms.Views.RealTimeDataView"
@@ -23,20 +23,20 @@
                     <dxg:TemplateColumn.DisplayTemplate>
                         <DataTemplate>
                             <Grid BackgroundColor="{DynamicResource GridCellBackgroundColor}"
-                                  HorizontalOptions="End"
                                   RowSpacing="0"
                                   ColumnSpacing="0">
                                 <Grid.Margin>
                                     <OnIdiom x:TypeArguments="Thickness" Phone="0, 0, 9, 0" Tablet="0, 0, 10, 0"/>
                                 </Grid.Margin>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="16" />
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Value, StringFormat='{0:0.00}'}"
                                        Grid.Column="0"
                                        Margin="0, 0, 7, 0"
                                        VerticalOptions="Center"
+                                       HorizontalTextAlignment="End"
                                        FontFamily="{DynamicResource GridHeaderFontFamily}"
                                        BackgroundColor="{DynamicResource GridCellBackgroundColor}"
                                        TextColor="{Binding Path=Item.Delta, Converter={StaticResource DeltaToColorConverter}}">
@@ -44,7 +44,7 @@
                                         <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="14"/>
                                     </Label.FontSize>
                                 </Label>
-                                <demo:IconView Grid.Column="1" HeightRequest="8" WidthRequest="16" HorizontalOptions="StartAndExpand" ImageSource="{Binding Path=Item.Delta, Converter={StaticResource DeltaToImageConverter}}" VerticalOptions="Center"/>
+                                <demo:SVGIconView Grid.Column="1" HeightRequest="8" WidthRequest="16" HorizontalOptions="StartAndExpand" ImageSource="{Binding Path=Item.Delta, Converter={StaticResource DeltaToImageConverter}}" VerticalOptions="Center"/>
                             </Grid>
                         </DataTemplate>
                     </dxg:TemplateColumn.DisplayTemplate>

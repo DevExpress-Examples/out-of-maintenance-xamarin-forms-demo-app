@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -50,14 +50,15 @@ namespace DemoCenter.Forms.Views {
         }
         
         void OnShowCustomerInfo(object sender, SwipeItemTapEventArgs e) {
-            var customer = (e.Item as OutlookData).From;
-            var customerOrdersView = new CustomerOrdersView(customer);
-            customerOrdersView.Title = customer.Name;
+            Customer customer = (e.Item as OutlookData).From;
+            CustomerOrdersView customerOrdersView = new CustomerOrdersView(customer) {
+                Title = customer.Name
+            };
             Navigation.PushAsync(customerOrdersView);
         }
         
         void OnDelete(object sender, SwipeItemTapEventArgs e) {
-            grid.DeleteRow(e.RowHandle);
+            this.grid.DeleteRow(e.RowHandle);
         }
 
         void OnReply(object sender, SwipeItemTapEventArgs e) {

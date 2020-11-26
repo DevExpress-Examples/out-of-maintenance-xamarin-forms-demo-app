@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -41,7 +41,7 @@ using Xamarin.Forms;
 
 [assembly: Dependency(typeof(StoragePathProvider))]
 namespace DemoCenter.Forms.Droid {
-    public class StoragePathProvider : IStoragePathProvider {
+    public class StoragePathProvider : Java.Lang.Object, IStoragePathProvider {
         public static string GetFilePath(string fileName) {
             string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             return Path.Combine(documentsPath, fileName);

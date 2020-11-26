@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -43,7 +43,7 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
         public IList<Invoice> Invoices { get; private set; }
 
         public InvoicesRepository() {
-            var assembly = this.GetType().Assembly;
+            System.Reflection.Assembly assembly = GetType().Assembly;
             Stream stream = assembly.GetManifestResourceStream("Invoices.json");
             JObject jObject = JObject.Parse(new StreamReader(stream).ReadToEnd());
             Invoices = jObject["Invoices"].ToObject<List<Invoice>>();

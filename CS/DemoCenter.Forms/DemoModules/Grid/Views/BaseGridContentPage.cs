@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -42,6 +42,7 @@ namespace DemoCenter.Forms.Views {
     public abstract class BaseGridContentPage : ContentPage {
 
         public BaseGridContentPage() {
+            DevExpress.XamarinForms.DataGrid.Initializer.Init();
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
             BindData();
         }

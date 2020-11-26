@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -45,8 +45,8 @@ using Foundation;
 [assembly: AssemblyCopyright("Copyright (c) 2015-2020 Developer Express Inc.")]
 [assembly: AssemblyTrademark("DevExpress(R)")]
 
-[assembly: AssemblyVersion("20.1.3")]
-[assembly: AssemblyFileVersion("20.1.3")]
+[assembly: AssemblyVersion("20.2.3")]
+[assembly: AssemblyFileVersion("20.2.3")]
 
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]

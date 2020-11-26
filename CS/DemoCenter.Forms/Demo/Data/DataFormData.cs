@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -40,28 +40,35 @@ using DemoCenter.Forms.Views;
 
 namespace DemoCenter.Forms.Data {
     public class DataFormData : IDemoData {
-        List<DemoItem> demoItems;
+        readonly List<DemoItem> demoItems;
 
         public DataFormData() {
-            demoItems = new List<DemoItem>() {
+            this.demoItems = new List<DemoItem>() {
                 new DemoItem() {
-                    Title = "Data Form",
-                    Description = "Demonstrates a delivery form with a filled box style.",
+                    Title = "Delivery Form",
+                    Description = "A delivery form with a filled box style.",
                     Module = typeof(DeliveryFormView),
-                    Icon = "Editors.DataForms.svg",
-                    DemoItemStatus = DemoItemStatus.New
+                    Icon = "editors_dataforms"
                 },
                 new DemoItem() {
                     Title = "Account Form",
-                    Description = "Illustrates an account form with an outlined box style.",
+                    Description = "An account form with an outlined box style.",
                     Module = typeof(DataFormAccountFormView),
-                    Icon = "Editors.AccountForm.svg",
-                    DemoItemStatus = DemoItemStatus.New
+                    Icon = "editors_accountform"
+                }
+                ,
+                new DemoItem() {
+                    Title = "Employee Form",
+                    Description = "An employee form with an outlined box style.",
+                    Module = typeof(EmployeeFormView),
+                    Icon = "editors_employeeform",
+                    DemoItemStatus = DemoItemStatus.Updated,
+                    ShowItemUnderline = false
                 }
             };
         }
 
-        public List<DemoItem> DemoItems => demoItems;
-        public string Title { get { return "Editors"; } }
+        public List<DemoItem> DemoItems => this.demoItems;
+        public string Title => "Editors";
     }
 }

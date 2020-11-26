@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -45,36 +45,36 @@ using DemoCenter.Forms.Views;
 using DevExpress.XamarinForms.Core.Themes;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
-using Xamarin.Forms.Xaml;
 
 namespace DemoCenter.Forms {
     public partial class App : Xamarin.Forms.Application {
         readonly NavigationService navigationService;
         bool themeIsSetting = false;
+        internal event EventHandler ThemeChagedEvent;
         public App() {
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Pan);
             InitializeComponent();
 
             this.navigationService = new NavigationService();
-            navigationService.PageBinders.Add(typeof(ControlViewModel), () => new ControlPage());
+            this.navigationService.PageBinders.Add(typeof(ControlViewModel), () => new ControlPage());
 
-            var mainViewModel = new MainViewModel(navigationService);
-            var aboutViewModel = new AboutViewModel(new XFUriOpener());
-            var rootPage = new RootPage();
+            MainViewModel mainViewModel = new MainViewModel(this.navigationService);
+            AboutViewModel aboutViewModel = new AboutViewModel(new XFUriOpener());
+            RootPage rootPage = new RootPage();
             rootPage.MainContent.BindingContext = mainViewModel;
             rootPage.DrawerContent.BindingContext = aboutViewModel;
 
             MainPage = rootPage;
 
-            navigationService.SetNavigator(rootPage.NavPage);
+            this.navigationService.SetNavigator(rootPage.NavPage);
             ThemeLoader.Instance.LoadTheme();
         }
 
         public async void ProcessNotificationIfNeed(Guid reminderId, int recurrenceIndex) {
             if (reminderId == Guid.Empty)
                 return;
-            IEnumerable<Page> openedPages = navigationService.GetOpenedPages<RemindersDemo>();
-            RemindersDemo remindersDemo = (openedPages.Any() ? openedPages.Last() : await navigationService.PushPage(SchedulerData.GetItem(typeof(RemindersDemo)))) as RemindersDemo; 
+            IEnumerable<Page> openedPages = this.navigationService.GetOpenedPages<RemindersDemo>();
+            RemindersDemo remindersDemo = (openedPages.Any() ? openedPages.Last() : await this.navigationService.PushPage(SchedulerData.GetItem(typeof(RemindersDemo)))) as RemindersDemo; 
             remindersDemo?.OpenAppointmentEditForm(reminderId, recurrenceIndex);
         }
 
@@ -89,18 +89,19 @@ namespace DemoCenter.Forms {
 
         protected override async void OnResume() {
             base.OnResume();
-            if (!themeIsSetting) {
+            if (!this.themeIsSetting) {
                 bool lightTheme = await DependencyService.Get<IEnvironment>().IsLightOperatingSystemTheme();
                 ApplyTheme(lightTheme);
             }
         }
         void ApplyTheme(bool isLightTheme) {
             ThemeManager.ThemeName = isLightTheme ? Theme.Light : Theme.Dark;
+            ThemeChagedEvent?.Invoke(this, new EventArgs());
         }
-        internal void ApplyTheme(bool isLightTheme, Boolean force) {
+        internal void ApplyTheme(bool isLightTheme, bool force) {
             if (force) {
                 ApplyTheme(isLightTheme);
-                themeIsSetting = true;
+                this.themeIsSetting = true;
             }
         }
     }

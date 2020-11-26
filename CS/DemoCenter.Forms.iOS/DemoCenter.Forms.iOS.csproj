@@ -1,5 +1,8 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Build">
   <PropertyGroup>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
@@ -50,12 +53,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+    <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchExtraArgs>-v -v -v -v</MtouchExtraArgs>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -96,6 +99,7 @@
     <Compile Include="DependencyServices\Sensor.cs"/>
     <Compile Include="DependencyServices\Scheduler\StoragePathProvider.cs"/>
     <Compile Include="DependencyServices\Scheduler\NotificationCenter.cs"/>
+    <Compile Include="ExceptionSenderImplementation.cs"/>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -104,12 +108,6 @@
     <BundleResource Include="Resources\splash_background.png"/>
     <BundleResource Include="Resources\DevExpress_logo.png"/>
     <BundleResource Include="Resources\xamarin_logo.png"/>
-    <BundleResource Include="Resources\univia-pro-regular.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="Resources\univia-pro-medium.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </BundleResource>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Visible>false</Visible>
@@ -172,30 +170,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\dark_menu_dots.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\dark_menu_dots.imageset\dark_menu_dots.pdf">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\light_menu_dots.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\light_menu_dots.imageset\light_menu_dots.pdf">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\light_palette.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\dark_palette.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\dark_palette.imageset\dark_palette.pdf">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\light_palette.imageset\light_palette.pdf">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\nested_all.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -250,13 +224,354 @@
     <ImageAsset Include="Assets.xcassets\smile.imageset\Contents.json"/>
     <ImageAsset Include="Assets.xcassets\smile.imageset\smile.pdf"/>
     <ImageAsset Include="Assets.xcassets\boxmode_outlined.imageset\Contents.json"/>
-    <ImageAsset Include="Assets.xcassets\boxmode_outlined.imageset\boxmode_outlined.pdf"/>
     <ImageAsset Include="Assets.xcassets\boxmode_filled.imageset\Contents.json"/>
-    <ImageAsset Include="Assets.xcassets\boxmode_filled.imageset\boxmode_filled.pdf"/>
     <ImageAsset Include="Assets.xcassets\cornermode_cut.imageset\Contents.json"/>
-    <ImageAsset Include="Assets.xcassets\cornermode_cut.imageset\cornermode_cut.pdf"/>
     <ImageAsset Include="Assets.xcassets\cornermode_round.imageset\Contents.json"/>
-    <ImageAsset Include="Assets.xcassets\cornermode_round.imageset\cornermode_round.pdf"/>
+    <ImageAsset Include="Assets.xcassets\theme_palette.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\theme_palette.imageset\palette_d-1.pdf"/>
+    <ImageAsset Include="Assets.xcassets\theme_palette.imageset\palette_l-1.pdf"/>
+    <ImageAsset Include="Assets.xcassets\info.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\info.imageset\Info.pdf"/>
+    <ImageAsset Include="Assets.xcassets\info.imageset\Info-1.pdf"/>
+    <ImageAsset Include="Assets.xcassets\badge_new.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\badge_updated.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\badge_new.imageset\badge_new.pdf"/>
+    <ImageAsset Include="Assets.xcassets\badge_updated.imageset\badge_updated.pdf"/>
+    <ImageAsset Include="Assets.xcassets\about_header.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\about_header.imageset\dark.AboutHeader.pdf"/>
+    <ImageAsset Include="Assets.xcassets\about_header.imageset\light.AboutHeader.pdf"/>
+    <ImageAsset Include="Assets.xcassets\source_code.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\source_code.imageset\dark.SourceCode.pdf"/>
+    <ImageAsset Include="Assets.xcassets\source_code.imageset\light.SourceCode.pdf"/>
+    <ImageAsset Include="Assets.xcassets\product_page.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\product_page.imageset\dark.ProductPage.pdf"/>
+    <ImageAsset Include="Assets.xcassets\product_page.imageset\light.ProductPage.pdf"/>
+    <ImageAsset Include="Assets.xcassets\documentation.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\documentation.imageset\light.Documentation.pdf"/>
+    <ImageAsset Include="Assets.xcassets\documentation.imageset\dark.Documentation.pdf"/>
+    <ImageAsset Include="Assets.xcassets\drawer_drawersettings.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\drawer_drawersettings.imageset\dark.DrawerSettings.pdf"/>
+    <ImageAsset Include="Assets.xcassets\drawer_drawersettings.imageset\light.DrawerSettings.pdf"/>
+    <ImageAsset Include="Assets.xcassets\drawer_firstlook.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\drawer_firstlook.imageset\dark.FirstLook.pdf"/>
+    <ImageAsset Include="Assets.xcassets\drawer_firstlook.imageset\light.FirstLook.pdf"/>
+    <ImageAsset Include="Assets.xcassets\drawer_pages.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\drawer_pages.imageset\dark.Pages.pdf"/>
+    <ImageAsset Include="Assets.xcassets\drawer_pages.imageset\light.Pages.pdf"/>
+    <ImageAsset Include="Assets.xcassets\controls_buttons.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\controls_buttons.imageset\dark.Buttons.pdf"/>
+    <ImageAsset Include="Assets.xcassets\controls_buttons.imageset\light.Buttons.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_dataforms.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_dataforms.imageset\dark.DataForms.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_dataforms.imageset\light.DataForms.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_textedit.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_textedit.imageset\dark.TextEdit.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_textedit.imageset\light.TextEdit.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_accountform.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_accountform.imageset\dark.AccountForm.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_accountform.imageset\light.AccountForm.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_employeeform.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_employeeform.imageset\dark.EmployeeForm.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_employeeform.imageset\light.EmployeeForm.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_comboboxedit.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_comboboxedit.imageset\dark.ComboBox.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_comboboxedit.imageset\light.ComboBox.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_spectrumanalyzer.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_spectrumanalyzer.imageset\dark.SpectrumAnalyzer.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_spectrumanalyzer.imageset\light.SpectrumAnalyzer.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_headphones.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_headphones.imageset\dark.Headphones.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_headphones.imageset\light.Headphones.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_financialcharts.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_financialcharts.imageset\dark.FinancialCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_financialcharts.imageset\light.FinancialCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_oscillator.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_oscillator.imageset\dark.Oscillator.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_oscillator.imageset\light.Oscillator.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_realtimeupdates.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_realtimeupdates.imageset\dark.RealTimeUpdates.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_realtimeupdates.imageset\light.RealTimeUpdates.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_selection.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_selection.imageset\dark.Selection.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_selection.imageset\light.Selection.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_multipleaxes.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_multipleaxes.imageset\dark.MultipleAxes.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_multipleaxes.imageset\light.MultipleAxes.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_largedataset.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_barcharts.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_linecharts.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_pointandbublecharts.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_areacharts.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_pieanddonutcharts.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\charts_largedataset.imageset\dark.LargeDataset.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_largedataset.imageset\light.LargeDataset.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_barcharts.imageset\dark.BarCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_barcharts.imageset\light.BarCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_linecharts.imageset\dark.LineCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_linecharts.imageset\light.LineCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_pointandbublecharts.imageset\dark.PointandBubleCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_pointandbublecharts.imageset\light.PointandBubleCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_areacharts.imageset\dark.AreaCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_areacharts.imageset\light.AreaCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_pieanddonutcharts.imageset\dark.PieandDonutCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_pieanddonutcharts.imageset\light.PieandDonutCharts.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_firstlook.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_dragdrop.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_customappearance.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_advancedlayout.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_realtimedata.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_rowautoheight.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_editing.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_swipebuttons.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_pulltorefresh.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_infinitedatasource.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_grouping.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_firstlook.imageset\dark.FirstLook.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_firstlook.imageset\light.FirstLook.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_dragdrop.imageset\dark.DragDrop.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_dragdrop.imageset\light.DragDrop.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_customappearance.imageset\dark_CustomAppearance.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_customappearance.imageset\light_CustomAppearance.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_advancedlayout.imageset\dark_AdvancedLayout.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_advancedlayout.imageset\light_AdvancedLayout.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_realtimedata.imageset\dark.RealTimeData.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_realtimedata.imageset\light.RealTimeData.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_rowautoheight.imageset\dark.RowAutoHeight.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_rowautoheight.imageset\light.RowAutoHeight.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_editing.imageset\dark.Editing.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_editing.imageset\light.Editing.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_swipebuttons.imageset\dark.SwipeButtons.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_swipebuttons.imageset\light.SwipeButtons.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_pulltorefresh.imageset\dark.PullToRefresh.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_pulltorefresh.imageset\light.PullToRefresh.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_infinitedatasource.imageset\dark.InfiniteDataSource.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_infinitedatasource.imageset\light.InfiniteDataSource.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_grouping.imageset\dark.Grouping.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_grouping.imageset\light.Grouping.pdf"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_dayview.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_workweekview.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_weekview.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_monthview.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_reminders.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_dayview.imageset\dark.DayView.pdf"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_dayview.imageset\light.DayView.pdf"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_workweekview.imageset\dark.WorkWeekView.pdf"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_workweekview.imageset\light.WorkWeekView.pdf"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_weekview.imageset\dark.WeekView.pdf"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_weekview.imageset\light.WeekView.pdf"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_monthview.imageset\dark.MonthView.pdf"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_monthview.imageset\light.MonthView.pdf"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_reminders.imageset\dark.Reminders.pdf"/>
+    <ImageAsset Include="Assets.xcassets\scheduler_reminders.imageset\light.Reminders.pdf"/>
+    <ImageAsset Include="Assets.xcassets\tabview_headerpanelposition.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\tabview_databinding.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\tabview_nestedtabsviews.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\tabview_tabswithpages.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\tabview_headerpanelposition.imageset\dark.HeaderPanelPosition.pdf"/>
+    <ImageAsset Include="Assets.xcassets\tabview_headerpanelposition.imageset\light.HeaderPanelPosition.pdf"/>
+    <ImageAsset Include="Assets.xcassets\tabview_databinding.imageset\dark.DataBinding.pdf"/>
+    <ImageAsset Include="Assets.xcassets\tabview_databinding.imageset\light.DataBinding.pdf"/>
+    <ImageAsset Include="Assets.xcassets\tabview_nestedtabsviews.imageset\dark.NestedTabsViews.pdf"/>
+    <ImageAsset Include="Assets.xcassets\tabview_nestedtabsviews.imageset\light.NestedTabsViews.pdf"/>
+    <ImageAsset Include="Assets.xcassets\tabview_tabswithpages.imageset\dark.TabsWithPages.pdf"/>
+    <ImageAsset Include="Assets.xcassets\tabview_tabswithpages.imageset\light.TabsWithPages.pdf"/>
+    <ImageAsset Include="Assets.xcassets\toprightcornerradius.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\toprightcornerradius.imageset\topRightCornerRadius.pdf"/>
+    <ImageAsset Include="Assets.xcassets\bottomleftcornerradius.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\bottomleftcornerradius.imageset\bottomLeftCornerRadius.pdf"/>
+    <ImageAsset Include="Assets.xcassets\bottomrightcornerradius.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\bottomrightcornerradius.imageset\bottomRightCornerRadius.pdf"/>
+    <ImageAsset Include="Assets.xcassets\topleftcornerradius.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\topleftcornerradius.imageset\topLeftCornerRadius.pdf"/>
+    <ImageAsset Include="Assets.xcassets\boxmode_filled.imageset\boxMode_filled.pdf"/>
+    <ImageAsset Include="Assets.xcassets\boxmode_outlined.imageset\boxMode_outlined.pdf"/>
+    <ImageAsset Include="Assets.xcassets\cornermode_cut.imageset\cornerMode_cut.pdf"/>
+    <ImageAsset Include="Assets.xcassets\cornermode_round.imageset\cornerMode_round.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_all.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_family.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_star.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_work.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_all.imageset\dark.all.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_all.imageset\light.all.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_family.imageset\dark.family.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_family.imageset\light.family.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_star.imageset\dark.star.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_star.imageset\light.star.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_work.imageset\dark.work.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_work.imageset\light.work.pdf"/>
+    <ImageAsset Include="Assets.xcassets\menu_dots.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\menu_dots.imageset\dark_menu_dots.pdf"/>
+    <ImageAsset Include="Assets.xcassets\menu_dots.imageset\light_menu_dots.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_detail.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_detail.imageset\demotabview_detail.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_incoming.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_outgoing.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_missed.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_missed.imageset\Missed.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_outgoing.imageset\Outgoing.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_incoming.imageset\Incoming.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_location.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_location.imageset\icon_location.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_www.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_www.imageset\icon_www.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_phone.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_phone.imageset\icon_phone.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_cartbutton.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_cartbutton.imageset\dark.CartButton.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_cartbutton.imageset\light.CartButton.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_favoritebutton.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_deletebutton.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_favoritebutton.imageset\dark.FavoriteButton.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_favoritebutton.imageset\light.FavoriteButton.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_deletebutton.imageset\dark.DeleteButton.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demotabview_deletebutton.imageset\light.DeleteButton.pdf"/>
+    <ImageAsset Include="Assets.xcassets\drawerbackground.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\drawerbackground.imageset\dark.DrawerHeader.pdf"/>
+    <ImageAsset Include="Assets.xcassets\drawerbackground.imageset\light.DrawerHeader.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_portfolio.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_person.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_card.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_card.imageset\card.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_person.imageset\person.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_portfolio.imageset\person.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_send_normal.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_reports.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_products.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_trash_normal.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_customers.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_inbox_normal.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_important_normal.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_employees.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_draft_normal.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_sales.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_send_normal.imageset\send_normal.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_reports.imageset\reports.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_products.imageset\products.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_trash_normal.imageset\trash_normal.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_customers.imageset\customers.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_inbox_normal.imageset\inbox_normal.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_sales.imageset\sales.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_draft_normal.imageset\draft_normal.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_employees.imageset\employees.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demodrawer_important_normal.imageset\important_normal.pdf"/>
+    <ImageAsset Include="Assets.xcassets\radiobutton.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\radiobutton.imageset\radio_button.pdf"/>
+    <ImageAsset Include="Assets.xcassets\radiobutton_checked.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\radiobutton_checked.imageset\radio_button_checked.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_attachment.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_attachment.imageset\Attachment.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_salesandmarketing.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_salesandmarketing.imageset\SalesandMarketing.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_researchanddevelopment.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_researchanddevelopment.imageset\ResearchandDevelopment.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_qualityassurance.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_qualityassurance.imageset\QualityAssurance.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_manufacturing.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_manufacturing.imageset\Manufacturing.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_inventorymanagement.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_inventorymanagement.imageset\InventoryManagement.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_executivegeneralandadministration.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demogrid_executivegeneralandadministration.imageset\ExecutiveGeneralandAdministration.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demoscheduler_bell.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\demoscheduler_bell.imageset\dark_bell.pdf"/>
+    <ImageAsset Include="Assets.xcassets\demoscheduler_bell.imageset\light_bell.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_point.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_point.imageset\Point.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_bubble.imageset\Bubble.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_bubble.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_donut.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_donut.imageset\Donut.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_pie.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_pie.imageset\Pie.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_line.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_line.imageset\Line.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_scatter.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_scatter.imageset\Scatter.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_stepline.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_stepline.imageset\StepLine.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_area.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_fullstackedarea.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_steparea.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_stackedarea.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_rangearea.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_rangearea.imageset\RangeArea.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_stackedarea.imageset\StackedArea.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_steparea.imageset\StepArea.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_fullstackedarea.imageset\FullStackedArea.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_area.imageset\Area.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_sidebysiderangebar.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_rangebar.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_bar.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_populationpyramid.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_cryptocurrencyportfolio.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_cryptocurrencyportfolio.imageset\CryptocurrencyPortfolio.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_populationpyramid.imageset\PopulationPyramid.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_bar.imageset\Bar.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_rangebar.imageset\RangeBar.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_sidebysiderangebar.imageset\SideBySideRangeBar.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_stackedbar.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_stackedbar.imageset\StackedBar.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_sidebysidestackedbar.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_sidebysidestackedbar.imageset\SideBySideStackedBar.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_fullstackedbar.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_fullstackedbar.imageset\FullStackedBar.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_sidebysidefullstackedbar.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_sidebysidefullstackedbar.imageset\SideBySideFullStackedBar.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_rotatedstackedbar.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_rotatedstackedbar.imageset\RotatedStackedBar.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_rotatedsidebysidestackedbar.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_rotatedsidebysidestackedbar.imageset\RotatedSideBySideStackedBar.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_lightspector.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_lightspector.imageset\TabLightSpector.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_surfacetemperature.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_surfacetemperature.imageset\TabSurfaceTemperature.pdf"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_spline.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\democharts_tabitems_spline.imageset\TabSpline.pdf"/>
+    <ImageAsset Include="Assets.xcassets\collectionview_firstlook.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\collectionview_firstlook.imageset\dark.CollectionView_FirstLook.pdf"/>
+    <ImageAsset Include="Assets.xcassets\collectionview_firstlook.imageset\light.CollectionView_FirstLook.pdf"/>
+    <ImageAsset Include="Assets.xcassets\collectionview_loadmore.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\collectionview_loadmore.imageset\dark.CollectionView_LoadMore.pdf"/>
+    <ImageAsset Include="Assets.xcassets\collectionview_loadmore.imageset\light.CollectionView_LoadMore.pdf"/>
+    <ImageAsset Include="Assets.xcassets\default_icon.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\default_icon.imageset\default_icon.pdf"/>
+    <ImageAsset Include="Assets.xcassets\default_icon_24.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\default_icon_24.imageset\default_24px.pdf"/>
+    <ImageAsset Include="Assets.xcassets\error_report.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\error_report.imageset\error_report.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_horizontalvirtualization.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_horizontalvirtualization.imageset\dark.HorizontalVirtualization.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_horizontalvirtualization.imageset\light.HorizontalVirtualization.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_custom_appearance.imageset\colorizer_dark.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_custom_appearance.imageset\colorizer_light.pdf"/>
+    <ImageAsset Include="Assets.xcassets\charts_custom_appearance.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_ic_round_checkbox_checked.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_ic_round_checkbox_indeterminate.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_ic_round_checkbox_unchecked.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_ic_round_checkbox_checked.imageset\ic_round_checkbox_checked.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_ic_round_checkbox_indeterminate.imageset\ic_round_checkbox_indeterminate.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_ic_round_checkbox_unchecked.imageset\ic_round_checkbox_unckecked.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_autofilterrow.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\grid_autofilterrow.imageset\grid_autofilterrow_dark.pdf"/>
+    <ImageAsset Include="Assets.xcassets\grid_autofilterrow.imageset\grid_autofilterrow_light.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_dateedit.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_dateedit.imageset\date_edit_dark.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_dateedit.imageset\date_edit_light.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_checkedit.imageset\check_edit_dark.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_checkedit.imageset\check_edit_light.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_checkedit.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_autocomplete.imageset\auto_complete_dark.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_autocomplete.imageset\auto_complete_light.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_autocomplete.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_timeedit.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_timeedit.imageset\time_edit_dark.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_timeedit.imageset\time_edit_light.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_numericedit.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_numericedit.imageset\numeric_edit_dark.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_numericedit.imageset\numeric_edit_light.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_autocomplete_custom.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\editors_autocomplete_custom.imageset\auto_complete_custom_dark.pdf"/>
+    <ImageAsset Include="Assets.xcassets\editors_autocomplete_custom.imageset\auto_complete_custom_light.pdf"/>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System"/>
@@ -266,13 +581,15 @@
     <Reference Include="Xamarin.iOS"/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="20.1.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="20.1.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="20.1.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="20.1.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="20.1.3"/>
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.1"/>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640"/>
+    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="20.2.3"/>
+    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="20.2.3"/>
+    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="20.2.3"/>
+    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="20.2.3"/>
+    <PackageReference Include="DevExpress.XamarinForms.CollectionView" Version="20.2.3"/>
+    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="20.2.3"/>
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2"/>
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451"/>
+    <PackageReference Include="Logify.Alert.Xamarin.iOS" Version="1.0.55"/>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets"/>
   <ItemGroup>
@@ -304,5 +621,142 @@
     <Folder Include="Assets.xcassets\boxmode_outlined.imageset\"/>
     <Folder Include="Assets.xcassets\cornermode_cut.imageset\"/>
     <Folder Include="Assets.xcassets\cornermode_round.imageset\"/>
+    <Folder Include="Assets.xcassets\theme_palette.imageset\"/>
+    <Folder Include="Assets.xcassets\info.imageset\"/>
+    <Folder Include="Assets.xcassets\badge_new.imageset\"/>
+    <Folder Include="Assets.xcassets\badge_updated.imageset\"/>
+    <Folder Include="Assets.xcassets\about_header.imageset\"/>
+    <Folder Include="Assets.xcassets\source_code.imageset\"/>
+    <Folder Include="Assets.xcassets\product_page.imageset\"/>
+    <Folder Include="Assets.xcassets\documentation.imageset\"/>
+    <Folder Include="Assets.xcassets\drawer_drawersettings.imageset\"/>
+    <Folder Include="Assets.xcassets\drawer_firstlook.imageset\"/>
+    <Folder Include="Assets.xcassets\drawer_pages.imageset\"/>
+    <Folder Include="Assets.xcassets\controls_buttons.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_dataforms.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_textedit.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_accountform.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_employeeform.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_comboboxedit.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_spectrumanalyzer.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_headphones.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_financialcharts.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_oscillator.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_realtimeupdates.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_selection.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_multipleaxes.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_largedataset.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_barcharts.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_linecharts.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_pointandbublecharts.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_areacharts.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_pieanddonutcharts.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_firstlook.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_dragdrop.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_customappearance.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_advancedlayout.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_realtimedata.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_rowautoheight.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_editing.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_swipebuttons.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_pulltorefresh.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_infinitedatasource.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_grouping.imageset\"/>
+    <Folder Include="Assets.xcassets\scheduler_dayview.imageset\"/>
+    <Folder Include="Assets.xcassets\scheduler_workweekview.imageset\"/>
+    <Folder Include="Assets.xcassets\scheduler_weekview.imageset\"/>
+    <Folder Include="Assets.xcassets\scheduler_monthview.imageset\"/>
+    <Folder Include="Assets.xcassets\scheduler_reminders.imageset\"/>
+    <Folder Include="Assets.xcassets\tabview_headerpanelposition.imageset\"/>
+    <Folder Include="Assets.xcassets\tabview_databinding.imageset\"/>
+    <Folder Include="Assets.xcassets\tabview_nestedtabsviews.imageset\"/>
+    <Folder Include="Assets.xcassets\tabview_tabswithpages.imageset\"/>
+    <Folder Include="Assets.xcassets\toprightcornerradius.imageset\"/>
+    <Folder Include="Assets.xcassets\bottomleftcornerradius.imageset\"/>
+    <Folder Include="Assets.xcassets\bottomrightcornerradius.imageset\"/>
+    <Folder Include="Assets.xcassets\topleftcornerradius.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_all.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_family.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_star.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_work.imageset\"/>
+    <Folder Include="Assets.xcassets\menu_dots.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_detail.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_incoming.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_outgoing.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_missed.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_location.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_www.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_phone.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_cartbutton.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_favoritebutton.imageset\"/>
+    <Folder Include="Assets.xcassets\demotabview_deletebutton.imageset\"/>
+    <Folder Include="Assets.xcassets\drawerbackground.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_portfolio.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_person.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_card.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_send_normal.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_reports.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_products.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_trash_normal.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_customers.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_inbox_normal.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_important_normal.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_employees.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_draft_normal.imageset\"/>
+    <Folder Include="Assets.xcassets\demodrawer_sales.imageset\"/>
+    <Folder Include="Assets.xcassets\radiobutton.imageset\"/>
+    <Folder Include="Assets.xcassets\radiobutton_checked.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_attachment.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_triangle_undefined.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_triangle_positive.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_triangle_negative.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_salesandmarketing.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_researchanddevelopment.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_qualityassurance.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_manufacturing.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_inventorymanagement.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_executivegeneralandadministration.imageset\"/>
+    <Folder Include="Assets.xcassets\demoscheduler_bell.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_point.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_bubble.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_donut.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_pie.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_line.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_scatter.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_stepline.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_area.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_fullstackedarea.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_steparea.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_stackedarea.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_rangearea.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_sidebysiderangebar.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_rangebar.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_bar.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_populationpyramid.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_cryptocurrencyportfolio.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_stackedbar.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_sidebysidestackedbar.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_fullstackedbar.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_sidebysidefullstackedbar.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_rotatedstackedbar.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_rotatedsidebysidestackedbar.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_spline.imageset\"/>
+    <Folder Include="Assets.xcassets\collectionview_firstlook.imageset\"/>
+    <Folder Include="Assets.xcassets\collectionview_loadmore.imageset\"/>
+    <Folder Include="Assets.xcassets\default_icon.imageset\"/>
+    <Folder Include="Assets.xcassets\default_icon_24.imageset\"/>
+    <Folder Include="Assets.xcassets\error_report.imageset\"/>
+    <Folder Include="Assets.xcassets\charts_custom_appearance.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_ic_round_checkbox_checked.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_ic_round_checkbox_indeterminate.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_ic_round_checkbox_unchecked.imageset\"/>
+    <Folder Include="Assets.xcassets\grid_autofilterrow.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_dateedit.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_checkedit.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_autocomplete.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_timeedit.imageset\"/>
+    <Folder Include="Assets.xcassets\editors_numericedit.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_lightspector.imageset\"/>
+    <Folder Include="Assets.xcassets\democharts_tabitems_surfacetemperature.imageset\"/>
   </ItemGroup>
 </Project>

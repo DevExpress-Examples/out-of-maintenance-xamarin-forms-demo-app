@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -41,6 +41,7 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.Views {
     public partial class CompaniesTabView : ContentPage {
         public CompaniesTabView() {
+            DevExpress.XamarinForms.Navigation.Initializer.Init();
             InitializeComponent();
             BindingContext = new CompaniesTabViewModel();
         }
@@ -68,12 +69,12 @@ namespace DemoCenter.Forms.Views {
         }
 
         void UpdateItemSize(double width) {
-            int count = tabControl.Items.Count;
+            int count = this.tabControl.Items.Count;
 
             if (count != 0) {
                 double itemWidth = width / count;
                 for (int i = 0; i < count; i++)
-                    tabControl.Items[i].HeaderWidth = itemWidth;
+                    this.tabControl.Items[i].HeaderWidth = itemWidth;
             }
         }
     }

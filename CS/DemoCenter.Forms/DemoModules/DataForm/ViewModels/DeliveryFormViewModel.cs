@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -45,55 +45,62 @@ using DevExpress.XamarinForms.DataForm;
 namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
     public class DeliveryInfo : IDataErrorInfo {
         const string leftColumnWidth = "40";
-        
-        [DataFormDisplayOptions(LabelWidth = leftColumnWidth, LabelIcon = "editors_name")]        
+
+        [DataFormDisplayOptions(LabelWidth = leftColumnWidth, LabelIcon = "editors_name")]
         [DataFormItemPosition(RowOrder = 0)]
         [DataFormTextEditor(InplaceLabelText = "First name")]
         [Required(ErrorMessage = "First Name cannot be empty")]
         public string FirstName { get; set; }
+
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, LabelText = "")]
         [DataFormItemPosition(RowOrder = 1)]
         [DataFormTextEditor(InplaceLabelText = "Last name")]
         [Required(ErrorMessage = "Last Name cannot be empty")]
         public string LastName { get; set; }
+
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, LabelIcon = "editors_location")]
         [DataFormItemPosition(RowOrder = 2)]
         [DataFormTextEditor(InplaceLabelText = "Address")]
         [Required(ErrorMessage = "Address cannot be empty")]
         public string Address { get; set; }
+
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, LabelText = "")]
         [DataFormItemPosition(RowOrder = 3)]
         [DataFormTextEditor(InplaceLabelText = "City")]
         [Required(ErrorMessage = "City cannot be empty")]
         public string City { get; set; }
+
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, EditorWidth = "0.65*", LabelText = "")]
         [DataFormItemPosition(RowOrder = 4, ItemOrderInRow = 0)]
         [DataFormTextEditor(InplaceLabelText = "State")]
         [Required(ErrorMessage = "State cannot be empty")]
         public string State { get; set; }
-        [DataFormDisplayOptions(LabelWidth = leftColumnWidth, EditorWidth="0.35*", EditorMaxWidth = 150, IsLabelVisible = false)]
+
+        [DataFormDisplayOptions(LabelWidth = leftColumnWidth, EditorWidth = "0.35*", EditorMaxWidth = 150, IsLabelVisible = false)]
         [DataFormItemPosition(RowOrder = 4, ItemOrderInRow = 1)]
         [DataFormNumericEditor(InplaceLabelText = "Zip")]
+        [RegularExpression(@"(^\d{5}$)|(^\d{5}-\d{4}$)", ErrorMessage = "Invalid zip-code")]
         public int? Zip { get; set; }
-        
+
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, EditorWidth = "0.3*", LabelIcon = "editors_phone", IsLabelVisible = true)]
         [DataFormItemPosition(RowOrder = 6)]
         [DataFormTextEditor(InplaceLabelText = "Code", Keyboard = "Numeric")]
         [Required(ErrorMessage = "Required")]
-        [StringLength(3, MinimumLength = 3, ErrorMessage = "Required!")]
+        [StringLength(maximumLength: 3, MinimumLength = 3, ErrorMessage = "Phone code must be 3 numbers length")]
         public string PhoneCode { get; set; }
+
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, EditorWidth = "0.7*", IsLabelVisible = false)]
         [DataFormItemPosition(RowOrder = 6)]
         [DataFormMaskedEditor(Mask = "000-0000", InplaceLabelText = "Phone number", Keyboard = "Telephone")]
         [Required(ErrorMessage = "Number cannot be empty")]
-        [StringLength(10, MinimumLength = 7)]
+        [StringLength(maximumLength: 10, MinimumLength = 7, ErrorMessage = "Phone number must be 7 to 10 numbers length")]
         public string PhoneNumber { get; set; }
-        
+
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, LabelIcon = "editors_email", IsLabelVisible = true)]
         [DataFormItemPosition(RowOrder = 7)]
         [DataFormTextEditor(InplaceLabelText = "Email", Keyboard = "Email")]
         public string Email { get; set; }
-        
+
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, LabelIcon = "editors_calendar", IsLabelVisible = true)]
         [DataFormItemPosition(RowOrder = 9)]
         [DisplayFormat(DataFormatString = "d")]
@@ -105,6 +112,7 @@ namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
         [DisplayFormat(DataFormatString = "t")]
         [DataFormTimeEditor]
         public DateTime DeliveryTimeFrom { get; set; } = DateTime.Now;
+
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, IsLabelVisible = false)]
         [DataFormItemPosition(RowOrder = 10, ItemOrderInRow = 1)]
         [DisplayFormat(DataFormatString = "t")]
@@ -112,7 +120,7 @@ namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
         public DateTime DeliveryTimeTo { get; set; } = DateTime.Now.AddHours(1);
 
         string IDataErrorInfo.Error => String.Empty;
-        
+
         string IDataErrorInfo.this[string columnName] {
             get {
                 if (columnName == nameof(DeliveryTimeTo)
@@ -120,7 +128,7 @@ namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
                     return "The end time cannot be less than the start time";
                 }
                 if (columnName == nameof(DeliveryDate) && DeliveryDate < DateTime.Now.Date) {
-                    return "Delivery cannot be earlier than today";   
+                    return "Delivery cannot be earlier than today";
                 }
                 return String.Empty;
             }
@@ -131,12 +139,12 @@ namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
         }
     }
     public class DeliveryFormViewModel : NotificationObject {
-        public DeliveryInfo Model { get; set; } 
+        public DeliveryInfo Model { get; set; }
 
         public DeliveryFormViewModel() {
             Model = new DeliveryInfo();
         }
-        
+
         Dictionary<string, bool> fieldNamesToReorder = new Dictionary<string, bool>() {
             { nameof(DeliveryInfo.LastName), true },
             { nameof(DeliveryInfo.City), true },

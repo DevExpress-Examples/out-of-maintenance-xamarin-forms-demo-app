@@ -3,7 +3,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DemoCenter.Forms.Views.CustomerOrdersView"
-             BackgroundColor="{DynamicResource GridCellBackgroundColor}">
+             BackgroundColor="{DynamicResource GridCellBackgroundColor}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true">
     <ContentPage.Resources>
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource GridCellFontColor}"/>

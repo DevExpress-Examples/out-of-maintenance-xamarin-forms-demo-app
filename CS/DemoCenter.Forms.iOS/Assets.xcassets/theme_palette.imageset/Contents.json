@@ -1,0 +1,32 @@
+{
+  "images": [
+    {
+      "filename": "palette_l-1.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "palette_d-1.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "idiom": "universal"
+    },
+    {
+      "filename": "palette_l-1.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "light"
+        }
+      ],
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

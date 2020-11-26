@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -41,7 +41,7 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
         readonly string name;
 
         public string Name {
-            get { return name; }
+            get { return this.name; }
         }
 
         public Commodity(string name) {

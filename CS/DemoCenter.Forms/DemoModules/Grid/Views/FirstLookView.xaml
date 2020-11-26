@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <local:BaseGridContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-                           xmlns:dxg="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+                           xmlns:dxg="http://schemas.devexpress.com/xamarin/2014/forms/datagrid"
                            x:Class="DemoCenter.Forms.Views.FirstLookView"
                            xmlns:local="clr-namespace:DemoCenter.Forms.Views"
                            xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
@@ -28,7 +28,7 @@
                 <dxg:TextColumn.GroupCaptionTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
-                            <demo:IconView HeightRequest="24" WidthRequest="24" HorizontalOptions="Center" ImageSource="{Binding Converter={StaticResource DepartmentToImageConverter}}" VerticalOptions="Center"/>
+                            <demo:IconView HeightRequest="24" WidthRequest="24" HorizontalOptions="Center" Source="{Binding Converter={StaticResource DepartmentToImageConverter}}" VerticalOptions="Center"/>
                             <Label TextColor="{DynamicResource GridGroupRowFontColor}" Margin="9, 0, 0, 0" FontFamily="{DynamicResource GridGroupRowFontFamily}" Text="{Binding GroupText}" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand">
                                 <Label.FontSize>
                                     <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="14"/>

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -35,7 +35,9 @@
 {*******************************************************************}
 */
 using System;
+using System.Collections.Generic;
 using DemoCenter.Forms.Data;
+using DevExpress.XamarinForms.Charts;
 
 namespace DemoCenter.Forms.ViewModels {
     public class LineChartViewModel : ChartViewModelBase {
@@ -62,5 +64,18 @@ namespace DemoCenter.Forms.ViewModels {
 
         public override string Title => "U.S. Average Diesel Prices";
         public DataSetContainer<DateTimeData> DieselPrices => chartData.DieselPrices;
+    }
+
+    public class SplineChartViewModel : ChartViewModelBase {
+        readonly SplineData chartData = new SplineData();
+        readonly DateTimeRange visualRange;
+
+        public DateTimeRange VisualRange => visualRange;
+        public override string Title => "Energy Released by Earthquakes";
+        public IList<DateTimeData> SeriesData => chartData.SeriesData;
+
+        public SplineChartViewModel() {
+            visualRange = new DateTimeRange() { VisualMin = new DateTime(1999, 1, 1), VisualMax = new DateTime(1999, 5, 1), SideMargin = 10 };
+        }
     }
 }

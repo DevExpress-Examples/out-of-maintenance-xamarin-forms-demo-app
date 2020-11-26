@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -110,7 +110,6 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
         public ICommand ResetToDefaultCommand { get; }
         public ICommand ToggleErrorCommand { get; }
 
-
         public ComboBoxEditViewModel() {
             States = new List<string>() {
                 "Alabama",
@@ -193,7 +192,6 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
 
             ResetToDefault();
         }
-
 
         public void ResetToDefault() {
             SelectedBoxMode = BoxModes[0];

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -40,7 +40,7 @@ namespace DemoCenter.Forms.Demo {
     public class Panel : Layout<View> {
         public static readonly BindablePropertyKey IsLandscapePropertyKey = BindableProperty.CreateReadOnly("IsLandscape", typeof(bool), typeof(Panel), false);
         public static readonly BindableProperty IsLandscapeProperty = IsLandscapePropertyKey.BindableProperty;
-        public bool IsLandscape { get => (bool) GetValue(IsLandscapeProperty); }
+        public bool IsLandscape => (bool)GetValue(IsLandscapeProperty);
 
         public Panel() {
             SizeChanged += (s, e) => UpdateOrientation(Width, Height);

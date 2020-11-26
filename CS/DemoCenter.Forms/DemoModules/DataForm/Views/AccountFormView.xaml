@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="DemoCenter.Forms.Views.DataFormAccountFormView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
-    xmlns:df="clr-namespace:DevExpress.XamarinForms.DataForm;assembly=DevExpress.XamarinForms.Editors"
+    xmlns:dxe="http://schemas.devexpress.com/xamarin/2014/forms/editors"
+    xmlns:dxdf="http://schemas.devexpress.com/xamarin/2014/forms/dataform"
     BackgroundColor="{DynamicResource BackgroundThemeColor}"
     ios:Page.UseSafeArea="True">
 
@@ -23,7 +23,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <df:DataFormView
+        <dxdf:DataFormView
             EditorLabelWidth="40"
             EditorLabelColor="#8a8d93"
             CommitMode="Manually"
@@ -34,25 +34,25 @@
             EditorHorizontalSpacing="10"
             ReserveBottomTextLine="True"
             Margin="0,0,10,0" >
-            <df:DataFormTextItem
+            <dxdf:DataFormTextItem
                 FieldName="FirstName"
                 Placeholder="First name"
                 RowOrder="0"
                 LabelIcon="editors_name"
                 />
-            <df:DataFormTextItem
+            <dxdf:DataFormTextItem
                 FieldName="LastName"
                 Placeholder="Last name"
                 RowOrder="1"
                 LabelText=""
                 IsLabelVisible="{Binding IsVertical}"/>
-            <df:DataFormDateItem
+            <dxdf:DataFormDateItem
                 FieldName="Birthday"
                 Placeholder="Birthday"
                 RowOrder="2"
                 LabelIcon="editors_age"
                 DisplayFormat="d" />
-            <df:DataFormMaskedItem
+            <dxdf:DataFormMaskedItem
                 FieldName="PhoneNumber"
                 Placeholder="Phone number"
                 RowOrder="3"
@@ -60,23 +60,23 @@
                 Keyboard="Telephone"
                 Mask="+1 (000) 000-0000"
                 IsLabelVisible="{Binding IsVertical}"/>
-            <df:DataFormTextItem
+            <dxdf:DataFormTextItem
                 FieldName="Description"
                 Placeholder="Description"
                 RowOrder="4"
                 LabelIcon="editors_description" />
-            <df:DataFormTextItem
+            <dxdf:DataFormTextItem
                 FieldName="Login"
                 Placeholder="Login"
                 RowOrder="5"
                 LabelIcon="editors_login" />
-            <df:DataFormPasswordItem
+            <dxdf:DataFormPasswordItem
                 FieldName="Password"
                 Placeholder="Password"
                 RowOrder="6"
                 LabelIcon="editors_password"
                 IsLabelVisible="{Binding IsVertical}"/>
-        </df:DataFormView>
+        </dxdf:DataFormView>
         <dxe:SimpleButton
             Grid.Row="1"
             VerticalOptions="EndAndExpand"

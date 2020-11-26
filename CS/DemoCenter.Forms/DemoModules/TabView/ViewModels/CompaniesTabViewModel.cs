@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -41,14 +41,14 @@ namespace DemoCenter.Forms.ViewModels {
         readonly CompaniesData companies;
         CompanyData selectedItem;
 
-        public CompaniesData CompaniesData => companies;
+        public CompaniesData CompaniesData => this.companies;
 
         public CompaniesTabViewModel() {
-            companies = XmlDataDeserializer.GetData<CompaniesData>("Resources.CompaniesData.xml");
+            this.companies = XmlDataDeserializer.GetData<CompaniesData>("Resources.CompaniesData.xml");
         }
         public CompanyData SelectedItem {
-            get => selectedItem;
-            set => SetProperty(ref selectedItem, value, onChanged: (oldValue, newValue) => {
+            get => this.selectedItem;
+            set => SetProperty(ref this.selectedItem, value, onChanged: (oldValue, newValue) => {
                 ResetSelectedItem(oldValue);
                 if(newValue != null) newValue.IsSelected = true;
             });
@@ -57,7 +57,7 @@ namespace DemoCenter.Forms.ViewModels {
             if(oldValue != null) {
                 oldValue.IsSelected = false;
             } else {
-                foreach(CompanyData curentItem in companies) {
+                foreach(CompanyData curentItem in this.companies) {
                     if(curentItem.IsSelected) {
                         curentItem.IsSelected = false;
                         return;

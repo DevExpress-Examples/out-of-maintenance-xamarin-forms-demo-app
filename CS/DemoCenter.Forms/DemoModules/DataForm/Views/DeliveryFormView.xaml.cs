@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -42,6 +42,7 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.Views {
     public partial class DeliveryFormView : ContentPage {
         public DeliveryFormView() {
+            DevExpress.XamarinForms.DataForm.Initializer.Init();
             InitializeComponent();
             BindingContext = new DeliveryFormViewModel();
             dataForm.ValidateProperty += DataFormOnValidateProperty;

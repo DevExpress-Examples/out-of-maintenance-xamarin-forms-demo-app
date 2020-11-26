@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts"
              x:Class="DemoCenter.Forms.Charts.Views.FullStackedBarChartContainer">
     <ContentView.Resources>
-        <charts:SeriesHintOptions x:Key="fullStackedBarSeriesHintOptions"
+        <dxc:SeriesHintOptions x:Key="fullStackedBarSeriesHintOptions"
                                   PointTextPattern="{}{S}: {V}K"/>
     </ContentView.Resources>
     <ContentView.Content>
@@ -17,41 +17,41 @@
                    FontFamily="Roboto"
                    TextColor="{DynamicResource TextThemeColor}"
                    BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
-            <charts:ChartView Grid.Row="1">
-                <charts:ChartView.Series>
-                    <charts:FullStackedBarSeries DisplayName="{Binding ChartModel.ProjectorsSeriesData.Name}"
+            <dxc:ChartView Grid.Row="1">
+                <dxc:ChartView.Series>
+                    <dxc:FullStackedBarSeries DisplayName="{Binding ChartModel.ProjectorsSeriesData.Name}"
                                                  HintOptions="{StaticResource fullStackedBarSeriesHintOptions}">
-                        <charts:FullStackedBarSeries.Data>
-                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.ProjectorsSeriesData.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value" />
-                            </charts:SeriesDataAdapter>
-                        </charts:FullStackedBarSeries.Data>
-                    </charts:FullStackedBarSeries>
-                    <charts:FullStackedBarSeries DisplayName="{Binding ChartModel.TelevisionsSeriesData.Name}"
+                        <dxc:FullStackedBarSeries.Data>
+                            <dxc:SeriesDataAdapter DataSource="{Binding ChartModel.ProjectorsSeriesData.DataSet}" ArgumentDataMember="Argument">
+                                <dxc:ValueDataMember Type="Value" Member="Value" />
+                            </dxc:SeriesDataAdapter>
+                        </dxc:FullStackedBarSeries.Data>
+                    </dxc:FullStackedBarSeries>
+                    <dxc:FullStackedBarSeries DisplayName="{Binding ChartModel.TelevisionsSeriesData.Name}"
                                                  HintOptions="{StaticResource fullStackedBarSeriesHintOptions}">
-                        <charts:FullStackedBarSeries.Data>
-                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.TelevisionsSeriesData.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value" />
-                            </charts:SeriesDataAdapter>
-                        </charts:FullStackedBarSeries.Data>
-                    </charts:FullStackedBarSeries>
-                </charts:ChartView.Series>
-                <charts:ChartView.Legend>
-                    <charts:Legend HorizontalPosition="Center"
+                        <dxc:FullStackedBarSeries.Data>
+                            <dxc:SeriesDataAdapter DataSource="{Binding ChartModel.TelevisionsSeriesData.DataSet}" ArgumentDataMember="Argument">
+                                <dxc:ValueDataMember Type="Value" Member="Value" />
+                            </dxc:SeriesDataAdapter>
+                        </dxc:FullStackedBarSeries.Data>
+                    </dxc:FullStackedBarSeries>
+                </dxc:ChartView.Series>
+                <dxc:ChartView.Legend>
+                    <dxc:Legend HorizontalPosition="Center"
                                    VerticalPosition="BottomOutside"
                                    Orientation="LeftToRight"/>
-                </charts:ChartView.Legend>
-                <charts:ChartView.Hint>
-                    <charts:Hint/>
-                </charts:ChartView.Hint>
-                <charts:ChartView.AxisY>
-                    <charts:NumericAxisY>
-                        <charts:NumericAxisY.Label>
-                            <charts:AxisLabel TextFormat="#%"/>
-                        </charts:NumericAxisY.Label>
-                    </charts:NumericAxisY>
-                </charts:ChartView.AxisY>
-            </charts:ChartView>
+                </dxc:ChartView.Legend>
+                <dxc:ChartView.Hint>
+                    <dxc:Hint/>
+                </dxc:ChartView.Hint>
+                <dxc:ChartView.AxisY>
+                    <dxc:NumericAxisY>
+                        <dxc:NumericAxisY.Label>
+                            <dxc:AxisLabel TextFormat="#%"/>
+                        </dxc:NumericAxisY.Label>
+                    </dxc:NumericAxisY>
+                </dxc:ChartView.AxisY>
+            </dxc:ChartView>
         </Grid>
     </ContentView.Content>
 </ContentView>

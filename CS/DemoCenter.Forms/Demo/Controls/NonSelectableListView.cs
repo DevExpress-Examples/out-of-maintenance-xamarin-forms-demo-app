@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -38,6 +38,9 @@ using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Demo {
     public class NonSelectableListView: ListView {
+
+        public static readonly BindableProperty ScrollsToTopProperty = BindableProperty.Create(nameof(ScrollsToTop), typeof(bool), typeof(NonSelectableListView), defaultValue: true);
+
         public NonSelectableListView() : base(GetDefaultCachingStrategy()) {
         }
         public NonSelectableListView(ListViewCachingStrategy cachingStrategy):base(cachingStrategy) { }
@@ -47,10 +50,30 @@ namespace DemoCenter.Forms.Demo {
                 return ListViewCachingStrategy.RecycleElement;
             return ListViewCachingStrategy.RetainElement;
         }
+
+        public bool ScrollsToTop {
+            get => (bool)GetValue(ScrollsToTopProperty);
+            set => SetValue(ScrollsToTopProperty, value);
+        }
+
     }
 
     public class NonSelectableViewCell : ViewCell {
         public NonSelectableViewCell() {
         }
+    }
+
+    public class BouncelessCollectionView : Xamarin.Forms.CollectionView {
+
+        public static readonly BindableProperty ScrollsToTopProperty = BindableProperty.Create(nameof(ScrollsToTop), typeof(bool), typeof(NonSelectableListView), defaultValue: true);
+
+        public BouncelessCollectionView() : base() {
+        }
+
+        public bool ScrollsToTop {
+            get => (bool)GetValue(ScrollsToTopProperty);
+            set => SetValue(ScrollsToTopProperty, value);
+        }
+
     }
 }

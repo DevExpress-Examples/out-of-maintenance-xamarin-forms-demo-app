@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:local="clr-namespace:DemoCenter.Forms.Views"
                     xmlns:editors="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Core"
                     xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
-                    xmlns:dataGrid="clr-namespace:DevExpress.XamarinForms.DataGrid;assembly=DevExpress.XamarinForms.Grid"
+                    xmlns:dxg="http://schemas.devexpress.com/xamarin/2014/forms/datagrid"
                     x:Class="DemoCenter.Forms.Demo.TabPageResources">
     <Style TargetType="Label">
         <Setter Property="FontFamily">Roboto</Setter>
@@ -15,7 +14,7 @@
         <Setter Property="BackgroundColor"
                 Value="{DynamicResource BackgroundThemeColor}"/>
     </Style>
-    <Style TargetType="dataGrid:CellStyle">
+    <Style TargetType="dxg:CellStyle">
         <Setter Property="FontSize" Value="14"/>
     </Style>
     <local:CallTypeToIconConverter x:Key="callTypeIconConverter"/>
@@ -56,7 +55,6 @@
     </DataTemplate>
     <DataTemplate x:Key="photoTemplate">
         <Frame HasShadow="False"
-               Grid.Column="0"
                BackgroundColor="{DynamicResource AvatarBorderColor}"
                VerticalOptions="Center"
                HorizontalOptions="Center"
@@ -84,7 +82,7 @@
         </Frame>
     </DataTemplate>
     <DataTemplate x:Key="callTypeIconTemplate">
-        <demo:IconView ImageSource="{Binding Value, Converter={StaticResource callTypeIconConverter}}"
+        <demo:IconView Source="{Binding Value, Converter={StaticResource callTypeIconConverter}}"
                        HorizontalOptions="EndAndExpand"
                        VerticalOptions="CenterAndExpand"
                        HeightRequest="20"

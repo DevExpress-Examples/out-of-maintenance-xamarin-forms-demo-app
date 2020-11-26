@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts"
              x:Class="DemoCenter.Forms.Charts.Views.ScatterChartContainer">
     <ContentView.Resources>
-        <charts:SeriesHintOptions x:Key="lineSeriesHintOptions"
+        <dxc:SeriesHintOptions x:Key="lineSeriesHintOptions"
                                   PointTextPattern="{}{A$yyyy}: {V}M"/>
-        <charts:ConstantLineTitle x:Key="emptyConstantLineTitle" Visible="false"/>
+        <dxc:ConstantLineTitle x:Key="emptyConstantLineTitle" Visible="false"/>
     </ContentView.Resources>
     <ContentView.Content>
         <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
@@ -18,63 +18,67 @@
                    FontFamily="Roboto"
                    TextColor="{DynamicResource TextThemeColor}"
                    BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
-            <charts:ChartView Grid.Row="1"
+            <dxc:ChartView Grid.Row="1"
                               x:Name="chart"
                               SelectionMode="Single"
                               SelectionKind="Point"
                               AxisXNavigationMode="ScrollingAndZooming"
                               AxisYNavigationMode="ScrollingAndZooming">
-                <charts:ChartView.Series>
-                    <charts:ScatterLineSeries Data="{Binding ChartModel.SeriesData}"
+                <dxc:ChartView.Series>
+                    <dxc:ScatterLineSeries Data="{Binding ChartModel.SeriesData}"
                                               DisplayName="{Binding ChartModel.Title}"
                                               MarkersVisible="true">
-                        <charts:ScatterLineSeries.HintOptions>
-                            <charts:SeriesHintOptions PointTextPattern="X={A}, Y={V}"/>
-                        </charts:ScatterLineSeries.HintOptions>
-                    </charts:ScatterLineSeries>
-                </charts:ChartView.Series>
-                <charts:ChartView.Hint>
-                    <charts:Hint>
-                        <charts:Hint.Behavior>
-                            <charts:TooltipHintBehavior/>
-                        </charts:Hint.Behavior>
-                    </charts:Hint>
-                </charts:ChartView.Hint>
-                <charts:ChartView.AxisX>
-                    <charts:NumericAxisX GridAlignment="3" x:Name="AxisX">
-                        <charts:NumericAxisX.Style>
-                            <charts:AxisStyle MajorGridlinesVisible="True"
+                        <dxc:ScatterLineSeries.HintOptions>
+                            <dxc:SeriesHintOptions PointTextPattern="X={A}, Y={V}"/>
+                        </dxc:ScatterLineSeries.HintOptions>
+                    </dxc:ScatterLineSeries>
+                </dxc:ChartView.Series>
+                <dxc:ChartView.Hint>
+                    <dxc:Hint>
+                        <dxc:Hint.Behavior>
+                            <dxc:TooltipHintBehavior/>
+                        </dxc:Hint.Behavior>
+                    </dxc:Hint>
+                </dxc:ChartView.Hint>
+                <dxc:ChartView.AxisX>
+                    <dxc:NumericAxisX GridAlignment="3" x:Name="AxisX">
+                        <dxc:NumericAxisX.Style>
+                            <dxc:AxisStyle MajorGridlinesVisible="True"
                                               MinorGridLinesVisible="True"
                                               MajorTickmarksVisible="True"
                                               MinorTickmarksVisible="True"
+                                              InterlacedVisible="True"
+                                              InterlacedColor="#22DDDDDD"
                                               LineColor="#33000000"/>
-                        </charts:NumericAxisX.Style>
-                        <charts:NumericAxisX.DisplayPosition>
-                            <charts:AxisDisplayPositionRelative NumericPosition="0" RelativeAxis="{Binding AxisY, Source={x:Reference chart}}"/>
-                        </charts:NumericAxisX.DisplayPosition>
-                        <charts:NumericAxisX.Label>
-                            <charts:AxisLabel Position="Inside"/>
-                        </charts:NumericAxisX.Label>
-                    </charts:NumericAxisX>
-                </charts:ChartView.AxisX>
-                <charts:ChartView.AxisY>
-                    <charts:NumericAxisY GridAlignment="3" x:Name="AxisY">
-                        <charts:NumericAxisY.Style>
-                            <charts:AxisStyle MajorGridlinesVisible="True"
+                        </dxc:NumericAxisX.Style>
+                        <dxc:NumericAxisX.DisplayPosition>
+                            <dxc:AxisDisplayPositionRelative NumericPosition="0" RelativeAxis="{Binding AxisY, Source={x:Reference chart}}"/>
+                        </dxc:NumericAxisX.DisplayPosition>
+                        <dxc:NumericAxisX.Label>
+                            <dxc:AxisLabel Position="Inside"/>
+                        </dxc:NumericAxisX.Label>
+                    </dxc:NumericAxisX>
+                </dxc:ChartView.AxisX>
+                <dxc:ChartView.AxisY>
+                    <dxc:NumericAxisY GridAlignment="3" x:Name="AxisY">
+                        <dxc:NumericAxisY.Style>
+                            <dxc:AxisStyle MajorGridlinesVisible="True"
                                               MinorGridLinesVisible="True"
                                               MajorTickmarksVisible="True"
                                               MinorTickmarksVisible="True"
+                                              InterlacedVisible="True"
+                                              InterlacedColor="#22DDDDDD"
                                               LineColor="#33000000"/>
-                        </charts:NumericAxisY.Style>
-                        <charts:NumericAxisY.DisplayPosition>
-                            <charts:AxisDisplayPositionRelative NumericPosition="0" RelativeAxis="{Binding AxisX, Source={x:Reference chart}}"/>
-                        </charts:NumericAxisY.DisplayPosition>
-                        <charts:NumericAxisY.Label>
-                            <charts:AxisLabel Position="Inside"/>
-                        </charts:NumericAxisY.Label>
-                    </charts:NumericAxisY>
-                </charts:ChartView.AxisY>
-            </charts:ChartView>
+                        </dxc:NumericAxisY.Style>
+                        <dxc:NumericAxisY.DisplayPosition>
+                            <dxc:AxisDisplayPositionRelative NumericPosition="0" RelativeAxis="{Binding AxisX, Source={x:Reference chart}}"/>
+                        </dxc:NumericAxisY.DisplayPosition>
+                        <dxc:NumericAxisY.Label>
+                            <dxc:AxisLabel Position="Inside"/>
+                        </dxc:NumericAxisY.Label>
+                    </dxc:NumericAxisY>
+                </dxc:ChartView.AxisY>
+            </dxc:ChartView>
         </Grid>
     </ContentView.Content>
 </ContentView>

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -41,6 +41,7 @@ namespace DemoCenter.Forms.Views {
     public partial class RealTimeData : ContentPage {
         RealTimeDataViewModel viewModel;
         public RealTimeData() {
+            DevExpress.XamarinForms.Charts.Initializer.Init();
             InitializeComponent();
             BindingContext = viewModel = new RealTimeDataViewModel(chart);
         }

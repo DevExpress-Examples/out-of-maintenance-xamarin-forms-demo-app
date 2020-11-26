@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -34,6 +34,7 @@
 {                                                                   }
 {*******************************************************************}
 */
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using DemoCenter.Forms.ViewModels;
@@ -68,6 +69,18 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
         public bool EmailHasError {
             get { return emailHasError; }
             set { SetProperty(ref emailHasError, value); }
+        }
+
+        DateTime? birthDate;
+        public DateTime? BirthDate {
+            get { return birthDate; }
+            set { SetProperty(ref birthDate, value); }
+        }
+
+        bool birthDateHasError = false;
+        public bool BirthDateHasError {
+            get { return birthDateHasError; }
+            set { SetProperty(ref birthDateHasError, value); }
         }
 
         string phone;
@@ -120,6 +133,7 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
             EmailHasError = string.IsNullOrEmpty(Email);
             LoginHasError = string.IsNullOrEmpty(Login);
             PasswordHasError = !CheckPassword();
+            BirthDateHasError = BirthDate == null;
             PhoneHasError = Phone == null || Phone.Length != 10;
             NotesHasError = Notes.Length > 100;
             return !(NotesHasError || PhoneHasError || EmailHasError || LoginHasError || PasswordHasError);

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -39,6 +39,7 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.Views {
     public partial class SimpleButtonView : ContentPage {
         public SimpleButtonView() {
+            DevExpress.XamarinForms.Editors.Initializer.Init();
             InitializeComponent();
         }
     }

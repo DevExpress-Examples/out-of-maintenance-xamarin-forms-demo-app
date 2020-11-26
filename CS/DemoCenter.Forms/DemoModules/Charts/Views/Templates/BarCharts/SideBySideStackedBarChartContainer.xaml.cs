@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -37,7 +37,8 @@
 namespace DemoCenter.Forms.Charts.Views {
     public partial class SideBySideStackedBarChartContainer : RotationHandleView {
 		public SideBySideStackedBarChartContainer() {
-			InitializeComponent();
+            DevExpress.XamarinForms.Charts.Initializer.Init();
+            InitializeComponent();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -47,7 +47,7 @@ namespace DemoCenter.Forms.ViewModels {
 
         public FinancialChartViewModel() {
             StockPrices = StockData.GetStockPrices();
-            visualRange = new DateTimeRange() { VisualMin = new System.DateTime(2016, 05, 18), VisualMax = new System.DateTime(2016, 08, 7) };
+            visualRange = new DateTimeRange() { VisualMin = new System.DateTime(2020, 04, 7), VisualMax = new System.DateTime(2020, 07, 7) };
         }
     }
 }

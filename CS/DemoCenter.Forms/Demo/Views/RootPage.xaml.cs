@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -48,12 +48,14 @@ namespace DemoCenter.Forms.Views {
 
         public RootPage() {
             InitializeComponent();
-        }
 
+        }
         protected override void OnPropertyChanged([CallerMemberName] string propertyName = null) {
             base.OnPropertyChanged(propertyName);
             if (propertyName == Xamarin.Forms.PlatformConfiguration.iOSSpecific.Page.SafeAreaInsetsProperty.PropertyName)
                 SetInsetsToAboutViewSizes();
+            if (propertyName == nameof(DrawerPage.IsDrawerOpened))
+                ChangeDrawerContentScrollsToTop();
         }
 
         void SetInsetsToAboutViewSizes() {
@@ -67,6 +69,9 @@ namespace DemoCenter.Forms.Views {
                 insets.Top > 0 ? iOSSpecificAboutTopPadding : originalAboutViewPaddings.Top,
                 originalAboutViewPaddings.Right,
                 originalAboutViewPaddings.Bottom);
+        }
+        void ChangeDrawerContentScrollsToTop() {
+            aboutView.OpenedByParent = this.IsDrawerOpened;
         }
     }
 }

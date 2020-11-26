@@ -3,7 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
-    x:Class="DemoCenter.Forms.Demo.Views.AboutView"
+    x:Class="DemoCenter.Forms.Views.AboutView"
     x:Name="scrollView"
     Padding="0"
     Margin="0"
@@ -13,14 +13,14 @@
     VerticalScrollBarVisibility="Never">
         <StackLayout BackgroundColor="{DynamicResource BackgroundThemeColor}">
             <ContentView                
-                HorizontalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand"
                 HeightRequest="237"
                 WidthRequest="340">
                 <Grid>
                     <demo:IconView
-                        VerticalOptions="FillAndExpand" 
-                        HorizontalOptions="FillAndExpand" 
-                        ImageSource="AboutHeader.svg"/>
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        Source="about_header"/>
                     <Label
                         VerticalOptions="End"
                         HorizontalOptions="End"
@@ -77,9 +77,8 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                         <demo:IconView
-                            x:Name="productIcon"
-                        ImageSource="ProductPage.svg"
-                        Grid.Column="0"/>
+                            Source="product_page"
+                            Grid.Column="0"/>
                         <Label
                             x:Name="productLabel"
                             Text="Product Page"
@@ -96,7 +95,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <demo:IconView
-                            ImageSource="Documentation.svg"
+                            Source="documentation"
                             Grid.Column="0"/>
                         <Label
                             Text="Documentation"
@@ -113,7 +112,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <demo:IconView
-                            ImageSource="SourceCode.svg"
+                            Source="source_code"
                             Grid.Column="0"/>
                         <Label
                             Text="Source Code"

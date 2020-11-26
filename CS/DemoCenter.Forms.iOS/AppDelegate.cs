@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -35,7 +35,6 @@
 {*******************************************************************}
 */
 using System;
-using DemoCenter.Forms;
 using Foundation;
 using UIKit;
 using UserNotifications;
@@ -45,11 +44,12 @@ namespace DemoCenter.Forms.iOS {
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate {
         public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions) {
             global::Xamarin.Forms.Forms.Init();
-            DevExpress.XamarinForms.Charts.Chart.Init();
-            DevExpress.XamarinForms.Navigation.Navigation.Init();
-            DevExpress.XamarinForms.DataGrid.DataGrid.Init();
-            DevExpress.XamarinForms.Scheduler.Scheduler.Init();
-            DevExpress.XamarinForms.Editors.Editors.Init();
+            DevExpress.XamarinForms.Charts.iOS.Initializer.Init();
+            DevExpress.XamarinForms.DataGrid.iOS.Initializer.Init();
+            DevExpress.XamarinForms.Editors.iOS.Initializer.Init();
+            DevExpress.XamarinForms.CollectionView.iOS.Initializer.Init();
+            DevExpress.XamarinForms.Navigation.iOS.Initializer.Init();
+            DevExpress.XamarinForms.Scheduler.iOS.Initializer.Init();
 
             App formsApplication = new App();
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
@@ -73,7 +73,7 @@ namespace DemoCenter.Forms.iOS {
             string recurrenceId = identifier.Split(':')[0];
             int recurrenceIndex = Int32.Parse(identifier.Split(':')[1]);
             Guid reminderGuid = Guid.Parse(recurrenceId);
-            app.ProcessNotificationIfNeed(reminderGuid, recurrenceIndex);
+            this.app.ProcessNotificationIfNeed(reminderGuid, recurrenceIndex);
             completionHandler();
         }
         public override void WillPresentNotification(UNUserNotificationCenter center, UNNotification notification, Action<UNNotificationPresentationOptions> completionHandler) {

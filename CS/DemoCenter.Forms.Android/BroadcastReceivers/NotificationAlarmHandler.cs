@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -59,20 +59,20 @@ namespace DemoCenter.Forms.Droid {
         static string CurrentPackageName => Application.Context.PackageName;
         static string ReminderChannelId => $"{CurrentPackageName}.reminders";
 
-        NotificationChannel notificationChannel;
+        readonly NotificationChannel notificationChannel;
         NotificationManager NotificationManager => (NotificationManager)Application.Context.GetSystemService(Context.NotificationService);
 
         public NotificationAlarmHandler() {
             if (Build.VERSION.SdkInt >= BuildVersionCodes.O) {
-                notificationChannel = new NotificationChannel(ReminderChannelId, "Reminders", NotificationImportance.High);
-                notificationChannel.EnableVibration(true);
-                notificationChannel.EnableLights(true);
-                notificationChannel.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm), new AudioAttributes.Builder()
+                this.notificationChannel = new NotificationChannel(ReminderChannelId, "Reminders", NotificationImportance.High);
+                this.notificationChannel.EnableVibration(true);
+                this.notificationChannel.EnableLights(true);
+                this.notificationChannel.SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Alarm), new AudioAttributes.Builder()
                     .SetContentType(AudioContentType.Sonification)
                     .SetUsage(AudioUsageKind.Alarm)
                     .Build());
-                notificationChannel.Importance = NotificationImportance.High;
-                NotificationManager.CreateNotificationChannel(notificationChannel);
+                this.notificationChannel.Importance = NotificationImportance.High;
+                NotificationManager.CreateNotificationChannel(this.notificationChannel);
             }
         }
 
@@ -83,7 +83,7 @@ namespace DemoCenter.Forms.Droid {
 
             int notificationId = reminderId.GetHashCode();
 
-            Intent resultIntent = GetLauncherActivity().PutExtras(intent.Extras).SetFlags(ActivityFlags.SingleTop /*| ActivityFlags.ClearTop*/);
+            Intent resultIntent = GetLauncherActivity().PutExtras(intent.Extras).SetFlags(ActivityFlags.SingleTop );
             PendingIntent resultPendingIntent = PendingIntent.GetActivity(context, notificationId, resultIntent, PendingIntentFlags.UpdateCurrent);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(Application.Context, ReminderChannelId);

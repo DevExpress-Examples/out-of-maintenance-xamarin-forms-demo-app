@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -41,10 +41,10 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
         readonly ObservableCollection<Customer> customers;
 
         public ObservableCollection<Order> Orders { get; private set; }
-        public ObservableCollection<Customer> Customers { get { return customers; } }
+        public ObservableCollection<Customer> Customers { get { return this.customers; } }
 
         public OrdersRepository() {
-            this.Orders = new ObservableCollection<Order>();
+            Orders = new ObservableCollection<Order>();
             this.customers = new ObservableCollection<Customer>();
         }
 

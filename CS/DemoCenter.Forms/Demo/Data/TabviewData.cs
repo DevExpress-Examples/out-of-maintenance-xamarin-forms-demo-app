@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -48,55 +48,55 @@ namespace DemoCenter.Forms.Data {
         bool CanBeShown();
     }
 
-    public class TabviewData : IDemoData {
-        List<DemoItem> demoItems;
-        INestedTabView nestedTabView;
-        ITabPages tabPages;
+    public class TabViewData : IDemoData {
+        readonly List<DemoItem> demoItems;
+        readonly INestedTabView nestedTabView;
+        readonly ITabPages tabPages;
 
-        public TabviewData() {
-            nestedTabView = DependencyService.Get<INestedTabView>();
-            tabPages = DependencyService.Get<ITabPages>();
+        public TabViewData() {
+            this.nestedTabView = DependencyService.Get<INestedTabView>();
+            this.tabPages = DependencyService.Get<ITabPages>();
 
-            demoItems = new List<DemoItem>() {
+            this.demoItems = new List<DemoItem>() {
                 new DemoItem() {
                     Title = "Header Panel" + Environment.NewLine + "Position",
                     ControlsPageTitle = "Header Panel Position",
                     PageTitle = "Contacts",
                     Description = "This demo illustrates a View that docks its header to different screen edges.",
                     Module = typeof(PhoneListView),
-                    Icon = "TabViewList.HeaderPanelPosition.svg"},
+                    Icon = "tabview_headerpanelposition"},
                 new DemoItem() {
                     Title = "Data" + Environment.NewLine + "Binding",
                     ControlsPageTitle = "Data Binding",
                     PageTitle = "Companies",
                     Description="The Tab View populates its tabs from an item source in this demo.",
                     Module = typeof(CompaniesTabView),
-                    Icon = "TabViewList.DataBinding.svg"}
+                    Icon = "tabview_databinding"}
             };
 
-            if (nestedTabView.CanBeShown())
-                demoItems.Add(new DemoItem() {
+            if (this.nestedTabView.CanBeShown())
+                this.demoItems.Add(new DemoItem() {
                     Title = "Nested" + Environment.NewLine + "Tab Views",
                     ControlsPageTitle = "Nested Tab Views",
                     PageTitle = "Nested Tab Views",
                     Description = "The tab view is moved to another tab view in this demo.",
                     Module = typeof(NestedTabView),
-                    Icon = "TabViewList.NestedTabsViews.svg"
+                    Icon = "tabview_nestedtabsviews"
                 });
 
-            if (tabPages.CanBeShown())
-                demoItems.Add(new DemoItem() {
+            if (this.tabPages.CanBeShown())
+                this.demoItems.Add(new DemoItem() {
                     Title = "Root-Level" + Environment.NewLine + "Tabs",
                     ControlsPageTitle = "Root-Level Tabs",
                     PageTitle = "Tab Pages",
                     Description = "Demonstrates the TabPage’s general features.",
                     Module = typeof(DemoTabPages),
-                    Icon = "TabViewList.TabsWithPages.svg"
+                    Icon = "tabview_tabswithpages"
                 });
 
-            demoItems[demoItems.Count - 1].ShowItemUnderline = false;
+            this.demoItems[this.demoItems.Count - 1].ShowItemUnderline = false;
         }
-        public List<DemoItem> DemoItems => demoItems;
-        public string Title { get { return "Tabs"; } }
+        public List<DemoItem> DemoItems => this.demoItems;
+        public string Title => "Tabs";
     }
 }

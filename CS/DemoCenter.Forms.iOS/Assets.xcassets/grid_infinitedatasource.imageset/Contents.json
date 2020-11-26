@@ -1,0 +1,32 @@
+{
+  "images": [
+    {
+        "filename": "light.InfiniteDataSource.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "dark.InfiniteDataSource.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "idiom": "universal"
+    },
+    {
+      "filename": "light.InfiniteDataSource.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "light"
+        }
+      ],
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

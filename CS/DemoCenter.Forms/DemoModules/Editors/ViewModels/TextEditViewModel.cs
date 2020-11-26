@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -110,7 +110,6 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
         public ICommand ResetToDefaultCommand { get; }
         public ICommand ToggleErrorCommand { get; }
 
-
         public TextEditViewModel() {
             Colors = ColorViewModel.CreateDefaultColors();
 
@@ -129,8 +128,7 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
             ResetToDefault();
         }
 
-
-        public void ResetToDefault() {
+        public virtual void ResetToDefault() {
             SelectedBoxMode = BoxModes[0];
             SelectedCornerMode = CornerModes[0];
             SelectedAccentColor = Colors[5];

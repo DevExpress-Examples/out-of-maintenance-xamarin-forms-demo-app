@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -45,8 +45,8 @@ namespace DemoCenter.Forms.DemoModules.TabView {
         public string Name { get; set; }
         public List<Product> Products { get; set; }
         public bool IsSelected {
-            get => isSelected;
-            set => SetProperty(ref isSelected, value);
+            get => this.isSelected;
+            set => SetProperty(ref this.isSelected, value);
         }
     }
     public class Product: BindableObject {
@@ -56,7 +56,6 @@ namespace DemoCenter.Forms.DemoModules.TabView {
         public static readonly BindableProperty CanAddToWishListProperty =
             BindableProperty.Create(nameof(Product.CanAddToWishList), typeof(bool), typeof(Product),
                 defaultBindingMode: BindingMode.TwoWay);
-
 
         public bool CanAddToCart {
             get => (bool)GetValue(CanAddToCartProperty);
@@ -68,19 +67,18 @@ namespace DemoCenter.Forms.DemoModules.TabView {
         }
 
         string imageName;
-        NestedTabViewModel parentModel;
+        readonly NestedTabViewModel parentModel;
         public string Name { get; set; }
         public string Category { get; set; }
         public string Price { get; set; }
         public string Description { get; set; }
         public ImageSource ImageSource { get; set; }
 
-
-        public bool ToDelete { get { return !CanAddToCart || !CanAddToWishList; } }
+        public bool ToDelete => !CanAddToCart || !CanAddToWishList;
         public string ImageName {
-            get { return imageName; }
+            get => this.imageName;
             set {
-                imageName = value;
+                this.imageName = value;
                 ImageSource = ImageSource.FromResource("DemoCenter.Forms.DemoModules.TabView.Resources.NestedTabViewImages." + value + ".png");
             }
         }

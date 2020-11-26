@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -37,6 +37,7 @@
 namespace DemoCenter.Forms.Charts.Views {
     public partial class PopulationPyramidContainer : RotationHandleView {
         public PopulationPyramidContainer() {
+            DevExpress.XamarinForms.Charts.Initializer.Init();
             InitializeComponent();
         }
     }

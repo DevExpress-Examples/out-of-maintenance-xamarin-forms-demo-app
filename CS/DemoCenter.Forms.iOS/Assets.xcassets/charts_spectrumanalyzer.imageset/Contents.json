@@ -1,0 +1,32 @@
+{
+  "images": [
+    {
+        "filename": "light.SpectrumAnalyzer.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "dark.SpectrumAnalyzer.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "idiom": "universal"
+    },
+    {
+      "filename": "light.SpectrumAnalyzer.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "light"
+        }
+      ],
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

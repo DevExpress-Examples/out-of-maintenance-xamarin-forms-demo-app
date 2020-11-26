@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -46,7 +46,7 @@ using Xamarin.Forms;
 
 [assembly: Dependency(typeof(DemoCenter.Forms.iOS.NotificationCenter))]
 namespace DemoCenter.Forms.iOS {
-    public class NotificationCenter : INotificationCenter {
+    public class NotificationCenter : NSObject, INotificationCenter {
         #region Neasted classes
         public class ReminderIdentifier {
             public Guid Guid { get; private set; }

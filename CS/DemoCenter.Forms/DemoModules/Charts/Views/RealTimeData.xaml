@@ -3,7 +3,7 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
-             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              ios:Page.UseSafeArea="true"
              BackgroundColor="{DynamicResource BackgroundThemeColor}">
@@ -21,45 +21,45 @@
                        FontFamily="Roboto"
                        TextColor="{DynamicResource TextThemeColor}"
                        BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
-                <charts:ChartView Grid.Row="1" x:Name="chart">
-                    <charts:ChartView.Series>
-                        <charts:LineSeries DisplayName="X Axis">
-                            <charts:LineSeries.Data>
-                                <charts:SeriesDataAdapter DataSource="{Binding XAxisData}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Type="Value" Member="Value" />
-                                </charts:SeriesDataAdapter>
-                            </charts:LineSeries.Data>
-                        </charts:LineSeries>
-                        <charts:LineSeries DisplayName="Y Axis">
-                            <charts:LineSeries.Data>
-                                <charts:SeriesDataAdapter DataSource="{Binding YAxisData}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Type="Value" Member="Value" />
-                                </charts:SeriesDataAdapter>
-                            </charts:LineSeries.Data>
-                        </charts:LineSeries>
-                        <charts:LineSeries DisplayName="Z Axis">
-                            <charts:LineSeries.Data>
-                                <charts:SeriesDataAdapter DataSource="{Binding ZAxisData}" ArgumentDataMember="Argument">
-                                    <charts:ValueDataMember Type="Value" Member="Value" />
-                                </charts:SeriesDataAdapter>
-                            </charts:LineSeries.Data>
-                        </charts:LineSeries>
-                    </charts:ChartView.Series>
-                    <charts:ChartView.AxisX>
-                        <charts:DateTimeAxisX Visible="false"
+                <dxc:ChartView Grid.Row="1" x:Name="chart">
+                    <dxc:ChartView.Series>
+                        <dxc:LineSeries DisplayName="X Axis">
+                            <dxc:LineSeries.Data>
+                                <dxc:SeriesDataAdapter DataSource="{Binding XAxisData}" ArgumentDataMember="Argument">
+                                    <dxc:ValueDataMember Type="Value" Member="Value" />
+                                </dxc:SeriesDataAdapter>
+                            </dxc:LineSeries.Data>
+                        </dxc:LineSeries>
+                        <dxc:LineSeries DisplayName="Y Axis">
+                            <dxc:LineSeries.Data>
+                                <dxc:SeriesDataAdapter DataSource="{Binding YAxisData}" ArgumentDataMember="Argument">
+                                    <dxc:ValueDataMember Type="Value" Member="Value" />
+                                </dxc:SeriesDataAdapter>
+                            </dxc:LineSeries.Data>
+                        </dxc:LineSeries>
+                        <dxc:LineSeries DisplayName="Z Axis">
+                            <dxc:LineSeries.Data>
+                                <dxc:SeriesDataAdapter DataSource="{Binding ZAxisData}" ArgumentDataMember="Argument">
+                                    <dxc:ValueDataMember Type="Value" Member="Value" />
+                                </dxc:SeriesDataAdapter>
+                            </dxc:LineSeries.Data>
+                        </dxc:LineSeries>
+                    </dxc:ChartView.Series>
+                    <dxc:ChartView.AxisX>
+                        <dxc:DateTimeAxisX Visible="false"
                                               MeasureUnit="Millisecond">
-                        </charts:DateTimeAxisX>
-                    </charts:ChartView.AxisX>
-                    <charts:ChartView.AxisY>
-                        <charts:NumericAxisY AlwaysShowZeroLevel="false"
+                        </dxc:DateTimeAxisX>
+                    </dxc:ChartView.AxisX>
+                    <dxc:ChartView.AxisY>
+                        <dxc:NumericAxisY AlwaysShowZeroLevel="false"
                                              AutoRangeMode="VisibleValues"/>
-                    </charts:ChartView.AxisY>
-                    <charts:ChartView.Legend>
-                        <charts:Legend HorizontalPosition="Center"
+                    </dxc:ChartView.AxisY>
+                    <dxc:ChartView.Legend>
+                        <dxc:Legend HorizontalPosition="Center"
                                        VerticalPosition="BottomOutside">
-                        </charts:Legend>
-                    </charts:ChartView.Legend>
-                </charts:ChartView>
+                        </dxc:Legend>
+                    </dxc:ChartView.Legend>
+                </dxc:ChartView>
             </Grid>
         </demo:Panel>
     </ContentPage.Content>

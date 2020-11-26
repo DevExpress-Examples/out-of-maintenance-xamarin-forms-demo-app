@@ -14,8 +14,7 @@
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="Center" />
             <demo:IconView HorizontalOptions="Start"
-                           ImageSource="hamburger_menu.svg"
-                           ForegroundColor="{DynamicResource TitleIconColor}"
+                           Source="info"
                            WidthRequest="22"
                            AbsoluteLayout.LayoutBounds="0,12,22,22">
                 <demo:IconView.GestureRecognizers>

@@ -63,34 +63,34 @@
                         <demo:IconView
                             Grid.Row="0"
                             Grid.Column="1"
-                            ImageSource="Demo.Icon.Person.svg" />
+                            Source="demodrawer_person" />
                         <Label Text="{Binding Name}"
                                Grid.Row="0"
                                Grid.Column="2" />
                         <demo:IconView
                             Grid.Row="1"
                             Grid.Column="1"
-                            ImageSource="Demo.Icon.Card.svg" />
+                            Source="demodrawer_card" />
                         <Label Text="{Binding CompanyName}"
                                Grid.Row="1"
                                Grid.Column="2" />
                         <demo:IconView
                             Grid.Row="2"
                             Grid.Column="1"
-                            ImageSource="Demo.Icon.Portfolio.svg" />
+                            Source="demodrawer_portfolio" />
                         <Label Text="{Binding Position}"
                                Grid.Row="2"
                                Grid.Column="2" />
                         <demo:IconView
                             Grid.Row="3"
                             Grid.Column="1"
-                            ImageSource="Demo.Icon.Phone.svg" />
+                            Source="demotabview_phone" />
                         <Label Text="{Binding Phone}"
                                Grid.Row="3"
                                Grid.Column="2" />
                         <demo:IconView Grid.Column="1"
                                        Grid.Row="4"
-                                       ImageSource="Demo.Icon.Location.svg" />
+                                       Source="demotabview_location" />
                         <Label Text="{Binding Address}"
                                Grid.Row="4"
                                Grid.Column="2" />

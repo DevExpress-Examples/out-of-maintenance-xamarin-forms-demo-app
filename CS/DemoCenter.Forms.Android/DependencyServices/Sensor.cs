@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -43,39 +43,39 @@ using DemoCenter.Forms.Droid;
 [assembly: Xamarin.Forms.Dependency(typeof(SensorImplementation))]
 namespace DemoCenter.Forms.Droid {
     public class SensorImplementation : Java.Lang.Object, ISensor, ISensorEventListener {
-        SensorManager sensorManager;
-        Sensor accelerometerSensor;
+        readonly SensorManager sensorManager;
+        readonly Sensor accelerometerSensor;
         double xValue = 0;
         double yValue = 0;
         double zValue = 0;
         bool isData = false;
 
         public SensorImplementation() {
-            sensorManager = (SensorManager)Android.App.Application.Context.GetSystemService(Context.SensorService);
-            accelerometerSensor = sensorManager.GetDefaultSensor(SensorType.Accelerometer);
+            this.sensorManager = (SensorManager)Android.App.Application.Context.GetSystemService(Context.SensorService);
+            this.accelerometerSensor = this.sensorManager.GetDefaultSensor(SensorType.Accelerometer);
         }
 
         public void Start() {
-            sensorManager.RegisterListener(this, accelerometerSensor, SensorDelay.Game);
-            isData = false;
+            this.sensorManager.RegisterListener(this, this.accelerometerSensor, SensorDelay.Game);
+            this.isData = false;
         }
         public void Stop() {
-            sensorManager.UnregisterListener(this);
-            isData = false;
+            this.sensorManager.UnregisterListener(this);
+            this.isData = false;
         }
 
-        public double GetXValue() => xValue;
-        public double GetYValue() => yValue;
-        public double GetZValue() => zValue;
-        public bool IsData => isData;
+        public double GetXValue() => this.xValue;
+        public double GetYValue() => this.yValue;
+        public double GetZValue() => this.zValue;
+        public bool IsData => this.isData;
 
         public void OnAccuracyChanged(Sensor sensor, [GeneratedEnum] SensorStatus accuracy) { }
         public void OnSensorChanged(SensorEvent e) {
             if (e.Sensor.Type == SensorType.Accelerometer) {
-                xValue = e.Values[0];
-                yValue = e.Values[1];
-                zValue = e.Values[2];
-                isData = true;
+                this.xValue = e.Values[0];
+                this.yValue = e.Values[1];
+                this.zValue = e.Values[2];
+                this.isData = true;
             }
         }
     }

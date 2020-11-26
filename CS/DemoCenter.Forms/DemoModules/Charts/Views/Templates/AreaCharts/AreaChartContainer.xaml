@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts"
              x:Class="DemoCenter.Forms.Charts.Views.AreaChartContainer">
     <ContentView.Resources>
-        <charts:SeriesHintOptions x:Key="areaSeriesHintOptions"
+        <dxc:SeriesHintOptions x:Key="areaSeriesHintOptions"
                                   PointTextPattern="{}{S}&#x0a;{A$yyyy}: ${V}K"/>
-        <charts:MarkerSeriesLabel x:Key="areaSeriesLabel"
+        <dxc:MarkerSeriesLabel x:Key="areaSeriesLabel"
                                   TextPattern="${V$#.#}M"/>
     </ContentView.Resources>
     <ContentView.Content>
@@ -20,58 +20,58 @@
                 FontFamily="Roboto"
                 TextColor="{DynamicResource TextThemeColor}"
                 BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
-            <charts:ChartView Grid.Row="1"
+            <dxc:ChartView Grid.Row="1"
                               SelectionMode="Single"
                               SelectionKind="Series">
-                <charts:ChartView.Series>
-                    <charts:AreaSeries DisplayName="{Binding ChartModel.DevAVNorth.Name}"
+                <dxc:ChartView.Series>
+                    <dxc:AreaSeries DisplayName="{Binding ChartModel.DevAVNorth.Name}"
                                        HintOptions="{StaticResource areaSeriesHintOptions}"
                                        Label="{StaticResource areaSeriesLabel}"
                                        MarkersVisible="true">
-                        <charts:AreaSeries.Data>
-                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVNorth.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value" />
-                            </charts:SeriesDataAdapter>
-                        </charts:AreaSeries.Data>
-                    </charts:AreaSeries>
-                    <charts:AreaSeries DisplayName="{Binding ChartModel.DevAVSouth.Name}"
+                        <dxc:AreaSeries.Data>
+                            <dxc:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVNorth.DataSet}" ArgumentDataMember="Argument">
+                                <dxc:ValueDataMember Type="Value" Member="Value" />
+                            </dxc:SeriesDataAdapter>
+                        </dxc:AreaSeries.Data>
+                    </dxc:AreaSeries>
+                    <dxc:AreaSeries DisplayName="{Binding ChartModel.DevAVSouth.Name}"
                                        HintOptions="{StaticResource areaSeriesHintOptions}"
                                        Label="{StaticResource areaSeriesLabel}"
                                        MarkersVisible="true">
-                        <charts:AreaSeries.Data>
-                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVSouth.DataSet}" ArgumentDataMember="Argument">
-                                <charts:ValueDataMember Type="Value" Member="Value" />
-                            </charts:SeriesDataAdapter>
-                        </charts:AreaSeries.Data>
-                    </charts:AreaSeries>
-                </charts:ChartView.Series>
-                <charts:ChartView.Hint>
-                    <charts:Hint/>
-                </charts:ChartView.Hint>
-                <charts:ChartView.Legend>
-                    <charts:Legend HorizontalPosition="Center"
+                        <dxc:AreaSeries.Data>
+                            <dxc:SeriesDataAdapter DataSource="{Binding ChartModel.DevAVSouth.DataSet}" ArgumentDataMember="Argument">
+                                <dxc:ValueDataMember Type="Value" Member="Value" />
+                            </dxc:SeriesDataAdapter>
+                        </dxc:AreaSeries.Data>
+                    </dxc:AreaSeries>
+                </dxc:ChartView.Series>
+                <dxc:ChartView.Hint>
+                    <dxc:Hint/>
+                </dxc:ChartView.Hint>
+                <dxc:ChartView.Legend>
+                    <dxc:Legend HorizontalPosition="Center"
                                    VerticalPosition="BottomOutside"
                                    Orientation="LeftToRight"/>
-                </charts:ChartView.Legend>
-                <charts:ChartView.AxisX>
-                    <charts:DateTimeAxisX MeasureUnit="Year">
-                        <charts:DateTimeAxisX.Label>
-                            <charts:AxisLabel TextFormat="yyyy"/>
-                        </charts:DateTimeAxisX.Label>
-                    </charts:DateTimeAxisX>
-                </charts:ChartView.AxisX>
-                <charts:ChartView.AxisY>
-                    <charts:NumericAxisY AlwaysShowZeroLevel="false">
-                        <charts:NumericAxisY.Title>
-                            <charts:AxisTitle Text="Thousands US$"
+                </dxc:ChartView.Legend>
+                <dxc:ChartView.AxisX>
+                    <dxc:DateTimeAxisX MeasureUnit="Year">
+                        <dxc:DateTimeAxisX.Label>
+                            <dxc:AxisLabel TextFormat="yyyy"/>
+                        </dxc:DateTimeAxisX.Label>
+                    </dxc:DateTimeAxisX>
+                </dxc:ChartView.AxisX>
+                <dxc:ChartView.AxisY>
+                    <dxc:NumericAxisY AlwaysShowZeroLevel="false">
+                        <dxc:NumericAxisY.Title>
+                            <dxc:AxisTitle Text="Thousands US$"
                                               Alignment="Outside"/>
-                        </charts:NumericAxisY.Title>
-                        <charts:NumericAxisY.Label>
-                            <charts:AxisLabel TextFormat="$#K"/>
-                        </charts:NumericAxisY.Label>
-                    </charts:NumericAxisY>
-                </charts:ChartView.AxisY>
-            </charts:ChartView>
+                        </dxc:NumericAxisY.Title>
+                        <dxc:NumericAxisY.Label>
+                            <dxc:AxisLabel TextFormat="$#K"/>
+                        </dxc:NumericAxisY.Label>
+                    </dxc:NumericAxisY>
+                </dxc:ChartView.AxisY>
+            </dxc:ChartView>
         </Grid>
     </ContentView.Content>
 </ContentView>

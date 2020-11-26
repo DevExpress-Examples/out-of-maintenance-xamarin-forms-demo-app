@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -49,10 +49,9 @@ namespace DemoCenter.Forms.Droid {
             if (Android.OS.Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop)
                 return;
             try {
-                var control = Control as Android.Views.View;
-                if(control == null)
+                if (!(Control is Android.Views.View control))
                     control = Container as Android.Views.View;
-                var effect = (ShadowEffect)Element.Effects.FirstOrDefault(e => e is ShadowEffect);
+                ShadowEffect effect = (ShadowEffect)Element.Effects.FirstOrDefault(e => e is ShadowEffect);
                 if (effect != null && control != null) {
                     float elevation = effect.Elevation;
                     control.Elevation = elevation;

@@ -3,7 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
-    xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
+    xmlns:dxe="http://schemas.devexpress.com/xamarin/2014/forms/editors"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:viewModel="clr-namespace:DemoCenter.Forms.DemoModules.Editors.ViewModels"
     xmlns:converters="clr-namespace:DemoCenter.Forms.DemoModules.Editors.Converters"
@@ -42,7 +42,7 @@
                 <BoxView Grid.Row="1" Style="{StaticResource SeparatorStyle}"/>
             </Grid>
             <ScrollView>
-                <StackLayout Spacing="0" Padding="16,0">
+                <StackLayout Spacing="0" Padding="0">
                     <StackLayout Style="{StaticResource LayoutItemContainerStyle}">
                         <StackLayout Style="{StaticResource SwitchItemContainerStyle}">
                             <Label Text="Enable Filter" Style="{StaticResource TextStyle}"/>
@@ -60,7 +60,7 @@
                         <dxe:ComboBoxEdit Style="{StaticResource ComboBoxStyleBase}"
                             SelectedItem="{Binding SelectedBoxMode}"
                             StartIcon="{Binding SelectedBoxMode, Converter={converters:BoxModeToImageSourceConverter Outlined='boxmode_outlined', Filled='boxmode_filled'}}"
-                            IconColor="{StaticResource IconForegroundColor}"
+                            StartIconColor="{StaticResource IconForegroundColor}"
                             ItemsSource="{Binding BoxModes}"
                             ItemTemplate="{StaticResource BoxModeComboBoxItemTemplate}">
                         </dxe:ComboBoxEdit>
@@ -72,7 +72,7 @@
                         <dxe:ComboBoxEdit Style="{StaticResource ComboBoxStyleBase}"
                             SelectedItem="{Binding SelectedCornerMode}"
                             StartIcon="{Binding SelectedCornerMode, Converter={converters:CornerModeToImageSourceConverter Cut='cornermode_cut', Round='cornermode_round'}}"
-                            IconColor="{StaticResource IconForegroundColor}"
+                            StartIconColor="{StaticResource IconForegroundColor}"
                             ItemsSource="{Binding CornerModes}"
                             ItemTemplate="{StaticResource CornerModeComboBoxItemTemplate}">
                         </dxe:ComboBoxEdit>
@@ -80,38 +80,37 @@
                     <BoxView Style="{StaticResource SeparatorStyle}"/>
 
                     <StackLayout Style="{StaticResource LayoutItemContainerStyle}">
-                        <Label Text="Accent Color" Style="{StaticResource TextStyle}"/>
-                        <dxe:ComboBoxEdit 
-                                      IconColor="{Binding SelectedAccentColor.Color}"
-                                      SelectedItem="{Binding SelectedAccentColor}"
-                                      Style="{StaticResource ColorComboBoxStyle}"/>
-                    </StackLayout>
-                    <BoxView Style="{StaticResource SeparatorStyle}"/>
-
-                    <StackLayout Style="{StaticResource LayoutItemContainerStyle}">
                         <Label Text="Corner Radius" Style="{StaticResource TextStyle}"/>
                         <Grid ColumnSpacing="0" RowSpacing="0">
                             <StackLayout Style="{StaticResource SliderItemContainerStyle}">
-                                <demo:IconView ImageSource="topLeftCornerRadius.svg" Style="{StaticResource CornerRadiusIconStyle}"/>
+                                <demo:IconView Source="topleftcornerradius" Style="{StaticResource CornerRadiusIconStyle}"/>
                                 <Slider Value="{Binding TopLeftCornerRadius}" Style="{StaticResource SliderStyle}"/>
                             </StackLayout>
 
                             <StackLayout Style="{StaticResource SliderItemContainerStyle}" Grid.Column="1">
-                                <demo:IconView ImageSource="topRightCornerRadius.svg" Style="{StaticResource CornerRadiusIconStyle}"/>
+                                <demo:IconView Source="toprightcornerradius" Style="{StaticResource CornerRadiusIconStyle}"/>
                                 <Slider Value="{Binding TopRightCornerRadius}" Style="{StaticResource SliderStyle}"/>
                             </StackLayout>
 
                             <StackLayout Style="{StaticResource SliderItemContainerStyle}" Grid.Row="1">
-                                <demo:IconView ImageSource="bottomLeftCornerRadius.svg" Style="{StaticResource CornerRadiusIconStyle}"/>
+                                <demo:IconView Source="bottomleftcornerradius" Style="{StaticResource CornerRadiusIconStyle}"/>
                                 <Slider Value="{Binding BottomLeftCornerRadius}" Style="{StaticResource SliderStyle}" IsEnabled="{Binding CanSetBottomCorners}"/>
                             </StackLayout>
 
                             <StackLayout Style="{StaticResource SliderItemContainerStyle}" Grid.Column="1" Grid.Row="1">
-                                <demo:IconView ImageSource="bottomRightCornerRadius.svg" Style="{StaticResource CornerRadiusIconStyle}"/>
+                                <demo:IconView Source="bottomrightcornerradius" Style="{StaticResource CornerRadiusIconStyle}"/>
                                 <Slider Value="{Binding BottomRightCornerRadius}" Style="{StaticResource SliderStyle}" IsEnabled="{Binding CanSetBottomCorners}"/>
                             </StackLayout>
-
                         </Grid>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource SeparatorStyle}"/>
+
+                    <StackLayout Style="{StaticResource LayoutItemContainerStyle}">
+                        <Label Text="Accent Color" Style="{StaticResource TextStyle}"/>
+                        <dxe:ComboBoxEdit 
+                                      StartIconColor="{Binding SelectedAccentColor.Color}"
+                                      SelectedItem="{Binding SelectedAccentColor}"
+                                      Style="{StaticResource ColorComboBoxStyle}"/>
                     </StackLayout>
                     <BoxView Style="{StaticResource SeparatorStyle}"/>
 
@@ -121,8 +120,9 @@
                             <Switch IsToggled="{Binding ShowHelpText}" Style="{DynamicResource SwitchStyle}"/>
                         </StackLayout>
                     </StackLayout>
+                    <BoxView Style="{StaticResource SeparatorStyle}"/>
 
-                    <StackLayout Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
+                    <StackLayout Orientation="Horizontal" Spacing="8" Margin="16">
                         <dxe:SimpleButton Text="Toggle Error"
                                           Command="{Binding ToggleErrorCommand}"
                                           HorizontalOptions="FillAndExpand"/>

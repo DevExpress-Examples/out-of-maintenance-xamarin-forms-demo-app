@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -39,7 +39,7 @@ using System.Collections.Generic;
 
 namespace DemoCenter.Forms.Data {
     public class RangeAreaData {
-        readonly List<List<RangeDateTimeData>> data = new List<List<RangeDateTimeData>> {
+        public List<List<RangeDateTimeData>> SeriesData { get; } = new List<List<RangeDateTimeData>> {
             new List<RangeDateTimeData> {
                 new RangeDateTimeData(new DateTime(2019, 1, 1), 9, -2),
                 new RangeDateTimeData(new DateTime(2019, 2, 1), 11, -1),
@@ -69,7 +69,5 @@ namespace DemoCenter.Forms.Data {
                 new RangeDateTimeData(new DateTime(2019, 12, 1), 18, 7),
             }
         };
-
-        public List<List<RangeDateTimeData>> SeriesData => data;
     }
 }

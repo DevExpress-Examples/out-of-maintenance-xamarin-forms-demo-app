@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -39,6 +39,7 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.Charts.Views {
     public partial class PointChartContainer : ContentView {
 		public PointChartContainer() {
+			DevExpress.XamarinForms.Charts.Initializer.Init();
 			InitializeComponent();
 		}
 	}

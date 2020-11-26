@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -55,9 +55,9 @@ namespace DemoCenter.Forms.Data {
     public class StockData {
         public static StockPrices GetStockPrices() {
             StockPrices stockPrices;
-            var assembly = typeof(StockData).Assembly;
+            System.Reflection.Assembly assembly = typeof(StockData).Assembly;
             using(Stream stream = assembly.GetManifestResourceStream("Resources.GoogleStock.xml")) {
-                var serializer = new XmlSerializer(typeof(StockPrices));
+                XmlSerializer serializer = new XmlSerializer(typeof(StockPrices));
                 stockPrices = (StockPrices) serializer.Deserialize(stream);
             }
             return stockPrices;

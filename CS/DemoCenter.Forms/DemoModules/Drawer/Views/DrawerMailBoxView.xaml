@@ -3,7 +3,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DemoCenter.Forms.Views.DrawerMailBoxView"
-             xmlns:dxnav="clr-namespace:DevExpress.XamarinForms.Navigation;assembly=DevExpress.XamarinForms.Navigation"
+             xmlns:dxn="http://schemas.devexpress.com/xamarin/2014/forms/navigation"
              xmlns:demo="clr-namespace:DemoCenter.Forms.Demo;assembly=DemoCenter.Forms"
              xmlns:effects="clr-namespace:DemoCenter.Forms.Effects;assembly=DemoCenter.Forms"
              xmlns:iOS="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
@@ -47,10 +47,10 @@
                         </Grid.ColumnDefinitions>
                         <demo:IconView Grid.Column="0"
                                        HorizontalOptions="Center"
-                                       Margin="0,10,0,0"
+                                       Margin="0"
                                        ForegroundColor="{Binding IsSelected, Converter={StaticResource selectedColorConverter}}"
                                        BackgroundColor="Transparent"
-                                       ImageSource="{Binding Icon}"/>
+                                       Source="{Binding Icon}"/>
                         <Label Grid.Column="1"
                                Text="{Binding FolderName}"
                                HorizontalOptions="Start"
@@ -107,11 +107,13 @@
                                    BackgroundColor="{DynamicResource BackgroundThemeColor}" />
                             <Label Text="{Binding Subject}"
                                    MaxLines="1"
+                                   LineBreakMode="TailTruncation"
                                    FontAttributes="None"
                                    TextColor="{DynamicResource NavigationTextColor}"
                                    BackgroundColor="{DynamicResource BackgroundThemeColor}" />
                             <Label Text="{Binding Body}"
                                    MaxLines="1"
+                                   LineBreakMode="TailTruncation"
                                    FontAttributes="None"
                                    TextColor="{DynamicResource DrawerGrayFontColor}"
                                    BackgroundColor="{DynamicResource BackgroundThemeColor}" />
@@ -127,21 +129,22 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <dxnav:DrawerView DrawerHeaderHeight="170"
+        <dxn:DrawerView DrawerHeaderHeight="170"
                           DrawerContentHeight="*"
                           DrawerWidth="303"
                           ScrimColor="{DynamicResource DrawerScrimColor}"
                           x:Name="pageDrawer"
                           IsDrawerShadowVisible="false"
                           IsDrawerOpened="true">
-            <dxnav:DrawerView.DrawerHeaderContent>
+            <dxn:DrawerView.DrawerHeaderContent>
                 <AbsoluteLayout>
                     <demo:IconView AbsoluteLayout.LayoutBounds="0,0,1,1"
                                    AbsoluteLayout.LayoutFlags="All"
                                    HorizontalOptions="FillAndExpand"
                                    WidthRequest="303"
                                    HeightRequest="170"
-                                   ImageSource="{Binding BackgroundImage}"/>
+                                   Aspect="Fill"
+                                   Source="drawerbackground"/>
                     <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
                           AbsoluteLayout.LayoutFlags="All"
                           Padding="25,15,0,20"
@@ -179,8 +182,8 @@
                                FontAttributes="None" />
                     </Grid>
                 </AbsoluteLayout>
-            </dxnav:DrawerView.DrawerHeaderContent>
-            <dxnav:DrawerView.DrawerContent>
+            </dxn:DrawerView.DrawerHeaderContent>
+            <dxn:DrawerView.DrawerContent>
                 <ListView BackgroundColor="Transparent"
                           x:Name="mailBoxFolders"
                           ItemsSource="{Binding Folders}"
@@ -188,8 +191,8 @@
                           ItemTemplate="{StaticResource folderTemplate}"
                           SeparatorVisibility="None"
                           Margin="25,0" />
-            </dxnav:DrawerView.DrawerContent>
-            <dxnav:DrawerView.MainContent>
+            </dxn:DrawerView.DrawerContent>
+            <dxn:DrawerView.MainContent>
                 <StackLayout Orientation="Vertical" IsClippedToBounds="True">
                     <StackLayout BackgroundColor="{DynamicResource DrawerTopPanelBackgroundColor}"
                                  Spacing="0">
@@ -200,10 +203,9 @@
                                      BackgroundColor="Transparent"
                                      VerticalOptions="CenterAndExpand"
                                      HorizontalOptions="FillAndExpand">
-                            <demo:IconView Margin="0,17,0,0"
+                            <demo:IconView Margin="0,12,0,10"
                                            HorizontalOptions="Start"
-                                           ImageSource="hamburger_menu.svg"
-                                           ForegroundColor="{DynamicResource TitleIconColor}"
+                                           Source="info"
                                            WidthRequest="22">
                                 <demo:IconView.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="OnMenuClicked" />
@@ -259,7 +261,7 @@
                         </demo:NonSelectableListView>
                     </Grid>
                 </StackLayout>
-            </dxnav:DrawerView.MainContent>
-        </dxnav:DrawerView>
+            </dxn:DrawerView.MainContent>
+        </dxn:DrawerView>
     </ContentPage.Content>
 </ContentPage>

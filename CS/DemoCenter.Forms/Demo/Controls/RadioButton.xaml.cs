@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -62,7 +62,6 @@ namespace DemoCenter.Forms.Demo {
             set => SetValue(IsSelectedProperty, value);
         }
 
-
         public static readonly BindableProperty LabelTextProperty =
             BindableProperty.Create(nameof(RadioButton.LabelText), typeof(string), typeof(RadioButton));
 
@@ -78,7 +77,6 @@ namespace DemoCenter.Forms.Demo {
             get => (string) GetValue(BackgroundImageProperty);
             private set => SetValue(BackgroundImageProperty, value);
         }
-
 
         public RadioButton() {
             OnSelectedChanged(this.IsSelected);
@@ -96,7 +94,7 @@ namespace DemoCenter.Forms.Demo {
         }
 
         private void OnSelectedChanged(bool newValue) {
-            this.BackgroundImage = IsSelected ? "Radio.Checked.Background.svg" : "Radio.Background.svg";
+            this.BackgroundImage = IsSelected ? "radiobutton_checked" : "radiobutton";
         }
     }
 }

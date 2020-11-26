@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -34,11 +34,17 @@
 {                                                                   }
 {*******************************************************************}
 */
+using DevExpress.Logify.Xamarin;
 using UIKit;
 
 namespace DemoCenter.Forms.iOS {
     public class Application {
         static void Main(string[] args) {
+#if DEBUG
+            LogifyAlert client = LogifyAlert.Instance;
+            client.ApiKey = "72A26488E1DD49B68CB4A6E8B9B8A128";
+            client.StartExceptionsHandling();
+#endif
             UIApplication.Main(args, null, "AppDelegate");
         }
     }

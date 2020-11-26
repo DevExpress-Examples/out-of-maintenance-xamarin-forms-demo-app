@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -35,8 +35,12 @@
 {*******************************************************************}
 */
 using System.Collections.Generic;
+using System.ComponentModel;
 using Android.App;
 using Android.Content;
+using Android.Graphics;
+using Android.Graphics.Drawables;
+using Android.OS;
 using Android.Support.V7.Widget;
 using Android.Views;
 using DemoCenter.Forms.Demo;
@@ -44,31 +48,25 @@ using DemoCenter.Forms.Droid;
 using DemoCenter.Forms.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using Color = Xamarin.Forms.Color;
 
 [assembly: ExportRenderer(typeof(ContentPage), typeof(ExtContentPageRenderer))]
 [assembly: ExportRenderer(typeof(NonSelectableListView), typeof(NonSelectableListViewRenderer))]
-[assembly: ExportRenderer(typeof(Label), typeof(ExtLabelRenderer))]
-[assembly: ExportRenderer(typeof(Button), typeof(ExtButtonRenderer))]
+[assembly: ExportRenderer(typeof(DXDCLabel), typeof(DXDCLabelRenderer))]
+[assembly: ExportRenderer(typeof(IconView), typeof(IconViewRenderer))]
 
 namespace DemoCenter.Forms.Droid {
-    class ExtLabelRenderer : LabelRenderer {
-        public ExtLabelRenderer(Context context) : base(context) { }
+    class DXDCLabelRenderer : LabelRenderer {
+        public DXDCLabelRenderer(Context context) : base(context) { }
         protected override void OnElementChanged(ElementChangedEventArgs<Label> e) {
             base.OnElementChanged(e);
             if (e.NewElement == null) return;
             Control.SetTextSize(Android.Util.ComplexUnitType.Dip, (float)e.NewElement.FontSize);
-        }
-    }
-    class ExtButtonRenderer : ButtonRenderer {
-        public ExtButtonRenderer(Context context) : base(context) { }
-        protected override void OnElementChanged(ElementChangedEventArgs<Button> e) {
-            base.OnElementChanged(e);
-            if (e.NewElement == null) return;
-            Control.SetTextSize(Android.Util.ComplexUnitType.Dip, (float)e.NewElement.FontSize);
+            Control.ScrollBarSize = 0;
         }
     }
     public class ExtContentPageRenderer: PageRenderer {
-        static Dictionary<object, bool> elevations = new Dictionary<object, bool>();
+        static readonly Dictionary<object, bool> elevations = new Dictionary<object, bool>();
         static IReadOnlyList<Page> Stack;
         const int MAINPAGE_INDEX = 1;
 
@@ -76,7 +74,7 @@ namespace DemoCenter.Forms.Droid {
 
         protected override void OnAttachedToWindow() {
             base.OnAttachedToWindow();
-            SetToolBarShadow(this.Element);
+            SetToolBarShadow(Element);
         }
         protected override void OnDetachedFromWindow() {
             base.OnDetachedFromWindow();
@@ -119,13 +117,13 @@ namespace DemoCenter.Forms.Droid {
 
         protected override void OnSizeChanged(int w, int h, int oldw, int oldh) {
             base.OnSizeChanged(w, h, oldw, oldh);
-            if (oldw > 0 && oldh > 0 && this.Element.Navigation?.NavigationStack?.Count != 0) {
-                SetToolBarShadow(this.Element);
+            if (oldw > 0 && oldh > 0 && Element.Navigation?.NavigationStack?.Count != 0) {
+                SetToolBarShadow(Element);
             }
         }
         IEnumerable<Toolbar> GetToolbars() {
             if (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.Lollipop) {
-                var context = (Activity)this.Context;
+                Activity context = (Activity)Context;
                 return FindParentRootIfExist(context?.FindViewById<Toolbar>(Resource.Id.toolbar));
             }
             return System.Linq.Enumerable.Empty<Toolbar>();
@@ -141,6 +139,48 @@ namespace DemoCenter.Forms.Droid {
             if(e.NewElement != null) {
                 Control.Clickable = false;
             }
+        }
+    }
+
+    public class IconViewRenderer:ImageRenderer {
+        public IconViewRenderer(Context context):base(context) { }
+
+        protected override void OnElementChanged(ElementChangedEventArgs<Image> e) {
+            base.OnElementChanged(e);
+            UpdateBitmapColor((Element as IconView).ForegroundColor);
+        }
+
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e) {
+            base.OnElementPropertyChanged(sender, e);
+            IconView iconView = sender as IconView;
+            if (e.PropertyName == nameof(IconView.Source)) {
+                UpdateBitmapColor(iconView.ForegroundColor);
+            } else if (e.PropertyName == nameof(IconView.ForegroundColor)) {
+                UpdateBitmapColor(iconView.ForegroundColor);
+            }
+        }
+
+        private void UpdateBitmapColor(Color iconColor) {
+            if (Control == null || Control.Drawable == null)
+                return;
+
+            if (iconColor == Color.Default && IsEmptyColorFilter())
+                return;
+
+            ColorFilter colorFilter = iconColor == Color.Default ? null : new PorterDuffColorFilter(iconColor.ToAndroid(), PorterDuff.Mode.SrcAtop);
+
+            Drawable drawable = Control.Drawable.Mutate();
+
+            drawable.SetColorFilter(colorFilter);
+
+            Control.SetImageDrawable(drawable);
+        }
+
+        private bool IsEmptyColorFilter() {
+            if (Android.OS.Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop) {
+                return Control.Drawable.ColorFilter == null;
+            }
+            return true;
         }
     }
 }

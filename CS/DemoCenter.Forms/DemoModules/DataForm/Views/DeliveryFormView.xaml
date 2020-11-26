@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="DemoCenter.Forms.Views.DeliveryFormView"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
-    xmlns:df="clr-namespace:DevExpress.XamarinForms.DataForm;assembly=DevExpress.XamarinForms.Editors"
+    xmlns:dxe="http://schemas.devexpress.com/xamarin/2014/forms/editors"
+    xmlns:dxdf="http://schemas.devexpress.com/xamarin/2014/forms/dataform"
     BackgroundColor="{DynamicResource BackgroundThemeColor}"
     ios:Page.UseSafeArea="True">
 
@@ -23,7 +23,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <df:DataFormView
+        <dxdf:DataFormView
             CommitMode="Manually"
             ValidationMode="PropertyChanged"
             DataObject="{Binding Model}"

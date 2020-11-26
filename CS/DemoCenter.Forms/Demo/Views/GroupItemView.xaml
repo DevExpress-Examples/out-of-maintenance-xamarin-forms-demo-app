@@ -11,19 +11,19 @@
     </AbsoluteLayout.GestureRecognizers>
     <demo:IconView
         AbsoluteLayout.LayoutBounds="30,16,-1,64"
-        ImageSource="{Binding Icon}"/>
+        Source="{Binding Icon}"/>
     <demo:IconView
         AbsoluteLayout.LayoutFlags="All"
-        AbsoluteLayout.LayoutBounds="0.8,0.03,0.25,0.25"
+        AbsoluteLayout.LayoutBounds="0.92, -0.12, 0.28, 0.28"
         IsVisible="{Binding ShowBadge}"
-        ImageSource="{Binding BadgeIcon}"/>
+        Source="{Binding BadgeIcon}"/>
     <views:LabelEx
         AbsoluteLayout.LayoutBounds="0,64,-1,-1"
         Margin="0"
         HorizontalTextAlignment="Center"
         Text="{Binding Title}"
         FontSize="16"
-        FontFamily="{StaticResource Univia-Pro}"
+        FontFamily="Univia-Pro"
         MaxLines="2"
         LineHeight="1"
         LineBreakMode="NoWrap"

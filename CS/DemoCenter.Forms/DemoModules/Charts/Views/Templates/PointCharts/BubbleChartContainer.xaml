@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:charts="clr-namespace:DevExpress.XamarinForms.Charts;assembly=DevExpress.XamarinForms.Charts"
+             xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts"
              x:Class="DemoCenter.Forms.Charts.Views.BubbleChartContainer">
     <ContentView.Content>
         <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
@@ -13,52 +13,54 @@
                    FontFamily="Roboto"
                    TextColor="{DynamicResource TextThemeColor}"
                    BackgroundColor="{DynamicResource BackgroundThemeColor}"/>
-            <charts:ChartView x:Name="bubbleChart"
+            <dxc:ChartView x:Name="bubbleChart"
                               Grid.Row="1"
                               SelectionKind="Point"
                               SelectionMode="Single"
                               SelectionChanged="OnBubbleSelectionChanged">
                 
-                <charts:ChartView.Series>
-                    <charts:BubbleSeries x:Name="bubbleSeries"
-                                         ColorEach="true">
-                        <charts:BubbleSeries.Label>
-                            <charts:BubbleSeriesLabel Position="Outside"
+                <dxc:ChartView.Series>
+                    <dxc:BubbleSeries x:Name="bubbleSeries">
+                        <dxc:BubbleSeries.Label>
+                            <dxc:BubbleSeriesLabel Position="Outside"
                                                       TextPattern="{}{W$$#.##B}"
                                                       Angle="90"/>
-                        </charts:BubbleSeries.Label>
-                        <charts:BubbleSeries.Data>
-                            <charts:SeriesDataAdapter DataSource="{Binding ChartModel.SeriesData}" ArgumentDataMember="Date">
-                                <charts:ValueDataMember Type="Value" Member="Value" />
-                                <charts:ValueDataMember Type="Weight" Member="WorldwideGrosses" />
-                            </charts:SeriesDataAdapter>
-                        </charts:BubbleSeries.Data>
-                    </charts:BubbleSeries>
-                </charts:ChartView.Series>
+                        </dxc:BubbleSeries.Label>
+                        <dxc:BubbleSeries.Data>
+                            <dxc:SeriesDataAdapter DataSource="{Binding ChartModel.SeriesData}" ArgumentDataMember="Date">
+                                <dxc:ValueDataMember Type="Value" Member="Value" />
+                                <dxc:ValueDataMember Type="Weight" Member="WorldwideGrosses" />
+                            </dxc:SeriesDataAdapter>
+                        </dxc:BubbleSeries.Data>
+                        <dxc:BubbleSeries.PointColorizer>
+                            <dxc:ColorEachPointColorizer />
+                        </dxc:BubbleSeries.PointColorizer>
+                    </dxc:BubbleSeries>
+                </dxc:ChartView.Series>
                 
-                <charts:ChartView.AxisX>
-                    <charts:DateTimeAxisX MeasureUnit="Year"
+                <dxc:ChartView.AxisX>
+                    <dxc:DateTimeAxisX MeasureUnit="Year"
                                           GridAlignment="Year"
                                           GridSpacing="2">
-                        <charts:DateTimeAxisX.Label>
-                            <charts:AxisLabel TextFormat="yyyy"/>
-                        </charts:DateTimeAxisX.Label>
-                    </charts:DateTimeAxisX>
-                </charts:ChartView.AxisX>
-                <charts:ChartView.AxisY>
-                    <charts:NumericAxisY AlwaysShowZeroLevel="false">
-                        <charts:NumericAxisY.Title>
-                            <charts:AxisTitle Text="Production Budget, Millions of Dollars"/>
-                        </charts:NumericAxisY.Title>
-                    </charts:NumericAxisY>
-                </charts:ChartView.AxisY>
-                <charts:ChartView.ChartStyle>
-                    <charts:ChartStyle Palette="{Binding ChartModel.Palette}"/>
-                </charts:ChartView.ChartStyle>
-                <charts:ChartView.Hint>
-                    <charts:Hint/>
-                </charts:ChartView.Hint>
-            </charts:ChartView>
+                        <dxc:DateTimeAxisX.Label>
+                            <dxc:AxisLabel TextFormat="yyyy"/>
+                        </dxc:DateTimeAxisX.Label>
+                    </dxc:DateTimeAxisX>
+                </dxc:ChartView.AxisX>
+                <dxc:ChartView.AxisY>
+                    <dxc:NumericAxisY AlwaysShowZeroLevel="false">
+                        <dxc:NumericAxisY.Title>
+                            <dxc:AxisTitle Text="Production Budget, Millions of Dollars"/>
+                        </dxc:NumericAxisY.Title>
+                    </dxc:NumericAxisY>
+                </dxc:ChartView.AxisY>
+                <dxc:ChartView.ChartStyle>
+                    <dxc:ChartStyle Palette="{Binding ChartModel.Palette}"/>
+                </dxc:ChartView.ChartStyle>
+                <dxc:ChartView.Hint>
+                    <dxc:Hint/>
+                </dxc:ChartView.Hint>
+            </dxc:ChartView>
         </Grid>
     </ContentView.Content>
 </ContentView>

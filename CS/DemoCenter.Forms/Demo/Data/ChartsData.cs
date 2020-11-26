@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -40,93 +40,98 @@ using DemoCenter.Forms.Models;
 using DemoCenter.Forms.Views;
 
 namespace DemoCenter.Forms.Data {
-    public class ChartsData: IDemoData {
+    public class ChartsData : IDemoData {
         readonly List<DemoItem> demoItems;
 
         public ChartsData() {
-            demoItems = new List<DemoItem>() {
+            this.demoItems = new List<DemoItem>() {
                 new DemoItem() {
-                    Title = "Spectrum Analyzer",
-                    Description="Shows multiple charts that allow real-time frequency spectrum analysis.",
-                    Module = typeof(SpectrumAnalyzer),
-                    Icon = "ChartsList.SpectrumAnalyzer.svg",
+                    Title = "Custom Appearance",
+                    Description = "Shows how to customize the appearance of series and other elements of the chart.",
+                    Module = typeof(Colorizer),
+                    Icon = "charts_custom_appearance",
                     DemoItemStatus = DemoItemStatus.New},
+                new DemoItem() {
+                    Title = "Spectrum Analysis",
+                    Description = "Shows multiple charts that allow real-time frequency spectrum analysis.",
+                    Module = typeof(SpectrumAnalyzer),
+                    Icon = "charts_spectrumanalyzer",
+                    DemoItemStatus = DemoItemStatus.None},
                 new DemoItem() {
                     Title = "Logarithmic Scale",
                     Description = "Demonstrates a chart axis that uses the logarithmic scale to display numeric values.",
                     Module = typeof(LogarithmicScale),
-                    Icon = "ChartsList.Headphones.svg",
-                    DemoItemStatus = DemoItemStatus.New},
+                    Icon = "charts_headphones",
+                    DemoItemStatus = DemoItemStatus.Updated},
                 new DemoItem() {
                     Title = "Oscillator",
                     Description="Demonstrates how the chart performs full data updates in real time.",
                     Module = typeof(Oscillator),
-                    Icon = "ChartsList.Oscillator.svg",
-                    DemoItemStatus = DemoItemStatus.New},
+                    Icon = "charts_oscillator",
+                    DemoItemStatus = DemoItemStatus.None},
                 new DemoItem() {
                     Title = "Financial" + Environment.NewLine + "Chart",
                     ControlsPageTitle = "Financial Chart",
                     Description="Displays Open-High-Low-Close stock price statistics as Candles Bars.",
                     Module = typeof(FinancialChart),
-                    Icon = "ChartsList.FinancialCharts.svg"},
+                    Icon = "charts_financialcharts"},
                 new DemoItem() {
                     Title = "Real-Time Data Updates",
                     Description="Displays an auto-refreshed Line Chart bound to a frequently updated dataset.",
                     Module = typeof(RealTimeData),
-                    Icon = "ChartsList.RealTimeUpdates.svg"},
+                    Icon = "charts_realtimeupdates"},
                 new DemoItem() {
                     Title = "Selection",
                     Description="Demonstrates support for series and point selection within a chart.",
                     Module = typeof(Selection),
-                    Icon = "ChartsList.Selection.svg"},
+                    Icon = "charts_selection"},
                 new DemoItem() {
                     Title = "Multiple Axes",
                     Description="Demonstrates multiple axes within a single chart.",
                     Module = typeof(MultipleAxes),
-                    Icon = "ChartsList.MultipleAxes.svg"},
+                    Icon = "charts_multipleaxes"},
                 new DemoItem() {
                     Title = "Large" + Environment.NewLine + "Dataset",
                     ControlsPageTitle = "Large Dataset",
                     Description="Demonstrates the speed with which DevExpress Charts can render a large number of points.",
                     Module = typeof(LargeDataset),
-                    Icon = "ChartsList.LargeDataset.svg"},
+                    Icon = "charts_largedataset"},
                 new DemoItem() {
                     Title = "Bar" + Environment.NewLine + "Charts",
                     ControlsPageTitle = "Bar Charts",
                     Description="Demonstrates Stacked and Side-by-Side Bar series chart views.",
                     Module = typeof(BarCharts),
-                    Icon = "ChartsList.BarCharts.svg",
+                    Icon = "charts_barcharts",
                     DemoItemStatus = DemoItemStatus.Updated},
                 new DemoItem() {
                     Title = "Line" + Environment.NewLine + "Charts",
                     ControlsPageTitle = "Line Charts",
                     Description="Demonstrates use of Simple, Scatter, and Step Line chart series views.",
                     Module = typeof(LineCharts),
-                    Icon = "ChartsList.LineCharts.svg",
+                    Icon = "charts_linecharts",
                     DemoItemStatus = DemoItemStatus.Updated},
                 new DemoItem() {
                     Title = "Point & Bubble" + Environment.NewLine + "Charts",
                     ControlsPageTitle = "Point & Bubble Charts",
                     Description="Demonstrates the use of Point and Bubble chart series views.",
                     Module = typeof(PointsCharts),
-                    Icon = "ChartsList.PointandBubleCharts.svg"},
+                    Icon = "charts_pointandbublecharts"},
                 new DemoItem() {
                     Title = "Area" + Environment.NewLine + "Charts",
                     ControlsPageTitle = "Area Charts",
                     Description="Demonstrates Simple, Stacked and Step Area chart series views.",
                     Module = typeof(AreaCharts),
-                    Icon = "ChartsList.AreaCharts.svg",
-                    DemoItemStatus = DemoItemStatus.Updated},
+                    Icon = "charts_areacharts"},
                 new DemoItem() {
                     Title = "Pie & Donut" + Environment.NewLine + "Charts",
                     ControlsPageTitle = "Pie & Donut Charts",
                     Description="Demonstrates the use of multi-series Pie and Donut chart views.",
                     Module = typeof(PieCharts),
-                    Icon = "ChartsList.PieandDonutCharts.svg",
+                    Icon = "charts_pieanddonutcharts",
                     ShowItemUnderline = false},
             };
         }
-        public List<DemoItem> DemoItems => demoItems;
+        public List<DemoItem> DemoItems => this.demoItems;
         public string Title { get { return "ChartView"; } }
     }
 }

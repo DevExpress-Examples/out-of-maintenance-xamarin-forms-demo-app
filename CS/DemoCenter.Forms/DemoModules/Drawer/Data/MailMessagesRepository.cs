@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -44,7 +44,7 @@ namespace DemoCenter.Forms.DemoModules.Drawer.Data {
     public class MailBoxFolder : NotificationObject {
         public MailBoxFolder(string name, string icon, bool showCount) {
             FolderName = name;
-            Icon = String.Format("DemoCenter.Forms.DemoModules.Drawer.Images.{0}", icon);
+            Icon = String.Format("demodrawer_{0}", icon);
             ShowCount = showCount;
         }
 
@@ -54,14 +54,15 @@ namespace DemoCenter.Forms.DemoModules.Drawer.Data {
         public bool ShowCount { get; set; }
 
         bool isSelected = false;
-           public bool IsSelected {
-                get { return isSelected; }
-                set {
-                    if (value == isSelected) return;
-                    isSelected = value;
-                    OnPropertyChanged("IsSelected");
-                }
+        public bool IsSelected {
+            get => this.isSelected;
+            set {
+                if (value == this.isSelected)
+                    return;
+                this.isSelected = value;
+                OnPropertyChanged("IsSelected");
             }
+        }
     }
     public class MailBoxOwner {
         public ImageSource Avatar { get; set; }
@@ -69,15 +70,23 @@ namespace DemoCenter.Forms.DemoModules.Drawer.Data {
         public string Name { get; set; }
     }
     public class MailData {
-        public string SenderDisplay => String.Format("{0} ({1})", this.SenderName, this.SenderEmail);
+        Color contactColor = Color.Default;
+        public Color CategoryColor => GetContactColor();
+        public string SenderDisplay => String.Format("{0} ({1})", SenderName, SenderEmail);
         public string SenderAvatarText => SenderName.Substring(0, 1);
-        public Color CategoryColor => ContactColors.GetColor(new Random().Next(10));
         public string SenderName { get; set; }
         public string SenderEmail { get; set; }
-        public DateTime SentDate { get; set; }  
+        public DateTime SentDate { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
         public List<string> Folders { get; set; }
+
+        internal Color GetContactColor() {
+            if (this.contactColor == Color.Default) {
+                this.contactColor = ContactColors.GetRandomColor();
+            }
+            return this.contactColor;
+        }
     }
 
     public class MailMessagesRepository {
@@ -86,22 +95,23 @@ namespace DemoCenter.Forms.DemoModules.Drawer.Data {
         readonly Random random;
 
         public MailMessagesRepository() {
-            random = new Random((int)DateTime.Now.Ticks);
+            this.random = new Random((int)DateTime.Now.Ticks);
             GenerateMessages();
             GenerateFolders();
             DistributeMailsByFolders();
         }
 
         void GenerateFolders() {
-            Folders = new List<MailBoxFolder>();
-            Folders.Add(new MailBoxFolder("Inbox", "inbox_normal.svg", true));
-            Folders.Add(new MailBoxFolder("Sent", "send_normal.svg", false));
-            Folders.Add(new MailBoxFolder("Important", "important_normal.svg", false));
-            Folders.Add(new MailBoxFolder("Draft", "draft_normal.svg", false));
-            Folders.Add(new MailBoxFolder("Trash", "trash_normal.svg", false));
+            Folders = new List<MailBoxFolder> {
+                new MailBoxFolder("Inbox", "inbox_normal", true),
+                new MailBoxFolder("Sent", "send_normal", false),
+                new MailBoxFolder("Important", "important_normal", false),
+                new MailBoxFolder("Draft", "draft_normal", false),
+                new MailBoxFolder("Trash", "trash_normal", false)
+            };
         }
 
-        void GenerateMessages() {
+        public void GenerateMessages() {
             MailMessages = new List<MailData>();
             MailMessages.Add(
                 new MailData() {
@@ -178,11 +188,10 @@ namespace DemoCenter.Forms.DemoModules.Drawer.Data {
             GenerateRandomSentFromPeriod();
         }
 
-
         void GenerateRandomSentFromPeriod() {
-            DateTime currentDate = DateTime.Now.Date.AddMinutes(random.Next(1, 560));
+            DateTime currentDate = DateTime.Now.Date.AddMinutes(this.random.Next(1, 560));
             foreach (MailData mail in MailMessages) {
-                mail.SentDate = currentDate.AddMinutes(random.Next(1, 200));
+                mail.SentDate = currentDate.AddMinutes(this.random.Next(1, 200));
             }
         }
 
@@ -192,15 +201,15 @@ namespace DemoCenter.Forms.DemoModules.Drawer.Data {
 
             for (int i = 0; i <= maxValue; i++) {
                 string folderName = Folders[i].FolderName;
-                int countInFolder = random.Next(1, maxMessagesCount);
-                
+                int countInFolder = this.random.Next(1, maxMessagesCount);
+
                 for (int j = 0; j <= countInFolder; j++) {
-                    int messageIndex = random.Next(0, maxMessagesCount);
+                    int messageIndex = this.random.Next(0, maxMessagesCount);
                     if (MailMessages[messageIndex].Folders == null)
                         MailMessages[messageIndex].Folders = new List<string>();
                     if (!MailMessages[messageIndex].Folders.Contains(folderName)) {
                         MailMessages[messageIndex].Folders.Add(folderName);
-                        Folders[i].Count++;        
+                        Folders[i].Count++;
                     }
                 }
             }

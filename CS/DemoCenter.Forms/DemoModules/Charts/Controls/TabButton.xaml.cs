@@ -1,4 +1,4 @@
-﻿/*
+/*
                Copyright (c) 2015-2020 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
@@ -50,16 +50,22 @@ namespace DemoCenter.Forms.Demo {
         public Color ActualBackgroundColor { get => (Color)GetValue(ActualBackgroundColorProperty); set => SetValue(ActualBackgroundColorProperty, value); }
 
         public static readonly BindableProperty IsVerticalProperty = BindableProperty.Create("IsVertical", typeof(bool), typeof(TabButton), false, propertyChanged: OnIsVerticalPropertyChanged);
-        static void OnIsVerticalPropertyChanged(BindableObject bindable, object oldValue, object newValue) => ((TabButton) bindable).Update();
+        static void OnIsVerticalPropertyChanged(BindableObject bindable, object oldValue, object newValue) {
+            ((TabButton)bindable).Update();
+        }
+
         public bool IsVertical { get => (bool) GetValue(IsVerticalProperty); set => SetValue(IsVerticalProperty, value); }
 
         public static readonly BindableProperty IsSelectedProperty = BindableProperty.Create("IsSelected", typeof(bool), typeof(TabButton), false, propertyChanged: OnIsSelectedPropertyChanged);
-        static void OnIsSelectedPropertyChanged(BindableObject bindable, object oldValue, object newValue) => ((TabButton) bindable).Update();
+        static void OnIsSelectedPropertyChanged(BindableObject bindable, object oldValue, object newValue) {
+            ((TabButton)bindable).Update();
+        }
+
         public bool IsSelected { get => (bool) GetValue(IsSelectedProperty); set => SetValue(IsSelectedProperty, value); }
 
         public TabButton() {
             InitializeComponent();
-            icon.BindingContext = this;            
+            this.icon.BindingContext = this;            
         }
         void Update() {
             ActualBackgroundColor = IsSelected ? SelectedColor : BackgroundColor;
