@@ -106,13 +106,13 @@ namespace DemoCenter.Forms.Services {
 
                 } catch(Exception e) {
 #if DEBUG
-                    throw;
-#endif
-                    if (errorDialogPage != null) {
+                    throw e;
+#else
+                    if (errorDialogPage != null)
                        errorDialogPage.ShowError(e);
-                    } else {
-                        throw;
-                    }
+                    else
+                        throw e;
+#endif
                 }
             }
             return await Task.FromResult(page);

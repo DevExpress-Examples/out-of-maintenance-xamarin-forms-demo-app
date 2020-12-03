@@ -52,7 +52,7 @@ namespace DemoCenter.Forms.Droid {
         public Task SendException(Exception ex) {
             if (ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.Internet) == (int)Permission.Granted) {
                 LogifyAlert client = LogifyAlert.Instance;
-                client.ApiKey = "2C406186DF854F68AEF9B89130B379F2";
+                client.ApiKey = "DEMOCENTER_API_KEY";
                 client.Send(ex);
                 return Task.FromResult(true);
             } else {

@@ -18,7 +18,7 @@
             </Setter>
             <Setter Property="Padding">
                 <Setter.Value>
-                    <OnIdiom x:TypeArguments="Thickness" Phone="14, 20, 14, 20" Tablet="15, 24, 15, 24"/>
+                    <OnIdiom x:TypeArguments="Thickness" Phone="14, 20, 14, 21" Tablet="15, 24, 15, 24"/>
                 </Setter.Value>
             </Setter>
         </Style>

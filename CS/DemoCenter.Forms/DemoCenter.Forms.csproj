@@ -239,12 +239,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="20.2.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="20.2.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="20.2.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="20.2.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.CollectionView" Version="20.2.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="20.2.3"/>
+    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="20.2.4"/>
+    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="20.2.4"/>
+    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="20.2.4"/>
+    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="20.2.4"/>
+    <PackageReference Include="DevExpress.XamarinForms.CollectionView" Version="20.2.4"/>
+    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="20.2.4"/>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3"/>
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335"/>
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0"/>

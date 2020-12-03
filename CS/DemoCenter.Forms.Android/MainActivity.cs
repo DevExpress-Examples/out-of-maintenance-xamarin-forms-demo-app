@@ -49,11 +49,6 @@ namespace DemoCenter.Forms.Droid {
         protected override void OnCreate(Bundle savedInstanceState) {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-#if DEBUG
-            LogifyAlert client = LogifyAlert.Instance;
-            client.ApiKey = "72A26488E1DD49B68CB4A6E8B9B8A128";
-            client.StartExceptionsHandling();
-#endif
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             ThemeLoaderImplementation themeLoader = DependencyService.Get<IThemeLoader>() as ThemeLoaderImplementation;

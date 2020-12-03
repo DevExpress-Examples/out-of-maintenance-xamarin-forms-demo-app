@@ -49,7 +49,7 @@ namespace DemoCenter.Forms.iOS {
 
         public Task SendException(Exception ex) {
             LogifyAlert client = LogifyAlert.Instance;
-            client.ApiKey = "2C406186DF854F68AEF9B89130B379F2";
+            client.ApiKey = "DEMOCENTER_API_KEY";
             client.Send(ex);
             return Task.FromResult(true);
         }

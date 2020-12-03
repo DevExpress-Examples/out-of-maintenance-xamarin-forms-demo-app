@@ -581,12 +581,6 @@
     <Reference Include="Xamarin.iOS"/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="20.2.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="20.2.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="20.2.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="20.2.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.CollectionView" Version="20.2.3"/>
-    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="20.2.3"/>
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2"/>
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451"/>
     <PackageReference Include="Logify.Alert.Xamarin.iOS" Version="1.0.55"/>
