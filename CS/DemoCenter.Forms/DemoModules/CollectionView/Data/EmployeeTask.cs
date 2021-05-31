@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -34,43 +34,42 @@
 {                                                                   }
 {*******************************************************************}
 */
-using System.Collections.Generic;
+﻿using System;
+using System.Windows.Input;
 using DemoCenter.Forms.ViewModels;
+using Xamarin.Forms;
 
-namespace DemoCenter.Forms.Charts.ViewModels {
-    public abstract class ChartsViewModelBase : NotificationObject {
-        ChartItemInfoContainerBase selectedItem;
-        bool isVertical;
-        public ChartItemInfoContainerBase SelectedItem {
-            get => selectedItem;
-            set => SetProperty(ref selectedItem, value, onChanged: (oldValue, newValue) => {
-                ResetSelectedItem(oldValue);
-                if(newValue != null) newValue.IsSelected = true;
-            });
-        }
-        public bool IsVertical {
-            get => isVertical;
-            set => SetVerticalState(value);
-        }
-        public void SetVerticalState(bool vertical) {
-            isVertical = vertical;
-            foreach(ChartItemInfoContainerBase curentItem in Content) {
-                curentItem.IsVertical = vertical;
-            }
-        }
-        public abstract List<ChartItemInfoContainerBase> Content { get; }
-        void ResetSelectedItem(ChartItemInfoContainerBase oldSelectedItem) {
-            if(oldSelectedItem != null) {
-                oldSelectedItem.IsSelected = false;
-            } else {
-                foreach(ChartItemInfoContainerBase curentItem in Content) {
-                    if(curentItem.IsSelected) {
-                        curentItem.IsSelected = false;
-                        return;
-                    }
-                }
-            }
-        }
+namespace DemoCenter.Forms.DemoModules.CollectionView.Data {
+    public enum TaskStatus {
+        Urgent = 0,
+        Uncompleted = 1,
+        Completed = 2
     }
 
+    public class EmployeeTask : NotificationObject {
+        public EmployeeTask() {
+            UrgentTaskCommand = new Command(() => Status = TaskStatus.Urgent);
+            CompleteTaskCommand = new Command(() => Status = TaskStatus.Completed);
+            UnCompleteTaskCommand = new Command(() => Status = TaskStatus.Uncompleted);
+        }
+
+        public int Id { get; set; }
+        public int ParentId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Employee { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime DueDate { get; set; }
+        public int Priority { get; set; }
+
+        public ICommand UrgentTaskCommand { get; }
+        public ICommand CompleteTaskCommand { get; }
+        public ICommand UnCompleteTaskCommand { get; }
+
+        TaskStatus status;
+        public TaskStatus Status {
+            get => this.status;
+            set => SetProperty(ref this.status, value);
+        }
+    }
 }

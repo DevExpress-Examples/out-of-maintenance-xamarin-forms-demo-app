@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -43,13 +43,14 @@ namespace DemoCenter.Forms.Views {
     public partial class Oscillator : ContentPage {
         readonly OscillatorChartsViewModel viewModel = new OscillatorChartsViewModel();
         readonly Timer timer = new Timer();
+        bool isRunning = false;
 
         public Oscillator() {
             DevExpress.XamarinForms.Charts.Initializer.Init();
             InitializeComponent();
             BindingContext = viewModel;
 
-            timer.Interval = 10;
+            timer.Interval = 20;
             timer.Elapsed += Timer_Tick;
             timer.AutoReset = false;
         }
@@ -57,16 +58,18 @@ namespace DemoCenter.Forms.Views {
         void Timer_Tick(object sender, EventArgs e) {
             Device.BeginInvokeOnMainThread(() => {
                 viewModel.MoveToNextFrame();
-                timer.Start();
+                if (isRunning)
+                    timer.Start();
             });
         }
 
         protected override void OnDisappearing() {
             base.OnDisappearing();
-            timer.Stop();
+            isRunning = false;
         }
         protected override void OnAppearing() {
             base.OnAppearing();
+            isRunning = true;
             timer.Start();
         }
     }

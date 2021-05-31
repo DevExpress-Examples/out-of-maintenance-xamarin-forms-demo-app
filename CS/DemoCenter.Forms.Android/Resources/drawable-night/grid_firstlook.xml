@@ -5,12 +5,12 @@
     android:viewportWidth="39"
     android:viewportHeight="39">
   <path
-      android:pathData="M37,3h-9h-2h-8h-2H2C1.4,3 1,3.4 1,4v7v2v6v2v6v2v7c0,0.6 0.4,1 1,1h14h2h8h2h9c0.6,0 1,-0.4 1,-1v-7v-2v-6v-2v-6v-2V4C38,3.4 37.6,3 37,3zM26,5v6h-8V5H26zM18,19v-6h8v6H18zM26,21v6h-8v-6H26zM3,5h13v6H3V5zM3,13h13v6H3V13zM3,21h13v6H3V21zM3,35v-6h13v6H3zM18,35v-6h8v6H18zM36,35h-8v-6h8V35zM36,27h-8v-6h8V27zM36,19h-8v-6h8V19zM28,11V5h8v6H28z">
+      android:pathData="M36,5H3C2.4,5 2,5.4 2,6v6v2v5v2v5v2v6c0,0.6 0.4,1 1,1h10h2h9h2h10c0.6,0 1,-0.4 1,-1v-6v-2v-5v-2v-5v-2V6C37,5.4 36.6,5 36,5zM4,14h9v5H4V14zM15,19v-5h9v5H15zM24,21v5h-9v-5H24zM4,21h9v5H4V21zM4,33v-5h9v5H4zM15,33v-5h9v5H15zM35,33h-9v-5h9V33zM35,26h-9v-5h9V26zM35,19h-9v-5h9V19zM26,12h-2h-9h-2H4V7h31v5H26z">
     <aapt:attr name="android:fillColor">
       <gradient 
-          android:startY="3"
+          android:startY="3.6471"
           android:startX="19.5"
-          android:endY="37"
+          android:endY="31.8077"
           android:endX="19.5"
           android:type="linear">
         <item android:offset="0" android:color="#FF00A0FF"/>

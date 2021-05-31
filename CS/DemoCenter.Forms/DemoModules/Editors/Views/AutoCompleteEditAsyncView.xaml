@@ -18,7 +18,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.BindingContext>
-        <viewModel:AutoCompleteEditViewModel/>
+        <viewModel:AutoCompleteEditAsyncViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Padding="0,16" Spacing="0">
@@ -48,29 +48,39 @@
 
                     <dxe:AutoCompleteEdit.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="10">
+                            <Grid
+                                HeightRequest="64"
+                                Padding="10"
+                                RowSpacing="4"
+                                ColumnSpacing="4">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="64"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Image
-                                    Grid.RowSpan="2"
-                                    WidthRequest="64" HeightRequest="64"
-                                    Source="{Binding Image}"/>
+                                    Source="{Binding Image}"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Grid.RowSpan="2"/>
                                 <Label
+                                    Text="{Binding FullName}"
+                                    Grid.Row="0"
                                     Grid.Column="1"
-                                    TextColor="{DynamicResource TextThemeColor}"
-                                    FormattedText="{Binding FullName}"/>
+                                    VerticalOptions="End"
+                                    TextColor="{DynamicResource TextThemeColor}"/>
                                 <Label
-                                    Grid.Column="1" Grid.Row="1"
-                                    TextColor="{DynamicResource TextThemeColor}"
-                                    FormattedText="{Binding Phone}"/>
+                                    Text="{Binding Phone}"
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    VerticalOptions="Start"
+                                    TextColor="{DynamicResource TextThemeColor}"/>
                             </Grid>
                         </DataTemplate>
+
                     </dxe:AutoCompleteEdit.ItemTemplate>
                 </dxe:AutoCompleteEdit>
                 <BoxView Grid.Row="1" Style="{StaticResource SeparatorStyle}"/>

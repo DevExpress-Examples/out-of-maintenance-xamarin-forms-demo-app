@@ -2,7 +2,6 @@
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>7.3</LangVersion>
-    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -21,7 +20,8 @@
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
     <AndroidDexGenerator>d8</AndroidDexGenerator>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
@@ -48,7 +48,8 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
-    <Commandlineparameters></Commandlineparameters>
+    <Commandlineparameters>
+    </Commandlineparameters>
     <PlatformTarget>anycpu</PlatformTarget>
     <AndroidDexTool>d8</AndroidDexTool>
   </PropertyGroup>
@@ -60,12 +61,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
-    <PackageReference Include="Xamarin.Kotlin.StdLib" Version="1.3.50.1" />
+    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="21.1.3" />
+    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="21.1.3" />
+    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="21.1.3" />
+    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="21.1.3" />
+    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.1.3" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib" Version="1.4.20" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
     <PackageReference Include="Logify.Alert.Xamarin.Android" Version="1.0.55" />
+    <PackageReference Include="DevExpress.XamarinForms.CollectionView">
+      <Version>21.1.3</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BroadcastReceivers\NotificationAlarmHandler.cs" />
@@ -125,894 +134,1400 @@
       </Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-nodpi\splash_background_image.png">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\mipmap-xhdpi\splash_background_image.png">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\mipmap-xxhdpi\splash_background_image.png">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\mipmap-xxxhdpi\splash_background_image.png">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_email.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_name.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_notes.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_password.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_phone.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\circle.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\frame.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\smile.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_location.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_calendar.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_time.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_age.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_description.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_login.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\boxmode_filled.xml" />
-     <AndroidResource Include="Resources\drawable\boxmode_outlined.xml" />
-     <AndroidResource Include="Resources\drawable\cornermode_cut.xml" />
-     <AndroidResource Include="Resources\drawable\cornermode_round.xml" />
-     <AndroidResource Include="Resources\drawable-night\theme_palette.xml" />
-     <AndroidResource Include="Resources\drawable\info.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\info.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\badge_new.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\badge_updated.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\about_header.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\about_header.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\documentation.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\documentation.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\product_page.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\product_page.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\source_code.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\source_code.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\drawer_drawersettings.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\drawer_firstlook.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\drawer_pages.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\drawer_drawersettings.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\drawer_firstlook.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\drawer_pages.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\controls_buttons.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\controls_buttons.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\editors_dataforms.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_dataforms.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\editors_textedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_textedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\editors_accountform.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_accountform.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\editors_employeeform.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_employeeform.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\editors_comboboxedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_comboboxedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_spectrumanalyzer.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_spectrumanalyzer.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_headphones.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_headphones.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_oscillator.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_oscillator.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_financialcharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_financialcharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_realtimeupdates.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_realtimeupdates.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_selection.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_selection.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_multipleaxes.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_multipleaxes.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_largedataset.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_largedataset.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_areacharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_barcharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_linecharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_pieanddonutcharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_pointandbublecharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_areacharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_barcharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_linecharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_pieanddonutcharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_pointandbublecharts.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_advancedlayout.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_customappearance.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_dragdrop.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_editing.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_firstlook.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_grouping.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_infinitedatasource.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_pulltorefresh.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_realtimedata.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_rowautoheight.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_swipebuttons.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_advancedlayout.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_customappearance.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_dragdrop.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_editing.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_firstlook.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_grouping.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_infinitedatasource.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_pulltorefresh.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_realtimedata.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_rowautoheight.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_swipebuttons.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\scheduler_dayview.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\scheduler_monthview.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\scheduler_reminders.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\scheduler_weekview.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\scheduler_workweekview.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\scheduler_dayview.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\scheduler_monthview.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\scheduler_reminders.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\scheduler_weekview.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\scheduler_workweekview.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\tabview_databinding.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\tabview_headerpanelposition.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\tabview_nestedtabsviews.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\tabview_tabswithpages.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\tabview_databinding.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\tabview_headerpanelposition.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\tabview_nestedtabsviews.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\tabview_tabswithpages.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\toprightcornerradius.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\topleftcornerradius.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\bottomleftcornerradius.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\bottomrightcornerradius.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_all.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_family.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_star.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_work.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\demotabview_all.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\demotabview_family.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\demotabview_star.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\demotabview_work.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\menu_dots.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\menu_dots.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_detail.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_outgoing.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_missed.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_incoming.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_location.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_www.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_phone.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\demotabview_cartbutton.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_cartbutton.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\demotabview_deletebutton.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\demotabview_favoritebutton.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_favoritebutton.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demotabview_deletebutton.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\drawerbackground.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\drawerbackground.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_portfolio.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_person.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_card.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_send_normal.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_reports.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_products.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_trash_normal.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_customers.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_inbox_normal.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_sales.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_draft_normal.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_employees.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demodrawer_important_normal.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\radiobutton_checked.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\radiobutton.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demogrid_attachment.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demogrid_salesandmarketing.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demogrid_researchanddevelopment.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demogrid_qualityassurance.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demogrid_manufacturing.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demogrid_inventorymanagement.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demogrid_executivegeneralandadministration.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\demoscheduler_bell.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\demoscheduler_bell.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_donut.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_bubble.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_pie.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_point.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_stepline.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_scatter.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_line.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_rangearea.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_stackedarea.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_steparea.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_fullstackedarea.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_area.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_cryptocurrencyportfolio.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_populationpyramid.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_bar.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_rangebar.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_sidebysiderangebar.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_rotatedsidebysidestackedbar.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_rotatedstackedbar.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_sidebysidefullstackedbar.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_fullstackedbar.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_sidebysidestackedbar.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_stackedbar.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_spline.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\collectionview_firstlook.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\collectionview_firstlook.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\collectionview_loadmore.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\collectionview_loadmore.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\default_icon.xml">
-       <SubType></SubType>
-       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\default_icon_24.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\error_report.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_horizontalvirtualization.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_horizontalvirtualization.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\charts_custom_appearance.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\charts_custom_appearance.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_ic_round_checkbox_checked.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_ic_round_checkbox_indeterminate.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_ic_round_checkbox_unchecked.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\grid_autofilterrow.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\grid_autofilterrow.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\editors_autocomplete.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\editors_checkedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\editors_dateedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\editors_numericedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\editors_timeedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_autocomplete.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_checkedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_dateedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_numericedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_timeedit.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\editors_autocomplete_custom.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable-night\editors_autocomplete_custom.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_lightspector.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
-     <AndroidResource Include="Resources\drawable\democharts_tabitems_surfacetemperature.xml">
-       <SubType></SubType>
-       <Generator></Generator>
-     </AndroidResource>
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xhdpi\splash_background_image.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\splash_background_image.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\splash_background_image.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_email.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_name.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_notes.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_password.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_phone.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\circle.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\frame.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\smile.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_location.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_calendar.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_time.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_age.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_description.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_login.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\boxmode_filled.xml" />
+    <AndroidResource Include="Resources\drawable\boxmode_outlined.xml" />
+    <AndroidResource Include="Resources\drawable\cornermode_cut.xml" />
+    <AndroidResource Include="Resources\drawable\cornermode_round.xml" />
+    <AndroidResource Include="Resources\drawable-night\theme_palette.xml" />
+    <AndroidResource Include="Resources\drawable\info.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\info.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\badge_new.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\badge_updated.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\about_header.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\about_header.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\documentation.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\documentation.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\product_page.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\product_page.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\source_code.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\source_code.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\drawer_drawersettings.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\drawer_firstlook.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\drawer_pages.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\drawer_drawersettings.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\drawer_firstlook.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\drawer_pages.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\controls_buttons.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\controls_buttons.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\editors_dataforms.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_dataforms.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\editors_textedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_textedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\editors_accountform.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_accountform.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\editors_employeeform.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_employeeform.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\editors_comboboxedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_comboboxedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_spectrumanalyzer.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_spectrumanalyzer.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_headphones.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_headphones.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_oscillator.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_oscillator.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_financialcharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_financialcharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_realtimeupdates.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_realtimeupdates.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_selection.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_selection.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_multipleaxes.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_multipleaxes.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_largedataset.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_largedataset.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_areacharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_barcharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_linecharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_pieanddonutcharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_pointandbublecharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_areacharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_barcharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_linecharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_pieanddonutcharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_pointandbublecharts.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_advancedlayout.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_customappearance.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_dragdrop.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_editing.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_firstlook.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_grouping.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_infinitedatasource.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_pulltorefresh.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_realtimedata.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_rowautoheight.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_swipebuttons.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_advancedlayout.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_customappearance.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_dragdrop.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_editing.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_firstlook.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_grouping.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_infinitedatasource.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_pulltorefresh.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_realtimedata.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_rowautoheight.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_swipebuttons.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\scheduler_dayview.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\scheduler_monthview.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\scheduler_reminders.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\scheduler_weekview.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\scheduler_workweekview.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\scheduler_dayview.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\scheduler_monthview.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\scheduler_reminders.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\scheduler_weekview.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\scheduler_workweekview.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\tabview_databinding.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\tabview_headerpanelposition.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\tabview_nestedtabsviews.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\tabview_tabswithpages.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\tabview_databinding.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\tabview_headerpanelposition.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\tabview_nestedtabsviews.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\tabview_tabswithpages.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\toprightcornerradius.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\topleftcornerradius.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bottomleftcornerradius.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bottomrightcornerradius.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_all.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_family.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_star.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_work.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\demotabview_all.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\demotabview_family.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\demotabview_star.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\demotabview_work.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\menu_dots.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\menu_dots.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_detail.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_outgoing.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_missed.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_incoming.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_location.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_www.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_phone.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\demotabview_cartbutton.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_cartbutton.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\demotabview_deletebutton.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\demotabview_favoritebutton.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_favoritebutton.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demotabview_deletebutton.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\drawerbackground.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\drawerbackground.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_portfolio.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_person.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_card.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_send_normal.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_reports.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_products.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_trash_normal.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_customers.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_inbox_normal.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_sales.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_draft_normal.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_employees.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demodrawer_important_normal.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\radiobutton_checked.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\radiobutton.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demogrid_attachment.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demogrid_salesandmarketing.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demogrid_researchanddevelopment.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demogrid_qualityassurance.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demogrid_manufacturing.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demogrid_inventorymanagement.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demogrid_executivegeneralandadministration.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\demoscheduler_bell.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\demoscheduler_bell.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_donut.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_bubble.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_pie.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_point.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_stepline.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_scatter.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_line.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_rangearea.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_stackedarea.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_steparea.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_fullstackedarea.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_area.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_cryptocurrencyportfolio.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_populationpyramid.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_bar.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_rangebar.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_sidebysiderangebar.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_rotatedsidebysidestackedbar.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_rotatedstackedbar.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_sidebysidefullstackedbar.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_fullstackedbar.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_sidebysidestackedbar.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_stackedbar.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_spline.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\collectionview_firstlook.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\collectionview_firstlook.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\collectionview_loadmore.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\collectionview_loadmore.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\default_icon.xml">
+      <SubType>
+      </SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\default_icon_24.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\error_report.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_horizontalvirtualization.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_horizontalvirtualization.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_custom_appearance.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_custom_appearance.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_ic_round_checkbox_checked.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_ic_round_checkbox_indeterminate.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_ic_round_checkbox_unchecked.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\grid_autofilterrow.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\grid_autofilterrow.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\editors_autocomplete.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\editors_checkedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\editors_dateedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\editors_numericedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\editors_timeedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_autocomplete.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_checkedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_dateedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_numericedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_timeedit.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\editors_autocomplete_custom.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\editors_autocomplete_custom.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_lightspector.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_surfacetemperature.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\collectionview_uncompletetask.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\collectionview_deletetask.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\collectionview_completetask.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_series_template.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_series_template.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_areagradientfill.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\democharts_tabitems_areagradientfill.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\collectionview_horvirt.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\collectionview_horvirt.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\collectionview_pintotop.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\democharts_tabitems_rotatedlabels.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\charts_axislabeloptions.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\democharts_tabitems_rotatedlabels.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-night\charts_axislabeloptions.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\splash_screen_devexpress_logo.png" />
@@ -1104,10 +1619,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\splash_screen_text.png" />
   </ItemGroup>
-  <ItemGroup>
-     <Folder Include="Resources\drawable-nodpi\" />
-     <Folder Include="Resources\drawable-night\" />
-     <Folder Include="Resources\values-night\" />
-   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

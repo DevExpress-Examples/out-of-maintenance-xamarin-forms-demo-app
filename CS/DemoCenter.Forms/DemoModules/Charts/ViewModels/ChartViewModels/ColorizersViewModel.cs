@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -39,7 +39,7 @@ using DemoCenter.Forms.Data;
 
 namespace DemoCenter.Forms.ViewModels {
     public class BubbleColorizerViewModel : ChartViewModelBase {
-        HpiIndexCustomColorizerAdapter dataAdapter = new HpiIndexCustomColorizerAdapter();
+        readonly HpiIndexCustomColorizerAdapter dataAdapter = new HpiIndexCustomColorizerAdapter();
 
         public override string Title => "Bubble colorizer";
         public List<CountryStatistic> CountriesStatisticData => this.dataAdapter.SeriesData;
@@ -65,5 +65,15 @@ namespace DemoCenter.Forms.ViewModels {
 
         public override string Title => "Light Spector";
         public IList<NumericData> LightSpectorData => this.data.LightSpectors;
+    }
+
+    public class AreaGradientFillEffectViewModel : ChartViewModelBase {
+        public StockPrices StockPrices { get; }
+
+        public override string Title => "Stock Prices";
+
+        public AreaGradientFillEffectViewModel() {
+            StockPrices = StockData.GetStockPrices();
+        }
     }
 }

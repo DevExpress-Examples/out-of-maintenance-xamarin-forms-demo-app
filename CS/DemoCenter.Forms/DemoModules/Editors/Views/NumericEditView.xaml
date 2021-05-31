@@ -85,7 +85,6 @@
                     <StackLayout Style="{StaticResource LayoutItemContainerStyle}">
                         <Label Text="Display Format" Style="{StaticResource TextStyle}"/>
                         <dxe:ComboBoxEdit
-                            x:Name="displayForamtComboBox"
                             DisplayMember="Name"
                             ValueMember="Value"
                             BorderThickness="0"

@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -63,6 +63,8 @@ namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
         [StringLength(64, MinimumLength = 8, ErrorMessage = "The password should contain at least 8 characters")]
         [Required(ErrorMessage = "Required")]
         public string Password { get; set; }
+
+        public bool ReceiveNotification { get; set; }
     }
 
     public class AccountFormViewModel : NotificationObject {
@@ -75,7 +77,7 @@ namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
         }
 
         public AccountFormViewModel() {
-            Model = new AccountInfo();
+            Model = new AccountInfo() { ReceiveNotification = true };
             IsVertical = true;
         }
 

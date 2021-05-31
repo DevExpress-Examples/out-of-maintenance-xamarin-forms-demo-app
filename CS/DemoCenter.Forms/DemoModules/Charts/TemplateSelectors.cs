@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -71,7 +71,6 @@ namespace DemoCenter.Forms {
                 case BarType.Range: return RangeBarChartTemplate;
                 case BarType.Simple: return BarChartTemplate;
                 case BarType.PopulationPyramid: return PopulationPyramidTemplate;
-                case BarType.CryptocurrencyPortfolio: return CryptocurrencyPortfolioTemplate;
                 case BarType.Stacked: return StackedBarChartTemplate;
                 case BarType.SideBySideStacked: return SideBySideStackedBarChartTemplate;
                 case BarType.FullStacked: return FullStackedBarChartTemplate;
@@ -86,7 +85,6 @@ namespace DemoCenter.Forms {
         public DataTemplate RangeBarChartTemplate { get; set; }
         public DataTemplate BarChartTemplate { get; set; }
         public DataTemplate PopulationPyramidTemplate { get; set; }
-        public DataTemplate CryptocurrencyPortfolioTemplate { get; set; }
         public DataTemplate FullStackedBarChartTemplate { get; set; }
         public DataTemplate RotatedSideBySideStackedBarChartTemplate { get; set; }
         public DataTemplate RotatedStackedBarChartTemplate { get; set; }
@@ -152,18 +150,37 @@ namespace DemoCenter.Forms {
             if (!(item is ColorizerItemInfoContainer infoContainer))
                 return null;
 
-            switch (infoContainer.ColorizerType) {
-                case ColorizerType.Bubble: return BubbleColorizerTemplate;
-                case ColorizerType.Bar: return BarColorizerTemplate;
-                case ColorizerType.OperationSurfaceTemperature: return OperationSurfaceTemperatureTemplate;
-                case ColorizerType.GradientSegmentColorizer: return GradientSegmentColorizerTemplate;
+            switch (infoContainer.CustomAppearanceModuleType) {
+                case CustomAppearanceType.AreaGradientFillEffect: return AreaGradientFillEffectTemplate;
+                case CustomAppearanceType.Bubble: return BubbleColorizerTemplate;
+                case CustomAppearanceType.Bar: return BarColorizerTemplate;
+                case CustomAppearanceType.OperationSurfaceTemperature: return OperationSurfaceTemperatureTemplate;
+                case CustomAppearanceType.GradientSegmentColorizer: return GradientSegmentColorizerTemplate;
                 default:throw new ArgumentException("The selector cannot handle the passed ColorizerType value.");
             }
         }
 
+        public DataTemplate AreaGradientFillEffectTemplate { get; set; }
         public DataTemplate BubbleColorizerTemplate { get; set; }
         public DataTemplate BarColorizerTemplate { get; set; }
         public DataTemplate OperationSurfaceTemperatureTemplate { get; set; }
         public DataTemplate GradientSegmentColorizerTemplate { get; set; }
+    }
+
+    class LabelModeTemplateSelector : DataTemplateSelector {
+        protected override DataTemplate OnSelectTemplate(object item, BindableObject container) {
+            if (!(item is AxisLabelOptionsItemInfoContainer infoContainer))
+                return null;
+
+            switch (infoContainer.LabelModeType) {
+                case AxisLabelOptionsType.RotatedAndStaggered: return RotatedLabelTemplate;
+                case AxisLabelOptionsType.CryptocurrencyPortfolio: return CryptocurrencyPortfolioTemplate;
+                default:
+                    throw new ArgumentException("The selector cannot handle the passed LabelModeType value.");
+            }
+        }
+
+        public DataTemplate RotatedLabelTemplate { get; set; }
+        public DataTemplate CryptocurrencyPortfolioTemplate { get; set; }
     }
 }

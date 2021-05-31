@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -55,15 +55,13 @@ namespace DemoCenter.Forms.Data {
                     Title = "Auto Filter Row",
                     Description = "Demonstrates the Auto Filter Row that supports a straightforward search for data in columns.",
                     Module = typeof(AutoFilterRowView),
-                    Icon = "grid_autofilterrow",
-                    DemoItemStatus = DemoItemStatus.New
+                    Icon = "grid_autofilterrow"
                 },
                 new DemoItem() {
                     Title = "Virtual Scrolling",
                     Description = "Demonstrates the virtual scrolling feature, which significantly improves the performance of grids with many columns.",
                     Module = typeof(HorizontalVirtualizationView),
-                    Icon = "grid_horizontalvirtualization",
-                    DemoItemStatus = DemoItemStatus.New
+                    Icon = "grid_horizontalvirtualization"
                 },
                 new DemoItem() {
                     Title = "Drag and Drop",

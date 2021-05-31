@@ -32,7 +32,7 @@
                             </dxc:SeriesDataAdapter>
                         </dxc:BarSeries.Data>
                         <dxc:BarSeries.Label>
-                            <dxc:BarSeriesLabel Position="Outside" Behavior="Cut" TextPattern="{}{V}%"/>
+                            <dxc:BarSeriesLabel Position="Outside" Behavior="Moving" TextPattern="{}{V}%"/>
                         </dxc:BarSeries.Label>
                         <dxc:BarSeries.PointColorizer>
                             <dxc:ValueBandPointColorizer>

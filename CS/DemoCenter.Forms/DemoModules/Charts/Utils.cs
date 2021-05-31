@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -91,5 +91,14 @@ namespace DemoCenter.Forms {
 
     class PercentAxisLabelTextFormatter : IAxisLabelTextFormatter {
         public string Format(object value) => ((double)value).ToString() + " %";
+    }
+
+    class PopulationByCountryTextFormatter : IAxisLabelTextFormatter {
+        public string Format(object value) {
+            double val = ((double)value) / 1e9;
+            if (val == 0.0)
+                return "0";
+            return val.ToString() + "B";
+        }
     }
 }

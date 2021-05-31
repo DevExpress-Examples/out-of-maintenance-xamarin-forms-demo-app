@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -36,17 +36,14 @@
 */
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace DemoCenter.Forms.ViewModels {
-    public class ReceptionDeskDemoViewModel: INotifyPropertyChanged {
+    public class ReceptionDeskDemoViewModel: NotificationObject {
         readonly ReceptionDeskData data = new ReceptionDeskData();
         Doctor selectedDoctor;
         IReadOnlyList<MedicalAppointment> visibleAppointments = new List<MedicalAppointment>();
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public DateTime StartDate { get { return ReceptionDeskData.BaseDate; } }
         public IReadOnlyList<Doctor> Doctors { get { return data.Doctors; } }
@@ -75,7 +72,7 @@ namespace DemoCenter.Forms.ViewModels {
         }
 
         void NotifyPropertyChanged([CallerMemberName]String propertyName = "") {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            OnPropertyChanged(propertyName);
         }
     }
 }

@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -47,7 +47,6 @@ namespace DemoCenter.Forms.Charts.ViewModels {
         Range,
         Simple,
         PopulationPyramid,
-        CryptocurrencyPortfolio,
         Stacked,
         SideBySideStacked,
         FullStacked,
@@ -69,10 +68,15 @@ namespace DemoCenter.Forms.Charts.ViewModels {
         Point,
         Bubble
     }
-    public enum ColorizerType {
+    public enum CustomAppearanceType {
         Bubble,
         Bar,
         OperationSurfaceTemperature,
-        GradientSegmentColorizer
+        GradientSegmentColorizer,
+        AreaGradientFillEffect
+    }
+    public enum AxisLabelOptionsType {
+        RotatedAndStaggered,
+        CryptocurrencyPortfolio
     }
 }

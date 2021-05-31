@@ -49,9 +49,9 @@
                 </dxg:TextColumn.MinWidth>
             </dxg:TextColumn>
             <dxg:DateColumn FieldName="HireDate">
-                <dxg:TextColumn.MinWidth>
+                <dxg:DateColumn.MinWidth>
                     <OnIdiom x:TypeArguments="x:Double" Tablet="200" Phone="120" />
-                </dxg:TextColumn.MinWidth>
+                </dxg:DateColumn.MinWidth>
             </dxg:DateColumn>
         </dxg:DataGridView.Columns>
     </dxg:DataGridView>

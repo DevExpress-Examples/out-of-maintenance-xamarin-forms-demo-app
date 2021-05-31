@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -38,7 +38,7 @@ using System.Collections.Generic;
 using DemoCenter.Forms.ViewModels;
 
 namespace DemoCenter.Forms.Charts.ViewModels {
-    public class BarChartsViewModel : ChartsViewModelBase {
+    public class BarChartsViewModel : ChartsPageViewModelBase {
         static readonly List<ChartItemInfoContainerBase> content = new List<ChartItemInfoContainerBase>() {
             new BarChartItemInfoContainer(
                 viewModel: new SideBySideRangeBarChartViewModel(),
@@ -51,10 +51,6 @@ namespace DemoCenter.Forms.Charts.ViewModels {
             new BarChartItemInfoContainer(
                 viewModel: new PopulationPyramidViewModel(),
                 type: BarType.PopulationPyramid
-            ),
-            new BarChartItemInfoContainer(
-                viewModel: new CryptocurrencyPortfolioViewModel(),
-                type: BarType.CryptocurrencyPortfolio
             ),
             new BarChartItemInfoContainer(
                 viewModel: new BarChartViewModel(),

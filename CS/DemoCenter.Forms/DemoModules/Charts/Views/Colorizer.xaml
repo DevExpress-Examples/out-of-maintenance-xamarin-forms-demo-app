@@ -10,14 +10,15 @@
     <ContentPage.Resources>
         <local:ColorizerTypeToImageSourceConverter x:Key="colorizerTypeToImageSourceConverter"/>
         <DataTemplate x:Key="headerItemTemplate">
-            <demo:TabButton ImageSource="{Binding ColorizerType, Converter={StaticResource colorizerTypeToImageSourceConverter}}" IsSelected="{Binding IsSelected}" IsVertical="{Binding IsVertical}"/>
+            <demo:TabButton ImageSource="{Binding CustomAppearanceModuleType, Converter={StaticResource colorizerTypeToImageSourceConverter}}" IsSelected="{Binding IsSelected}" IsVertical="{Binding IsVertical}"/>
         </DataTemplate>
         
         <local:ColorizerTemplateSelector x:Key="colorizerTemplateSelector"
+                                         AreaGradientFillEffectTemplate="{StaticResource areaGradientFillEffectTemplate}"
                                          BubbleColorizerTemplate="{StaticResource bubbleColorizerTemplate}"
                                          BarColorizerTemplate="{StaticResource barColorizerTemplate}"
                                          GradientSegmentColorizerTemplate="{StaticResource gradientSegmentColorizerTemplate}"
-                                         OperationSurfaceTemperatureTemplate="{StaticResource operationSurfaceTemperatureTemplate}"/>
+                                         OperationSurfaceTemperatureTemplate="{StaticResource operationSurfaceTemperatureTemplate}" />
 
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="Medium"/>
@@ -27,21 +28,22 @@
     </ContentPage.Resources>
     <Grid BackgroundColor="{DynamicResource BackgroundThemeColor}">
         <dxn:TabView x:Name="dxTabView"
-                            BackgroundColor="{DynamicResource BackgroundThemeColor}"
-                            HeaderPanelBackgroundColor="{DynamicResource TabItemBackgroundColor}"
+                     BackgroundColor="{DynamicResource BackgroundThemeColor}"
+                     HeaderPanelBackgroundColor="{DynamicResource TabItemBackgroundColor}"
                 
-                            HorizontalOptions="FillAndExpand"
-                            ScrollAnimationEnabled="true"
+                     HorizontalOptions="FillAndExpand"
+                     ScrollAnimationEnabled="True"
+                     SwipeEnabled="False"
                 
-                            ItemsSource="{Binding Content}"
-                            ItemHeaderTemplate="{StaticResource headerItemTemplate}"
-                            ItemTemplate="{StaticResource colorizerTemplateSelector}"
+                     ItemsSource="{Binding Content}"
+                     ItemHeaderTemplate="{StaticResource headerItemTemplate}"
+                     ItemTemplate="{StaticResource colorizerTemplateSelector}"
                 
-                            HeaderPanelContentAlignment="Start"
-                            HeaderPanelIndent="0"
-                            IsSelectedItemIndicatorVisible="False"
-                            IsHeaderPanelShadowVisible="False"
+                     HeaderPanelContentAlignment="Start"
+                     HeaderPanelIndent="0"
+                     IsSelectedItemIndicatorVisible="False"
+                     IsHeaderPanelShadowVisible="False"
                 
-                            SelectedItem="{Binding SelectedItem}"/>
+                     SelectedItem="{Binding SelectedItem}"/>
     </Grid>
 </ContentPage>

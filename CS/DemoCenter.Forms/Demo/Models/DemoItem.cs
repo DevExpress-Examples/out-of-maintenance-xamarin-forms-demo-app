@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -91,7 +91,7 @@ namespace DemoCenter.Forms.Models {
                     return "badge_updated";
                 } else if (this.demoItemStatus == DemoItemStatus.New) {
                     return "badge_new";
-                } else return string.Empty;
+                } else return null;
             }
         }
     }

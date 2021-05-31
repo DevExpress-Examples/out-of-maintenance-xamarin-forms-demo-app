@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -45,32 +45,42 @@ namespace DemoCenter.Forms.Data {
         public CollectionViewData() {
             DemoItems = new List<DemoItem>() {
                 new DemoItem() {
-                    Title = "First look",
+                    Title = "First Look",
                     Description = "Demonstrates the DXCollectionView's basic features.",
                     Module = typeof(ContactsView),
-                    Icon = "collectionview_firstlook",
+                    Icon = "collectionview_firstlook"
+                },
+                new DemoItem() {
+                    Title = "Swipe Actions",
+                    Description = "Illustrates the UI that is extended with extra buttons when you swipe an item row.",
+                    Module = typeof(CollectionViewDefaultSwipes),
+                    Icon = "grid_swipebuttons",
+                    DemoItemStatus = DemoItemStatus.New
+                },
+                new DemoItem() {
+                    Title = "Horizontal Scrolling",
+                    Description = "Demonstrates the DXCollectionView's items Horizontal Scrolling.",
+                    Module = typeof(CollectionViewHorizontalScrolling),
+                    Icon = "collectionview_horvirt",
                     DemoItemStatus = DemoItemStatus.New
                 },
                 new DemoItem() {
                     Title = "Row Auto Height",
                     Description = "Shows how the list can automatically adjust item height to display the entire content of items.",
                     Module = typeof(CollectionViewRowAutoHeightView),
-                    Icon = "grid_rowautoheight",
-                    DemoItemStatus = DemoItemStatus.New
+                    Icon = "grid_rowautoheight"
                 },
                 new DemoItem() {
                     Title = "Drag and Drop",
                     Description = "Demonstrates the list's drag-and-drop functionality. This feature allows users to reorder items.",
                     Module = typeof(CollectionViewDragDropView),
-                    Icon = "grid_dragdrop",
-                    DemoItemStatus = DemoItemStatus.New
+                    Icon = "grid_dragdrop"
                 },
                 new DemoItem() {
                     Title = "Pull To Refresh",
                     Description = "Shows how end users can use a pull-down gesture to update the list.",
                     Module = typeof(CollectionViewPullToRefreshView),
-                    Icon = "grid_pulltorefresh",
-                    DemoItemStatus = DemoItemStatus.New
+                    Icon = "grid_pulltorefresh"
                 },
                 new DemoItem() {
                     Title = "Infinite" + Environment.NewLine + "Data Source",
@@ -78,7 +88,6 @@ namespace DemoCenter.Forms.Data {
                     Description = "Shows how the list requests new data when users scroll to the end of the list.",
                     Module = typeof(CollectionViewLoadMoreView),
                     Icon = "collectionview_loadmore",
-                    DemoItemStatus = DemoItemStatus.New,
                     ShowItemUnderline = false
                 },
             };

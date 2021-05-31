@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -43,7 +43,6 @@ using Xamarin.Forms;
 namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
     public class ComboBoxEditViewModel : NotificationObject {
         const double DefaultCornerRadius = 4.0;
-        const string DefaultHelpText = "Select a state";
         const string DefaultErrorText = "This field is required";
 
         string selectedState;
@@ -65,6 +64,8 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
         bool showStartIcon;
         bool showHelpText;
         bool enableFilter;
+
+        protected virtual string DefaultHelpText { get => "Select a state"; }
 
         public string SelectedState { get => selectedState; set => SetProperty(ref selectedState, value); }
         public BoxMode SelectedBoxMode {
