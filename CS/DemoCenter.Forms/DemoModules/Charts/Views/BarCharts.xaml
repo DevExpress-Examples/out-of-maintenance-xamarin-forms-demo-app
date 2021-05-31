@@ -17,7 +17,6 @@
                                         SideBySideRangeBarChartTemplate="{StaticResource sideBySideRangeBarChartTemplate}"
                                         RangeBarChartTemplate="{StaticResource rangeBarChartTemplate}"
                                         PopulationPyramidTemplate="{StaticResource populationPyramidTemplate}"
-                                        CryptocurrencyPortfolioTemplate="{StaticResource cryptocurrencyPortfolioTemplate}"
                                         BarChartTemplate="{StaticResource barChartTemplate}"
                                         StackedBarChartTemplate="{StaticResource stackedBarChartTemplate}"
                                         SideBySideStackedBarChartTemplate="{StaticResource sideBySideStackedBarChartTemplate}"
@@ -37,7 +36,8 @@
                             HeaderPanelBackgroundColor="{DynamicResource TabItemBackgroundColor}"
                 
                             HorizontalOptions="FillAndExpand"
-                            ScrollAnimationEnabled="true"
+                            ScrollAnimationEnabled="True"
+                            SwipeEnabled="False"
                 
                             ItemsSource="{Binding Content}"
                             ItemHeaderTemplate="{StaticResource headerItemTemplate}"

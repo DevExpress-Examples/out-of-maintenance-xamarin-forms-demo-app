@@ -55,8 +55,11 @@
     <Color x:Key="EditorSettingsTextColor">#dee7e7e7</Color>
     
     <Color x:Key="CollectionViewGrayFontColor">#8e8e8e</Color>
+    <Color x:Key="CollectionViewBoldGrayFontColor">#ababab</Color>
     <Color x:Key="CollectionViewItemBorderColor">#424242</Color>
     <Color x:Key="CollectionViewItemFontColor">#e7e7e7</Color>
+    <Color x:Key="CollectionViewStrikedItemFontColor">#747474</Color>
+    <Color x:Key="CollectionViewUrgentItemBackgroundColor">#594827</Color>
 
     <Color x:Key="NestedTabViewSeparatorColor">#303030</Color>
     <Color x:Key="NestedTabViewFavoriteColor">#de6d6f</Color>

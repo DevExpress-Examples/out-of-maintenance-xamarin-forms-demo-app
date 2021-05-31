@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -35,10 +35,17 @@
 {*******************************************************************}
 */
 using System;
+using System.Windows.Input;
 using DemoCenter.Forms.ViewModels;
+using Xamarin.Forms;
 
 namespace DemoCenter.Forms.DemoModules.Grid.Data {
     public class EmployeeTask : NotificationObject {
+        public EmployeeTask() {
+            CompleteTaskCommand = new Command(() => Status = 100);
+            UnCompleteTaskCommand = new Command(() => Status = 0);
+        }
+
         public int Id { get; set; }
         public int ParentId { get; set; }
         public string Name { get; set; }
@@ -47,6 +54,9 @@ namespace DemoCenter.Forms.DemoModules.Grid.Data {
         public DateTime StartDate { get; set; }
         public DateTime DueDate { get; set; }
         public int Priority { get; set; }
+
+        public ICommand CompleteTaskCommand { get; }
+        public ICommand UnCompleteTaskCommand { get; }
 
         int status;
         public int Status {

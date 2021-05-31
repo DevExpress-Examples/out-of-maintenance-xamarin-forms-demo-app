@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -70,7 +70,7 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
         public UpDownAlignment UpDownIconsAlignment { get => upDownIconAlignment; set => SetProperty(ref upDownIconAlignment, value); }
         public bool IsUpDownIconsVisible { get => isUpDownIconsVisible; set => SetProperty(ref isUpDownIconsVisible, value); }
         public List<DataItem> DisplayFormats { get; set; } = new List<DataItem>() {
-            new DataItem() { Name = "None", Value = null },
+            new DataItem() { Name = "None", Value = string.Empty },
             new DataItem() { Name = "Currency", Value = "c" },
             new DataItem() { Name = "Percentage", Value = "p" },
             new DataItem() { Name = "Number", Value = "n" }

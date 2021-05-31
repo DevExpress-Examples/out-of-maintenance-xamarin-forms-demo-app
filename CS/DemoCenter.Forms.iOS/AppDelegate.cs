@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -43,7 +43,9 @@ namespace DemoCenter.Forms.iOS {
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate {
         public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions) {
+            global::Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+
             DevExpress.XamarinForms.Charts.iOS.Initializer.Init();
             DevExpress.XamarinForms.DataGrid.iOS.Initializer.Init();
             DevExpress.XamarinForms.Editors.iOS.Initializer.Init();

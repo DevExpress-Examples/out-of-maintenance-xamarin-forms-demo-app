@@ -24,7 +24,7 @@
         <StackLayout Padding="0,16" Spacing="0">
             <Grid Style="{StaticResource EditorContainerStyle}">
                 <dxe:AutoCompleteEdit x:Name="autocompleteEdit"
-                    LabelText="Employee"
+                    LabelText="Contact"
                     PlaceholderText="Type here to search"
                     NoSuggestionsText="Not found"
                     HelpText="{Binding ActualHelpText}"
@@ -43,27 +43,36 @@
                     TextChanged="AutocompleteEdit_TextChanged">
                     <dxe:AutoCompleteEdit.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="10">
+                            <Grid
+                                HeightRequest="64"
+                                Padding="10"
+                                RowSpacing="4"
+                                ColumnSpacing="4">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="64"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Image
-                                    Grid.RowSpan="2"
-                                    WidthRequest="64" HeightRequest="64"
-                                    Source="{Binding EmployeeIcon}"/>
+                                    Source="{Binding EmployeeIcon}"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Grid.RowSpan="2"/>
                                 <Label
+                                    FormattedText="{Binding FormattedFullName}"
+                                    Grid.Row="0"
                                     Grid.Column="1"
-                                    TextColor="{DynamicResource TextThemeColor}"
-                                    FormattedText="{Binding FormattedFullName}"/>
+                                    VerticalOptions="End"
+                                    TextColor="{DynamicResource TextThemeColor}"/>
                                 <Label
-                                    Grid.Column="1" Grid.Row="1"
-                                    TextColor="{DynamicResource TextThemeColor}"
-                                    FormattedText="{Binding FormattedPhone}"/>
+                                    FormattedText="{Binding FormattedPhone}"
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    VerticalOptions="Start"
+                                    TextColor="{DynamicResource TextThemeColor}"/>
                             </Grid>
                         </DataTemplate>
                     </dxe:AutoCompleteEdit.ItemTemplate>

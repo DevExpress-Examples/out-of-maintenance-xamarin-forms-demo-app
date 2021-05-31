@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:dxc="http://schemas.devexpress.com/xamarin/2014/forms/charts"
              xmlns:demo="clr-namespace:DemoCenter.Forms.Demo"
-             xmlns:vm="clr-namespace:DemoCenter.Forms.DemoModules.Charts.ViewModels.ChartViewModels"
+             xmlns:vm="clr-namespace:DemoCenter.Forms.ViewModels"
              xmlns:local="clr-namespace:DemoCenter.Forms"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              ios:Page.UseSafeArea="true"

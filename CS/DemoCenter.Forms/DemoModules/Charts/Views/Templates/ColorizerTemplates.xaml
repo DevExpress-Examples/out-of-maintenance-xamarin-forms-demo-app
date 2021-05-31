@@ -4,6 +4,9 @@
                     xmlns:templateView="clr-namespace:DemoCenter.Forms.Charts.Views"
                     x:Class="DemoCenter.Forms.Charts.Templates.ColorizerTemplates">
 
+    <DataTemplate x:Key="areaGradientFillEffectTemplate">
+        <templateView:AreaGradientFillEffectContainer/>
+    </DataTemplate>
     <DataTemplate x:Key="bubbleColorizerTemplate">
         <templateView:BubbleColorizerContainer/>
     </DataTemplate>

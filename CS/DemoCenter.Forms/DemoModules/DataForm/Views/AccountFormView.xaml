@@ -76,6 +76,17 @@
                 RowOrder="6"
                 LabelIcon="editors_password"
                 IsLabelVisible="{Binding IsVertical}"/>
+            <dxdf:DataFormCheckBoxItem
+                EditorHorizontalAlignment="Start"
+                FieldName="ReceiveNotification"
+                LabelText="I want to receive email notifications."
+                LabelPosition="Right"
+                RowOrder="7"
+                LabelWidth="*">
+                <dxdf:DataFormCheckBoxItem.EditorWidth>
+                    <OnPlatform x:TypeArguments="dxdf:DataFormItemLength" Android="34" iOS="39"/>
+                </dxdf:DataFormCheckBoxItem.EditorWidth>
+            </dxdf:DataFormCheckBoxItem>
         </dxdf:DataFormView>
         <dxe:SimpleButton
             Grid.Row="1"

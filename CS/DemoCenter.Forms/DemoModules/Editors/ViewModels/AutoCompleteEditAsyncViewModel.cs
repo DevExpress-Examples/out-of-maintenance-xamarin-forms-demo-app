@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -34,11 +34,13 @@
 {                                                                   }
 {*******************************************************************}
 */
-namespace DemoCenter.Forms.Charts.Views {
-    public partial class CryptocurrencyPortfolioContainer : RotationHandleView {
-        public CryptocurrencyPortfolioContainer() {
-            DevExpress.XamarinForms.Charts.Initializer.Init();
-            InitializeComponent();
+﻿namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
+    public class AutoCompleteEditAsyncViewModel : ComboBoxEditViewModel {
+        public AutoCompleteEditAsyncViewModel() {
+            ShowHelpText = false;
         }
+
+        protected override string DefaultHelpText { get => "Type a person name"; }
+
     }
 }

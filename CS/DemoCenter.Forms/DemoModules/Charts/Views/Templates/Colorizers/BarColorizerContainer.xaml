@@ -21,7 +21,13 @@
                               Grid.Row="1"
                               Rotated="True">
                 <dxc:ChartView.Series>
-                    <dxc:BarSeries PointColorizer="{local:ColorizerByRegion}">
+                    <dxc:BarSeries>
+                        <dxc:BarSeries.PointColorizer>
+                            <dxc:ColorDataAdapter ColorDataMember="Color"
+                                                  LegendTextDataMember="Region"
+                                                  DataSource="{Binding ChartModel.CountriesStatisticData}">
+                            </dxc:ColorDataAdapter>
+                        </dxc:BarSeries.PointColorizer>
                         <dxc:BarSeries.Data>
                             <dxc:SeriesDataAdapter DataSource="{Binding ChartModel.CountriesStatisticData}" ArgumentDataMember="Country">
                                 <dxc:ValueDataMember Type="Value" Member="Gdp"/>

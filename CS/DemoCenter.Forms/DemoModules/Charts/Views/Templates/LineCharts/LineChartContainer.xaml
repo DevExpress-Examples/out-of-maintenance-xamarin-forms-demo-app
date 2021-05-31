@@ -70,10 +70,13 @@
                         </dxc:DateTimeAxisX.Strips>
                         <dxc:DateTimeAxisX.ConstantLines>
                             <dxc:DateTimeConstantLine AxisValue="{Binding ChartModel.CurrentDate}"
-                                                         VisibleInLegend="false">
+                                                      VisibleInLegend="false">
                                 <dxc:DateTimeConstantLine.Title>
                                     <dxc:ConstantLineTitle Text="{Binding ChartModel.CurrentDate, StringFormat='{0:yyyy}'}" />
                                 </dxc:DateTimeConstantLine.Title>
+                                <dxc:DateTimeConstantLine.Style>
+                                    <dxc:ConstantLineStyle Dashes="5 5"/>
+                                </dxc:DateTimeConstantLine.Style>
                             </dxc:DateTimeConstantLine>
                         </dxc:DateTimeAxisX.ConstantLines>
                         <dxc:DateTimeAxisX.Label>

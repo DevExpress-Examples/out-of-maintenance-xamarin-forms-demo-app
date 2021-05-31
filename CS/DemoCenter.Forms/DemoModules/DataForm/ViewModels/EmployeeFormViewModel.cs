@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -47,28 +47,27 @@ using Xamarin.Forms;
 
 namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
     public class EmployeeInfo : IDataErrorInfo {
-        private Func<ImageSource> getImage;
-
-        public EmployeeInfo(Grid.Data.Employee employee) {
-            this.getImage = () => employee.Image;
-            FirstName = employee.FirstName;
-            LastName = employee.LastName;
-            BirthDate = employee.BirthDate;
-            Position = employee.JobTitle;
-            HireDate = employee.HireDate;
-            Notes = employee.FirstName + " has been in the Audio/ Video industry since 1990. He has led DevAV as its CEO since 2003. " +
+        public EmployeeInfo() {
+            FirstName = "Arvil";
+            LastName = "Chase";
+            BirthDate = DateTime.Parse("1978-06-26T00:00:00");
+            Position = "Research and Development Engineer";
+            HireDate = DateTime.Parse("1998-10-20T00:00:00");
+            Notes = FirstName + " has been in the Audio/ Video industry since 1990. He has led DevAV as its CEO since 2003. " +
                     "When not working hard as the CEO, John loves to golf and bowl. He once bowled a perfect game of 300";
             Address = "351 S Hill St.";
             City = "Los Angeles";
             State = "CA";
             Zip = 90013;
-            HomePhoneNumber = employee.Phone;
-            MobilePhoneNumber = employee.Phone;
-            Email = employee.EmailAddress;
-            Skype = employee.FirstName + employee.LastName + "_DX_skype";
+            HomePhoneNumber = "(718) 193-6521";
+            MobilePhoneNumber = HomePhoneNumber;
+            Email = "Arvil_Chase@example.com";
+            Skype = FirstName + LastName + "_DX_skype";
+
+            Photo = ImageSource.FromResource("DemoCenter.Forms.DemoModules.DataForm.Images.Arvil.jpg");
         }
 
-        public ImageSource Photo => this.getImage();
+        public ImageSource Photo { get; private set; }
 
         [Required(ErrorMessage = "First Name shouldn't be empty")]
         public string FirstName { get; set; }
@@ -113,8 +112,11 @@ namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
     }
 
     public partial class EmployeeFormViewModel : NotificationObject, IPickerSourceProvider {
-        readonly IList<Grid.Data.Employee> employees;
-
+        readonly string[] positions = {
+            "Chief Executive Officer", "Database Administrator", "Application Specialist",
+            "Network Manager", "Network Administrator", "Marketing Manager",
+            "Marketing Specialist", "Research and Development Engineer"
+        };
         public EmployeeInfo Model { get; }
 
         bool firstLayout;
@@ -125,9 +127,7 @@ namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
         }
 
         public EmployeeFormViewModel() {
-            var repository = new EmployeesRepository();
-            this.employees = repository.Employees;
-            Model = new EmployeeInfo(this.employees.Where(x => x.FirstName == "Arvil" && x.LastName == "Chase").First());
+            Model = new EmployeeInfo();
             IsVertical = true;
             this.firstLayout = true;
         }
@@ -151,8 +151,9 @@ namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
         }
 
         public IEnumerable GetSource(string propertyName) {
-            if (propertyName == nameof(EmployeeInfo.Position))
-                return this.employees.Select((x) => x.JobTitle).Distinct();
+            if (propertyName == nameof(EmployeeInfo.Position)) {
+                return positions.ToList();
+            }
             return null;
         }
 

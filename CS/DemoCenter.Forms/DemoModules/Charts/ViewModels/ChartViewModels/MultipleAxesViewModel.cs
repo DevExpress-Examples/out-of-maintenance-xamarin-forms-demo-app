@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -40,7 +40,7 @@ using DemoCenter.Forms.Data;
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.ViewModels {
-    public class MultipleAxesViewModel : ContentPage {
+    public class MultipleAxesViewModel : ChartViewModelBase {
         readonly TunedEngineData engineData;
         readonly Color[] palette = PaletteLoader.LoadPalette("#FF327bb7", "#FFe33e3e", "#FF81c1f6", "#FFff9090", "#FFff6363", "#FF42a5f6", "#4CA184AD", "#4C42a5f6", "#00000000");
         readonly IList<String> names;

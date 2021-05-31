@@ -200,13 +200,12 @@
                     Keyboard="Telephone"
                     Mask="+1 (000) 000-0000"/>
 
-            <dxdf:DataFormMaskedItem
+            <dxdf:DataFormTextItem
                     LabelText="Email:"
                     FieldName="Email"
                     RowOrder="13"
-                    Keyboard="Email"
-                    Mask=""/>
-
+                    Keyboard="Email"/>
+            
             <dxdf:DataFormTextItem
                     LabelText="Skype:"
                     FieldName="Skype"

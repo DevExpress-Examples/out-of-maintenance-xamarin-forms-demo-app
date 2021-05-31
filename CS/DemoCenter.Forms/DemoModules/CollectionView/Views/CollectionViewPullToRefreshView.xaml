@@ -61,7 +61,7 @@
                               IsPullToRefreshEnabled="True"
                               IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
                               PullToRefreshCommand="{Binding PullToRefreshCommand}"
-                              ItemsSource="{Binding ItemSource}">
+                              ItemsSource="{Binding ItemSource}" AllowCascadeUpdate="False">
             <dxcv:DXCollectionView.Margin>
                 <OnIdiom x:TypeArguments="Thickness" Tablet="66,0,0,0"/>
             </dxcv:DXCollectionView.Margin>

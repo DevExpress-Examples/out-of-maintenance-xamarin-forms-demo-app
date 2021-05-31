@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -38,23 +38,27 @@
 using DemoCenter.Forms.ViewModels;
 
 namespace DemoCenter.Forms.Charts.ViewModels {
-    public class ColorizersViewModel : ChartsViewModelBase {
+    public class ColorizersViewModel : ChartsPageViewModelBase {
         static readonly List<ChartItemInfoContainerBase> content = new List<ChartItemInfoContainerBase>() {
             new ColorizerItemInfoContainer(
+                viewModel: new AreaGradientFillEffectViewModel(),
+                type: CustomAppearanceType.AreaGradientFillEffect
+            ),
+            new ColorizerItemInfoContainer(
                 viewModel: new BubbleColorizerViewModel(),
-                type: ColorizerType.Bubble
+                type: CustomAppearanceType.Bubble
             ),
             new ColorizerItemInfoContainer(
                 viewModel: new BarColorizerViewModel(),
-                type: ColorizerType.Bar
+                type: CustomAppearanceType.Bar
             ),
             new ColorizerItemInfoContainer(
                 viewModel: new GradientSegmentColorizerViewModel(),
-                type: ColorizerType.GradientSegmentColorizer
+                type: CustomAppearanceType.GradientSegmentColorizer
             ),
             new ColorizerItemInfoContainer(
                 viewModel: new OperationSurfaceTemperatureViewModel(),
-                type: ColorizerType.OperationSurfaceTemperature
+                type: CustomAppearanceType.OperationSurfaceTemperature
             )
         };
 
@@ -62,9 +66,10 @@ namespace DemoCenter.Forms.Charts.ViewModels {
     }
 
     public class ColorizerItemInfoContainer : ChartItemInfoContainerBase {
-        public ColorizerType ColorizerType { get; set; }
-        public ColorizerItemInfoContainer(ColorizerType type, ChartViewModelBase viewModel) {
-            ColorizerType = type;
+        public CustomAppearanceType CustomAppearanceModuleType { get; set; }
+
+        public ColorizerItemInfoContainer(CustomAppearanceType type, ChartViewModelBase viewModel) {
+            CustomAppearanceModuleType = type;
             ChartModel = viewModel;
         }
 

@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -54,7 +54,8 @@ namespace DemoCenter.Forms.Data {
                     Title = "Account Form",
                     Description = "An account form with an outlined box style.",
                     Module = typeof(DataFormAccountFormView),
-                    Icon = "editors_accountform"
+                    Icon = "editors_accountform",
+                    DemoItemStatus = DemoItemStatus.Updated
                 }
                 ,
                 new DemoItem() {
@@ -62,7 +63,6 @@ namespace DemoCenter.Forms.Data {
                     Description = "An employee form with an outlined box style.",
                     Module = typeof(EmployeeFormView),
                     Icon = "editors_employeeform",
-                    DemoItemStatus = DemoItemStatus.Updated,
                     ShowItemUnderline = false
                 }
             };

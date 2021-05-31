@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -39,8 +39,8 @@ using System.Collections.Generic;
 using DemoCenter.Forms.Data;
 using Xamarin.Forms;
 
-namespace DemoCenter.Forms.DemoModules.Charts.ViewModels.ChartViewModels {
-    public class HeadphoneComparisonViewModel {
+namespace DemoCenter.Forms.ViewModels {
+    public class HeadphoneComparisonViewModel : ChartViewModelBase {
         readonly HeadphonesData headphonesData;
         readonly Color[] palette = PaletteLoader.LoadPalette("#317cb9", "#75b8ef", "#f14848", "#fe908f");
         readonly IList<String> names;

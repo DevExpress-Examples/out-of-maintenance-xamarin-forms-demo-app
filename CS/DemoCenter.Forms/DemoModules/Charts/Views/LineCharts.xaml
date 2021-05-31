@@ -29,7 +29,9 @@
                             BackgroundColor="{DynamicResource BackgroundThemeColor}"
                             HeaderPanelBackgroundColor="{DynamicResource TabItemBackgroundColor}"
                             HorizontalOptions="FillAndExpand"
-                            ScrollAnimationEnabled="true"
+
+                            ScrollAnimationEnabled="True"
+                            SwipeEnabled="False"
                 
                             ItemsSource="{Binding Content}"
                             ItemHeaderTemplate="{StaticResource headerItemTemplate}"

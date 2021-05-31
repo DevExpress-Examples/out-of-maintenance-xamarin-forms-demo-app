@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -39,6 +39,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using DemoCenter.Forms.Data;
 using DevExpress.XamarinForms.Charts;
 using Xamarin.Forms;
 
@@ -529,6 +530,29 @@ namespace DemoCenter.Forms.Data {
     public class LightSpectorColorizerWithCustomLegend : LightSpectorColorizer {
         protected override double[] GetWavesForLegend() {
             return new double[] { 400, 440, 480, 540, 580, 610, 650 };
+        }
+    }
+
+    public class PopulationByCountryData {
+        public List<QualitativeData> SeriesData { get; }
+
+        public PopulationByCountryData() {
+            SeriesData = new List<QualitativeData>() {
+                new QualitativeData("China", 1382500000),
+                new QualitativeData("India", 1314300000),
+                new QualitativeData("United States", 324789000),
+                new QualitativeData("Indonesia", 261600000),
+                new QualitativeData("Brazil", 207332000),
+                new QualitativeData("Pakistan", 196865000),
+                new QualitativeData("Nigeria", 188500000),
+                new QualitativeData("Bangladesh", 162240000),
+                new QualitativeData("Russia", 146400000),
+                new QualitativeData("Japan", 126760000),
+                new QualitativeData("Mexico", 122273000),
+                new QualitativeData("Ethiopia", 104345000),
+                new QualitativeData("Philippines", 103906000),
+                new QualitativeData("Egypt", 92847800)
+            };
         }
     }
 }

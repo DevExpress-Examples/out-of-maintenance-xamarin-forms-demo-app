@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -42,7 +42,7 @@ using DemoCenter.Forms.Data;
 
 namespace DemoCenter.Forms.ViewModels {
 
-    public class LogarithmicScaleViewModel : INotifyPropertyChanged {
+    public class LogarithmicScaleViewModel : ChartViewModelBase {
         static DateTime BasisDate = new DateTime(2020, 1, 1);
 
         const int SamplingFrequency = 22050; 
@@ -64,8 +64,6 @@ namespace DemoCenter.Forms.ViewModels {
         public BindingList<NumericData> FrequencyData { get; private set; } = new BindingList<NumericData>();
         public DateTime StripMinLimit { get; private set; }
         public DateTime StripMaxLimit { get; private set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public LogarithmicScaleViewModel() {
             short[] sampleBuffer = CreateSampleBuffer();
@@ -113,8 +111,8 @@ namespace DemoCenter.Forms.ViewModels {
             }
             StripMinLimit = BasisDate.AddSeconds(1d / SamplingFrequency * this.frameStartIndex);
             StripMaxLimit = BasisDate.AddSeconds(1d / SamplingFrequency * this.frameEndIndex);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(StripMinLimit)));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(StripMaxLimit)));
+            OnPropertyChanged(nameof(StripMinLimit));
+            OnPropertyChanged(nameof(StripMaxLimit));
         }
         void RecalculateFrequencySpectrum() {
             Array.Copy(this.averageChannelNormalized, this.frameStartIndex, this.realSpectrum, 0, DefaultFrameLength);
@@ -128,7 +126,7 @@ namespace DemoCenter.Forms.ViewModels {
                 tmpFrequencyData.Add(new NumericData(FrequencyData[i].Argument, magnitudeDB));
             }
             FrequencyData = tmpFrequencyData;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FrequencyData)));
+            OnPropertyChanged(nameof(FrequencyData));
         }
 
         public void MoveToNextFrame() {

@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -70,7 +70,6 @@ namespace DemoCenter.Forms {
                 case BarType.Range: return "democharts_tabitems_rangebar";
                 case BarType.Simple: return "democharts_tabitems_bar";
                 case BarType.PopulationPyramid: return "democharts_tabitems_populationpyramid";
-                case BarType.CryptocurrencyPortfolio: return "democharts_tabitems_cryptocurrencyportfolio";
                 case BarType.Stacked: return "democharts_tabitems_stackedbar";
                 case BarType.SideBySideStacked: return "democharts_tabitems_sidebysidestackedbar";
                 case BarType.FullStacked: return "democharts_tabitems_fullstackedbar";
@@ -141,14 +140,15 @@ namespace DemoCenter.Forms {
 
     class ColorizerTypeToImageSourceConverter : IValueConverter {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
-            if (!(value is ColorizerType type))
+            if (!(value is CustomAppearanceType type))
                 return null;
 
             switch (type) {
-                case ColorizerType.Bubble: return "democharts_tabitems_bubble";
-                case ColorizerType.Bar: return "democharts_tabitems_bar";
-                case ColorizerType.GradientSegmentColorizer: return "democharts_tabitems_lightspector";
-                case ColorizerType.OperationSurfaceTemperature: return "democharts_tabitems_surfacetemperature";
+                case CustomAppearanceType.Bubble: return "democharts_tabitems_bubble";
+                case CustomAppearanceType.Bar: return "democharts_tabitems_bar";
+                case CustomAppearanceType.GradientSegmentColorizer: return "democharts_tabitems_lightspector";
+                case CustomAppearanceType.OperationSurfaceTemperature: return "democharts_tabitems_surfacetemperature";
+                case CustomAppearanceType.AreaGradientFillEffect: return "democharts_tabitems_areagradientfill";
                 default: throw new ArgumentException("The selector cannot handle the passed PointType value.");
             }
         }
@@ -157,4 +157,23 @@ namespace DemoCenter.Forms {
             throw new NotImplementedException();
         }
     }
+
+    class LabelModeTypeToImageSourceConverter : IValueConverter {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
+            if (!(value is AxisLabelOptionsType type))
+                return null;
+
+            switch (type) {
+                case AxisLabelOptionsType.RotatedAndStaggered: return "democharts_tabitems_rotatedlabels";
+                case AxisLabelOptionsType.CryptocurrencyPortfolio: return "democharts_tabitems_cryptocurrencyportfolio";
+                default:
+                    throw new ArgumentException("The selector cannot handle the passed PointType value.");
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
+            throw new NotImplementedException();
+        }
+    }
+
 }

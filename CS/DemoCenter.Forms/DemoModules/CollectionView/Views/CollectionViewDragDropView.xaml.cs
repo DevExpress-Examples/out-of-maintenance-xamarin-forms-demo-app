@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -34,7 +34,10 @@
 {                                                                   }
 {*******************************************************************}
 */
-﻿using DemoCenter.Forms.DemoModules.Grid.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using DemoCenter.Forms.DemoModules.Grid.Data;
 using DemoCenter.Forms.ViewModels;
 using DevExpress.XamarinForms.CollectionView;
 using Xamarin.Forms;
@@ -58,8 +61,11 @@ namespace DemoCenter.Forms.DemoModules.CollectionView.Views {
         public CollectionViewDragDropView() {
             DevExpress.XamarinForms.CollectionView.Initializer.Init();
             InitializeComponent();
-            BindingContext = new DragDropModel(new EmployeeTasksRepository());
+            ViewModel = new DragDropModel(new EmployeeTasksRepository());
+            BindingContext = ViewModel;
         }
+
+        DragDropModel ViewModel { get; }
 
         void DragItem(object sender, DragItemEventArgs e) {
             e.Allow = IsItemDraggable(e.DragItem);

@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -43,11 +43,11 @@ using Xamarin.Forms.Xaml;
 [assembly: AssemblyProduct("DevExpress.XamarinForms.DemoCenter")]
 
 [assembly: AssemblyCompany("Developer Express Inc.")]
-[assembly: AssemblyCopyright("Copyright (c) 2015-2020 Developer Express Inc.")]
+[assembly: AssemblyCopyright("Copyright (c) 2015-2021 Developer Express Inc.")]
 [assembly: AssemblyTrademark("DevExpress(R)")]
 
-[assembly: AssemblyVersion("20.2.3")]
-[assembly: AssemblyFileVersion("20.2.3")]
+[assembly: AssemblyVersion("21.1.3")]
+[assembly: AssemblyFileVersion("21.1.3")]
 
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]

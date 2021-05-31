@@ -15,9 +15,8 @@
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate x:Key="itemTemplate">
-                <StackLayout Margin="0" Spacing="0">
-                    <Label Style="{StaticResource DragDropTemplateStyle}"
-                           Text="{Binding Name}"/>
+                <StackLayout Margin="0" Spacing="0" BackgroundColor="{DynamicResource BackgroundThemeColor}">
+                    <Label Style="{StaticResource DragDropTemplateStyle}" Text="{Binding Name}"/>
                     <BoxView Style="{StaticResource SeparatorStyle}"/>
                 </StackLayout>
             </DataTemplate>
@@ -25,8 +24,8 @@
             <DataTemplate x:Key="strikethroughItemTemplate">
                 <StackLayout Margin="0" Spacing="0">
                     <Label Style="{StaticResource DragDropTemplateStyle}"
-                           Text="{Binding Name}"
-                           TextDecorations="Strikethrough"/>
+                            Text="{Binding Name}"
+                            TextDecorations="Strikethrough"/>
                     <BoxView Style="{StaticResource SeparatorStyle}"/>
                 </StackLayout>
             </DataTemplate>
@@ -42,6 +41,7 @@
                               DragItem="DragItem"
                               DragItemOver="DragItemOver"
                               ItemTemplate="{StaticResource itemTemplateSelector}"
-                              ItemsSource="{Binding ItemSource}" />
+                              ItemsSource="{Binding ItemSource}">
+        </dxcv:DXCollectionView>
     </ContentPage.Content>
 </ContentPage>

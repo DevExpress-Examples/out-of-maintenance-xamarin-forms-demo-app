@@ -16,9 +16,6 @@
     <DataTemplate x:Key="populationPyramidTemplate">
         <templateView:PopulationPyramidContainer/>
     </DataTemplate>
-    <DataTemplate x:Key="cryptocurrencyPortfolioTemplate">
-        <templateView:CryptocurrencyPortfolioContainer/>
-    </DataTemplate>
     <DataTemplate x:Key="stackedBarChartTemplate">
         <templateView:StackedBarChartContainer/>
     </DataTemplate>

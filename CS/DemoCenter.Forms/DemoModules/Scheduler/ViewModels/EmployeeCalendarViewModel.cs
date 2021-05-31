@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2020 Developer Express Inc.
+               Copyright (c) 2015-2021 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2020 Developer Express Inc.              }
+{       Copyright (c) 2015-2021 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -37,10 +37,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace DemoCenter.Forms.ViewModels {
-    public class EmployeeCalendarViewModel : INotifyPropertyChanged {
+    public class EmployeeCalendarViewModel : NotificationObject {
         DateTime start;
 
         public EmployeeCalendarViewModel(DateTime startDate) {
@@ -59,10 +58,8 @@ namespace DemoCenter.Forms.ViewModels {
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         protected void NotifyPropertyChanged(string propertyName) {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            OnPropertyChanged(propertyName);
         }
     }
     public class DailyEmployeeCalendarViewModel : EmployeeCalendarViewModel {
