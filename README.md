@@ -17,7 +17,7 @@ Please register the DevExpress NuGet Gallery in Visual Studio to restore NuGet p
 
 ### What's in This Repository
 
-A demo application in this repository demonstrates capabilities of the **DevExpress Mobile UI for Xamarin.Forms**: Data Grid, Editors, Charts, Scheduler, Data Form, and other controls.
+A demo application in this repository demonstrates the capabilities of the **DevExpress Mobile UI for Xamarin.Forms**: Data Grid, Editors, Charts, Scheduler, Data Form, and other controls.
 
 ![DevExpress Mobile UI for Xamarin.Forms](./Images/demo-center.png)
 
