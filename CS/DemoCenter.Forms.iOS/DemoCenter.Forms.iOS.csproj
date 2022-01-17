@@ -87,27 +87,27 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="Renderers.cs" />
-    <Compile Include="ThemeLoaderImplementation.cs" />
-    <None Include="Entitlements.plist" />
-    <None Include="Info.plist" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DemoVisibility.cs" />
-    <Compile Include="PlatformShadowEffect.cs" />
-    <Compile Include="DependencyServices\Sensor.cs" />
-    <Compile Include="DependencyServices\Scheduler\StoragePathProvider.cs" />
-    <Compile Include="DependencyServices\Scheduler\NotificationCenter.cs" />
-    <Compile Include="ExceptionSenderImplementation.cs" />
+    <Compile Include="Main.cs"/>
+    <Compile Include="AppDelegate.cs"/>
+    <Compile Include="Renderers.cs"/>
+    <Compile Include="ThemeLoaderImplementation.cs"/>
+    <None Include="Entitlements.plist"/>
+    <None Include="Info.plist"/>
+    <Compile Include="Properties\AssemblyInfo.cs"/>
+    <Compile Include="DemoVisibility.cs"/>
+    <Compile Include="PlatformShadowEffect.cs"/>
+    <Compile Include="DependencyServices\Sensor.cs"/>
+    <Compile Include="DependencyServices\Scheduler\StoragePathProvider.cs"/>
+    <Compile Include="DependencyServices\Scheduler\NotificationCenter.cs"/>
+    <Compile Include="ExceptionSenderImplementation.cs"/>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <BundleResource Include="Resources\splash_background.png" />
-    <BundleResource Include="Resources\DevExpress_logo.png" />
-    <BundleResource Include="Resources\xamarin_logo.png" />
+    <BundleResource Include="Resources\splash_background.png"/>
+    <BundleResource Include="Resources\DevExpress_logo.png"/>
+    <BundleResource Include="Resources\xamarin_logo.png"/>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Visible>false</Visible>
@@ -188,7 +188,7 @@
     <ImageAsset Include="Assets.xcassets\nested_wish_list.imageset\nested_favorite.pdf">
       <Visible>false</Visible>
     </ImageAsset>
-    <InterfaceDefinition Include="Resources\SplashScreen.storyboard" />
+    <InterfaceDefinition Include="Resources\SplashScreen.storyboard"/>
     <ImageAsset Include="Assets.xcassets\demo_contacts.imageset\contacts.pdf">
       <Visible>false</Visible>
     </ImageAsset>
@@ -1415,26 +1415,60 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="Xamarin.iOS" />
+    <Reference Include="DevExpress.Xamarin.iOS.Charts">
+      <HintPath>..\..\..\Binaries\DevExpress.Xamarin.iOS.Charts.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xamarin.iOS.Grid">
+      <HintPath>..\..\..\Binaries\DevExpress.Xamarin.iOS.Grid.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xamarin.iOS.Navigation">
+      <HintPath>..\..\..\Binaries\DevExpress.Xamarin.iOS.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xamarin.iOS.Scheduler">
+      <HintPath>..\..\..\Binaries\DevExpress.Xamarin.iOS.Scheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Charts.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Charts.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Grid.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Grid.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Navigation.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Navigation.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Scheduler">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Scheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Scheduler.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Scheduler.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Editors">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Editors.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Editors.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Editors.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="System"/>
+    <Reference Include="System.Xml"/>
+    <Reference Include="System.Core"/>
+    <Reference Include="System.Runtime.Serialization"/>
+    <Reference Include="Xamarin.iOS"/>
+    <Reference Include="DevExpress.XamarinForms.CollectionView">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.CollectionView.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.CollectionView.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.CollectionView.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xamarin.iOS.CollectionView">
+      <HintPath>..\..\..\Binaries\DevExpress.Xamarin.iOS.CollectionView.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="21.1.3" />
-    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="21.1.3" />
-    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="21.1.3" />
-    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="21.1.3" />
-    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.1.3" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Logify.Alert.Xamarin.iOS" Version="1.0.55" />
-    <PackageReference Include="DevExpress.XamarinForms.CollectionView">
-      <Version>21.1.3</Version>
-    </PackageReference>
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1"/>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012"/>
+    <PackageReference Include="Logify.Alert.Xamarin.iOS" Version="1.0.55"/>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets"/>
   <ItemGroup>
     <ProjectReference Include="..\DemoCenter.Forms\DemoCenter.Forms.csproj">
       <Project>{40CCB143-152E-41CC-9302-F8E8D8125E4F}</Project>
@@ -1442,9 +1476,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets.xcassets\demogrid_triangle_negative.imageset\" />
-    <Folder Include="Assets.xcassets\demogrid_triangle_positive.imageset\" />
-    <Folder Include="Assets.xcassets\demogrid_triangle_undefined.imageset\" />
-    <Folder Include="Assets.xcassets\SplashScreen.imageset\" />
+    <Folder Include="Assets.xcassets\demogrid_triangle_negative.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_triangle_positive.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_triangle_undefined.imageset\"/>
+    <Folder Include="Assets.xcassets\SplashScreen.imageset\"/>
   </ItemGroup>
 </Project>

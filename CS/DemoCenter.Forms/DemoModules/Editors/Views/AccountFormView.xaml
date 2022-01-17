@@ -32,6 +32,7 @@
                 Text="{Binding Login, Mode=TwoWay}"
                 HasError="{Binding LoginHasError}"
                 LabelText="Login"
+                AutofillContentType="Username"
                 HelpText="*Required"
                 ErrorText="Login is required"/>
             <dxe:PasswordEdit
@@ -40,6 +41,7 @@
                 Text="{Binding Password, Mode=TwoWay}"
                 HasError="{Binding PasswordHasError}"
                 LabelText="Password"
+                AutofillContentType="Password"
                 HelpText="*Required"
                 ErrorText="The password should contain more than 5 characters, have at least one uppercase and one lowercase letter, and one number."/>
             <dxe:TextEdit
@@ -50,6 +52,7 @@
                 LabelText="Email"
                 TextHorizontalAlignment="End"
                 ErrorText="Email is required"
+                AutofillContentType="EmailAddress"
                 HelpText="*Required"
                 Suffix="@devexpress.com"
                 AffixIndent="0"
@@ -62,6 +65,7 @@
                 LabelText="Birth date"
                 TextHorizontalAlignment="End"
                 ErrorText="Birth date is required"
+                AutofillContentType="AndroidBirthDate"
                 HelpText="*Required"
                 IsDateIconVisible="False"
                 ClearIconVisibility="Auto"
@@ -73,6 +77,7 @@
                 HasError="{Binding PhoneHasError}"
                 LabelText="Phone"
                 Mask="(000) 000-0000"
+                AutofillContentType="PhoneNumber"
                 ErrorText="Incorrect phone number"
                 HelpText="Do not include a country code"
                 Keyboard="Telephone"/>
