@@ -73,8 +73,7 @@ namespace DemoCenter.Forms.Data {
                     Title = "Editing",
                     Description = "Demonstrates the grid’s inplace data editors.",
                     Module = typeof(EditingView),
-                    Icon = "grid_editing",
-                    DemoItemStatus = DemoItemStatus.Updated
+                    Icon = "grid_editing"
                 },
                 new DemoItem() {
                     Title = "Custom Appearance",

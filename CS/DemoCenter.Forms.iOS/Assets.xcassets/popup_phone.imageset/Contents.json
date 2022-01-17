@@ -1,0 +1,12 @@
+{
+  "images": [
+    {
+      "filename": "popup_phone.pdf",
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

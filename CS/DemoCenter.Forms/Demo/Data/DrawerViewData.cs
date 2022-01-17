@@ -41,16 +41,9 @@ using DemoCenter.Forms.Views;
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Data {
-    public interface IDrawerPages {
-        bool CanBeShown();
-    }
-
     public class DrawerViewData : IDemoData {
-        readonly IDrawerPages drawerPages;
 
         public DrawerViewData() {
-            this.drawerPages = DependencyService.Get<IDrawerPages>();
-
             DemoItems = new List<DemoItem>() {
                 new DemoItem() {
                     Title = "First Look",
@@ -64,17 +57,16 @@ namespace DemoCenter.Forms.Data {
                     Description="This demo allows you to configure various settings and see how they affect the View.",
                     Module = typeof(DrawerSettingsView),
                     Icon = "drawer_drawersettings",
-                }
-            };
-            if (this.drawerPages.CanBeShown())
-                DemoItems.Add(new DemoItem() {
+                },
+                new DemoItem() {
                     Title = "Root-Level" + Environment.NewLine + "Drawer",
                     ControlsPageTitle = "Root-Level Drawer",
                     Description = "Demonstrates the DrawerPage’s general features.",
                     Module = typeof(DrawerPageExample),
                     Icon = "drawer_pages",
                     ShowItemUnderline = false
-                });
+                }
+            };
         }
         public List<DemoItem> DemoItems { get; }
         public string Title => "Drawer";

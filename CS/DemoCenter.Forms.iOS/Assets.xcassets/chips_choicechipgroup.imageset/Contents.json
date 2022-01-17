@@ -1,0 +1,32 @@
+{
+  "images": [
+    {
+      "filename": "light.ChoiceChipGroup.pdf",
+      "idiom": "universal"
+    },
+    {
+      "filename": "dark.ChoiceChipGroup.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ],
+      "idiom": "universal"
+    },
+    {
+      "filename": "light.ChoiceChipGroup.pdf",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "light"
+        }
+      ],
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}

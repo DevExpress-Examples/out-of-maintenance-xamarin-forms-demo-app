@@ -30,6 +30,7 @@
                     MaxCharacterCount="{Binding ActualMaxCharacterCount}"
                     BoxMode="{Binding SelectedBoxMode}"
                     CornerMode="{Binding SelectedCornerMode}"
+                    CharacterCasing="{Binding SelectedCharacterCasing}"
                     CornerRadius="{Binding CornerRadius}"
                     FocusedBorderColor="{Binding SelectedAccentColor.Color}"
                     FocusedLabelColor="{Binding SelectedAccentColor.Color}"
@@ -49,6 +50,18 @@
                             StartIconColor="{StaticResource IconForegroundColor}"
                             ItemsSource="{Binding BoxModes}"
                             ItemTemplate="{StaticResource BoxModeComboBoxItemTemplate}">
+                        </dxe:ComboBoxEdit>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource SeparatorStyle}"/>
+
+                    <StackLayout Style="{StaticResource LayoutItemContainerStyle}">
+                        <Label Text="Character Casing" Style="{StaticResource TextStyle}"/>
+                        <dxe:ComboBoxEdit Style="{StaticResource ComboBoxStyleBase}"
+                            SelectedItem="{Binding SelectedCharacterCasing}"
+                            StartIcon="{Binding SelectedCharacterCasing, Converter={converters:CharacterCasingToImageSourceConverter Normal='casing_normal', Uppercase='casing_upper', Lowercase='casing_lower'}}"
+                            StartIconColor="{StaticResource IconForegroundColor}"
+                            ItemsSource="{Binding CasingModes}"
+                            ItemTemplate="{StaticResource CharacterCasingComboBoxItemTemplate}">
                         </dxe:ComboBoxEdit>
                     </StackLayout>
                     <BoxView Style="{StaticResource SeparatorStyle}"/>

@@ -54,6 +54,11 @@ namespace DemoCenter.Forms.Data {
                     Module = typeof(EditorsData)
                 },
                 new DemoItem() {
+                    Title = "Controls",
+                    Description = "Controls",
+                    Module = typeof(ControlsData)
+                },
+                new DemoItem() {
                     Title = "Charts",
                     Description = "Charts",
                     Module = typeof(ChartsData)

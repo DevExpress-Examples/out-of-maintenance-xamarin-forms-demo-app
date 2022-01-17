@@ -1,4 +1,4 @@
-﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Build">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Build">
   <PropertyGroup>
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
@@ -87,27 +87,25 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="Renderers.cs" />
-    <Compile Include="ThemeLoaderImplementation.cs" />
-    <None Include="Entitlements.plist" />
-    <None Include="Info.plist" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DemoVisibility.cs" />
-    <Compile Include="PlatformShadowEffect.cs" />
-    <Compile Include="DependencyServices\Sensor.cs" />
-    <Compile Include="DependencyServices\Scheduler\StoragePathProvider.cs" />
-    <Compile Include="DependencyServices\Scheduler\NotificationCenter.cs" />
-    <Compile Include="ExceptionSenderImplementation.cs" />
+    <Compile Include="Main.cs"/>
+    <Compile Include="AppDelegate.cs"/>
+    <Compile Include="Renderers.cs"/>
+    <Compile Include="ThemeLoaderImplementation.cs"/>
+    <None Include="Entitlements.plist"/>
+    <None Include="Info.plist"/>
+    <Compile Include="Properties\AssemblyInfo.cs"/>
+    <Compile Include="PlatformShadowEffect.cs"/>
+    <Compile Include="DependencyServices\Sensor.cs"/>
+    <Compile Include="DependencyServices\Scheduler\StoragePathProvider.cs"/>
+    <Compile Include="DependencyServices\Scheduler\NotificationCenter.cs"/>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <BundleResource Include="Resources\splash_background.png" />
-    <BundleResource Include="Resources\DevExpress_logo.png" />
-    <BundleResource Include="Resources\xamarin_logo.png" />
+    <BundleResource Include="Resources\splash_background.png"/>
+    <BundleResource Include="Resources\DevExpress_logo.png"/>
+    <BundleResource Include="Resources\xamarin_logo.png"/>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Visible>false</Visible>
@@ -188,7 +186,7 @@
     <ImageAsset Include="Assets.xcassets\nested_wish_list.imageset\nested_favorite.pdf">
       <Visible>false</Visible>
     </ImageAsset>
-    <InterfaceDefinition Include="Resources\SplashScreen.storyboard" />
+    <InterfaceDefinition Include="Resources\SplashScreen.storyboard"/>
     <ImageAsset Include="Assets.xcassets\demo_contacts.imageset\contacts.pdf">
       <Visible>false</Visible>
     </ImageAsset>
@@ -271,6 +269,30 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\editors_time.imageset\time.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chips_corner_radius.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chips_corner_radius.imageset\chips_corner_radius.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chips.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chips.imageset\light.Chips.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chips.imageset\dark.Chips.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chips_choicechipgroup.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chips_choicechipgroup.imageset\light.ChoiceChipGroup.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chips_choicechipgroup.imageset\dark.ChoiceChipGroup.pdf">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\circle.imageset\Contents.json">
@@ -1233,12 +1255,6 @@
     <ImageAsset Include="Assets.xcassets\default_icon_24.imageset\default_24px.pdf">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\error_report.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\error_report.imageset\error_report.pdf">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\grid_horizontalvirtualization.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -1413,20 +1429,89 @@
     <ImageAsset Include="Assets.xcassets\democharts_tabitems_rotatedlabels.imageset\light.RotatedLabel-1.pdf">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\popup_phone.imageset\popup_phone.pdf"/>
+    <ImageAsset Include="Assets.xcassets\popup_phone.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\popup_dialog.imageset\popup_dialog_dark.pdf"/>
+    <ImageAsset Include="Assets.xcassets\popup_dialog.imageset\popup_dialog_light.pdf"/>
+    <ImageAsset Include="Assets.xcassets\popup_dialog.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\popup_dropdown.imageset\popup_dropdown_dark.pdf"/>
+    <ImageAsset Include="Assets.xcassets\popup_dropdown.imageset\popup_dropdown_light.pdf"/>
+    <ImageAsset Include="Assets.xcassets\popup_dropdown.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\casing_normal.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\casing_normal.imageset\casing_normal.pdf"/>
+    <ImageAsset Include="Assets.xcassets\casing_upper.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\casing_lower.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\casing_upper.imageset\casing_upper.pdf"/>
+    <ImageAsset Include="Assets.xcassets\casing_lower.imageset\casing_lower.pdf"/>
+    <ImageAsset Include="Assets.xcassets\chip_checkicon.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\chip_checkicon.imageset\chip_checkicon.pdf"/>
+    <ImageAsset Include="Assets.xcassets\superhero_red.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\superhero_red.imageset\superhero_red.pdf"/>
+    <ImageAsset Include="Assets.xcassets\superhero_orange.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\superhero_orange.imageset\superhero_orange.pdf"/>
+    <ImageAsset Include="Assets.xcassets\superhero_yellow.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\superhero_yellow.imageset\superhero_yellow.pdf"/>
+    <ImageAsset Include="Assets.xcassets\superhero_green.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\superhero_green.imageset\superhero_green.pdf"/>
+    <ImageAsset Include="Assets.xcassets\superhero_blue.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\superhero_blue.imageset\superhero_blue.pdf"/>
+    <ImageAsset Include="Assets.xcassets\superhero_purple.imageset\Contents.json"/>
+    <ImageAsset Include="Assets.xcassets\superhero_purple.imageset\superhero_purple.pdf"/>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="Xamarin.iOS" />
+    <Reference Include="DevExpress.Xamarin.iOS.Charts">
+      <HintPath>..\..\..\Binaries\DevExpress.Xamarin.iOS.Charts.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xamarin.iOS.Grid">
+      <HintPath>..\..\..\Binaries\DevExpress.Xamarin.iOS.Grid.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xamarin.iOS.Navigation">
+      <HintPath>..\..\..\Binaries\DevExpress.Xamarin.iOS.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xamarin.iOS.Scheduler">
+      <HintPath>..\..\..\Binaries\DevExpress.Xamarin.iOS.Scheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Charts.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Charts.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Grid.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Grid.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Navigation.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Navigation.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Scheduler">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Scheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Scheduler.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Scheduler.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Editors">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Editors.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.Editors.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.Editors.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="System"/>
+    <Reference Include="System.Xml"/>
+    <Reference Include="System.Core"/>
+    <Reference Include="System.Runtime.Serialization"/>
+    <Reference Include="Xamarin.iOS"/>
+    <Reference Include="DevExpress.XamarinForms.CollectionView">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.CollectionView.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XamarinForms.CollectionView.iOS">
+      <HintPath>..\..\..\Binaries\DevExpress.XamarinForms.CollectionView.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xamarin.iOS.CollectionView">
+      <HintPath>..\..\..\Binaries\DevExpress.Xamarin.iOS.CollectionView.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Logify.Alert.Xamarin.iOS" Version="1.0.55" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1"/>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012"/>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets"/>
   <ItemGroup>
     <ProjectReference Include="..\DemoCenter.Forms\DemoCenter.Forms.csproj">
       <Project>{40CCB143-152E-41CC-9302-F8E8D8125E4F}</Project>
@@ -1434,9 +1519,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets.xcassets\demogrid_triangle_negative.imageset\" />
-    <Folder Include="Assets.xcassets\demogrid_triangle_positive.imageset\" />
-    <Folder Include="Assets.xcassets\demogrid_triangle_undefined.imageset\" />
-    <Folder Include="Assets.xcassets\SplashScreen.imageset\" />
+    <Folder Include="Assets.xcassets\demogrid_triangle_negative.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_triangle_positive.imageset\"/>
+    <Folder Include="Assets.xcassets\demogrid_triangle_undefined.imageset\"/>
+    <Folder Include="Assets.xcassets\SplashScreen.imageset\"/>
+    <Folder Include="Assets.xcassets\popup_phone.imageset\"/>
+    <Folder Include="Assets.xcassets\popup_dialog.imageset\"/>
+    <Folder Include="Assets.xcassets\popup_dropdown.imageset\"/>
+    <Folder Include="Assets.xcassets\casing_normal.imageset\"/>
+    <Folder Include="Assets.xcassets\casing_upper.imageset\"/>
+    <Folder Include="Assets.xcassets\casing_lower.imageset\"/>
   </ItemGroup>
 </Project>

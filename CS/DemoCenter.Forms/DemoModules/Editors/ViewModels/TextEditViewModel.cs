@@ -46,10 +46,12 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
         const string DefaultHelpText = "Help Text";
         const string DefaultErrorText = "Error Message";
         const int DefaultMaxCharacterCount = 20;
+        const CharacterCasing DefaultCharacterCasing = CharacterCasing.Normal;
 
         BoxMode selectedBoxMode;
         CornerMode selectedCornerMode;
         ColorViewModel selectedAccentColor;
+        CharacterCasing selectedCharacterCasing;
 
         double topLeftCornerRadius;
         double topRightCornerRadius;
@@ -75,6 +77,12 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
                 OnPropertyChanged(nameof(CanSetBottomCorners));
             });
         }
+
+        public CharacterCasing SelectedCharacterCasing {
+            get => selectedCharacterCasing;
+            set => SetProperty(ref selectedCharacterCasing, value);
+        }
+
         public CornerMode SelectedCornerMode { get => selectedCornerMode; set => SetProperty(ref selectedCornerMode, value); }
         public ColorViewModel SelectedAccentColor { get => selectedAccentColor; set => SetProperty(ref selectedAccentColor, value); }
 
@@ -106,6 +114,7 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
 
         public IList<BoxMode> BoxModes { get; }
         public IList<CornerMode> CornerModes { get; }
+        public IList<CharacterCasing> CasingModes { get; }
 
         public ICommand ResetToDefaultCommand { get; }
         public ICommand ToggleErrorCommand { get; }
@@ -121,7 +130,12 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
                 CornerMode.Round,
                 CornerMode.Cut
             };
-            
+            CasingModes = new List<CharacterCasing> {
+                CharacterCasing.Normal,
+                CharacterCasing.Upper,
+                CharacterCasing.Lower
+            };
+
             ResetToDefaultCommand = new DelegateCommand(ResetToDefault);
             ToggleErrorCommand = new DelegateCommand(ToggleError);
 
@@ -136,6 +150,7 @@ namespace DemoCenter.Forms.DemoModules.Editors.ViewModels {
             TopRightCornerRadius = DefaultCornerRadius;
             BottomLeftCornerRadius = DefaultCornerRadius;
             BottomRightCornerRadius = DefaultCornerRadius;
+            SelectedCharacterCasing = DefaultCharacterCasing;
 
             ShowStartIcon = false;
             ShowHelpText = true;

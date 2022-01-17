@@ -76,6 +76,7 @@ namespace DemoCenter.Forms.Data {
                     Title = "Text Edit",
                     Description = "Demonstrates different TextEdit customization options.",
                     Module = typeof(TextEditView),
+                    DemoItemStatus = DemoItemStatus.Updated,
                     Icon = "editors_textedit"
                 },
                 new DemoItem() {
@@ -101,13 +102,6 @@ namespace DemoCenter.Forms.Data {
                     Description = "Demonstrates different CheckEdit customization options.",
                     Module = typeof(CheckEditView),
                     Icon = "editors_checkedit"
-                },
-                new DemoItem() {
-                    Title = "Simple Button",
-                    Description = "Illustrates SimpleButton customization options.",
-                    Module = typeof(SimpleButtonView),
-                    Icon = "controls_buttons",
-                    ShowItemUnderline = false
                 }
             };
         }

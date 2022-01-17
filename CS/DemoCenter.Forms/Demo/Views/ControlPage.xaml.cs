@@ -37,7 +37,7 @@
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Views {
-    public partial class ControlPage : ErrorDialogPage {
+    public partial class ControlPage : ContentPage {
 		public ControlPage () {
 			InitializeComponent ();          
 		}
