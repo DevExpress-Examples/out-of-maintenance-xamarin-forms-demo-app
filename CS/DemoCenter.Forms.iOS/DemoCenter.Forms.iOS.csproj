@@ -1,4 +1,4 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Build">
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Build">
   <PropertyGroup>
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
@@ -1422,17 +1422,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="21.1.3" />
-    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="21.1.3" />
-    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="21.1.3" />
-    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="21.1.3" />
-    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.1.3" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Logify.Alert.Xamarin.iOS" Version="1.0.55" />
-    <PackageReference Include="DevExpress.XamarinForms.CollectionView">
-      <Version>21.1.3</Version>
-    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

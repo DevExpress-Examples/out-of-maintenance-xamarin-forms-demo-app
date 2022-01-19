@@ -80,6 +80,7 @@ namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
         [DataFormItemPosition(RowOrder = 4, ItemOrderInRow = 1)]
         [DataFormNumericEditor(InplaceLabelText = "Zip")]
         [RegularExpression(@"(^\d{5}$)|(^\d{5}-\d{4}$)", ErrorMessage = "Invalid zip-code")]
+        [Required(ErrorMessage = "Required")]
         public int? Zip { get; set; }
 
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, EditorWidth = "0.3*", LabelIcon = "editors_phone", IsLabelVisible = true)]

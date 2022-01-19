@@ -149,7 +149,7 @@
                         </StackLayout>
                     </StackLayout>
 
-                    <StackLayout Orientation="Horizontal" Spacing="8" Margin="0,8,0,0">
+                    <StackLayout Orientation="Horizontal" Spacing="8" Margin="16">
                         <dxe:SimpleButton Text="Toggle Error"
                                           Command="{Binding ToggleErrorCommand}"
                                           HorizontalOptions="FillAndExpand"/>

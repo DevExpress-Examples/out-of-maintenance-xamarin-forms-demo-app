@@ -111,7 +111,7 @@ namespace DemoCenter.Forms.Data {
                 },
                 new DemoItem() {
                     Title = "Large" + Environment.NewLine + "Dataset",
-                    ControlsPageTitle = "Large Dataset",
+                    ControlsPageTitle = "Blazing Fast Native Rendering",
                     Description="Demonstrates the speed with which DevExpress Charts can render a large number of points.",
                     Module = typeof(LargeDataset),
                     Icon = "charts_largedataset"
