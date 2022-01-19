@@ -20,7 +20,8 @@
                 <StackLayout
                     Orientation="Horizontal"
                     Margin="5"
-                    HeightRequest="50">
+                    HeightRequest="50"
+                    Style="{StaticResource ComboBoxItemContainer}">
                     <Label
                         Text="{Binding LabelText}"
                         VerticalOptions="Center"

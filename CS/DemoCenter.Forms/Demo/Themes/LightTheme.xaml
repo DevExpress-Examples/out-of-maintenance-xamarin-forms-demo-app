@@ -53,7 +53,9 @@
 
     <Color x:Key="EditorSettingsSeparatorColor">#EBEBEB</Color>
     <Color x:Key="EditorSettingsTextColor">#de000000</Color>
-    
+
+    <Color x:Key="ChoiceChipGroupChipBorderColor">#dfe5ed</Color>
+
     <Color x:Key="CollectionViewGrayFontColor">#959aa0</Color>
     <Color x:Key="CollectionViewBoldGrayFontColor">#404144</Color>
     <Color x:Key="CollectionViewItemBorderColor">#d7dce4</Color>
@@ -70,11 +72,6 @@
     <Color x:Key="AvatarBorderColor">#d7dce4</Color>
 
     <Color x:Key="ShadowedBackgroundColor">#7d000000</Color>
-    <Color x:Key="ErrorReportHeaderColor">#424242</Color>
-    <Color x:Key="ErrorReportMainTextColor">#505050</Color>
-    <Color x:Key="ErrorReportNoteTextColor">#828282</Color>
-    <Color x:Key="ErrorReportUrlTextColor">#2088ff</Color>
-    <Color x:Key="ErrorReportSendButtonTextColor">#ffffff</Color>
     
     <Color x:Key="TabPagesHeaderSelectedBackground">#deedff</Color>
     <Color x:Key="TabPagesHeaderSelectedTextColor">#2088FF</Color>

@@ -54,15 +54,13 @@ namespace DemoCenter.Forms.Data {
                     Title = "Swipe Actions",
                     Description = "Illustrates the UI that is extended with extra buttons when you swipe an item row.",
                     Module = typeof(CollectionViewDefaultSwipes),
-                    Icon = "grid_swipebuttons",
-                    DemoItemStatus = DemoItemStatus.New
+                    Icon = "grid_swipebuttons"
                 },
                 new DemoItem() {
                     Title = "Horizontal Scrolling",
                     Description = "Demonstrates the DXCollectionView's items Horizontal Scrolling.",
                     Module = typeof(CollectionViewHorizontalScrolling),
-                    Icon = "collectionview_horvirt",
-                    DemoItemStatus = DemoItemStatus.New
+                    Icon = "collectionview_horvirt"
                 },
                 new DemoItem() {
                     Title = "Row Auto Height",
@@ -89,7 +87,7 @@ namespace DemoCenter.Forms.Data {
                     Module = typeof(CollectionViewLoadMoreView),
                     Icon = "collectionview_loadmore",
                     ShowItemUnderline = false
-                },
+                }
             };
         }
 

@@ -81,6 +81,14 @@
             <Label Style="{StaticResource ComboBoxItemLabelStyle}" Text="{Binding }"/>
         </StackLayout>
     </DataTemplate>
+    <DataTemplate x:Key="CharacterCasingComboBoxItemTemplate">
+        <StackLayout Style="{StaticResource ComboBoxItemContainer}">
+            <demo:IconView Style="{StaticResource ComboBoxItemIconViewStyle}"
+                Source="{Binding
+                    Converter={converters:CharacterCasingToImageSourceConverter Normal='casing_normal', Uppercase='casing_upper', Lowercase='casing_lower'}}"/>
+            <Label Style="{StaticResource ComboBoxItemLabelStyle}" Text="{Binding }"/>
+        </StackLayout>
+    </DataTemplate>
     <DataTemplate x:Key="CornerModeComboBoxItemTemplate">
         <StackLayout Style="{StaticResource ComboBoxItemContainer}">
             <demo:IconView Style="{StaticResource ComboBoxItemIconViewStyle}"

@@ -73,6 +73,44 @@ namespace DemoCenter.Forms.DemoModules.Editors.Converters {
         }
     }
 
+    class CharacterCasingToImageSourceConverterExtension : IMarkupExtension<CharacterCasingToImageSourceConverter> {
+        public ImageSource Normal { get; set; }
+        public ImageSource Uppercase { get; set; }
+        public ImageSource Lowercase { get; set; }
+
+        public CharacterCasingToImageSourceConverter ProvideValue(IServiceProvider serviceProvider) => new CharacterCasingToImageSourceConverter {
+            Normal = Normal,
+            Uppercase = Uppercase,
+            Lowercase = Lowercase
+        };
+        object IMarkupExtension.ProvideValue(IServiceProvider serviceProvider) => ProvideValue(serviceProvider);
+    }
+
+    public class CharacterCasingToImageSourceConverter : IValueConverter {
+        public ImageSource Normal { get; set; }
+        public ImageSource Uppercase { get; set; }
+        public ImageSource Lowercase { get; set; }
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
+            if (!(value is CharacterCasing casing) || targetType != typeof(ImageSource))
+                return null;
+            switch (casing) {
+                case CharacterCasing.Normal:
+                    return Normal;
+                case CharacterCasing.Upper:
+                    return Uppercase;
+                case CharacterCasing.Lower:
+                    return Lowercase;
+                default:
+                    throw new NotSupportedException();
+            }
+
+        }
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
+            throw new NotSupportedException();
+        }
+    }
+
     class CornerModeToImageSourceConverterExtension : IMarkupExtension<CornerModeToImageSourceConverter> {
         public ImageSource Cut { get; set; }
         public ImageSource Round { get; set; }

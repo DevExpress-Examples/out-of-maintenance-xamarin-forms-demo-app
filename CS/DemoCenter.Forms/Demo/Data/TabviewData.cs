@@ -41,22 +41,10 @@ using DemoCenter.Forms.Views;
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Data {
-    public interface INestedTabView {
-        bool CanBeShown();
-    }
-    public interface ITabPages {
-        bool CanBeShown();
-    }
-
     public class TabViewData : IDemoData {
         readonly List<DemoItem> demoItems;
-        readonly INestedTabView nestedTabView;
-        readonly ITabPages tabPages;
 
         public TabViewData() {
-            this.nestedTabView = DependencyService.Get<INestedTabView>();
-            this.tabPages = DependencyService.Get<ITabPages>();
-
             this.demoItems = new List<DemoItem>() {
                 new DemoItem() {
                     Title = "Header Panel" + Environment.NewLine + "Position",
@@ -71,28 +59,24 @@ namespace DemoCenter.Forms.Data {
                     PageTitle = "Companies",
                     Description="The Tab View populates its tabs from an item source in this demo.",
                     Module = typeof(CompaniesTabView),
-                    Icon = "tabview_databinding"}
-            };
-
-            if (this.nestedTabView.CanBeShown())
-                this.demoItems.Add(new DemoItem() {
+                    Icon = "tabview_databinding"},
+                new DemoItem() {
                     Title = "Nested" + Environment.NewLine + "Tab Views",
                     ControlsPageTitle = "Nested Tab Views",
                     PageTitle = "Nested Tab Views",
                     Description = "The tab view is moved to another tab view in this demo.",
                     Module = typeof(NestedTabView),
                     Icon = "tabview_nestedtabsviews"
-                });
-
-            if (this.tabPages.CanBeShown())
-                this.demoItems.Add(new DemoItem() {
+                },
+                new DemoItem() {
                     Title = "Root-Level" + Environment.NewLine + "Tabs",
                     ControlsPageTitle = "Root-Level Tabs",
                     PageTitle = "Tab Pages",
                     Description = "Demonstrates the TabPage’s general features.",
                     Module = typeof(DemoTabPages),
                     Icon = "tabview_tabswithpages"
-                });
+                }
+            };
 
             this.demoItems[this.demoItems.Count - 1].ShowItemUnderline = false;
         }

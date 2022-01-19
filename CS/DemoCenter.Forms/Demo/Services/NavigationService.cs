@@ -94,7 +94,6 @@ namespace DemoCenter.Forms.Services {
                 item.Module != null &&
                 item.Module.IsSubclassOf(typeof(Page))
             ) {
-                ErrorDialogPage errorDialogPage = this.navigator.CurrentPage as ErrorDialogPage;
                 try {
                     page = (Page)Activator.CreateInstance(item.Module);
                     page.Title = item.PageTitle;
@@ -105,14 +104,7 @@ namespace DemoCenter.Forms.Services {
                     }
 
                 } catch(Exception e) {
-#if DEBUG
                     throw e;
-#else
-                    if (errorDialogPage != null)
-                       errorDialogPage.ShowError(e);
-                    else
-                        throw e;
-#endif
                 }
             }
             return await Task.FromResult(page);

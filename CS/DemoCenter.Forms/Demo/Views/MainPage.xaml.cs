@@ -41,7 +41,7 @@ using DevExpress.XamarinForms.Navigation;
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Views {
-    public partial class MainPage : ErrorDialogPage {
+    public partial class MainPage : ContentPage {
         public MainPage() {
             InitializeComponent();
             TitleViewExtensions.SetIsShadowVisible(this, false);

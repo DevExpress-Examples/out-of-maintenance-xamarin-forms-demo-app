@@ -54,8 +54,7 @@ namespace DemoCenter.Forms.Data {
                     Title = "Account Form",
                     Description = "An account form with an outlined box style.",
                     Module = typeof(DataFormAccountFormView),
-                    Icon = "editors_accountform",
-                    DemoItemStatus = DemoItemStatus.Updated
+                    Icon = "editors_accountform"
                 }
                 ,
                 new DemoItem() {

@@ -119,6 +119,14 @@
     </EmbeddedResource>
     <None Remove="DemoModules\DataForm\Images\Arvil.jpg" />
     <EmbeddedResource Include="DemoModules\DataForm\Images\Arvil.jpg" />
+    <None Remove="DemoModules\Popup\" />
+    <None Remove="DemoModules\Popup\Views\" />
+    <None Remove="DemoModules\Popup\ViewModels\" />
+    <None Remove="DemoModules\Controls\Images\tshirt.png" />
+    <EmbeddedResource Include="DemoModules\Controls\Images\tshirt.png">
+      <LogicalName>tshirt.png</LogicalName>
+    </EmbeddedResource>
+    <None Remove="DemoModules\Controls\Images\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -258,12 +266,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="21.1.7" />
-    <PackageReference Include="DevExpress.XamarinForms.CollectionView" Version="21.1.7" />
-    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="21.1.7" />
-    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="21.1.7" />
-    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="21.1.7" />
-    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.1.7" />
+    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="21.2.4" />
+    <PackageReference Include="DevExpress.XamarinForms.CollectionView" Version="21.2.4" />
+    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="21.2.4" />
+    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="21.2.4" />
+    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="21.2.4" />
+    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.2.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
@@ -519,6 +527,10 @@
     <Folder Include="DemoModules\CollectionView\Data\" />
     <Folder Include="DemoModules\CollectionView\Images\" />
     <Folder Include="DemoModules\Charts\Views\Templates\LabelMode\" />
+    <Folder Include="DemoModules\Controls\" />
+    <Folder Include="DemoModules\Controls\Views\" />
+    <Folder Include="DemoModules\Controls\ViewModels\" />
+    <Folder Include="DemoModules\Controls\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="DemoModules\Grid\Views\CustomerInfoView.xaml">
