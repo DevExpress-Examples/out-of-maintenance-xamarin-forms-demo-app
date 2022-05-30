@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2021 Developer Express Inc.
+               Copyright (c) 2015-2022 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2021 Developer Express Inc.              }
+{       Copyright (c) 2015-2022 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -68,7 +68,7 @@ namespace DemoCenter.Forms.Views {
                 PieData pie = (PieData)key.DataObject;
                 prefix = pie.Label;
             }
-            return String.Format("{0} Sales by Years", prefix);
+            return String.Format("{0} Sales by Year", prefix);
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
             return null;

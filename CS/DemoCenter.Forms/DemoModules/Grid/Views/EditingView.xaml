@@ -9,11 +9,11 @@
     <ContentPage.Resources>
         <local:DoubleToProgressConverter MaxValue="1000" x:Key="DoubleToProgressConverter"/>
     </ContentPage.Resources>
-    
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Change Mode" Clicked="OnItemClicked"/>
     </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
         <dxg:DataGridView x:Name="dataGridView"
                           Grid.Row="1"
@@ -26,7 +26,7 @@
                 <dxg:NumberColumn FieldName="Id" Width="70" IsReadOnly="true"/>
                 <dxg:ComboBoxColumn FieldName="Priority" MinWidth="120"/>
                 <dxg:TextColumn FieldName="From.Name" Caption="From" MinWidth="150" ClearIconVisibility="Auto"/>
-                <dxg:DateColumn FieldName="Sent" Width="110"/>
+                <dxg:DateColumn FieldName="Sent" Width="110" PickerDisableDate="DateColumn_PickerDisableDate" PickerShowTrailingDays="True"/>
                 <dxg:TimeColumn FieldName="Time" Width="100"/>
                 <dxg:NumberColumn FieldName="Size" Width="120" DisplayFormat="{}{0} B" IsUpDownIconVisible="True" UpDownIconAlignment="Start"/>
                 <dxg:TemplateColumn FieldName="HoursActive" MinWidth="180">
@@ -45,7 +45,7 @@
                         <DataTemplate>
                             <Slider Minimum="0"
                                     Maximum="1000"
-                                    Value="{Binding Path=Value}" 
+                                    Value="{Binding Path=Value}"
                                     MaximumTrackColor="Silver"
                                     MinimumTrackColor="Silver"
                                     ThumbColor="#2088ff">

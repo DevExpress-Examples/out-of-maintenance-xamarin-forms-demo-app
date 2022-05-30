@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2021 Developer Express Inc.
+               Copyright (c) 2015-2022 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2021 Developer Express Inc.              }
+{       Copyright (c) 2015-2022 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -38,6 +38,7 @@ using System;
 using System.Globalization;
 using DemoCenter.Forms.DemoModules.Grid.Data;
 using DevExpress.XamarinForms.DataGrid;
+using DevExpress.XamarinForms.Editors;
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Views {
@@ -84,6 +85,12 @@ namespace DemoCenter.Forms.Views {
             if (action == "Cancel")
                 return;
             dataGridView.EditorShowMode = action == "Inplace" ? EditorShowMode.Tap : EditorShowMode.Never;            
+        }
+
+        void DateColumn_PickerDisableDate(System.Object sender, DisableDateEventArgs e) {
+            if(e.Date.DayOfWeek == DayOfWeek.Sunday || e.Date.DayOfWeek == DayOfWeek.Saturday) {
+                e.IsDisabled = true;
+            }
         }
     }
 

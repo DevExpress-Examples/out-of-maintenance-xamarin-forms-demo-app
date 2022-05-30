@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2021 Developer Express Inc.
+               Copyright (c) 2015-2022 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2021 Developer Express Inc.              }
+{       Copyright (c) 2015-2022 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -37,7 +37,6 @@
 using System;
 using System.Threading.Tasks;
 using DemoCenter.Forms.DemoModules.Editors.ViewModels;
-using DevExpress.XamarinForms.Editors;
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Views {
@@ -49,8 +48,8 @@ namespace DemoCenter.Forms.Views {
         public SuperHeroTShirtView() {
             DevExpress.XamarinForms.Editors.Initializer.Init();
             InitializeComponent();
-            VM = new SuperHeroTShirtViewModel();
-            BindingContext = VM;
+            BindingContext = VM = new SuperHeroTShirtViewModel();
+            colorChoiceChipGroup.SelectionChanged += OnColorChanged;
         }
 
         async void OnColorChanged(object sender, EventArgs e) {

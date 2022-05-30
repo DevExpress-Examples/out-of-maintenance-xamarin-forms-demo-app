@@ -24,6 +24,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <dxdf:DataFormView
+            GeneratePropertyItem="DataForm_GeneratePropertyItem"
             CommitMode="Manually"
             ValidationMode="PropertyChanged"
             DataObject="{Binding Model}"
@@ -33,6 +34,7 @@
             EditorHorizontalSpacing="10"
             ReserveBottomTextLine="True"
             Margin="0,0,10,0"/>
+
         <dxe:SimpleButton Grid.Row="1" TextColor="White" Padding="22" BackgroundColor="#2088ff" Text="SUBMIT" Clicked="Submit_OnClicked" />
     </Grid>    
 </ContentPage>

@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2021 Developer Express Inc.
+               Copyright (c) 2015-2022 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2021 Developer Express Inc.              }
+{       Copyright (c) 2015-2022 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -37,6 +37,7 @@
 using System;
 using DemoCenter.Forms.DemoModules.DataForm.ViewModels;
 using DevExpress.XamarinForms.DataForm;
+using DevExpress.XamarinForms.Editors;
 using Xamarin.Forms;
 
 namespace DemoCenter.Forms.Views {
@@ -74,6 +75,18 @@ namespace DemoCenter.Forms.Views {
             dataForm.Commit();
             if (dataForm.Validate()) 
                 DisplayAlert("Success", "Your delivery information has been successfully saved", "OK");
+        }
+
+        void DataFormDateItem_PickerDisableDate(object sender, DisableDateEventArgs e) {
+            if (e.Date.DayOfWeek == DayOfWeek.Sunday || e.Date.DayOfWeek == DayOfWeek.Saturday) {
+                e.IsDisabled = true;
+            }
+        }
+
+        void DataForm_GeneratePropertyItem(object sender, DataFormPropertyGenerationEventArgs e) {
+            if (e.Item.FieldName == nameof(DeliveryFormViewModel.Model.DeliveryDate) && e.Item is DataFormDateItem item) {
+                item.PickerDisableDate += DataFormDateItem_PickerDisableDate;
+            }
         }
     }
 }

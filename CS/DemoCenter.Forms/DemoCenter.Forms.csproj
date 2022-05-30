@@ -20,55 +20,55 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DemoGalleries\**" />
-    <EmbeddedResource Remove="DemoGalleries\**" />
-    <None Remove="DemoGalleries\**" />
-    <None Remove="DemoModules\Grid\Images\Andrew_Fuller.jpg" />
-    <None Remove="DemoModules\Grid\Images\Anne_Dodsworth.jpg" />
-    <None Remove="DemoModules\Grid\Images\Janet_Leverling.jpg" />
-    <None Remove="DemoModules\Grid\Images\Laura_Callahan.jpg" />
-    <None Remove="DemoModules\Grid\Images\Margaret_Peacock.jpg" />
-    <None Remove="DemoModules\Grid\Images\Michael_Suyama.jpg" />
-    <None Remove="DemoModules\Grid\Images\Nancy_Davolio.jpg" />
-    <None Remove="DemoModules\Grid\Images\Robert_King.jpg" />
-    <None Remove="DemoModules\Grid\Images\Steven_Buchanan.jpg" />
-    <None Remove="DemoModules\Drawer\Images\BarbaraJCoggins.png" />
-    <Compile Remove="DemoModules\Drawer\Views\DrawerSettings.xaml.cs" />
-    <None Remove="DemoModules\Grid\Data\Employees.json" />
-    <None Remove="DemoModules\Grid\Data\StockSource.json" />
-    <None Remove="DemoModules\Drawer\Images\JenniferHobbs.jpg" />
-    <None Remove="DemoModules\Grid\Data\Invoices.json" />
+    <Compile Remove="DemoGalleries\**"/>
+    <EmbeddedResource Remove="DemoGalleries\**"/>
+    <None Remove="DemoGalleries\**"/>
+    <None Remove="DemoModules\Grid\Images\Andrew_Fuller.jpg"/>
+    <None Remove="DemoModules\Grid\Images\Anne_Dodsworth.jpg"/>
+    <None Remove="DemoModules\Grid\Images\Janet_Leverling.jpg"/>
+    <None Remove="DemoModules\Grid\Images\Laura_Callahan.jpg"/>
+    <None Remove="DemoModules\Grid\Images\Margaret_Peacock.jpg"/>
+    <None Remove="DemoModules\Grid\Images\Michael_Suyama.jpg"/>
+    <None Remove="DemoModules\Grid\Images\Nancy_Davolio.jpg"/>
+    <None Remove="DemoModules\Grid\Images\Robert_King.jpg"/>
+    <None Remove="DemoModules\Grid\Images\Steven_Buchanan.jpg"/>
+    <None Remove="DemoModules\Drawer\Images\BarbaraJCoggins.png"/>
+    <Compile Remove="DemoModules\Drawer\Views\DrawerSettings.xaml.cs"/>
+    <None Remove="DemoModules\Grid\Data\Employees.json"/>
+    <None Remove="DemoModules\Grid\Data\StockSource.json"/>
+    <None Remove="DemoModules\Drawer\Images\JenniferHobbs.jpg"/>
+    <None Remove="DemoModules\Grid\Data\Invoices.json"/>
     <Compile Update="DemoModules\Charts\Views\MultipleAxesChart.xaml.cs">
       <DependentUpon>MultipleAxesChart.xaml</DependentUpon>
     </Compile>
     <Compile Update="DemoModules\Grid\Views\CustomerInfoView.xaml.cs">
       <DependentUpon>CustomerInfoView.xaml</DependentUpon>
     </Compile>
-    <Compile Remove="Demo\Models\HomeMenuItem.cs" />
-    <Compile Remove="Demo\Models\Item.cs" />
-    <EmbeddedResource Remove="Demo\Views\DemosGroupView_Old.xaml" />
-    <Compile Remove="Demo\Views\DemosGroupView_Old.xaml.cs" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\9.png" />
-    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\9.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\10.png" />
-    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\10.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\12.png" />
-    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\12.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\13.png" />
-    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\13.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\14.png" />
-    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\14.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\15.png" />
-    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\15.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\5.png" />
-    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\5.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\6.png" />
-    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\6.png" />
+    <Compile Remove="Demo\Models\HomeMenuItem.cs"/>
+    <Compile Remove="Demo\Models\Item.cs"/>
+    <EmbeddedResource Remove="Demo\Views\DemosGroupView_Old.xaml"/>
+    <Compile Remove="Demo\Views\DemosGroupView_Old.xaml.cs"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\9.png"/>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\9.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\10.png"/>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\10.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\12.png"/>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\12.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\13.png"/>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\13.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\14.png"/>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\14.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\15.png"/>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\15.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\5.png"/>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\5.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\6.png"/>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\6.png"/>
     <Compile Update="DemoModules\TabView\Pages\ContactDetailPage.xaml.cs">
       <DependentUpon>ContactDetailPage.xaml</DependentUpon>
     </Compile>
-    <EmbeddedResource Remove="DemoModules\Drawer\Views\InnerViews\CustomerInfoView.xaml" />
-    <Compile Remove="DemoModules\Drawer\Views\InnerViews\CustomerInfoView.xaml.cs" />
+    <EmbeddedResource Remove="DemoModules\Drawer\Views\InnerViews\CustomerInfoView.xaml"/>
+    <Compile Remove="DemoModules\Drawer\Views\InnerViews\CustomerInfoView.xaml.cs"/>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="DemoModules\Drawer\Views\InnerViews\CustomerInfoView.xaml.cs">
       <DependentUpon>DrawerCustomerDetailView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -77,98 +77,98 @@
       <DependentUpon>DrawerCustomerDetailView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <None Remove="DemoModules\Grid\Data\EmployeeTasks.json" />
+    <None Remove="DemoModules\Grid\Data\EmployeeTasks.json"/>
     <EmbeddedResource Include="DemoModules\Grid\Data\EmployeeTasks.json">
       <LogicalName>EmployeeTasks.json</LogicalName>
     </EmbeddedResource>
-    <None Remove="DemoModules\Charts\Resources\sound.bin" />
+    <None Remove="DemoModules\Charts\Resources\sound.bin"/>
     <EmbeddedResource Include="DemoModules\Charts\Resources\sound.bin">
       <LogicalName>Resources.sound.bin</LogicalName>
     </EmbeddedResource>
-    <Compile Remove="DemoModules\Editors\Resources\TabPageResources.xaml.cs" />
-    <Compile Remove="DemoModules\Editors\Views\AccountFormFilledView.xaml.cs" />
-    <Compile Remove="DemoModules\Editors\Views\TextEditView %28copy%29.xaml.cs" />
-    <Compile Remove="DemoModules\DataForm\Views\AccountFormView %28copy%29.xaml.cs" />
-    <None Remove="Resources\roboto-bold.ttf" />
-    <EmbeddedResource Include="Resources\roboto-bold.ttf" />
-    <None Remove="Resources\roboto-medium.ttf" />
-    <EmbeddedResource Include="Resources\roboto-medium.ttf" />
-    <None Remove="Resources\roboto-regular.ttf" />
-    <EmbeddedResource Include="Resources\roboto-regular.ttf" />
-    <None Remove="Resources\univia-pro-medium.ttf" />
-    <EmbeddedResource Include="Resources\univia-pro-medium.ttf" />
-    <None Remove="Resources\univia-pro-regular.ttf" />
-    <EmbeddedResource Include="Resources\univia-pro-regular.ttf" />
+    <Compile Remove="DemoModules\Editors\Resources\TabPageResources.xaml.cs"/>
+    <Compile Remove="DemoModules\Editors\Views\AccountFormFilledView.xaml.cs"/>
+    <Compile Remove="DemoModules\Editors\Views\TextEditView %28copy%29.xaml.cs"/>
+    <Compile Remove="DemoModules\DataForm\Views\AccountFormView %28copy%29.xaml.cs"/>
+    <None Remove="Resources\roboto-bold.ttf"/>
+    <EmbeddedResource Include="Resources\roboto-bold.ttf"/>
+    <None Remove="Resources\roboto-medium.ttf"/>
+    <EmbeddedResource Include="Resources\roboto-medium.ttf"/>
+    <None Remove="Resources\roboto-regular.ttf"/>
+    <EmbeddedResource Include="Resources\roboto-regular.ttf"/>
+    <None Remove="Resources\univia-pro-medium.ttf"/>
+    <EmbeddedResource Include="Resources\univia-pro-medium.ttf"/>
+    <None Remove="Resources\univia-pro-regular.ttf"/>
+    <EmbeddedResource Include="Resources\univia-pro-regular.ttf"/>
     <Compile Update="DemoModules\Charts\Views\Templates\Colorizers\BubbleColorizer.xaml.cs">
       <DependentUpon>BubbleColorizerContainer.xaml</DependentUpon>
     </Compile>
     <Compile Update="DemoModules\Charts\Views\Templates\Colorizers\BubbleColorizerContainer.xaml.cs">
       <DependentUpon>BubbleColorizerContainer.xaml</DependentUpon>
     </Compile>
-    <None Remove="DemoModules\Grid\Images\Triangle_Negative.svg" />
+    <None Remove="DemoModules\Grid\Images\Triangle_Negative.svg"/>
     <EmbeddedResource Include="DemoModules\Grid\Images\Triangle_Negative.svg">
       <LogicalName>Triangle_Negative.svg</LogicalName>
     </EmbeddedResource>
-    <None Remove="DemoModules\Grid\Images\Triangle_Positive.svg" />
+    <None Remove="DemoModules\Grid\Images\Triangle_Positive.svg"/>
     <EmbeddedResource Include="DemoModules\Grid\Images\Triangle_Positive.svg">
       <LogicalName>Triangle_Positive.svg</LogicalName>
     </EmbeddedResource>
-    <None Remove="DemoModules\Grid\Images\Triangle_Undefined.svg" />
+    <None Remove="DemoModules\Grid\Images\Triangle_Undefined.svg"/>
     <EmbeddedResource Include="DemoModules\Grid\Images\Triangle_Undefined.svg">
       <LogicalName>Triangle_Undefined.svg</LogicalName>
     </EmbeddedResource>
-    <None Remove="DemoModules\DataForm\Images\Arvil.jpg" />
-    <EmbeddedResource Include="DemoModules\DataForm\Images\Arvil.jpg" />
-    <None Remove="DemoModules\Popup\" />
-    <None Remove="DemoModules\Popup\Views\" />
-    <None Remove="DemoModules\Popup\ViewModels\" />
-    <None Remove="DemoModules\Controls\Images\tshirt.png" />
+    <None Remove="DemoModules\DataForm\Images\Arvil.jpg"/>
+    <EmbeddedResource Include="DemoModules\DataForm\Images\Arvil.jpg"/>
+    <None Remove="DemoModules\Popup\"/>
+    <None Remove="DemoModules\Popup\Views\"/>
+    <None Remove="DemoModules\Popup\ViewModels\"/>
+    <None Remove="DemoModules\Controls\Images\tshirt.png"/>
     <EmbeddedResource Include="DemoModules\Controls\Images\tshirt.png">
       <LogicalName>tshirt.png</LogicalName>
     </EmbeddedResource>
-    <None Remove="DemoModules\Controls\Images\" />
+    <None Remove="DemoModules\Controls\Images\"/>
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="DemoModules\Charts\Resources\AgeStructure.xml" />
-    <None Remove="DemoModules\Charts\Resources\AverageDieselPrices.xml" />
-    <None Remove="DemoModules\Charts\Resources\DevAVSalesMixByRegion.xml" />
-    <None Remove="DemoModules\Charts\Resources\GoogleStock.xml" />
-    <None Remove="DemoModules\Charts\Resources\LondonWeather.xml" />
-    <None Remove="DemoModules\Charts\Resources\OutsideVendorCosts.xml" />
-    <None Remove="DemoModules\Charts\Resources\PopulationStructure.xml" />
-    <None Remove="DemoModules\Charts\Resources\PopulationPyramid.xml" />
-    <None Remove="DemoModules\Charts\Resources\CryptocurrencyPortfolio.xml" />
-    <None Remove="DemoModules\Charts\Resources\TrendPopulation.xml" />
-    <None Remove="DemoModules\TabView\Images\Companies_ElDepot.jpg" />
-    <None Remove="DemoModules\TabView\Images\Companies_KSMusic.jpg" />
-    <None Remove="DemoModules\TabView\Images\Companies_SuprMart.jpg" />
-    <None Remove="DemoModules\TabView\Images\Companies_TomClub.jpg" />
-    <None Remove="DemoModules\TabView\Resources\CompaniesData.xml" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\1.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\11.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\16.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\17.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\18.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\19.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\2.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\3.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\4.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\7.png" />
-    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\8.png" />
-    <None Remove="DemoModules\TabView\Resources\PhoneListData.xml" />
-    <None Remove="Demo\Images\DrawerList\DrawerSettings.png" />
-    <None Remove="Demo\Images\DrawerList\FirstLook.png" />
-    <None Remove="Demo\Images\rrr.png" />
-    <None Remove="DemoModules\CollectionView\Images\1.jpg" />
-    <None Remove="DemoModules\CollectionView\Images\2.jpg" />
-    <None Remove="DemoModules\CollectionView\Images\3.jpg" />
-    <None Remove="DemoModules\CollectionView\Images\4.jpg" />
-    <None Remove="DemoModules\CollectionView\Images\5.jpg" />
-    <None Remove="DemoModules\CollectionView\Images\6.jpg" />
-    <None Remove="DemoModules\CollectionView\Images\7.jpg" />
-    <None Remove="DemoModules\CollectionView\Images\8.jpg" />
-    <None Remove="DemoModules\CollectionView\Images\9.jpg" />    
+    <None Remove="DemoModules\Charts\Resources\AgeStructure.xml"/>
+    <None Remove="DemoModules\Charts\Resources\AverageDieselPrices.xml"/>
+    <None Remove="DemoModules\Charts\Resources\DevAVSalesMixByRegion.xml"/>
+    <None Remove="DemoModules\Charts\Resources\GoogleStock.xml"/>
+    <None Remove="DemoModules\Charts\Resources\LondonWeather.xml"/>
+    <None Remove="DemoModules\Charts\Resources\OutsideVendorCosts.xml"/>
+    <None Remove="DemoModules\Charts\Resources\PopulationStructure.xml"/>
+    <None Remove="DemoModules\Charts\Resources\PopulationPyramid.xml"/>
+    <None Remove="DemoModules\Charts\Resources\CryptocurrencyPortfolio.xml"/>
+    <None Remove="DemoModules\Charts\Resources\TrendPopulation.xml"/>
+    <None Remove="DemoModules\TabView\Images\Companies_ElDepot.jpg"/>
+    <None Remove="DemoModules\TabView\Images\Companies_KSMusic.jpg"/>
+    <None Remove="DemoModules\TabView\Images\Companies_SuprMart.jpg"/>
+    <None Remove="DemoModules\TabView\Images\Companies_TomClub.jpg"/>
+    <None Remove="DemoModules\TabView\Resources\CompaniesData.xml"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\1.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\11.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\16.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\17.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\18.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\19.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\2.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\3.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\4.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\7.png"/>
+    <None Remove="DemoModules\TabView\Resources\NestedTabViewImages\8.png"/>
+    <None Remove="DemoModules\TabView\Resources\PhoneListData.xml"/>
+    <None Remove="Demo\Images\DrawerList\DrawerSettings.png"/>
+    <None Remove="Demo\Images\DrawerList\FirstLook.png"/>
+    <None Remove="Demo\Images\rrr.png"/>
+    <None Remove="DemoModules\CollectionView\Images\1.jpg"/>
+    <None Remove="DemoModules\CollectionView\Images\2.jpg"/>
+    <None Remove="DemoModules\CollectionView\Images\3.jpg"/>
+    <None Remove="DemoModules\CollectionView\Images\4.jpg"/>
+    <None Remove="DemoModules\CollectionView\Images\5.jpg"/>
+    <None Remove="DemoModules\CollectionView\Images\6.jpg"/>
+    <None Remove="DemoModules\CollectionView\Images\7.jpg"/>
+    <None Remove="DemoModules\CollectionView\Images\8.jpg"/>
+    <None Remove="DemoModules\CollectionView\Images\9.jpg"/>    
   </ItemGroup>
 
   <ItemGroup>
@@ -202,11 +202,11 @@
     <EmbeddedResource Include="DemoModules\Charts\Resources\TrendPopulation.xml">
       <LogicalName>Resources.TrendPopulation.xml</LogicalName>
     </EmbeddedResource>
-    <None Remove="DemoModules\Charts\Resources\HeadphoneComparison.dat" />
+    <None Remove="DemoModules\Charts\Resources\HeadphoneComparison.dat"/>
     <EmbeddedResource Include="DemoModules\Charts\Resources\HeadphoneComparison.dat">
       <LogicalName>Resources.HeadphoneComparison.dat</LogicalName>
     </EmbeddedResource>
-    <None Remove="DemoModules\Charts\Resources\LightSpector.dat" />
+    <None Remove="DemoModules\Charts\Resources\LightSpector.dat"/>
     <EmbeddedResource Include="DemoModules\Charts\Resources\LightSpector.dat">
       <LogicalName>Resources.LightSpector.dat</LogicalName>
     </EmbeddedResource>
@@ -227,21 +227,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\1.png">
     </EmbeddedResource>
-    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\2.png" />
-    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\4.png" />
-    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\7.png" />
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\2.png"/>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\4.png"/>
+    <EmbeddedResource Include="DemoModules\TabView\Resources\NestedTabViewImages\7.png"/>
     <EmbeddedResource Include="DemoModules\TabView\Resources\PhoneListData.xml">
     <LogicalName>Resources.PhoneListData.xml</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DemoModules\Grid\Images\Andrew_Fuller.jpg" />
-    <EmbeddedResource Include="DemoModules\Grid\Images\Anne_Dodsworth.jpg" />
-    <EmbeddedResource Include="DemoModules\Grid\Images\Janet_Leverling.jpg" />
-    <EmbeddedResource Include="DemoModules\Grid\Images\Laura_Callahan.jpg" />
-    <EmbeddedResource Include="DemoModules\Grid\Images\Margaret_Peacock.jpg" />
-    <EmbeddedResource Include="DemoModules\Grid\Images\Michael_Suyama.jpg" />
-    <EmbeddedResource Include="DemoModules\Grid\Images\Nancy_Davolio.jpg" />
-    <EmbeddedResource Include="DemoModules\Grid\Images\Robert_King.jpg" />
-    <EmbeddedResource Include="DemoModules\Grid\Images\Steven_Buchanan.jpg" />
+    <EmbeddedResource Include="DemoModules\Grid\Images\Andrew_Fuller.jpg"/>
+    <EmbeddedResource Include="DemoModules\Grid\Images\Anne_Dodsworth.jpg"/>
+    <EmbeddedResource Include="DemoModules\Grid\Images\Janet_Leverling.jpg"/>
+    <EmbeddedResource Include="DemoModules\Grid\Images\Laura_Callahan.jpg"/>
+    <EmbeddedResource Include="DemoModules\Grid\Images\Margaret_Peacock.jpg"/>
+    <EmbeddedResource Include="DemoModules\Grid\Images\Michael_Suyama.jpg"/>
+    <EmbeddedResource Include="DemoModules\Grid\Images\Nancy_Davolio.jpg"/>
+    <EmbeddedResource Include="DemoModules\Grid\Images\Robert_King.jpg"/>
+    <EmbeddedResource Include="DemoModules\Grid\Images\Steven_Buchanan.jpg"/>
     <EmbeddedResource Include="DemoModules\Grid\Data\Employees.json">
       <LogicalName>Employees.json</LogicalName>
     </EmbeddedResource>
@@ -254,31 +254,31 @@
     <EmbeddedResource Include="DemoModules\Grid\Data\Invoices.json">
       <LogicalName>Invoices.json</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DemoModules\CollectionView\Images\house1.jpg" />
-    <EmbeddedResource Include="DemoModules\CollectionView\Images\house2.jpg" />
-    <EmbeddedResource Include="DemoModules\CollectionView\Images\house3.jpg" />
-    <EmbeddedResource Include="DemoModules\CollectionView\Images\house4.jpg" />
-    <EmbeddedResource Include="DemoModules\CollectionView\Images\house5.jpg" />
-    <EmbeddedResource Include="DemoModules\CollectionView\Images\house6.jpg" />
-    <EmbeddedResource Include="DemoModules\CollectionView\Images\house7.jpg" />
-    <EmbeddedResource Include="DemoModules\CollectionView\Images\house8.jpg" />
-    <EmbeddedResource Include="DemoModules\CollectionView\Images\house9.jpg" />    
+    <EmbeddedResource Include="DemoModules\CollectionView\Images\house1.jpg"/>
+    <EmbeddedResource Include="DemoModules\CollectionView\Images\house2.jpg"/>
+    <EmbeddedResource Include="DemoModules\CollectionView\Images\house3.jpg"/>
+    <EmbeddedResource Include="DemoModules\CollectionView\Images\house4.jpg"/>
+    <EmbeddedResource Include="DemoModules\CollectionView\Images\house5.jpg"/>
+    <EmbeddedResource Include="DemoModules\CollectionView\Images\house6.jpg"/>
+    <EmbeddedResource Include="DemoModules\CollectionView\Images\house7.jpg"/>
+    <EmbeddedResource Include="DemoModules\CollectionView\Images\house8.jpg"/>
+    <EmbeddedResource Include="DemoModules\CollectionView\Images\house9.jpg"/>    
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="21.2.4" />
-    <PackageReference Include="DevExpress.XamarinForms.CollectionView" Version="21.2.4" />
-    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="21.2.4" />
-    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="21.2.4" />
-    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="21.2.4" />
-    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="21.2.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
-    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.3" />
-    <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+    <PackageReference Include="DevExpress.XamarinForms.Charts" Version="22.1.2" />
+    <PackageReference Include="DevExpress.XamarinForms.CollectionView" Version="22.1.2" />
+    <PackageReference Include="DevExpress.XamarinForms.Editors" Version="22.1.2" />
+    <PackageReference Include="DevExpress.XamarinForms.Grid" Version="22.1.2" />
+    <PackageReference Include="DevExpress.XamarinForms.Navigation" Version="22.1.2" />
+    <PackageReference Include="DevExpress.XamarinForms.Scheduler" Version="22.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335"/>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"/>
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1"/>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012"/>
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2"/>
+    <PackageReference Include="SkiaSharp.Svg" Version="1.60.0"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -500,46 +500,46 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DemoModules\Scheduler\Views\" />
-    <Folder Include="DemoModules\Grid\Views\" />
-    <Folder Include="DemoModules\Scheduler\Data\ReceptionDesk\" />
-    <Folder Include="DemoModules\Drawer\" />
-    <Folder Include="DemoModules\Drawer\Views\" />
-    <Folder Include="DemoModules\Drawer\Data\" />
-    <Folder Include="DemoModules\Drawer\ViewModels\" />
-    <Folder Include="DemoModules\Drawer\Images\" />
-    <Folder Include="DemoModules\Scheduler\Data\OutlookInspired\" />
-    <Folder Include="Demo\Effects\" />
-    <Folder Include="DemoModules\TabView\Pages\" />
-    <Folder Include="DemoModules\Editors\" />
-    <Folder Include="DemoModules\Editors\Views\" />
-    <Folder Include="DemoModules\Editors\ViewModels\" />
-    <Folder Include="DemoModules\DataForm\" />
-    <Folder Include="DemoModules\DataForm\ViewModels\" />
-    <Folder Include="DemoModules\DataForm\Views\" />
-    <Folder Include="DemoModules\Editors\Resources\" />
-    <Folder Include="Demo\Images\" />
-    <Folder Include="DemoModules\Grid\Controls\" />
-    <Folder Include="Resources\" />
-    <Folder Include="DemoModules\Charts\Views\Templates\Colorizers\" />
-    <Folder Include="DemoModules\Editors\Utils\" />
-    <Folder Include="DemoModules\CollectionView\Resources\" />
-    <Folder Include="DemoModules\CollectionView\Data\" />
-    <Folder Include="DemoModules\CollectionView\Images\" />
-    <Folder Include="DemoModules\Charts\Views\Templates\LabelMode\" />
-    <Folder Include="DemoModules\Controls\" />
-    <Folder Include="DemoModules\Controls\Views\" />
-    <Folder Include="DemoModules\Controls\ViewModels\" />
-    <Folder Include="DemoModules\Controls\Images\" />
+    <Folder Include="DemoModules\Scheduler\Views\"/>
+    <Folder Include="DemoModules\Grid\Views\"/>
+    <Folder Include="DemoModules\Scheduler\Data\ReceptionDesk\"/>
+    <Folder Include="DemoModules\Drawer\"/>
+    <Folder Include="DemoModules\Drawer\Views\"/>
+    <Folder Include="DemoModules\Drawer\Data\"/>
+    <Folder Include="DemoModules\Drawer\ViewModels\"/>
+    <Folder Include="DemoModules\Drawer\Images\"/>
+    <Folder Include="DemoModules\Scheduler\Data\OutlookInspired\"/>
+    <Folder Include="Demo\Effects\"/>
+    <Folder Include="DemoModules\TabView\Pages\"/>
+    <Folder Include="DemoModules\Editors\"/>
+    <Folder Include="DemoModules\Editors\Views\"/>
+    <Folder Include="DemoModules\Editors\ViewModels\"/>
+    <Folder Include="DemoModules\DataForm\"/>
+    <Folder Include="DemoModules\DataForm\ViewModels\"/>
+    <Folder Include="DemoModules\DataForm\Views\"/>
+    <Folder Include="DemoModules\Editors\Resources\"/>
+    <Folder Include="Demo\Images\"/>
+    <Folder Include="DemoModules\Grid\Controls\"/>
+    <Folder Include="Resources\"/>
+    <Folder Include="DemoModules\Charts\Views\Templates\Colorizers\"/>
+    <Folder Include="DemoModules\Editors\Utils\"/>
+    <Folder Include="DemoModules\CollectionView\Resources\"/>
+    <Folder Include="DemoModules\CollectionView\Data\"/>
+    <Folder Include="DemoModules\CollectionView\Images\"/>
+    <Folder Include="DemoModules\Charts\Views\Templates\LabelMode\"/>
+    <Folder Include="DemoModules\Controls\"/>
+    <Folder Include="DemoModules\Controls\Views\"/>
+    <Folder Include="DemoModules\Controls\ViewModels\"/>
+    <Folder Include="DemoModules\Controls\Images\"/>
   </ItemGroup>
   <ItemGroup>
     <Page Include="DemoModules\Grid\Views\CustomerInfoView.xaml">
       <SubType>Designer</SubType>
-      <Generator />
+      <Generator/>
     </Page>
     <Page Include="DemoModules\Drawer\Views\InnerViews\DrawerCustomerDetailView.xaml">
       <SubType>Designer</SubType>
-      <Generator />
+      <Generator/>
     </Page>
   </ItemGroup>
   </Project>

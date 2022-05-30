@@ -1,11 +1,11 @@
 /*
-               Copyright (c) 2015-2021 Developer Express Inc.
+               Copyright (c) 2015-2022 Developer Express Inc.
 {*******************************************************************}
 {                                                                   }
 {       Developer Express Mobile UI for Xamarin.Forms               }
 {                                                                   }
 {                                                                   }
-{       Copyright (c) 2015-2021 Developer Express Inc.              }
+{       Copyright (c) 2015-2022 Developer Express Inc.              }
 {       ALL RIGHTS RESERVED                                         }
 {                                                                   }
 {   The entire contents of this file is protected by U.S. and       }
@@ -70,6 +70,7 @@ namespace DemoCenter.Forms.Data {
                     Icon = "grid_dragdrop"
                 },
                 new DemoItem() {
+                    DemoItemStatus = DemoItemStatus.Updated,
                     Title = "Editing",
                     Description = "Demonstrates the grid’s inplace data editors.",
                     Module = typeof(EditingView),

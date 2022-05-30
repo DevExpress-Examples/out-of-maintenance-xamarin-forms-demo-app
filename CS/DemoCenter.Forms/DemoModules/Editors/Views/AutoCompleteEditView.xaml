@@ -25,6 +25,7 @@
             <Grid Style="{StaticResource EditorContainerStyle}">
                 <dxe:AutoCompleteEdit x:Name="autocompleteEdit"
                     LabelText="Contact"
+                    CursorColor="{Binding SelectedAccentColor.Color}"
                     PlaceholderText="Type here to search"
                     NoSuggestionsText="Not found"
                     HelpText="{Binding ActualHelpText}"

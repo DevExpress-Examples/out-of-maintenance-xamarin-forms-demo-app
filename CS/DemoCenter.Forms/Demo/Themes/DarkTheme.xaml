@@ -20,6 +20,11 @@
     <Color x:Key="GridHorizontalVirtualizationQuarterBarColor">#6E5091</Color>
     <Color x:Key="GridHorizontalVirtualizationYearBarColor">#A675E4</Color>
 
+    <Color x:Key="CalendarViewBackgroundColor">#272727</Color>
+    <Color x:Key="CalendarViewSeparatorColor">#454545</Color>
+    <Color x:Key="CalendarViewTextColor">#E7E7E7</Color>
+    <Color x:Key="CalendarViewHolidayTextColor">#F44848</Color>
+
     <Color x:Key="TabItemBackgroundColor">#454545</Color>
     <Color x:Key="MainPageBackgroundColor">#454545</Color>
     <Color x:Key="TabItemBorderColor">#555555</Color>
