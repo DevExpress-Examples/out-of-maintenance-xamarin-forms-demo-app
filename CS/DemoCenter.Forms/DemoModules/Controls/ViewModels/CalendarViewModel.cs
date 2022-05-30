@@ -35,58 +35,65 @@
 {*******************************************************************}
 */
 using System;
-using DemoCenter.Forms.DemoModules.DataForm.ViewModels;
-using DevExpress.XamarinForms.DataForm;
+using System.Collections.Generic;
+using System.Linq;
+using DemoCenter.Forms.ViewModels;
 using DevExpress.XamarinForms.Editors;
-using Xamarin.Forms;
 
-namespace DemoCenter.Forms.Views {
-    public partial class DeliveryFormView : ContentPage {
-        public DeliveryFormView() {
-            DevExpress.XamarinForms.DataForm.Initializer.Init();
-            InitializeComponent();
-            BindingContext = new DeliveryFormViewModel();
-            dataForm.ValidateProperty += DataFormOnValidateProperty;
+namespace DemoCenter.Forms.DemoModules.Controls.ViewModels {
+    public class CalendarViewModel : NotificationObject {
+        DateTime displayDate;
+        DateTime? selectedDate;
+        DXCalendarViewType activeViewType;
+        bool isHolidaysAndObservancesListVisible;
+        IEnumerable<SpecialDate> specialDates;
+
+        public CalendarViewModel() {
+            DisplayDate = DateTime.Today;
+            UpdateHolidaysAndObservancesListVisible();
         }
 
-        void DataFormOnValidateProperty(object sender, DataFormPropertyValidationEventArgs e) {
-            if (e.PropertyName == nameof(DeliveryInfo.DeliveryTimeFrom)) {
-                ((DeliveryInfo) dataForm.DataObject).DeliveryTimeFrom = (DateTime)e.NewValue;
-                Device.BeginInvokeOnMainThread(() => {
-                    dataForm.Validate(nameof(DeliveryInfo.DeliveryTimeTo));    
-                });
-            }
-            if (e.PropertyName == nameof(DeliveryInfo.DeliveryTimeTo)) {
-                DateTime timeFrom = ((DeliveryInfo) dataForm.DataObject).DeliveryTimeFrom;
-                if(timeFrom > (DateTime)e.NewValue) {
-                    e.HasError = true;
-                    e.ErrorText = "The end time cannot be less than the start time";
-                    return;
-                }
-            }
+        public IEnumerable<SpecialDate> SpecialDates {
+            get => this.specialDates;
+            set => SetProperty(ref this.specialDates, value);
         }
 
-        protected override void OnSizeAllocated(double width, double height) {
-            ((DeliveryFormViewModel) this.BindingContext).Rotate(dataForm, height > width);
-            base.OnSizeAllocated(width, height);
+        public DateTime DisplayDate {
+            get => this.displayDate;
+            set => SetProperty(ref this.displayDate, value, () => {
+                UpdateCurrentCalendarIfNeeded();
+                SpecialDates = USCalendar.GetSpecialDatesForMonth(DisplayDate.Month);
+            });
         }
 
-        private void Submit_OnClicked(object sender, EventArgs e) {
-            dataForm.Commit();
-            if (dataForm.Validate()) 
-                DisplayAlert("Success", "Your delivery information has been successfully saved", "OK");
+        public DateTime? SelectedDate {
+            get => this.selectedDate;
+            set => SetProperty(ref this.selectedDate, value);
         }
 
-        void DataFormDateItem_PickerDisableDate(object sender, DisableDateEventArgs e) {
-            if (e.Date.DayOfWeek == DayOfWeek.Sunday || e.Date.DayOfWeek == DayOfWeek.Saturday) {
-                e.IsDisabled = true;
-            }
+        public DXCalendarViewType ActiveViewType {
+            get => this.activeViewType;
+            set => SetProperty(ref this.activeViewType, value, UpdateHolidaysAndObservancesListVisible);
         }
 
-        void DataForm_GeneratePropertyItem(object sender, DataFormPropertyGenerationEventArgs e) {
-            if (e.Item.FieldName == nameof(DeliveryFormViewModel.Model.DeliveryDate) && e.Item is DataFormDateItem item) {
-                item.PickerDisableDate += DataFormDateItem_PickerDisableDate;
-            }
+        public bool IsHolidaysAndObservancesListVisible {
+            get => this.isHolidaysAndObservancesListVisible;
+            set => SetProperty(ref this.isHolidaysAndObservancesListVisible, value);
+        }
+
+        USCalendar USCalendar { get; set; }
+
+        public SpecialDate TryFindSpecialDate(DateTime date) {
+            return SpecialDates.FirstOrDefault(x => x.Date == date);
+        }
+
+        void UpdateHolidaysAndObservancesListVisible() {
+            IsHolidaysAndObservancesListVisible = ActiveViewType == DXCalendarViewType.Day;
+        }
+
+        void UpdateCurrentCalendarIfNeeded() {
+            if (USCalendar == null || USCalendar.Year != DisplayDate.Year)
+                USCalendar = new USCalendar(DisplayDate.Year);
         }
     }
 }

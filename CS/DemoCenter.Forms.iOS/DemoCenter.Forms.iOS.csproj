@@ -427,6 +427,15 @@
     <ImageAsset Include="Assets.xcassets\controls_buttons.imageset\light.Buttons.pdf">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\controls_calendar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\controls_calendar.imageset\dark.Calendar.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\controls_calendar.imageset\light.Calendar.pdf">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\editors_dataforms.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>

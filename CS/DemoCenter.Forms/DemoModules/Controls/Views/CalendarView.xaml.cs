@@ -35,58 +35,53 @@
 {*******************************************************************}
 */
 using System;
-using DemoCenter.Forms.DemoModules.DataForm.ViewModels;
-using DevExpress.XamarinForms.DataForm;
-using DevExpress.XamarinForms.Editors;
 using Xamarin.Forms;
+using DevExpress.XamarinForms.Editors;
+using DemoCenter.Forms.DemoModules.Controls.ViewModels;
 
 namespace DemoCenter.Forms.Views {
-    public partial class DeliveryFormView : ContentPage {
-        public DeliveryFormView() {
-            DevExpress.XamarinForms.DataForm.Initializer.Init();
+    public partial class CalendarView : ContentPage {
+        public static readonly BindablePropertyKey OrientationPropertyKey = BindableProperty.CreateReadOnly("Orientation", typeof(StackOrientation), typeof(CalendarView), StackOrientation.Vertical);
+        public static readonly BindableProperty OrientationProperty = OrientationPropertyKey.BindableProperty;
+        public StackOrientation Orientation => (StackOrientation)GetValue(OrientationProperty);
+
+        public CalendarView() {
+            DevExpress.XamarinForms.Editors.Initializer.Init();
             InitializeComponent();
-            BindingContext = new DeliveryFormViewModel();
-            dataForm.ValidateProperty += DataFormOnValidateProperty;
+            ViewModel = new CalendarViewModel();
+            BindingContext = ViewModel;
         }
 
-        void DataFormOnValidateProperty(object sender, DataFormPropertyValidationEventArgs e) {
-            if (e.PropertyName == nameof(DeliveryInfo.DeliveryTimeFrom)) {
-                ((DeliveryInfo) dataForm.DataObject).DeliveryTimeFrom = (DateTime)e.NewValue;
-                Device.BeginInvokeOnMainThread(() => {
-                    dataForm.Validate(nameof(DeliveryInfo.DeliveryTimeTo));    
-                });
+        CalendarViewModel ViewModel { get; }
+
+        void CustomDayCellStyle(object sender, CustomSelectableCellStyleEventArgs e) {
+            if (e.Date == DateTime.Today)
+                return;
+
+            if (ViewModel.SelectedDate != null && e.Date == ViewModel.SelectedDate.Value)
+                return;
+
+            SpecialDate specialDate = ViewModel.TryFindSpecialDate(e.Date);
+            if (specialDate == null)
+                return;
+
+            e.FontAttributes = FontAttributes.Bold;
+            Color textColor;
+            if (specialDate.IsHoliday) {
+                textColor = (Color)Application.Current.Resources["CalendarViewHolidayTextColor"];
+                e.EllipseBackgroundColor = Color.FromRgba(textColor.R, textColor.G, textColor.B, 0.25);
+                e.TextColor = textColor;
+                
+                return;
             }
-            if (e.PropertyName == nameof(DeliveryInfo.DeliveryTimeTo)) {
-                DateTime timeFrom = ((DeliveryInfo) dataForm.DataObject).DeliveryTimeFrom;
-                if(timeFrom > (DateTime)e.NewValue) {
-                    e.HasError = true;
-                    e.ErrorText = "The end time cannot be less than the start time";
-                    return;
-                }
-            }
+            textColor = (Color)Application.Current.Resources["CalendarViewTextColor"];
+            e.EllipseBackgroundColor = Color.FromRgba(textColor.R, textColor.G, textColor.B, 0.15);
+            e.TextColor = textColor;
         }
 
         protected override void OnSizeAllocated(double width, double height) {
-            ((DeliveryFormViewModel) this.BindingContext).Rotate(dataForm, height > width);
             base.OnSizeAllocated(width, height);
-        }
-
-        private void Submit_OnClicked(object sender, EventArgs e) {
-            dataForm.Commit();
-            if (dataForm.Validate()) 
-                DisplayAlert("Success", "Your delivery information has been successfully saved", "OK");
-        }
-
-        void DataFormDateItem_PickerDisableDate(object sender, DisableDateEventArgs e) {
-            if (e.Date.DayOfWeek == DayOfWeek.Sunday || e.Date.DayOfWeek == DayOfWeek.Saturday) {
-                e.IsDisabled = true;
-            }
-        }
-
-        void DataForm_GeneratePropertyItem(object sender, DataFormPropertyGenerationEventArgs e) {
-            if (e.Item.FieldName == nameof(DeliveryFormViewModel.Model.DeliveryDate) && e.Item is DataFormDateItem item) {
-                item.PickerDisableDate += DataFormDateItem_PickerDisableDate;
-            }
+            SetValue(OrientationPropertyKey, width > height ? StackOrientation.Horizontal : StackOrientation.Vertical);
         }
     }
 }

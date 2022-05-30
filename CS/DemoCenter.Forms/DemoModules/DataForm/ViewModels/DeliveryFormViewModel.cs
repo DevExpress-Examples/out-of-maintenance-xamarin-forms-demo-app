@@ -105,7 +105,7 @@ namespace DemoCenter.Forms.DemoModules.DataForm.ViewModels {
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, LabelIcon = "editors_calendar", IsLabelVisible = true)]
         [DataFormItemPosition(RowOrder = 9)]
         [DisplayFormat(DataFormatString = "d")]
-        [DataFormDateEditor]
+        [DataFormDateEditor(PickerShowTrailingDates = true)]
         public DateTime DeliveryDate { get; set; } = DateTime.Now.Date;
 
         [DataFormDisplayOptions(LabelWidth = leftColumnWidth, LabelIcon = "editors_time", IsLabelVisible = true)]

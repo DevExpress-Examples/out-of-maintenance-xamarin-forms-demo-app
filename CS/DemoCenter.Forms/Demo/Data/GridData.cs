@@ -70,6 +70,7 @@ namespace DemoCenter.Forms.Data {
                     Icon = "grid_dragdrop"
                 },
                 new DemoItem() {
+                    DemoItemStatus = DemoItemStatus.Updated,
                     Title = "Editing",
                     Description = "Demonstrates the grid’s inplace data editors.",
                     Module = typeof(EditingView),
