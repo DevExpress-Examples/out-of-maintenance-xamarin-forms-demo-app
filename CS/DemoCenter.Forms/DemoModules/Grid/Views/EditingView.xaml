@@ -9,11 +9,11 @@
     <ContentPage.Resources>
         <local:DoubleToProgressConverter MaxValue="1000" x:Key="DoubleToProgressConverter"/>
     </ContentPage.Resources>
-    
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Change Mode" Clicked="OnItemClicked"/>
     </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
         <dxg:DataGridView x:Name="dataGridView"
                           Grid.Row="1"
@@ -45,7 +45,7 @@
                         <DataTemplate>
                             <Slider Minimum="0"
                                     Maximum="1000"
-                                    Value="{Binding Path=Value}" 
+                                    Value="{Binding Path=Value}"
                                     MaximumTrackColor="Silver"
                                     MinimumTrackColor="Silver"
                                     ThumbColor="#2088ff">

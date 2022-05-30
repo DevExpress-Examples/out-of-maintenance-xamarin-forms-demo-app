@@ -27,7 +27,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Text="DevAV Sales by Regions"
+                <Label Text="DevAV Sales by Region"
                        HorizontalTextAlignment="Center"
                        Margin="0,8,0,0"
                        FontSize="Medium"

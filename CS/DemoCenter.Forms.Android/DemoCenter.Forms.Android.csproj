@@ -1496,148 +1496,101 @@
       </Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\democharts_tabitems_rotatedlabels.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\charts_axislabeloptions.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-night\democharts_tabitems_rotatedlabels.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-night\charts_axislabeloptions.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\popup_phone.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\popup_dialog.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\popup_dropdown.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-night\popup_dialog.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-night\popup_dropdown.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\chips_corner_radius.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\chips.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-night\chips.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\casing_normal.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\casing_lower.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\casing_upper.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\chip_checkicon.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\superhero_blue.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\superhero_green.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\superhero_orange.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\superhero_purple.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\superhero_red.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\superhero_yellow.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\chips_choicechipgroup.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-night\chips_choicechipgroup.xml">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>

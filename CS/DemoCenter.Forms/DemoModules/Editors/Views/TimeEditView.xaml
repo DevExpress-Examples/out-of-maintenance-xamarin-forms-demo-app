@@ -26,6 +26,7 @@
                 <dxe:TimeEdit
                     LabelText="Time"
                     x:Name="timeEdit"
+                    CursorColor="{Binding SelectedAccentColor.Color}"
                     TimeFormatMode="{Binding SelectedTimeFormatMode.Value}"
                     HelpText="{Binding ActualHelpText}"
                     BoxMode="{Binding SelectedBoxMode}"

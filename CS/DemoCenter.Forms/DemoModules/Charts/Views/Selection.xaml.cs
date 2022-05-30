@@ -68,7 +68,7 @@ namespace DemoCenter.Forms.Views {
                 PieData pie = (PieData)key.DataObject;
                 prefix = pie.Label;
             }
-            return String.Format("{0} Sales by Years", prefix);
+            return String.Format("{0} Sales by Year", prefix);
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) {
             return null;

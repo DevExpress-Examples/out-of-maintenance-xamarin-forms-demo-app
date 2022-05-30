@@ -25,6 +25,7 @@
             <Grid Style="{StaticResource EditorContainerStyle}">
                 <dxe:AutoCompleteEdit
                     LabelText="Person"
+                    CursorColor="{Binding SelectedAccentColor.Color}"
                     DisplayMember="FullName"
                     PlaceholderText="Type here to search"
                     NoSuggestionsText="Not found"

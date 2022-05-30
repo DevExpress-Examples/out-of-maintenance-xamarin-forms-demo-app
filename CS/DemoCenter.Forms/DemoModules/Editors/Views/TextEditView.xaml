@@ -25,6 +25,7 @@
             <Grid Style="{StaticResource EditorContainerStyle}">
                 <dxe:TextEdit
                     LabelText="Label"
+                    CursorColor="{Binding SelectedAccentColor.Color}"
                     PlaceholderText="Placeholder"
                     HelpText="{Binding ActualHelpText}"
                     MaxCharacterCount="{Binding ActualMaxCharacterCount}"

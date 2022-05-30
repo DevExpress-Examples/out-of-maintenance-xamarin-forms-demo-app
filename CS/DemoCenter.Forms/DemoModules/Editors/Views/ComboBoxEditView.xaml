@@ -26,6 +26,7 @@
                 <dxe:ComboBoxEdit LabelText="State"
                     SelectedItem="{Binding SelectedState}"
                     ItemsSource="{Binding States}"
+                    CursorColor="{Binding SelectedAccentColor.Color}"
                     IsFilterEnabled="{Binding EnableFilter}"
                     PlaceholderText="Type here to search"
                     HelpText="{Binding ActualHelpText}"

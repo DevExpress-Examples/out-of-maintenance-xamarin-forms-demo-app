@@ -84,10 +84,9 @@
                     
                     <StackLayout Style="{StaticResource LayoutItemContainerStyle}">
                         <Label Text="Display Format" Style="{StaticResource TextStyle}"/>
-                        <dxe:ComboBoxEdit
+                        <dxe:ComboBoxEdit Style="{StaticResource ComboBoxStyleBase}"
                             DisplayMember="Name"
                             ValueMember="Value"
-                            BorderThickness="0"
                             ItemsSource="{Binding DisplayFormats}"
                             SelectedItem="{Binding DisplayFormat}"
                             />
@@ -97,11 +96,10 @@
 
                     <StackLayout Style="{StaticResource LayoutItemContainerStyle}">
                         <Label Text="Up and Down Icons Alignment" Style="{StaticResource TextStyle}"/>
-                        <dxe:ComboBoxEdit
+                        <dxe:ComboBoxEdit Style="{StaticResource ComboBoxStyleBase}"
                             x:Name="alignmentComboBox"
                             DisplayMember="Name"
                             ValueMember="Value"
-                            BorderThickness="0"
                             ItemsSource="{Binding Alignments}"
                             SelectedItem="{Binding UpDownIconsAlignment}"
                             />

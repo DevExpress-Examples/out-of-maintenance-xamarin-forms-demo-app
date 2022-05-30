@@ -27,6 +27,7 @@
                     LabelText="Date"
                     x:Name="dateEdit"
                     HelpText="{Binding ActualHelpText}"
+                    CursorColor="{Binding SelectedAccentColor.Color}"
                     BoxMode="{Binding SelectedBoxMode}"
                     CornerMode="{Binding SelectedCornerMode}"
                     CornerRadius="{Binding CornerRadius}"

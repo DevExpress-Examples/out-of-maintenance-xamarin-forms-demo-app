@@ -57,7 +57,7 @@
 
                         <StackLayout Style="{StaticResource ChipGroupLayoutItemContainerStyle}">
                             <Label Text="PICK A COLOR" Style="{StaticResource TextStyle}"/>
-                            <dxe:ChoiceChipGroup SelectionChanged="OnColorChanged"
+                            <dxe:ChoiceChipGroup x:Name="colorChoiceChipGroup"
                                                     SelectedIndex="{Binding SelectedColorIndex}"
                                                     Style="{StaticResource ChoiceChipGroupStyle}">
                                 <dxe:Chip BackgroundColor="#f15558" Style="{StaticResource ColorChipStyle}"/>

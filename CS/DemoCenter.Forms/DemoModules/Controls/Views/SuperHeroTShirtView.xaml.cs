@@ -48,8 +48,8 @@ namespace DemoCenter.Forms.Views {
         public SuperHeroTShirtView() {
             DevExpress.XamarinForms.Editors.Initializer.Init();
             InitializeComponent();
-            VM = new SuperHeroTShirtViewModel();
-            BindingContext = VM;
+            BindingContext = VM = new SuperHeroTShirtViewModel();
+            colorChoiceChipGroup.SelectionChanged += OnColorChanged;
         }
 
         async void OnColorChanged(object sender, EventArgs e) {
