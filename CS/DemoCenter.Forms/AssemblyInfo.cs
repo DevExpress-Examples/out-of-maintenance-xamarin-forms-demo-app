@@ -46,8 +46,8 @@ using Xamarin.Forms.Xaml;
 [assembly: AssemblyCopyright("Copyright (c) 2015-2022 Developer Express Inc.")]
 [assembly: AssemblyTrademark("DevExpress(R)")]
 
-[assembly: AssemblyVersion("21.2.4")]
-[assembly: AssemblyFileVersion("21.2.4")]
+[assembly: AssemblyVersion("22.1.2")]
+[assembly: AssemblyFileVersion("22.1.2")]
 
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
