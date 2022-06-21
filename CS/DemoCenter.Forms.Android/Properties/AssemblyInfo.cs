@@ -45,8 +45,8 @@ using Android;
 [assembly: AssemblyCopyright("Copyright (c) 2015-2022 Developer Express Inc.")]
 [assembly: AssemblyTrademark("DevExpress(R)")]
 
-[assembly: AssemblyVersion("22.1.2")]
-[assembly: AssemblyFileVersion("22.1.2")]
+[assembly: AssemblyVersion("22.1.3")]
+[assembly: AssemblyFileVersion("22.1.3")]
 
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
