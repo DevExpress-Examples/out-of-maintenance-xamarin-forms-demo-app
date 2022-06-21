@@ -88,7 +88,7 @@ namespace DemoCenter.Forms.DemoModules.Controls.ViewModels {
         }
 
         void UpdateHolidaysAndObservancesListVisible() {
-            IsHolidaysAndObservancesListVisible = ActiveViewType == DXCalendarViewType.Day;
+            IsHolidaysAndObservancesListVisible = ActiveViewType == DXCalendarViewType.Month;
         }
 
         void UpdateCurrentCalendarIfNeeded() {
